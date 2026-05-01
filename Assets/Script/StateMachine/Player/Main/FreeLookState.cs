@@ -44,7 +44,6 @@ public class FreeLookState : PlayerBaseState
 
         }
 
-
         if (playerStateMachine.InputReader.IsSprint)
         {
             playerStateMachine.Animator.SetFloat("Movement", 1f, playerStateMachine.AnimationCrossFade, deltaTime);

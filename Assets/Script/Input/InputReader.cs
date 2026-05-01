@@ -28,7 +28,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         InputMovement = context.ReadValue<Vector2>();
-        Debug.Log(InputMovement);
     }
 
     public void OnSprint(InputAction.CallbackContext context)
