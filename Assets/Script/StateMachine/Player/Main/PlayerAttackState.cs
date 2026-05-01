@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class PlayerAttackState : MonoBehaviour
+public class PlayerAttackState : PlayerBaseState
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    readonly int AttackAnimationHash = Animator.StringToHash("FreeLookBlendTree");
+
+    public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+
+    }
+    public override void Tick(float deltaTime)
+    {
+
+    }
+    public override void PhysicTick(float fixedDeltaTime)
+    {
+
+    }
+    public override void Exit()
+    {
+
     }
 }

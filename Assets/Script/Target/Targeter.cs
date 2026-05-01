@@ -27,7 +27,7 @@ public class Targeter : MonoBehaviour
     {
         if (targetList.Count == 0) { return false; }
         currentTarget = targetList[0];
-        cinemachineTargetGroup.AddMember(currentTarget.transform, 1f, 2f);
+        cinemachineTargetGroup.AddMember(currentTarget.transform, 2f, 1f);
         return true;
     }
 

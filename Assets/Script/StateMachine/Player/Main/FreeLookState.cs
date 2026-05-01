@@ -17,9 +17,9 @@ public class FreeLookState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        movement = CalculateMoment();
+        movement = CalculateMovementInFreeLook();
         float speed = playerStateMachine.InputReader.IsSprint ? playerStateMachine.FreeLookMovementSprintSpeed : playerStateMachine.FreeLookMovementSpeed;
-        playerStateMachine.CharacterController.Move(movement * speed * deltaTime);
+        Move(movement * speed, deltaTime);
         UpdateAnimation(deltaTime);
         FaceDir(movement, deltaTime);
     }

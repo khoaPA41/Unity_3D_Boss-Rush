@@ -20,6 +20,11 @@ public class PlayerTargetState : PlayerBaseState
         {
             OutTargetState();
         }
+
+        Vector3 movement = CalculateMovementInTarget();
+        Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
+
+        FaceTarget(playerStateMachine.Targeter.currentTarget.transform.position, deltaTime);
     }
 
     public override void PhysicTick(float fixedDeltaTime)

@@ -8,13 +8,24 @@ public abstract class PlayerBaseState : State
         this.playerStateMachine = playerStateMachine;
     }
 
+    protected void Move(Vector3 motion, float deltaTime)
+    {
+        playerStateMachine.CharacterController.Move((motion + playerStateMachine.ForceReceiver.Movement) * deltaTime);
+    }
 
     protected void FaceDir(Vector3 movement, float deltaTime)
     {
         playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation, Quaternion.LookRotation(movement), playerStateMachine.RotationDamping * deltaTime);
     }
 
-    protected Vector3 CalculateMoment()
+    protected void FaceTarget(Vector3 targetTransform, float deltaTime)
+    {
+        Vector3 dir = (targetTransform - playerStateMachine.transform.position);
+        dir.y = 0;
+        playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation, Quaternion.LookRotation(dir), playerStateMachine.RotationDamping * deltaTime);
+    }
+
+    protected Vector3 CalculateMovementInFreeLook()
     {
         Vector3 forward = playerStateMachine.MainCameraTransform.forward;
         Vector3 right = playerStateMachine.MainCameraTransform.right;
@@ -26,6 +37,17 @@ public abstract class PlayerBaseState : State
         right.Normalize();
 
         return forward * playerStateMachine.InputReader.InputMovement.y + right * playerStateMachine.InputReader.InputMovement.x;
+    }
 
+    protected Vector3 CalculateMovementInTarget()
+    {
+        Vector3 movement = new Vector3();
+        movement += playerStateMachine.transform.forward * playerStateMachine.InputReader.InputMovement.y;
+        movement += playerStateMachine.transform.right * playerStateMachine.InputReader.InputMovement.x;
+
+
+
+
+        return movement;
     }
 }

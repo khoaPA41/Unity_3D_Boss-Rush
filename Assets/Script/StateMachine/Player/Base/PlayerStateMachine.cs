@@ -7,6 +7,7 @@ public class PlayerStateMachine : StateMachine
 
     [Header("Physics")]
     [field: SerializeField] public CharacterController CharacterController { get; private set; }
+    [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; } = 5f;
     [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
     [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
