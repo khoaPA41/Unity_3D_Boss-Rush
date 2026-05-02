@@ -23,10 +23,15 @@ public class PlayerTargetState : PlayerBaseState
             OutTargetState();
         }
 
+        if (playerStateMachine.InputReader.IsAttack)
+        {
+            playerStateMachine.EnterAttackState(0);
+        }
+
         Vector3 movement = CalculateMovementInTarget();
         Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
         UpdateAnimation(deltaTime);
-        FaceTarget(playerStateMachine.Targeter.currentTarget.transform.position, deltaTime);
+        FaceTarget(deltaTime);
     }
 
     public override void PhysicTick(float fixedDeltaTime)

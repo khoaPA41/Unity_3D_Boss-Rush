@@ -11,12 +11,14 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float FreeLookMovementSpeed { get; private set; } = 5f;
     [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
     [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
-
     [field: SerializeField] public Targeter Targeter { get; private set; }
+    //[field: SerializeField] public Targeter Targeter { get; private set; }
 
 
     [Header("Animation")]
     [field: SerializeField] public Animator Animator { get; private set; }
+    [field: SerializeField] public AttackData[] AttackData { get; private set; }
+
     [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
 
     public Transform MainCameraTransform { get; private set; }
@@ -25,5 +27,24 @@ public class PlayerStateMachine : StateMachine
     {
         MainCameraTransform = Camera.main.transform;
         SwitchState(new FreeLookState(this));
+    }
+
+    public void ReturnLocomotion()
+    {
+        if (Targeter.currentTarget == null)
+        {
+            SwitchState(new FreeLookState(this));
+        }
+        else
+        {
+            SwitchState(new PlayerTargetState(this));
+        }
+        return;
+    }
+
+    public void EnterAttackState(int attackDataIndex)
+    {
+        SwitchState(new PlayerAttackState(this, attackDataIndex));
+        return;
     }
 }

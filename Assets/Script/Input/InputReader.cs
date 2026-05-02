@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, InputController.IPlayerActions
 {
+
     public Vector2 InputMovement { get; private set; }
     public bool IsSprint { get; private set; }
 
+    public bool IsAttack { get; private set; }
+
     public event Action TargetAction;
+
 
     InputController inputActions;
 
@@ -50,7 +54,17 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        if (context.canceled) { IsAttack = false; }
+        else if (context.performed) { IsAttack = true; }
 
+        if (IsAttack)
+        {
+            Debug.Log("Attack");
+        }
+        else
+        {
+            Debug.Log("Not Attack");
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)

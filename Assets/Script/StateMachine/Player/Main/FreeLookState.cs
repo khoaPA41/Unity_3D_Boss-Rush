@@ -19,6 +19,14 @@ public class FreeLookState : PlayerBaseState
     {
         movement = CalculateMovementInFreeLook();
         float speed = playerStateMachine.InputReader.IsSprint ? playerStateMachine.FreeLookMovementSprintSpeed : playerStateMachine.FreeLookMovementSpeed;
+
+        if (playerStateMachine.InputReader.IsAttack)
+        {
+            playerStateMachine.EnterAttackState(0);
+        }
+
+
+
         Move(movement * speed, deltaTime);
         UpdateAnimation(deltaTime);
         FaceDir(movement, deltaTime);
@@ -59,5 +67,6 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
         return;
     }
+
 
 }

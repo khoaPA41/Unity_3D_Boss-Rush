@@ -13,14 +13,21 @@ public abstract class PlayerBaseState : State
         playerStateMachine.CharacterController.Move((motion + playerStateMachine.ForceReceiver.Movement) * deltaTime);
     }
 
+    protected void Move(float deltaTime)
+    {
+        Move(Vector3.zero, deltaTime);
+    }
+
     protected void FaceDir(Vector3 movement, float deltaTime)
     {
         playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation, Quaternion.LookRotation(movement), playerStateMachine.RotationDamping * deltaTime);
     }
 
-    protected void FaceTarget(Vector3 targetTransform, float deltaTime)
+    protected void FaceTarget(float deltaTime)
     {
-        Vector3 dir = (targetTransform - playerStateMachine.transform.position);
+        Target currentTarget = playerStateMachine.Targeter.currentTarget;
+        if (currentTarget == null) { return; }
+        Vector3 dir = (currentTarget.transform.position - playerStateMachine.transform.position);
         dir.y = 0;
         playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation, Quaternion.LookRotation(dir), playerStateMachine.RotationDamping * deltaTime);
     }

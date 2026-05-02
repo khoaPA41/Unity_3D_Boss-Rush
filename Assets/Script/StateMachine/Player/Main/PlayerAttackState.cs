@@ -1,19 +1,43 @@
-using UnityEngine;
-
 public class PlayerAttackState : PlayerBaseState
 {
-    readonly int AttackAnimationHash = Animator.StringToHash("FreeLookBlendTree");
-
-    public PlayerAttackState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    AttackData attackData;
+    //int index = -1;
+    float previousTime;
+    bool alreadyApplyForce;
+    public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
     {
+        attackData = playerStateMachine.AttackData[attackDataIndex];
+        //index = attackDataIndex;
     }
 
     public override void Enter()
     {
-
+        playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition);
     }
     public override void Tick(float deltaTime)
     {
+        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag);
+        if (normalizeTime >= previousTime && normalizeTime <= 1f)
+        {
+            if (normalizeTime >= attackData.ForceTime)
+            {
+                TryApplyForce();
+            }
+
+            if (playerStateMachine.InputReader.IsAttack)
+            {
+                TryCombo(normalizeTime);
+            }
+
+        }
+        else
+        {
+            playerStateMachine.ReturnLocomotion();
+        }
+
+        previousTime = normalizeTime;
+        FaceTarget(deltaTime);
+        Move(deltaTime);
 
     }
     public override void PhysicTick(float fixedDeltaTime)
@@ -22,6 +46,24 @@ public class PlayerAttackState : PlayerBaseState
     }
     public override void Exit()
     {
+        //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
+    }
 
+    void TryCombo(float normalizeTime)
+    {
+        if (attackData.NextAttackDataIndex == -1) { return; }
+        if (normalizeTime < attackData.AttackAnimationTime) { return; }
+
+        playerStateMachine.SwitchState(new PlayerAttackState(
+            playerStateMachine,
+            attackData.NextAttackDataIndex
+            ));
+    }
+
+    void TryApplyForce()
+    {
+        if (alreadyApplyForce) { return; }
+        playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * attackData.Force);
+        alreadyApplyForce = true;
     }
 }
