@@ -12,13 +12,12 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
     [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
     [field: SerializeField] public Targeter Targeter { get; private set; }
-    //[field: SerializeField] public Targeter Targeter { get; private set; }
+    [field: SerializeField] public float JumpForce { get; private set; }
 
 
     [Header("Animation")]
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
-
     [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
 
     public Transform MainCameraTransform { get; private set; }

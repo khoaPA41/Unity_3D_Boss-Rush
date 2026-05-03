@@ -12,6 +12,7 @@ public class FreeLookState : PlayerBaseState
     public override void Enter()
     {
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
+        playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
 
@@ -65,6 +66,12 @@ public class FreeLookState : PlayerBaseState
     {
         if (!playerStateMachine.Targeter.SelectedTarget()) { return; }
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
+        return;
+    }
+
+    void EnterJumpState()
+    {
+        playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
         return;
     }
 

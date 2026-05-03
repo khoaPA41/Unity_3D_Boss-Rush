@@ -7,8 +7,9 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public Vector2 InputMovement { get; private set; }
     public bool IsSprint { get; private set; }
-
     public bool IsAttack { get; private set; }
+
+    public event Action JumpAction;
 
     public event Action TargetAction;
 
@@ -67,6 +68,12 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         }
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.canceled) { return; }
+        JumpAction?.Invoke();
+    }
+
     public void OnCrouch(InputAction.CallbackContext context)
     {
 
@@ -77,10 +84,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     }
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
 
-    }
 
     public void OnLook(InputAction.CallbackContext context)
     {
