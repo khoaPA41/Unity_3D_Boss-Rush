@@ -1,19 +1,20 @@
 public class PlayerAttackState : PlayerBaseState
 {
     AttackData attackData;
-    //int index = -1;
     float previousTime;
     bool alreadyApplyForce;
+
     public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
     {
         attackData = playerStateMachine.AttackData[attackDataIndex];
-        //index = attackDataIndex;
     }
 
     public override void Enter()
     {
         playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition);
+        playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
     }
+
     public override void Tick(float deltaTime)
     {
         float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag);
