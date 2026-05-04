@@ -11,6 +11,8 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public event Action JumpAction;
 
+    public event Action DodgeAction;
+
     public event Action TargetAction;
 
 
@@ -63,6 +65,12 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     {
         if (context.canceled) { return; }
         JumpAction?.Invoke();
+    }
+
+    public void OnDodge(InputAction.CallbackContext context)
+    {
+        if (context.canceled) { return; }
+        DodgeAction?.Invoke();
     }
 
     public void OnCrouch(InputAction.CallbackContext context)

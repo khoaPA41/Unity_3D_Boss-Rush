@@ -13,6 +13,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
     [field: SerializeField] public Targeter Targeter { get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
+    [field: SerializeField] public float DodgeLength { get; private set; }
+    [field: SerializeField] public float DodgeDuration { get; private set; }
+
 
     [Header("Attack")]
     [field: SerializeField] public AttackData[] AttackData { get; private set; }

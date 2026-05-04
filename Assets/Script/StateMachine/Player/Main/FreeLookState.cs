@@ -13,6 +13,7 @@ public class FreeLookState : PlayerBaseState
     {
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
+        playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
         playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
 
@@ -43,6 +44,7 @@ public class FreeLookState : PlayerBaseState
     {
         playerStateMachine.InputReader.TargetAction -= EnterTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
+        playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
     }
 
     void UpdateAnimation(float deltaTime)
@@ -68,6 +70,11 @@ public class FreeLookState : PlayerBaseState
         if (!playerStateMachine.Targeter.SelectedTarget()) { return; }
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
         return;
+    }
+
+    void EnterDodgeState()
+    {
+        playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
     }
 
 }

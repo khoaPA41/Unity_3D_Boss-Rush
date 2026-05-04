@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerTargetState : PlayerBaseState
 {
-    readonly int targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
+    readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
     readonly int MovementXParam = Animator.StringToHash("MovementX");
     readonly int MovementYParam = Animator.StringToHash("MovementY");
 
@@ -14,7 +14,9 @@ public class PlayerTargetState : PlayerBaseState
     {
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.TargetAction += OutTargetState;
-        playerStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
+
+        playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
@@ -44,6 +46,8 @@ public class PlayerTargetState : PlayerBaseState
     {
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
+        playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
+
     }
 
     void OutTargetState()
@@ -51,6 +55,11 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.Targeter.CancelTarget();
         playerStateMachine.SwitchState(new FreeLookState(playerStateMachine));
         return;
+    }
+
+    void EnterDodgeState()
+    {
+        playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
     }
 
     void UpdateAnimation(float deltaTime)
@@ -70,4 +79,6 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.Animator.SetFloat(MovementXParam, dirX, playerStateMachine.AnimationCrossFade, deltaTime);
         playerStateMachine.Animator.SetFloat(MovementYParam, dirY, playerStateMachine.AnimationCrossFade, deltaTime);
     }
+
+
 }
