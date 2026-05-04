@@ -51,10 +51,12 @@ public abstract class PlayerBaseState : State
         Vector3 movement = new Vector3();
         movement += playerStateMachine.transform.forward * playerStateMachine.InputReader.InputMovement.y;
         movement += playerStateMachine.transform.right * playerStateMachine.InputReader.InputMovement.x;
-
-
-
-
         return movement;
+    }
+
+    protected void EnterJumpState()
+    {
+        playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
+        return;
     }
 }

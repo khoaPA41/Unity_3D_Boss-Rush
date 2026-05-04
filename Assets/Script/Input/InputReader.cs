@@ -57,15 +57,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     {
         if (context.canceled) { IsAttack = false; }
         else if (context.performed) { IsAttack = true; }
-
-        if (IsAttack)
-        {
-            Debug.Log("Attack");
-        }
-        else
-        {
-            Debug.Log("Not Attack");
-        }
     }
 
     public void OnJump(InputAction.CallbackContext context)

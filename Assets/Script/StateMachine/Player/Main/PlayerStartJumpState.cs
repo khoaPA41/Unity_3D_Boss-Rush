@@ -3,20 +3,31 @@ using UnityEngine;
 public class PlayerStartJumpState : PlayerBaseState
 {
     readonly int JumpAnimationHash = Animator.StringToHash("Jump");
-
+    readonly string JumpAnimationTag = "Jump";
+    Vector3 momentum;
     public PlayerStartJumpState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
 
     public override void Enter()
     {
-        //playerStateMachine.Animator.CrossFadeInFixedTime(JumpAnimationHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.Animator.CrossFadeInFixedTime(JumpAnimationHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.ForceReceiver.Jump(playerStateMachine.JumpForce);
+        momentum = playerStateMachine.CharacterController.velocity;
+        momentum.y = 0;
     }
 
     public override void Tick(float deltaTime)
     {
-        playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.up * playerStateMachine.JumpForce);
-        Move(deltaTime);
+        if (!playerStateMachine.CharacterController.isGrounded && playerStateMachine.CharacterController.velocity.y <= 0f)
+        {
+            playerStateMachine.SwitchState(new PlayerFallState(playerStateMachine));
+            return;
+        }
+
+
+        Move(momentum, deltaTime);
+        FaceTarget(deltaTime);
     }
 
     public override void PhysicTick(float fixedDeltaTime)

@@ -42,6 +42,7 @@ public class FreeLookState : PlayerBaseState
     public override void Exit()
     {
         playerStateMachine.InputReader.TargetAction -= EnterTargetState;
+        playerStateMachine.InputReader.JumpAction -= EnterJumpState;
     }
 
     void UpdateAnimation(float deltaTime)
@@ -68,12 +69,5 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
         return;
     }
-
-    void EnterJumpState()
-    {
-        playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
-        return;
-    }
-
 
 }

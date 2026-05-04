@@ -12,6 +12,7 @@ public class PlayerTargetState : PlayerBaseState
 
     public override void Enter()
     {
+        playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.TargetAction += OutTargetState;
         playerStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
@@ -42,7 +43,7 @@ public class PlayerTargetState : PlayerBaseState
     public override void Exit()
     {
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
-
+        playerStateMachine.InputReader.JumpAction -= EnterJumpState;
     }
 
     void OutTargetState()
