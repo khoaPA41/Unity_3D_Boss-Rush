@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerStartJumpState : PlayerBaseState
 {
     readonly int JumpAnimationHash = Animator.StringToHash("Jump");
-    readonly string JumpAnimationTag = "Jump";
     Vector3 momentum;
     public PlayerStartJumpState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {

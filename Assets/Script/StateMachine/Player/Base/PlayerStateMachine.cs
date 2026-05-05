@@ -20,18 +20,37 @@ public class PlayerStateMachine : StateMachine
     [Header("Attack")]
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
+
 
 
     [Header("Animation")]
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
+    [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
+    [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
+
+    [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
+
+
 
     public Transform MainCameraTransform { get; private set; }
+
+    public bool isAttackState;
 
     void Start()
     {
         MainCameraTransform = Camera.main.transform;
         SwitchState(new FreeLookState(this));
+    }
+
+    void OnEnable()
+    {
+        Health.DeathAction += EnterDeathState;
+    }
+    void OnDisable()
+    {
+        Health.DeathAction -= EnterDeathState;
     }
 
     public void ReturnLocomotion()
@@ -50,6 +69,18 @@ public class PlayerStateMachine : StateMachine
     public void EnterAttackState(int attackDataIndex)
     {
         SwitchState(new PlayerAttackState(this, attackDataIndex));
+        return;
+    }
+
+    public void EnterDeathState()
+    {
+        SwitchState(new PlayerDeathState(this));
+        return;
+    }
+
+    public void EnterChangeAction()
+    {
+        SwitchState(new PlayerChangeAction(this, !isAttackState));
         return;
     }
 }

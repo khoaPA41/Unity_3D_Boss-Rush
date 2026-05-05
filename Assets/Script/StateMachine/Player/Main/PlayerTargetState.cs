@@ -5,7 +5,6 @@ public class PlayerTargetState : PlayerBaseState
     readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
     readonly int MovementXParam = Animator.StringToHash("MovementX");
     readonly int MovementYParam = Animator.StringToHash("MovementY");
-
     public PlayerTargetState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
@@ -17,6 +16,11 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
 
         playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
+
+        if (!playerStateMachine.isAttackState)
+        {
+            playerStateMachine.EnterChangeAction();
+        }
     }
 
     public override void Tick(float deltaTime)
@@ -47,7 +51,7 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-
+        //playerStateMachine.EnterChangeAction();
     }
 
     void OutTargetState()
@@ -79,6 +83,5 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.Animator.SetFloat(MovementXParam, dirX, playerStateMachine.AnimationCrossFade, deltaTime);
         playerStateMachine.Animator.SetFloat(MovementYParam, dirY, playerStateMachine.AnimationCrossFade, deltaTime);
     }
-
 
 }

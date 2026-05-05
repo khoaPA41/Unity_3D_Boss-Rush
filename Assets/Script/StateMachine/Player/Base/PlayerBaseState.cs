@@ -2,7 +2,7 @@ using UnityEngine;
 public abstract class PlayerBaseState : State
 {
     protected PlayerStateMachine playerStateMachine;
-
+    AnimatorOverrideController overrideController;
     public PlayerBaseState(PlayerStateMachine playerStateMachine)
     {
         this.playerStateMachine = playerStateMachine;
@@ -58,5 +58,12 @@ public abstract class PlayerBaseState : State
     {
         playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
         return;
+    }
+
+    protected void ChangeSwordIdle(string IdleAnimationName, AnimationClip animationClip)
+    {
+        overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);
+        playerStateMachine.Animator.runtimeAnimatorController = overrideController;
+        overrideController[IdleAnimationName] = animationClip;
     }
 }

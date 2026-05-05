@@ -26,6 +26,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-6459572973185921420
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sword_Exit
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 9f26aa92c70ac5746b8a289ffc742f72, type: 2}
+  m_Tag: SwordChange
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-5386553962753668918
 AnimatorState:
   serializedVersion: 6
@@ -160,6 +186,18 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 3057979209843018784}
     m_Position: {x: 230, y: 150, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 591802094334409839}
+    m_Position: {x: 610, y: 240, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8615943657413768118}
+    m_Position: {x: 610, y: 290, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7872624867466040807}
+    m_Position: {x: 560, y: -220, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -6459572973185921420}
+    m_Position: {x: 560, y: -170, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -451,6 +489,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &591802094334409839
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death_1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: b0bf56f1dbd993547a0de4f455876f9b, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &1028507554257774571
 AnimatorState:
   serializedVersion: 6
@@ -716,7 +780,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 373c868dcfdb61249984b26f77938e02, type: 2}
     m_Threshold: 0.11111112
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1.5
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -724,7 +788,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 868bb4fbc1ae21f409e07562e542e5ff, type: 2}
     m_Threshold: 0.15277779
     m_Position: {x: 0, y: 1}
-    m_TimeScale: 1.5
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -732,7 +796,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 373c868dcfdb61249984b26f77938e02, type: 2}
     m_Threshold: 0.19444446
     m_Position: {x: 0, y: -1}
-    m_TimeScale: 1.5
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -740,7 +804,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 76e0b14c1ea422345a826078ac6eb106, type: 2}
     m_Threshold: 0.23611113
     m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -748,7 +812,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 1cac1574ba952d544a78e9ffb2657cb8, type: 2}
     m_Threshold: 0.2777778
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -756,7 +820,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 76e0b14c1ea422345a826078ac6eb106, type: 2}
     m_Threshold: 0.31944448
     m_Position: {x: 0.7, y: 0.7}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -764,7 +828,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 76e0b14c1ea422345a826078ac6eb106, type: 2}
     m_Threshold: 0.36111116
     m_Position: {x: 0.7, y: -0.7}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -772,7 +836,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 1cac1574ba952d544a78e9ffb2657cb8, type: 2}
     m_Threshold: 0.4027778
     m_Position: {x: -0.7, y: 0.7}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -780,7 +844,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 1cac1574ba952d544a78e9ffb2657cb8, type: 2}
     m_Threshold: 0.44444448
     m_Position: {x: -0.7, y: -0.7}
-    m_TimeScale: 1
+    m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement
     m_Mirror: 0
@@ -791,6 +855,32 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 1
+--- !u!1102 &7872624867466040807
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sword_Enter
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 37958d9fbb3915049bae3074ac6f40d9, type: 2}
+  m_Tag: SwordChange
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &8159234929830048474
 AnimatorState:
   serializedVersion: 6
@@ -890,6 +980,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -1859498510552874231}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &8615943657413768118
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death_2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 8eb31142138b46e4aa496fb4c405fc92, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

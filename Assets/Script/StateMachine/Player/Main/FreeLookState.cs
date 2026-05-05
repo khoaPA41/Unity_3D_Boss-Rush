@@ -3,17 +3,21 @@ using UnityEngine;
 public class FreeLookState : PlayerBaseState
 {
     readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
-
     Vector3 movement;
+    float countTimeToChangeIdleLoop = 0;
     public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
     }
 
     public override void Enter()
     {
+
+        //countTimeToChangeIdleLoop = playerStateMachine.TimeToBackIdleLoop;
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
+
+
         playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
 
@@ -24,10 +28,22 @@ public class FreeLookState : PlayerBaseState
 
         if (playerStateMachine.InputReader.IsAttack)
         {
-            playerStateMachine.EnterAttackState(0);
+            if (playerStateMachine.isAttackState)
+            {
+                playerStateMachine.EnterAttackState(0);
+            }
+            else
+            {
+                playerStateMachine.EnterChangeAction();
+
+            }
         }
 
-
+        //countTimeToChangeIdleLoop -= deltaTime;
+        //if (countTimeToChangeIdleLoop <= 0f)
+        //{
+        //    playerStateMachine.EnterChangeAction();
+        //}
 
         Move(movement * speed, deltaTime);
         UpdateAnimation(deltaTime);
@@ -37,8 +53,6 @@ public class FreeLookState : PlayerBaseState
     public override void PhysicTick(float fixedDeltaTime)
     {
     }
-
-
 
     public override void Exit()
     {
@@ -68,6 +82,7 @@ public class FreeLookState : PlayerBaseState
     void EnterTargetState()
     {
         if (!playerStateMachine.Targeter.SelectedTarget()) { return; }
+        //playerStateMachine.EnterChangeAction();
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
         return;
     }
@@ -76,5 +91,4 @@ public class FreeLookState : PlayerBaseState
     {
         playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
     }
-
 }

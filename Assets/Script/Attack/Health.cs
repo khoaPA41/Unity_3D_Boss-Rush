@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int maxHealth;
+    public int currentHealth { get; private set; }
 
-
-    int currentHealth;
+    public event Action DeathAction;
     void Start()
     {
         currentHealth = maxHealth;
@@ -14,12 +15,11 @@ public class Health : MonoBehaviour
     public void DealDamage(int damage)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
-
-        Debug.Log(currentHealth);
-
         if (currentHealth <= 0)
         {
-            Debug.Log("Die!");
+            DeathAction?.Invoke();
         }
     }
+
+
 }

@@ -6,7 +6,7 @@ public class Targeter : MonoBehaviour
     List<Target> targetList = new List<Target>();
 
     [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
-    public Target currentTarget { get; set; }
+    public Target currentTarget { get; private set; }
 
 
 
@@ -34,7 +34,7 @@ public class Targeter : MonoBehaviour
     public void CancelTarget()
     {
         if (targetList.Count == 0) { return; }
-        cinemachineTargetGroup.RemoveMember(currentTarget.transform);
+        cinemachineTargetGroup.RemoveMember(currentTarget != null ? currentTarget.transform : null);
         currentTarget = null;
     }
 
