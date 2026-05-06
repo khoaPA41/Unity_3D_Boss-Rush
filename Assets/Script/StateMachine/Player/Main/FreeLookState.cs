@@ -34,7 +34,7 @@ public class FreeLookState : PlayerBaseState
             }
             else
             {
-                playerStateMachine.EnterChangeAction();
+                playerStateMachine.EnterChangeAction(true);
 
             }
         }
@@ -82,7 +82,6 @@ public class FreeLookState : PlayerBaseState
     void EnterTargetState()
     {
         if (!playerStateMachine.Targeter.SelectedTarget()) { return; }
-        //playerStateMachine.EnterChangeAction();
         playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
         return;
     }

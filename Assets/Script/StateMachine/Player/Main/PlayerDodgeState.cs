@@ -27,6 +27,7 @@ public class PlayerDodgeState : PlayerBaseState
         Vector3 movement = CalculateMovement();
 
         Move(movement, deltaTime);
+        FaceTarget(deltaTime);
 
         remainingTime -= deltaTime;
 

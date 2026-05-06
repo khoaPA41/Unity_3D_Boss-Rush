@@ -19,7 +19,7 @@ public class PlayerTargetState : PlayerBaseState
 
         if (!playerStateMachine.isAttackState)
         {
-            playerStateMachine.EnterChangeAction();
+            playerStateMachine.EnterChangeAction(true);
         }
     }
 
@@ -51,13 +51,13 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-        //playerStateMachine.EnterChangeAction();
     }
 
     void OutTargetState()
     {
         playerStateMachine.Targeter.CancelTarget();
-        playerStateMachine.SwitchState(new FreeLookState(playerStateMachine));
+        playerStateMachine.EnterChangeAction(false);
+        //playerStateMachine.SwitchState(new FreeLookState(playerStateMachine));
         return;
     }
 

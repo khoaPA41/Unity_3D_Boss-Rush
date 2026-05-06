@@ -78,9 +78,9 @@ public class PlayerStateMachine : StateMachine
         return;
     }
 
-    public void EnterChangeAction()
+    public void EnterChangeAction(bool isAttack)
     {
-        SwitchState(new PlayerChangeAction(this, !isAttackState));
+        SwitchState(new PlayerChangeAction(this, isAttack));
         return;
     }
 }
