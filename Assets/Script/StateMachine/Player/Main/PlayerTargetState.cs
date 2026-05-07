@@ -14,6 +14,7 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.TargetAction += OutTargetState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
+        playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
 
         playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
 
@@ -51,13 +52,13 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
+        playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
     }
 
     void OutTargetState()
     {
         playerStateMachine.Targeter.CancelTarget();
         playerStateMachine.EnterChangeAction(false);
-        //playerStateMachine.SwitchState(new FreeLookState(playerStateMachine));
         return;
     }
 

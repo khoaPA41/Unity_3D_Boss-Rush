@@ -21,6 +21,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
 
 
 
@@ -29,12 +30,12 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
     [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
     [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
-
     [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
 
 
 
     public Transform MainCameraTransform { get; private set; }
+    public int hitTimes { get; set; }
 
     public bool isAttackState;
 
@@ -82,5 +83,18 @@ public class PlayerStateMachine : StateMachine
     {
         SwitchState(new PlayerChangeAction(this, isAttack));
         return;
+    }
+
+    public void EnterHitState()
+    {
+        hitTimes++;
+        bool isKnockBack = false;
+
+        if (hitTimes == TimeToGetKnockBackHit)
+        {
+            isKnockBack = true;
+            hitTimes = 0;
+        }
+        SwitchState(new PlayerHitState(this, isKnockBack));
     }
 }

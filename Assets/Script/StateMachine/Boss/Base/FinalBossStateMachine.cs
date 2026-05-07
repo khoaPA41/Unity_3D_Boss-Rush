@@ -23,7 +23,8 @@ public class FinalBossStateMachine : StateMachine
 
     [Header("State")]
     [field: SerializeField] public float TimeToEnterChasing { get; private set; } = 1f;
-    //[field: SerializeField] public float TimeToEnterIdle { get; private set; } = 1f;
+    [field: SerializeField] public int TimesToHit { get; private set; } = 3;
+    public int TimesHitted { get; set; } = 0;
 
     public Health Player { get; private set; }
 
@@ -64,6 +65,19 @@ public class FinalBossStateMachine : StateMachine
     void EnterDeathState()
     {
         SwitchState(new FinalBossDeathState(this));
+        return;
+    }
+
+    public void EnterHitState()
+    {
+        if (TimesHitted == TimesToHit)
+        {
+            return;
+        }
+
+        TimesHitted += 1;
+
+        SwitchState(new FinalBossHitState(this));
         return;
     }
 }

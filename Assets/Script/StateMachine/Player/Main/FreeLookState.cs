@@ -11,12 +11,11 @@ public class FreeLookState : PlayerBaseState
 
     public override void Enter()
     {
-
         //countTimeToChangeIdleLoop = playerStateMachine.TimeToBackIdleLoop;
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-
+        playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
 
         playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
     }
@@ -59,6 +58,8 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction -= EnterTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
+        playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
+
     }
 
     void UpdateAnimation(float deltaTime)

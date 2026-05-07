@@ -9,10 +9,12 @@ public class FinalBossLocomotionState : FinalBossBaseState
     float countTimeToChangeChasing = 0;
     public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
     {
+
     }
 
     public override void Enter()
     {
+        finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
         countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
         finalBossStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
     }
@@ -38,7 +40,7 @@ public class FinalBossLocomotionState : FinalBossBaseState
 
     public override void Exit()
     {
-
+        finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
     }
 
     void UpdateAnimation(float deltaTime)
