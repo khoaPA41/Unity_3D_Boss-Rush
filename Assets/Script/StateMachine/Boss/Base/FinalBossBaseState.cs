@@ -31,4 +31,10 @@ public abstract class FinalBossBaseState : State
         dir.y = 0;
         return dir;
     }
+
+    protected bool IsAttackRange()
+    {
+        return (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position).sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.AttackRange;
+    }
+
 }

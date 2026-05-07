@@ -6,20 +6,27 @@ public class FinalBossLocomotionState : FinalBossBaseState
     readonly int MovementXParam = Animator.StringToHash("MovementX");
     readonly int MovementYParam = Animator.StringToHash("MovementY");
     Vector3 dir;
-
+    float countTimeToChangeChasing = 0;
     public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
     {
     }
 
     public override void Enter()
     {
+        countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
         finalBossStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
     {
+        countTimeToChangeChasing -= deltaTime;
+
+        if (countTimeToChangeChasing <= 0)
+        {
+            finalBossStateMachine.EnterChasingState();
+        }
+
         dir = GetDirToPlayer();
-        Move(GetDirToPlayer() * finalBossStateMachine.MovementSpeed, deltaTime);
         UpdateAnimation(deltaTime);
         FaceTarget(dir);
     }
@@ -36,20 +43,7 @@ public class FinalBossLocomotionState : FinalBossBaseState
 
     void UpdateAnimation(float deltaTime)
     {
-        float dirX = 0f;
-        float dirY = 0f;
-
-        if (dir.x != 0)
-        {
-            dirX = Mathf.Sign(dir.x);
-
-        }
-        if (dir.y != 0)
-        {
-            dirY = Mathf.Sign(dir.y);
-        }
-
-        finalBossStateMachine.Animator.SetFloat(MovementXParam, dirX, finalBossStateMachine.AnimationCrossFade, deltaTime);
-        finalBossStateMachine.Animator.SetFloat(MovementYParam, dirY, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        finalBossStateMachine.Animator.SetFloat(MovementXParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        finalBossStateMachine.Animator.SetFloat(MovementYParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
     }
 }

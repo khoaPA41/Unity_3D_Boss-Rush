@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3698972}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000013060899, y: 0.000000014184401, z: -6.327027e-10, w: 1}
-  m_LocalPosition: {x: -0.53549194, y: -1.7796144, z: 1.9877625}
+  m_LocalPosition: {x: -0.53948975, y: -1.7546368, z: 10.781342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -397,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16119367, y: 0, z: 0, w: 0.9869228}
-  m_LocalPosition: {x: 196, y: 2.5524702, z: 274.162}
+  m_LocalPosition: {x: 193.08, y: 16.455471, z: 247.762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1740,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 139696, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 211.32
@@ -2016,6 +2020,119 @@ MonoBehaviour:
       Wait: 1
       Time: 2
     Restrictions: 0
+--- !u!1 &1880576689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880576693}
+  - component: {fileID: 1880576692}
+  - component: {fileID: 1880576691}
+  - component: {fileID: 1880576690}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1880576690
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880576689}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1880576691
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880576689}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1880576692
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880576689}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1880576693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880576689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 191.9984, y: 13.7, z: 269.7386}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049564910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2521,7 @@ Transform:
   m_GameObject: {fileID: 919132149430898192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 196, y: 0, z: 277}
+  m_LocalPosition: {x: 193.08, y: 13.903, z: 250.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6812,7 +6929,7 @@ Transform:
   m_GameObject: {fileID: 8104945070158242835}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9976631, z: -0, w: 0.06832605}
-  m_LocalPosition: {x: 195.92, y: 0.49699998, z: 278.1}
+  m_LocalPosition: {x: 193, y: 14.4, z: 269.4}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6834,7 +6951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStateMachine
   <CharacterController>k__BackingField: {fileID: 8876977727193071275}
   <ForceReceiver>k__BackingField: {fileID: 8876977727193071278}
-  <MovementSpeed>k__BackingField: 2
+  <MovementSpeed>k__BackingField: 5
   <SprintSpeed>k__BackingField: 5
   <AttackDatas>k__BackingField:
   - <AnimationName>k__BackingField: Attack_1
@@ -6844,7 +6961,7 @@ MonoBehaviour:
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.3
-    <Force>k__BackingField: 4
+    <Force>k__BackingField: 6
     <AttackDamage>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack_2
     <EndAnimationName>k__BackingField: 
@@ -6853,7 +6970,7 @@ MonoBehaviour:
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.2
-    <Force>k__BackingField: 2
+    <Force>k__BackingField: 6
     <AttackDamage>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack_3
     <EndAnimationName>k__BackingField: 
@@ -6862,7 +6979,7 @@ MonoBehaviour:
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.2
-    <Force>k__BackingField: 3
+    <Force>k__BackingField: 6
     <AttackDamage>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack_4
     <EndAnimationName>k__BackingField: 
@@ -6871,7 +6988,7 @@ MonoBehaviour:
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.2
-    <Force>k__BackingField: 4
+    <Force>k__BackingField: 8
     <AttackDamage>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack_5
     <EndAnimationName>k__BackingField: 
@@ -6880,12 +6997,14 @@ MonoBehaviour:
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.2
-    <Force>k__BackingField: 5
+    <Force>k__BackingField: 10
     <AttackDamage>k__BackingField: 10
   <WeaponDealDamage>k__BackingField: {fileID: 1484340572}
   <Health>k__BackingField: {fileID: 8876977727193071277}
+  <AttackRange>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 3301544115272443091}
   <AnimationCrossFade>k__BackingField: 0.1
+  <TimeToEnterChasing>k__BackingField: 3
 --- !u!143 &8876977727193071275
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6976,6 +7095,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d30c7415757ee14fb61206005afc831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossBrain
+  timeToChangeIdle: 1
+  timeToChangeChasing: 1
+  timeToChangeAttack: 1
 --- !u!4 &8879528566990292020
 Transform:
   m_ObjectHideFlags: 0
@@ -7133,3 +7255,4 @@ SceneRoots:
   - {fileID: 648969916}
   - {fileID: 1707016485}
   - {fileID: 8876977727193071273}
+  - {fileID: 1880576693}
