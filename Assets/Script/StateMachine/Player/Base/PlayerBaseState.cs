@@ -66,4 +66,26 @@ public abstract class PlayerBaseState : State
         playerStateMachine.Animator.runtimeAnimatorController = overrideController;
         overrideController[IdleAnimationName] = animationClip;
     }
+
+    protected void UseSkill(int skillNumber)
+    {
+        ISkill skill = SkillFactory.CreateSkill(skillNumber);
+        if (skill != null)
+        {
+            if (playerStateMachine.Mana.currentMana >= skill.ManaCost)
+            {
+                skill.Cast(playerStateMachine);
+            }
+            else
+            {
+                playerStateMachine.ReturnLocomotion();
+            }
+        }
+        else
+        {
+            playerStateMachine.ReturnLocomotion();
+        }
+    }
+
+
 }

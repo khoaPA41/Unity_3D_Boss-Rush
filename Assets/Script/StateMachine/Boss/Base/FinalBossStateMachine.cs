@@ -15,6 +15,7 @@ public class FinalBossStateMachine : StateMachine
     [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; } = 5f;
+    [field: SerializeField] public float WalkRange { get; private set; } = 8f;
 
 
     [Header("Animation")]
@@ -50,9 +51,9 @@ public class FinalBossStateMachine : StateMachine
         return;
     }
 
-    public void EnterChasingState()
+    public void EnterChasingState(bool isWalk)
     {
-        SwitchState(new FinalBossChasingState(this));
+        SwitchState(new FinalBossChasingState(this, isWalk));
         return;
     }
 

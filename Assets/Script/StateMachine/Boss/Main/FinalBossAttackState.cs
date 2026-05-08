@@ -12,6 +12,8 @@ public class FinalBossAttackState : FinalBossBaseState
 
     public override void Enter()
     {
+        finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
+
         finalBossStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition);
     }
 
@@ -45,6 +47,7 @@ public class FinalBossAttackState : FinalBossBaseState
 
     public override void Exit()
     {
+        finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
 
     }
 

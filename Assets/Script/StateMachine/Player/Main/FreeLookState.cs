@@ -15,6 +15,7 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
+        playerStateMachine.InputReader.SkillAction += playerStateMachine.EnterSkillState;
         playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
 
         playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
@@ -59,7 +60,7 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
         playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
-
+        playerStateMachine.InputReader.SkillAction -= playerStateMachine.EnterSkillState;
     }
 
     void UpdateAnimation(float deltaTime)

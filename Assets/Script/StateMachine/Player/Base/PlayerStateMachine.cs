@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStateMachine : StateMachine
+public class PlayerStateMachine : StateMachine, ICaster
 {
     [Header("Input")]
     [field: SerializeField] public InputReader InputReader { get; private set; }
@@ -21,6 +21,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public Mana Mana { get; private set; }
     [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
 
 
@@ -96,5 +97,26 @@ public class PlayerStateMachine : StateMachine
             hitTimes = 0;
         }
         SwitchState(new PlayerHitState(this, isKnockBack));
+    }
+
+
+    public void EnterSkillState(int skillNumber)
+    {
+        if (Mana.currentMana <= 0)
+        {
+            return;
+        }
+        SwitchState(new PlayerUseSkillState(this, skillNumber));
+        return;
+    }
+
+    public void ComsumeMana(int amount)
+    {
+        Mana.currentMana = Mathf.Max(Mana.currentMana - amount, 0);
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }

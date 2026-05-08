@@ -4,16 +4,18 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, InputController.IPlayerActions
 {
-
     public Vector2 InputMovement { get; private set; }
     public bool IsSprint { get; private set; }
     public bool IsAttack { get; private set; }
+    public int SkillNumber { get; private set; }
 
     public event Action JumpAction;
 
     public event Action DodgeAction;
 
     public event Action TargetAction;
+
+    public event Action<int> SkillAction;
 
 
     InputController inputActions;
@@ -71,6 +73,16 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     {
         if (context.canceled) { return; }
         DodgeAction?.Invoke();
+    }
+    public void OnSkill(InputAction.CallbackContext context)
+    {
+        if (context.canceled && context.performed) { SkillNumber = 0; return; }
+        if (context.started)
+        {
+            SkillNumber = Convert.ToInt32(context.control.name);
+            SkillAction?.Invoke(SkillNumber);
+            //Debug.Log(SkillNumber);
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)

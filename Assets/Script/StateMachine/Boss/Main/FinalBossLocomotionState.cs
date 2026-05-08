@@ -3,10 +3,11 @@ using UnityEngine;
 public class FinalBossLocomotionState : FinalBossBaseState
 {
     readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
-    readonly int MovementXParam = Animator.StringToHash("MovementX");
-    readonly int MovementYParam = Animator.StringToHash("MovementY");
+    readonly int MovementParam = Animator.StringToHash("Movement");
+    //readonly int MovementYParam = Animator.StringToHash("MovementY");
     Vector3 dir;
     float countTimeToChangeChasing = 0;
+    bool isWalk = false;
     public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
     {
 
@@ -25,7 +26,17 @@ public class FinalBossLocomotionState : FinalBossBaseState
 
         if (countTimeToChangeChasing <= 0)
         {
-            finalBossStateMachine.EnterChasingState();
+            if (IsWalkRange())
+            {
+                isWalk = true;
+            }
+
+            finalBossStateMachine.EnterChasingState(isWalk);
+        }
+
+        if (IsAttackRange())
+        {
+            finalBossStateMachine.EnterAttackState();
         }
 
         dir = GetDirToPlayer();
@@ -45,7 +56,7 @@ public class FinalBossLocomotionState : FinalBossBaseState
 
     void UpdateAnimation(float deltaTime)
     {
-        finalBossStateMachine.Animator.SetFloat(MovementXParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
-        finalBossStateMachine.Animator.SetFloat(MovementYParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        finalBossStateMachine.Animator.SetFloat(MovementParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        //finalBossStateMachine.Animator.SetFloat(MovementYParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
     }
 }
