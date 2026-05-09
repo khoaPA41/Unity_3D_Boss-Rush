@@ -18,7 +18,7 @@ public class PlayerDodgeState : PlayerBaseState
     {
         playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);
         playerStateMachine.Animator.SetFloat(DodgeForwardHash, dodgeDirection.y);
-        playerStateMachine.Animator.CrossFadeInFixedTime(DodgeBlendTreeHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.Animator.CrossFadeInFixedTime(DodgeBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
         remainingTime = playerStateMachine.DodgeDuration;
     }
 

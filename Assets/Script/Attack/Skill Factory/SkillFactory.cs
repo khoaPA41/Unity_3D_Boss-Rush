@@ -16,6 +16,8 @@ public class SkillFactory
                 return new FireBall();
             case SkillType.DashSword:
                 return new DashSword();
+            case SkillType.NonSkill:
+                return null;
             default:
                 return null;
         }

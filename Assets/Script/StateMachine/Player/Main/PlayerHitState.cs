@@ -28,7 +28,7 @@ public class PlayerHitState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag);
+        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag, 0);
 
         if (normalizeTime > .8f && normalizeTime <= 1f)
         {

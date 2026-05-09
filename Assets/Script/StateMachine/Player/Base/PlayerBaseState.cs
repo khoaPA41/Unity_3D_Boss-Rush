@@ -70,20 +70,17 @@ public abstract class PlayerBaseState : State
     protected void UseSkill(int skillNumber)
     {
         ISkill skill = SkillFactory.CreateSkill(skillNumber);
-        if (skill != null)
+
+        if (playerStateMachine.Mana.currentMana >= 0)
         {
-            if (playerStateMachine.Mana.currentMana >= skill.ManaCost)
+            if (skill != null)
             {
-                skill.Cast(playerStateMachine);
+                playerStateMachine.EnterSkillState();
+                if (playerStateMachine.Mana.currentMana >= skill.ManaCost)
+                {
+                    skill.Cast(playerStateMachine);
+                }
             }
-            else
-            {
-                playerStateMachine.ReturnLocomotion();
-            }
-        }
-        else
-        {
-            playerStateMachine.ReturnLocomotion();
         }
     }
 

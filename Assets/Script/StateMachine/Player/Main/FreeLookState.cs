@@ -15,10 +15,10 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction += EnterTargetState;
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-        playerStateMachine.InputReader.SkillAction += playerStateMachine.EnterSkillState;
+        playerStateMachine.InputReader.SkillAction += UseSkill;
         playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
 
-        playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
     }
 
     public override void Tick(float deltaTime)
@@ -39,12 +39,6 @@ public class FreeLookState : PlayerBaseState
             }
         }
 
-        //countTimeToChangeIdleLoop -= deltaTime;
-        //if (countTimeToChangeIdleLoop <= 0f)
-        //{
-        //    playerStateMachine.EnterChangeAction();
-        //}
-
         Move(movement * speed, deltaTime);
         UpdateAnimation(deltaTime);
         FaceDir(movement, deltaTime);
@@ -60,7 +54,7 @@ public class FreeLookState : PlayerBaseState
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
         playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
-        playerStateMachine.InputReader.SkillAction -= playerStateMachine.EnterSkillState;
+        playerStateMachine.InputReader.SkillAction -= UseSkill;
     }
 
     void UpdateAnimation(float deltaTime)

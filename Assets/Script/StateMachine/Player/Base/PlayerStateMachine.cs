@@ -100,14 +100,13 @@ public class PlayerStateMachine : StateMachine, ICaster
     }
 
 
-    public void EnterSkillState(int skillNumber)
+    public void EnterSkillState()
     {
         if (Mana.currentMana <= 0)
         {
             return;
         }
-        SwitchState(new PlayerUseSkillState(this, skillNumber));
-        return;
+        SwitchState(new PlayerUseSkillState(this));
     }
 
     public void ComsumeMana(int amount)

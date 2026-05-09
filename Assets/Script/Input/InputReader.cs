@@ -76,12 +76,12 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     }
     public void OnSkill(InputAction.CallbackContext context)
     {
-        if (context.canceled && context.performed) { SkillNumber = 0; return; }
+        if (context.canceled && context.performed) { return; }
         if (context.started)
         {
-            SkillNumber = Convert.ToInt32(context.control.name);
-            SkillAction?.Invoke(SkillNumber);
-            //Debug.Log(SkillNumber);
+            //SkillNumber = Convert.ToInt32(context.control.name);
+            SkillAction?.Invoke(Convert.ToInt32(context.control.name));
+            Debug.Log(Convert.ToInt32(context.control.name));
         }
     }
 

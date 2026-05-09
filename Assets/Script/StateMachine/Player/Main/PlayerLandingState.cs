@@ -20,7 +20,7 @@ public class PlayerLandingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, LandingAnimationTag);
+        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, LandingAnimationTag, 0);
         if (normalizeTime > .9f && normalizeTime <= 1f)
         {
             playerStateMachine.ReturnLocomotion();

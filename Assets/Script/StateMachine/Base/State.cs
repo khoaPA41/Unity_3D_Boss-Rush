@@ -7,16 +7,16 @@ public abstract class State
     public abstract void PhysicTick(float fixedDeltaTime);
     public abstract void Exit();
 
-    public float GetNormalizeTime(Animator animator, string animationTag)
+    public float GetNormalizeTime(Animator animator, string animationTag, int layer)
     {
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo nextState = animator.GetNextAnimatorStateInfo(0);
+        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(layer);
+        AnimatorStateInfo nextState = animator.GetNextAnimatorStateInfo(layer);
 
-        if (nextState.IsTag(animationTag) && animator.IsInTransition(0)) // if blending (transition)
+        if (nextState.IsTag(animationTag) && animator.IsInTransition(layer)) // if blending (transition)
         {
             return nextState.normalizedTime;
         }
-        else if (currentState.IsTag(animationTag) && !animator.IsInTransition(0)) // if not blending
+        else if (currentState.IsTag(animationTag) && !animator.IsInTransition(layer)) // if not blending
         {
             return currentState.normalizedTime;
         }

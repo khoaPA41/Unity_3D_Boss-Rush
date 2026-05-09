@@ -14,11 +14,11 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.JumpAction += EnterJumpState;
         playerStateMachine.InputReader.TargetAction += OutTargetState;
         playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-        playerStateMachine.InputReader.SkillAction += playerStateMachine.EnterSkillState;
+        playerStateMachine.InputReader.SkillAction += UseSkill;
 
         playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
 
-        playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
 
         if (!playerStateMachine.isAttackState)
         {
@@ -54,7 +54,7 @@ public class PlayerTargetState : PlayerBaseState
         playerStateMachine.InputReader.TargetAction -= OutTargetState;
         playerStateMachine.InputReader.JumpAction -= EnterJumpState;
         playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-        playerStateMachine.InputReader.SkillAction -= playerStateMachine.EnterSkillState;
+        playerStateMachine.InputReader.SkillAction -= UseSkill;
         playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
     }
 

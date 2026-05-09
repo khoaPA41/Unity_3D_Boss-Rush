@@ -11,13 +11,13 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Enter()
     {
-        playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition);
+        playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition, 0);
         playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
     }
 
     public override void Tick(float deltaTime)
     {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag);
+        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag, 0);
         if (normalizeTime >= previousTime && normalizeTime <= 1f)
         {
             if (normalizeTime >= attackData.ForceTime)
@@ -41,10 +41,12 @@ public class PlayerAttackState : PlayerBaseState
         Move(deltaTime);
 
     }
+
     public override void PhysicTick(float fixedDeltaTime)
     {
 
     }
+
     public override void Exit()
     {
         //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);

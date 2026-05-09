@@ -20,7 +20,7 @@ public class FinalBossAttackState : FinalBossBaseState
     public override void Tick(float deltaTime)
     {
         dir = GetDirToPlayer();
-        float normalizeTime = GetNormalizeTime(finalBossStateMachine.Animator, "Attack");
+        float normalizeTime = GetNormalizeTime(finalBossStateMachine.Animator, "Attack", 0);
         if (normalizeTime >= previousTime && normalizeTime < +1f)
         {
             if (normalizeTime >= attackData.ForceTime)
