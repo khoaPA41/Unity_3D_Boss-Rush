@@ -6,8 +6,12 @@ public class PlayerHitState : PlayerBaseState
     readonly int HitKnockbackAnimationHash = Animator.StringToHash("Hit_Knockback");
 
     readonly string HitAnimationTag = "Hit";
+    float previousTime;
 
     bool isKnockBack = false;
+
+    bool alreadyApplyForce = false;
+    float force;
     public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
     {
         this.isKnockBack = isKnockBack;
@@ -17,23 +21,36 @@ public class PlayerHitState : PlayerBaseState
     {
         if (isKnockBack)
         {
+            force = playerStateMachine.HitKnockback;
             playerStateMachine.Animator.CrossFadeInFixedTime(HitKnockbackAnimationHash, playerStateMachine.AnimationCrossFade);
         }
         else
         {
+            force = playerStateMachine.HitForce;
             playerStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, playerStateMachine.AnimationCrossFade);
         }
-
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag, 0);
 
-        if (normalizeTime > .8f && normalizeTime <= 1f)
+        if (normalizeTime >= previousTime && normalizeTime <= 1f)
+        {
+            if (normalizeTime >= playerStateMachine.HitForceTime)
+            {
+                TryApplyForce(force);
+            }
+        }
+        else
         {
             playerStateMachine.ReturnLocomotion();
         }
+
+        previousTime = normalizeTime;
+        Move(deltaTime);
+        FaceTarget(deltaTime);
+
     }
 
     public override void PhysicTick(float fixedDeltaTime)
@@ -44,5 +61,12 @@ public class PlayerHitState : PlayerBaseState
     public override void Exit()
     {
 
+    }
+
+    void TryApplyForce(float force)
+    {
+        if (alreadyApplyForce) { return; }
+        playerStateMachine.ForceReceiver.AddForce(-playerStateMachine.transform.forward * force);
+        alreadyApplyForce = true;
     }
 }

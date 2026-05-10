@@ -27,6 +27,7 @@ public class WeaponDealDamage : MonoBehaviour
         if (other.TryGetComponent<Health>(out Health enemy))
         {
             enemy.DealDamage(damage);
+            enemy.HitStop();
         }
     }
 }

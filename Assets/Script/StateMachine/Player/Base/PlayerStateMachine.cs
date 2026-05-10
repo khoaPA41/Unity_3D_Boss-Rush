@@ -15,6 +15,9 @@ public class PlayerStateMachine : StateMachine, ICaster
     [field: SerializeField] public float JumpForce { get; private set; }
     [field: SerializeField] public float DodgeLength { get; private set; }
     [field: SerializeField] public float DodgeDuration { get; private set; }
+    [field: SerializeField] public float HitForceTime { get; private set; } = .3f;
+    [field: SerializeField] public float HitForce { get; private set; } = 3f;
+    [field: SerializeField] public float HitKnockback { get; private set; } = 8f;
 
 
     [Header("Attack")]

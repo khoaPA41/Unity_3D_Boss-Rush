@@ -11,6 +11,7 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Enter()
     {
+        playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
         playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition, 0);
         playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
     }
@@ -49,6 +50,7 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Exit()
     {
+        playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
         //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
     }
 

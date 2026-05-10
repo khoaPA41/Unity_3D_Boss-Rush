@@ -3,11 +3,19 @@ using Unity.Cinemachine;
 using UnityEngine;
 public class Targeter : MonoBehaviour
 {
+    [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
+
     List<Target> targetList = new List<Target>();
 
-    [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
+    Camera mainCamera;
+
     public Target currentTarget { get; private set; }
 
+
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
 
     void OnTriggerEnter(Collider other)
@@ -26,7 +34,30 @@ public class Targeter : MonoBehaviour
     public bool SelectedTarget()
     {
         if (targetList.Count == 0) { return false; }
-        currentTarget = targetList[0];
+
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
+
+        foreach (var target in targetList)
+        {
+            Vector2 viewPoint = mainCamera.WorldToViewportPoint(target.transform.position);
+
+            if (viewPoint.x < 0 || viewPoint.x > 1 || viewPoint.y < 0 || viewPoint.y > 1)
+            {
+                continue;
+            }
+            Vector2 toCenter = viewPoint - new Vector2(0.5f, 0.5f);
+
+            if (toCenter.sqrMagnitude < closestTargetDistance)
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+            }
+        }
+
+        if (closestTarget == null) { return false; }
+
+        currentTarget = closestTarget;
         cinemachineTargetGroup.AddMember(currentTarget.transform, 2f, 1f);
         return true;
     }
