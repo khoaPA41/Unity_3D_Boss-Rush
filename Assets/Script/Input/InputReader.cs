@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, InputController.IPlayerActions
 {
     public Vector2 InputMovement { get; private set; }
+    public Vector2 Look { get; private set; }
+
     public bool IsSprint { get; private set; }
     public bool IsAttack { get; private set; }
     public int SkillNumber { get; private set; }
@@ -19,6 +21,9 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
 
     InputController inputActions;
+
+    bool cursorInputForLook = true;
+    bool cursorLocked = true;
 
 
     void Start()
@@ -79,7 +84,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         if (context.canceled && context.performed) { return; }
         if (context.started)
         {
-            //SkillNumber = Convert.ToInt32(context.control.name);
             SkillAction?.Invoke(Convert.ToInt32(context.control.name));
             Debug.Log(Convert.ToInt32(context.control.name));
         }
@@ -99,7 +103,10 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnLook(InputAction.CallbackContext context)
     {
-
+        if (cursorInputForLook)
+        {
+            Look = context.ReadValue<Vector2>();
+        }
     }
 
 
@@ -114,5 +121,13 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     }
 
+    public void ApplicationCursor()
+    {
+        SetCursor(cursorLocked);
+    }
 
+    void SetCursor(bool newState)
+    {
+        Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+    }
 }

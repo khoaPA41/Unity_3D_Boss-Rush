@@ -45,6 +45,7 @@ public class PlayerStateMachine : StateMachine, ICaster
 
     void Start()
     {
+        InputReader.ApplicationCursor();
         MainCameraTransform = Camera.main.transform;
         SwitchState(new FreeLookState(this));
     }

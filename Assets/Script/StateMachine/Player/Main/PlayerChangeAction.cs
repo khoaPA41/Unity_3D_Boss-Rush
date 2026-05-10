@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerChangeAction : PlayerBaseState
 {
     readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
+    readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+
     readonly int MovementXParam = Animator.StringToHash("MovementX");
     readonly int MovementYParam = Animator.StringToHash("MovementY");
 
@@ -12,7 +14,7 @@ public class PlayerChangeAction : PlayerBaseState
     readonly string IdleAnimationName = "Idle_Loop";
     readonly string SwordIdleAnimationName = "Sword_Idle";
     bool isSwordEnter;
-
+    Vector3 movement;
     public PlayerChangeAction(PlayerStateMachine playerStateMachine, bool isSwordEnter) : base(playerStateMachine)
     {
         this.isSwordEnter = isSwordEnter;
@@ -20,7 +22,16 @@ public class PlayerChangeAction : PlayerBaseState
 
     public override void Enter()
     {
-        playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+        if (playerStateMachine.Targeter.currentTarget != null)
+        {
+
+            playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+        }
+        else
+        {
+            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+
+        }
 
         if (isSwordEnter)
         {
@@ -43,10 +54,22 @@ public class PlayerChangeAction : PlayerBaseState
             playerStateMachine.ReturnLocomotion();
         }
 
-        Vector3 movement = CalculateMovementInTarget();
-        Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
+
+
+        if (playerStateMachine.Targeter.currentTarget != null)
+        {
+            movement = CalculateMovementInTarget();
+            FaceTarget(deltaTime);
+
+        }
+        else
+        {
+            movement = CalculateMovementInFreeLook();
+            FaceDir(movement, deltaTime);
+        }
+
         UpdateAnimation(deltaTime);
-        FaceTarget(deltaTime);
+        Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
     }
 
     public override void PhysicTick(float fixedDeltaTime)

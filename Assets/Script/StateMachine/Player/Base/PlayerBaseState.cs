@@ -20,6 +20,7 @@ public abstract class PlayerBaseState : State
 
     protected void FaceDir(Vector3 movement, float deltaTime)
     {
+        if (movement == Vector3.zero) { return; }
         playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation, Quaternion.LookRotation(movement), playerStateMachine.RotationDamping * deltaTime);
     }
 
