@@ -48,12 +48,28 @@ public class ObjectPooling : MonoBehaviour
     }
 
 
-    PooledObject GetPooledObject(Vector3 objectPosition)
+    public PooledObject GetPooledObject(string objectName, Vector3 objectPosition)
     {
-        return null;
+        if (string.IsNullOrEmpty(objectName) || !pooledObjectDict.ContainsKey(objectName)) { return null; }
+
+
+        if (pooledObjectDict[objectName].Count == 0)
+        {
+            PooledObject newObject = Instantiate(poolItemList.Find(itemPool => itemPool.objectName == objectName).pooledObject);
+            newObject.transform.position = objectPosition;
+            newObject.gameObject.SetActive(true);
+            return newObject;
+
+        }
+
+        PooledObject pooledObject = pooledObjectDict[objectName].Pop();
+        pooledObject.transform.position = objectPosition;
+        pooledObject.gameObject.SetActive(true);
+        return pooledObject;
+
     }
 
-    void ReturnToPool()
+    public void ReturnToPool()
     {
 
     }

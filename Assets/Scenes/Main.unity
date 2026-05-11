@@ -2553,6 +2553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653432222890}
+  - component: {fileID: 5866666021640064727}
   - component: {fileID: 5866666021640064722}
   - component: {fileID: 5866666021640064723}
   - component: {fileID: 4456793}
@@ -5289,6 +5290,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mana
   maxMana: 100
+--- !u!114 &5866666021640064727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149430898192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d3fecfdd5683146a72675d959042d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test
+  pooledObject: {fileID: 1705571622}
+  inputReader: {fileID: 4456793}
 --- !u!4 &5941227562482245673
 Transform:
   m_ObjectHideFlags: 0

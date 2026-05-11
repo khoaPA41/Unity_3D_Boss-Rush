@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PooledObject : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    ObjectPooling instance { get; set; }
+    public ObjectPooling Instance { get => instance; set => instance = value; }
+
+
+    public void Release()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (Instance != null)
+        {
+            Instance.ReturnToPool();
+        }
     }
 }
