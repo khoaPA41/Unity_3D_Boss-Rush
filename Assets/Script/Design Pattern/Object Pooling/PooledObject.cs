@@ -6,11 +6,12 @@ public class PooledObject : MonoBehaviour
     public ObjectPooling Instance { get => instance; set => instance = value; }
 
 
-    public void Release()
+    public void Release(string name)
     {
-        if (Instance != null)
+        if (instance != null)
         {
-            Instance.ReturnToPool();
+            Debug.Log("Release");
+            instance.ReturnToPool(name, this);
         }
     }
 }

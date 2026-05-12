@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3698972}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000013060899, y: 0.000000014184401, z: -6.327027e-10, w: 1}
-  m_LocalPosition: {x: -0.6000061, y: -1.68, z: 1.6000061}
+  m_LocalPosition: {x: -1.4461517, y: -1.68, z: 13.005524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1742,15 +1742,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPooling
   poolItemList:
-  - pooledObject: {fileID: 7577016894256366384, guid: d3402ac1522d3374ab55b0acfe115d64, type: 3}
-    objectName: Enemy_1
+  - pooledObject: {fileID: 7937126987487183538, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
+    objectName: Freeze
     size: 5
-  - pooledObject: {fileID: 8732470451452341464, guid: 4017840e9efac414bacf8199ef489924, type: 3}
-    objectName: Enemy_2
-    size: 10
-  - pooledObject: {fileID: 8832620906448026188, guid: bd5acddbfc2becc468809d56f4bb25f5, type: 3}
-    objectName: Enemy___5
-    size: 15
+  - pooledObject: {fileID: -6833959640922747465, guid: d2ffbc8b168cdf74a9dbb7c6c1cfdf2f, type: 3}
+    objectName: Shield
+    size: 5
 --- !u!1001 &1707016485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1765,11 +1762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139696, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 211.32
+      value: 211.2
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1777,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 284.4
+      value: 285.5
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5299,11 +5296,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132149430898192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d3fecfdd5683146a72675d959042d4, type: 3}
+  m_Script: {fileID: 11500000, guid: ce624e3602ad04a4da1d70f7ca33ef70, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Test
-  pooledObject: {fileID: 1705571622}
-  inputReader: {fileID: 4456793}
+  m_EditorClassIdentifier: Assembly-CSharp::GetSkill
+  objectPooling: {fileID: 1705571622}
 --- !u!4 &5941227562482245673
 Transform:
   m_ObjectHideFlags: 0
@@ -6622,7 +6618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8169350067135938595
 Transform:
   m_ObjectHideFlags: 0
@@ -6885,7 +6881,7 @@ Transform:
   m_GameObject: {fileID: 8104945070158242835}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9976631, z: -0, w: 0.06832605}
-  m_LocalPosition: {x: 193, y: 0, z: 269.4}
+  m_LocalPosition: {x: 191.37, y: 0, z: 281.45}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6907,8 +6903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStateMachine
   <CharacterController>k__BackingField: {fileID: 8876977727193071275}
   <ForceReceiver>k__BackingField: {fileID: 8876977727193071278}
-  <MovementSpeed>k__BackingField: 2
-  <SprintSpeed>k__BackingField: 6
+  <MovementSpeed>k__BackingField: 0
+  <SprintSpeed>k__BackingField: 0
   <AttackDatas>k__BackingField:
   - <AnimationName>k__BackingField: Attack_1
     <EndAnimationName>k__BackingField: 

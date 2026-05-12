@@ -38,6 +38,7 @@ public class ObjectPooling : MonoBehaviour
             for (int i = 0; i < item.size; i++)
             {
                 PooledObject newItem = Instantiate(item.pooledObject);
+                newItem.Instance = this;
                 newItem.name = item.objectName;
                 newItem.transform.SetParent(parentType.transform);
                 newItem.gameObject.SetActive(false);
@@ -63,15 +64,22 @@ public class ObjectPooling : MonoBehaviour
         }
 
         PooledObject pooledObject = pooledObjectDict[objectName].Pop();
+        pooledObject.Instance = this;
         pooledObject.transform.position = objectPosition;
         pooledObject.gameObject.SetActive(true);
         return pooledObject;
 
     }
 
-    public void ReturnToPool()
+    public void ReturnToPool(string objectName, PooledObject pooledObject)
     {
+        if (string.IsNullOrEmpty(objectName) || !pooledObjectDict.ContainsKey(objectName))
+        {
+            Destroy(pooledObject);
+            return;
+        }
 
+        pooledObjectDict[objectName].Push(pooledObject);
+        pooledObject.gameObject.SetActive(false);
     }
-
 }

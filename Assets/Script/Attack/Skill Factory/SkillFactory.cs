@@ -1,8 +1,8 @@
 public enum SkillType
 {
     NonSkill,
-    FireBall,
-    DashSword
+    Freeze,
+    Shield
 }
 
 
@@ -12,10 +12,10 @@ public class SkillFactory
     {
         switch (GetSkillName(skillNumber))
         {
-            case SkillType.FireBall:
-                return new FireBall();
-            case SkillType.DashSword:
-                return new DashSword();
+            case SkillType.Freeze:
+                return new Freeze();
+            case SkillType.Shield:
+                return new Shield();
             case SkillType.NonSkill:
                 return null;
             default:
@@ -28,9 +28,9 @@ public class SkillFactory
         switch (skillNumber)
         {
             case 1:
-                return SkillType.FireBall;
+                return SkillType.Freeze;
             case 2:
-                return SkillType.DashSword;
+                return SkillType.Shield;
             default:
                 return SkillType.NonSkill;
         }

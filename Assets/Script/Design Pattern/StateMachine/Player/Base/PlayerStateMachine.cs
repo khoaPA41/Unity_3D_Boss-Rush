@@ -122,4 +122,9 @@ public class PlayerStateMachine : StateMachine, ICaster
     {
         return transform;
     }
+
+    public GameObject TargetCaster()
+    {
+        return this.gameObject;
+    }
 }

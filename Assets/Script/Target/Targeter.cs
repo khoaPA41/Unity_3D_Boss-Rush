@@ -9,7 +9,7 @@ public class Targeter : MonoBehaviour
 
     Camera mainCamera;
 
-    public Target currentTarget { get; private set; }
+    public Target currentTarget { get; set; }
 
 
     void Start()
