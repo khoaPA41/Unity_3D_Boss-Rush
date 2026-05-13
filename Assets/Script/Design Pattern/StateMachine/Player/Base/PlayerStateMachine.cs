@@ -36,7 +36,8 @@ public class PlayerStateMachine : StateMachine, ICaster
     [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
     [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
 
-
+    [Header("Skill")]
+    [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
 
     public Transform MainCameraTransform { get; private set; }
     public int hitTimes { get; set; }
@@ -104,13 +105,13 @@ public class PlayerStateMachine : StateMachine, ICaster
     }
 
 
-    public void EnterSkillState()
+    public void EnterSkillState(string animationName)
     {
         if (Mana.currentMana <= 0)
         {
             return;
         }
-        SwitchState(new PlayerUseSkillState(this));
+        SwitchState(new PlayerUseSkillState(this, animationName));
     }
 
     public void ComsumeMana(int amount)

@@ -14711,7 +14711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ac4db6099548c4b964cae64ca6044a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillPooledObject
-  skillName: Shield
+  skillName: Indestructible
 --- !u!1 &7473106266047837557
 GameObject:
   m_ObjectHideFlags: 0

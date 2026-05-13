@@ -1,19 +1,15 @@
-using UnityEngine;
-
 public class PlayerUseSkillState : PlayerBaseState
 {
-    readonly int UseSkillAnimationHash = Animator.StringToHash("UseSkill");
     readonly string UseSkillAnimationString = "UseSkill";
-    //int skillNumber;
-    public PlayerUseSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    string AnimationName;
+    public PlayerUseSkillState(PlayerStateMachine playerStateMachine, string animationName) : base(playerStateMachine)
     {
+        AnimationName = animationName;
     }
 
     public override void Enter()
     {
-        //UseSkill(skillNumber);
-
-        playerStateMachine.Animator.CrossFadeInFixedTime(UseSkillAnimationHash, playerStateMachine.AnimationCrossFade, 0);
+        playerStateMachine.Animator.CrossFadeInFixedTime(AnimationName, playerStateMachine.AnimationCrossFade, 0);
     }
 
     public override void Tick(float deltaTime)
