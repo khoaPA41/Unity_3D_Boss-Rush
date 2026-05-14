@@ -71,8 +71,19 @@ public class Invisible : ISkill
     {
         GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
         caster.ComsumeMana(ManaCost);
-        //getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-        Debug.Log("Invisible");
+        PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+
+        Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
+        tempMaterials[0] = player.PhantomMaterial;
+        tempMaterials[1] = player.PhantomMaterial;
+
+        Color newColor = tempMaterials[0].GetColor("_BaseColor");
+        newColor.a = 0.4f;
+
+        tempMaterials[0].SetColor("_BaseColor", newColor);
+        tempMaterials[1].SetColor("_BaseColor", newColor);
+        player.SkinnedMeshRenderer.materials = tempMaterials;
+
         //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
         //skill.Play();
     }
@@ -88,10 +99,10 @@ public class Worldbreaker : ISkill
     {
         GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
         caster.ComsumeMana(ManaCost);
-        //getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+        getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
         Debug.Log("Worldbreaker");
-        //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        //skill.Play();
+        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+        skill.Play();
     }
 }
 public class PhantomRetreat : ISkill
@@ -104,13 +115,19 @@ public class PhantomRetreat : ISkill
     public void Cast(ICaster caster)
     {
         GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+
+        Vector3 spawnPos = caster.TargetCaster().transform.position;
+        spawnPos.y += 1f;
+        spawnPos.x += .6f;
+
         caster.ComsumeMana(ManaCost);
-        //getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-        Debug.Log("PhantomRetreat");
-        //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        //skill.Play();
+        getSkill.SpawnSkill(SkillName, spawnPos);
+
+        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+        skill.Play();
     }
 }
+
 public class PhantomMirage : ISkill
 {
     public string SkillName => "PhantomMirage";
@@ -122,10 +139,9 @@ public class PhantomMirage : ISkill
     {
         GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
         caster.ComsumeMana(ManaCost);
-        //getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-        Debug.Log("PhantomMirage");
-        //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        //skill.Play();
+        getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+        skill.Play();
     }
 }
 

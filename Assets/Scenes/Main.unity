@@ -1748,6 +1748,15 @@ MonoBehaviour:
   - pooledObject: {fileID: 6426502711336625880, guid: 9b536fb963bcdeb409d65301bb7996ac, type: 3}
     objectName: Indestructible
     size: 5
+  - pooledObject: {fileID: 4474826713448202403, guid: 9c555c0b39deb8c4fa06e01e68b9f66d, type: 3}
+    objectName: Worldbreaker
+    size: 5
+  - pooledObject: {fileID: 736905846348549365, guid: dad03dd59fd839b459635c58bafb2c65, type: 3}
+    objectName: PhantomRetreat
+    size: 5
+  - pooledObject: {fileID: 8718144147770346756, guid: e384b30197c142341a860a82c9a87d53, type: 3}
+    objectName: PhantomMirage
+    size: 5
 --- !u!1001 &1707016485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5231,6 +5240,7 @@ MonoBehaviour:
   <IdleLoopAnimationClip>k__BackingField: {fileID: 7400000, guid: 82bd569281881b74aacc1423288e6598, type: 2}
   <TimeToBackIdleLoop>k__BackingField: 5
   <SkinnedMeshRenderer>k__BackingField: {fileID: 1676831429677815297}
+  <PhantomMaterial>k__BackingField: {fileID: 2100000, guid: 655da55ab8ca86d468c3bc3c55795a7e, type: 2}
   isAttackState: 0
 --- !u!114 &5866666021640064723
 MonoBehaviour:

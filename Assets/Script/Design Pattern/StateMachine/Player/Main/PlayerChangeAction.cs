@@ -10,6 +10,7 @@ public class PlayerChangeAction : PlayerBaseState
 
     readonly int SwordEnterAnimationHash = Animator.StringToHash("Sword_Enter");
     readonly int SwordExitAnimationHash = Animator.StringToHash("Sword_Exit");
+
     readonly string SwordChangeTag = "SwordChange";
     readonly string IdleAnimationName = "Idle_Loop";
     readonly string SwordIdleAnimationName = "Sword_Idle";
@@ -54,13 +55,10 @@ public class PlayerChangeAction : PlayerBaseState
             playerStateMachine.ReturnLocomotion();
         }
 
-
-
         if (playerStateMachine.Targeter.currentTarget != null)
         {
             movement = CalculateMovementInTarget();
             FaceTarget(deltaTime);
-
         }
         else
         {

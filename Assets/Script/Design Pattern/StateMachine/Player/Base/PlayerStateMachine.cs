@@ -38,6 +38,8 @@ public class PlayerStateMachine : StateMachine, ICaster
 
     [Header("Skill")]
     [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
+    [field: SerializeField] public Material PhantomMaterial { get; private set; }
+
 
     public Transform MainCameraTransform { get; private set; }
     public int hitTimes { get; set; }
