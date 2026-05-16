@@ -9,10 +9,11 @@ public class ForceReceiver : MonoBehaviour
     CharacterController characterController;
     Vector3 dampingVelocity;
     Vector3 impact;
-    public Vector3 Movement => impact + Vector3.up * verticalVelocity;
+    public Vector3 Movement => (impact + Vector3.up * verticalVelocity);
 
     void Start()
     {
+        
         characterController = GetComponent<CharacterController>();
     }
 
@@ -39,4 +40,5 @@ public class ForceReceiver : MonoBehaviour
     {
         verticalVelocity += jumpForce;
     }
+
 }

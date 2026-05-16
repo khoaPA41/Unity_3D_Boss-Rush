@@ -37,7 +37,7 @@ public class ObjectPooling : MonoBehaviour
 
             for (int i = 0; i < item.size; i++)
             {
-                PooledObject newItem = Instantiate(item.pooledObject);
+                PooledObject newItem = Instantiate(item.pooledObject, item.pooledObject.transform.position, Quaternion.identity);
                 newItem.Instance = this;
                 newItem.name = item.objectName;
                 newItem.transform.SetParent(parentType.transform);

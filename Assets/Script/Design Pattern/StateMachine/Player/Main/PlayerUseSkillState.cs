@@ -2,6 +2,7 @@ public class PlayerUseSkillState : PlayerBaseState
 {
     readonly string UseSkillAnimationString = "UseSkill";
     string AnimationName;
+
     public PlayerUseSkillState(PlayerStateMachine playerStateMachine, string animationName) : base(playerStateMachine)
     {
         AnimationName = animationName;

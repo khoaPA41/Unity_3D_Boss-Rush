@@ -11,12 +11,20 @@ public class Targeter : MonoBehaviour
 
     public Target currentTarget { get; set; }
 
+    Vector3 targetPos;
 
     void Start()
     {
         mainCamera = Camera.main;
     }
 
+    void Update()
+    {
+        if(currentTarget != null)
+        {
+            targetPos = currentTarget.transform.position;
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -58,6 +66,7 @@ public class Targeter : MonoBehaviour
         if (closestTarget == null) { return false; }
 
         currentTarget = closestTarget;
+        targetPos = currentTarget.transform.position;
         cinemachineTargetGroup.AddMember(currentTarget.transform, 2f, 1f);
         return true;
     }
@@ -78,5 +87,10 @@ public class Targeter : MonoBehaviour
 
         target.CancelTargetEvent -= RemoveTarget;
         targetList.Remove(target);
+    }
+
+    public Vector3 GetTargetPosition()
+    {
+        return targetPos;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(PooledObject))]
 
@@ -18,6 +19,7 @@ public class SkillPooledObject : MonoBehaviour
 
     private void OnParticleSystemStopped()
     {
+        particle.Stop();
         pooled.Release(skillName);
     }
 }

@@ -1,16 +1,6 @@
+using System;
 using System.Collections;
 using UnityEngine;
-public static class SpecialFeature
-{
-    public static IEnumerator ResetMaterial(float time, Material[] materials)
-    {
-        yield return new WaitForSecondsRealtime(time);
-        foreach (Material material in materials)
-        {
-            material.SetFloat("_Metallic", 0);
-        }
-    }
-}
 
 
 public class Inescapable : ISkill
@@ -28,8 +18,11 @@ public class Inescapable : ISkill
 
         if (player.Targeter.currentTarget != null)
         {
+            FinalBossStateMachine finalBoss = player.Targeter.currentTarget?.GetComponent<FinalBossStateMachine>();
+            finalBoss.SetMovement();
+            finalBoss.ReturnLocomotion();
             caster.ComsumeMana(ManaCost);
-            getSkill.SpawnSkill(SkillName, player.Targeter.currentTarget.transform.position);
+            getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
         }
 
         ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
@@ -55,9 +48,17 @@ public class Indestructible : ISkill
         skill.Play();
         PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
 
-        player.SkinnedMeshRenderer.materials[0].SetFloat("_Metallic", 1);
-        player.SkinnedMeshRenderer.materials[1].SetFloat("_Metallic", 1);
-        SpecialFeature.ResetMaterial(1f, player.SkinnedMeshRenderer.materials);
+        Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
+        tempMaterials[0].SetFloat("_Metallic", 1f);
+        tempMaterials[1].SetFloat("_Metallic", 1f);
+        player.SkinnedMeshRenderer.materials = tempMaterials;
+        //player.SkinnedMeshRenderer.materials[0].SetFloat("_Metallic", 1);
+        //player.SkinnedMeshRenderer.materials[1].SetFloat("_Metallic", 1);
+        ResetAfterUseSkill.instance.StartFeature(1f, () =>
+        {
+            tempMaterials[0].SetFloat("_Metallic", 0f);
+            tempMaterials[1].SetFloat("_Metallic", 0f);
+        });
 
     }
 }

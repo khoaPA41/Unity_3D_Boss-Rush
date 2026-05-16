@@ -77,6 +77,7 @@ public abstract class PlayerBaseState : State
             if (skill != null)
             {
                 playerStateMachine.EnterSkillState(skill.AnimationName);
+                
                 if (playerStateMachine.Mana.currentMana >= skill.ManaCost)
                 {
                     skill.Cast(playerStateMachine);

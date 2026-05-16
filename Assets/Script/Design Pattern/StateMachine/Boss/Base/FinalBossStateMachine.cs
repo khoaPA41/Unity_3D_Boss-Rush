@@ -81,4 +81,16 @@ public class FinalBossStateMachine : StateMachine
         SwitchState(new FinalBossHitState(this));
         return;
     }
+
+    public void SetMovement()
+    {
+        MovementSpeed = 0f;
+        SprintSpeed = 0f;
+    }
+
+    public void ResetMovement()
+    {
+        MovementSpeed = 5f;
+        SprintSpeed = 5f;
+    }
 }

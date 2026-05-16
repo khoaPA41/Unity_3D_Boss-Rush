@@ -1,3 +1,6 @@
+using System;
+using UnityEngine;
+
 public enum SkillType
 {
     NonSkill,
@@ -9,6 +12,36 @@ public enum SkillType
     PhantomMirage
 }
 
+public class SkillEvent: MonoBehaviour
+ {
+    public static SkillEvent Instance;
+
+    public event Action Inescapable;
+    public event Action Indestructible;
+    public event Action Invisible;
+    public event Action Worldbreaker;
+    public event Action PhantomRetreat;
+    public event Action PhantomMirage;
+
+    private void Start()
+    {
+        Instance = this;
+    }
+
+    public void ActiveInescapable()
+    {
+        Inescapable?.Invoke();
+    }
+    public void ActiveIndestructible()
+    {
+        Indestructible?.Invoke();
+    }
+    public void ActiveInvisible()
+    {
+        Invisible?.Invoke();
+    }
+}
+
 
 public class SkillFactory
 {
@@ -17,9 +50,11 @@ public class SkillFactory
         switch (GetSkillName(skillNumber))
         {
             case SkillType.Inescapable:
+                //SkillEvent.Instance.ActiveInescapable();
                 return new Inescapable();
 
             case SkillType.Indestructible:
+                //SkillEvent.Instance.ActiveIndestructible();
                 return new Indestructible();
 
             case SkillType.Invisible:

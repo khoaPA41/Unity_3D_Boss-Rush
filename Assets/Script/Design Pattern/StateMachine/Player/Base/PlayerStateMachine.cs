@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStateMachine : StateMachine, ICaster
@@ -45,6 +46,9 @@ public class PlayerStateMachine : StateMachine, ICaster
     public int hitTimes { get; set; }
 
     public bool isAttackState;
+
+    public event Action<string> OnSkill;
+
 
     void Start()
     {
