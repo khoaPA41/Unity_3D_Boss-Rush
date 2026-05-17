@@ -1,5 +1,5 @@
-using Script.Attack.Skill_Factory;
-
+namespace Script.Attack.Skill_Factory
+{
     public interface ISkill
     {
         SkillEffect SkillEffect { get; }
@@ -8,6 +8,7 @@ using Script.Attack.Skill_Factory;
         int ManaCost { get; }
         void Cast(ICaster caster);
     }
+}
 
 
 

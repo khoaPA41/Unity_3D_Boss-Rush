@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -5,21 +6,27 @@ using static UnityEngine.ParticleSystem;
 
 public class SkillPooledObject : MonoBehaviour
 {
-    [SerializeField] string skillName;
+    private ParticleSystem particle;
 
-    ParticleSystem particle;
+    private PooledObject pooled;
 
-    PooledObject pooled;
-
-    void Start()
+    private void Awake()
     {
         particle = GetComponent<ParticleSystem>();
         pooled = GetComponent<PooledObject>();
     }
+    
+    private void OnEnable()
+    {
+        particle.Clear();
+        particle.Play();
+    }
+    
 
     private void OnParticleSystemStopped()
     {
         particle.Stop();
-        pooled.Release(skillName);
+        
+        pooled.Release(this.gameObject.name);
     }
 }

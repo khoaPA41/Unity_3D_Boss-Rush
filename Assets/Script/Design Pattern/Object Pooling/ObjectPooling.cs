@@ -15,32 +15,40 @@ public class PoolItem
 
 public class ObjectPooling : MonoBehaviour
 {
-    [SerializeField] List<PoolItem> poolItemList;
+    [SerializeField] private List<PoolItem> poolItemList;
 
-    Dictionary<string, Stack<PooledObject>> pooledObjectDict;
+    private Dictionary<string, Stack<PooledObject>> pooledObjectDict;
 
-    void Start()
+    private List<GameObject> parentObjectList;
+    private void Start()
     {
+        parentObjectList = new List<GameObject>();
+        foreach (var item in poolItemList)
+        {
+            var parentType = new GameObject(item.objectName + "_Pool");
+            parentType.transform.SetParent(this.transform);
+            parentObjectList.Add(parentType.gameObject);
+        }
+
         Setup();
     }
 
-    void Setup()
+    private void Setup()
     {
         if (poolItemList.Count == 0) { return; }
         pooledObjectDict = new Dictionary<string, Stack<PooledObject>>();
         foreach (var item in poolItemList)
         {
-            Stack<PooledObject> pooledObjectStack = new Stack<PooledObject>();
-
-            GameObject parentType = new GameObject(item.objectName + "_Pool");
-            parentType.transform.SetParent(this.transform);
-
+            var pooledObjectStack = new Stack<PooledObject>();
+            var parent = parentObjectList.Find(temp => temp.name.Substring(0,temp.name.Length - 5) == item.objectName);
+            Debug.Log(parent.name.Substring(parent.name.Length - 5));
             for (int i = 0; i < item.size; i++)
             {
-                PooledObject newItem = Instantiate(item.pooledObject, item.pooledObject.transform.position, Quaternion.identity);
+                
+                var newItem = Instantiate(item.pooledObject, item.pooledObject.transform.position, Quaternion.identity);
                 newItem.Instance = this;
                 newItem.name = item.objectName;
-                newItem.transform.SetParent(parentType.transform);
+                newItem.transform.SetParent(parent.transform);
                 newItem.gameObject.SetActive(false);
                 pooledObjectStack.Push(newItem);
             }
@@ -52,19 +60,19 @@ public class ObjectPooling : MonoBehaviour
     public PooledObject GetPooledObject(string objectName, Vector3 objectPosition)
     {
         if (string.IsNullOrEmpty(objectName) || !pooledObjectDict.ContainsKey(objectName)) { return null; }
-
-
+        
         if (pooledObjectDict[objectName].Count == 0)
         {
-            PooledObject newObject = Instantiate(poolItemList.Find(itemPool => itemPool.objectName == objectName).pooledObject);
+            var newObject = Instantiate(poolItemList.Find(itemPool => itemPool.objectName == objectName).pooledObject);
+            newObject.Instance = this;
+            newObject.name = objectName;
+            newObject.transform.SetParent(parentObjectList.Find(parent => parent.name.Substring(0, parent.name.Length - 5) == objectName).transform);
             newObject.transform.position = objectPosition;
             newObject.gameObject.SetActive(true);
             return newObject;
-
         }
 
-        PooledObject pooledObject = pooledObjectDict[objectName].Pop();
-        pooledObject.Instance = this;
+        var pooledObject = pooledObjectDict[objectName].Pop();
         pooledObject.transform.position = objectPosition;
         pooledObject.gameObject.SetActive(true);
         return pooledObject;
@@ -78,8 +86,8 @@ public class ObjectPooling : MonoBehaviour
             Destroy(pooledObject);
             return;
         }
-
-        pooledObjectDict[objectName].Push(pooledObject);
+        
         pooledObject.gameObject.SetActive(false);
+        pooledObjectDict[objectName].Push(pooledObject);
     }
 }

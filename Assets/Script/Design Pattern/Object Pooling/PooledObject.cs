@@ -8,10 +8,6 @@ public class PooledObject : MonoBehaviour
 
     public void Release(string name)
     {
-        if (instance != null)
-        {
-            Debug.Log("Release");
-            instance.ReturnToPool(name, this);
-        }
+        instance?.ReturnToPool(name, this);
     }
 }

@@ -7,12 +7,11 @@ namespace Script.Attack.Skill_Factory
 {
     public class Inescapable : ISkill
     {
-        public string SkillName => "Inescapable";
         public SkillEffect SkillEffect => SkillEffect.Inescapable;
-
-        public int ManaCost => 20;
-
+        public string SkillName => "Inescapable";
         public string AnimationName => "Inescapable";
+        public int ManaCost => 20;
+        
 
         public void Cast(ICaster caster)
         {
@@ -21,8 +20,6 @@ namespace Script.Attack.Skill_Factory
             
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
-            var skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            skill.Play();
             
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
@@ -33,7 +30,6 @@ namespace Script.Attack.Skill_Factory
         public SkillEffect SkillEffect => SkillEffect.NonEffect;
         public string SkillName => "Indestructible";
         public int ManaCost => 30;
-
         public string AnimationName => "Indestructible";
 
         public void Cast(ICaster caster)
@@ -41,11 +37,9 @@ namespace Script.Attack.Skill_Factory
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
             var spawnPos = caster.TargetCaster().transform.position;
+            Debug.Log(caster.TargetCaster().transform.position);
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
-
-            var skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            skill.Play();
 
             var tempMaterials = caster.TargetCaster().GetComponent<PlayerStateMachine>().SkinnedMeshRenderer.materials;
             
@@ -66,11 +60,11 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
-            PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+            var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
 
-            Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
+            var tempMaterials = player.SkinnedMeshRenderer.materials;
             tempMaterials[0] = player.PhantomMaterial;
             tempMaterials[1] = player.PhantomMaterial;
 
@@ -80,9 +74,6 @@ namespace Script.Attack.Skill_Factory
             tempMaterials[0].SetColor("_BaseColor", newColor);
             tempMaterials[1].SetColor("_BaseColor", newColor);
             player.SkinnedMeshRenderer.materials = tempMaterials;
-
-            //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            //skill.Play();
         }
     }
 
@@ -97,12 +88,10 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
             Debug.Log("WorldBreaker");
-            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            skill.Play();
         }
     }
 
@@ -117,17 +106,15 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
 
-            Vector3 spawnPos = caster.TargetCaster().transform.position;
+            var spawnPos = caster.TargetCaster().transform.position;
             spawnPos.y += 1f;
             spawnPos.x += .6f;
 
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, spawnPos);
-
-            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            skill.Play();
+            
         }
     }
 
@@ -141,11 +128,9 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-            skill.Play();
         }
     }
 }
