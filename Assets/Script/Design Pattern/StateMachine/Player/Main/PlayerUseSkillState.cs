@@ -1,35 +1,38 @@
-public class PlayerUseSkillState : PlayerBaseState
+using Script.Design_Pattern.StateMachine.Player.Base;
+
+namespace Script.Design_Pattern.StateMachine.Player.Main
 {
-    readonly string UseSkillAnimationString = "UseSkill";
-    string AnimationName;
-
-    public PlayerUseSkillState(PlayerStateMachine playerStateMachine, string animationName) : base(playerStateMachine)
+    public class PlayerUseSkillState : PlayerBaseState
     {
-        AnimationName = animationName;
-    }
+        private const string UseSkillAnimationString = "UseSkill";
+        private readonly string AnimationName;
 
-    public override void Enter()
-    {
-        playerStateMachine.Animator.CrossFadeInFixedTime(AnimationName, playerStateMachine.AnimationCrossFade, 0);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
-        if (normalizeTime > 0.8f && normalizeTime <= 1f)
+        public PlayerUseSkillState(PlayerStateMachine playerStateMachine, string animationName) : base(playerStateMachine)
         {
-            playerStateMachine.ReturnLocomotion();
+            this.AnimationName = animationName;
         }
-    }
 
-    public override void PhysicTick(float fixedDeltaTime)
-    {
+        public override void Enter()
+        {
+            playerStateMachine.Animator.CrossFadeInFixedTime(AnimationName, playerStateMachine.AnimationCrossFade, 0);
+            // playerStateMachine.CountSkillTime = playerStateMachine.SkillTime;
+        }
 
-    }
+        public override void Tick(float deltaTime)
+        {
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
+            if (normalizeTime is > 0.8f and <= 1f)
+            {
+                playerStateMachine.ReturnLocomotion();
+            }
+        }
 
-    public override void Exit()
-    {
+        public override void PhysicTick(float fixedDeltaTime)
+        {
+        }
 
-
+        public override void Exit()
+        {
+        }
     }
 }

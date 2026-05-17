@@ -1,150 +1,151 @@
 using System;
-using System.Collections;
+using Script.Design_Pattern.EventBus;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-
-public class Inescapable : ISkill
+namespace Script.Attack.Skill_Factory
 {
-    public string SkillName => "Inescapable";
-
-    public int ManaCost => 20;
-
-    public string AnimationName => "Inescapable";
-
-    public void Cast(ICaster caster)
+    public class Inescapable : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-        PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+        public string SkillName => "Inescapable";
+        public SkillEffect SkillEffect => SkillEffect.Inescapable;
 
-        if (player.Targeter.currentTarget != null)
+        public int ManaCost => 20;
+
+        public string AnimationName => "Inescapable";
+
+        public void Cast(ICaster caster)
         {
-            FinalBossStateMachine finalBoss = player.Targeter.currentTarget?.GetComponent<FinalBossStateMachine>();
-            finalBoss.SetMovement();
-            finalBoss.ReturnLocomotion();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+            
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
+            var skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            skill.Play();
+            
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
-
-        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        skill.Play();
     }
-}
-public class Indestructible : ISkill
-{
-    public string SkillName => "Indestructible";
-    public int ManaCost => 30;
 
-    public string AnimationName => "Indestructible";
-
-    public void Cast(ICaster caster)
+    public class Indestructible : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-        caster.ComsumeMana(ManaCost);
-        Vector3 spawnPos = caster.TargetCaster().transform.position;
-        spawnPos.y += 1f;
-        getSkill.SpawnSkill(SkillName, spawnPos);
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "Indestructible";
+        public int ManaCost => 30;
 
-        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        skill.Play();
-        PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+        public string AnimationName => "Indestructible";
 
-        Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
-        tempMaterials[0].SetFloat("_Metallic", 1f);
-        tempMaterials[1].SetFloat("_Metallic", 1f);
-        player.SkinnedMeshRenderer.materials = tempMaterials;
-        //player.SkinnedMeshRenderer.materials[0].SetFloat("_Metallic", 1);
-        //player.SkinnedMeshRenderer.materials[1].SetFloat("_Metallic", 1);
-        ResetAfterUseSkill.instance.StartFeature(1f, () =>
+        public void Cast(ICaster caster)
         {
-            tempMaterials[0].SetFloat("_Metallic", 0f);
-            tempMaterials[1].SetFloat("_Metallic", 0f);
-        });
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            caster.ComsumeMana(ManaCost);
+            var spawnPos = caster.TargetCaster().transform.position;
+            spawnPos.y += 1f;
+            getSkill.SpawnSkill(SkillName, spawnPos);
 
+            var skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            skill.Play();
+
+            var tempMaterials = caster.TargetCaster().GetComponent<PlayerStateMachine>().SkinnedMeshRenderer.materials;
+            
+            tempMaterials[0].SetFloat("_Metallic", 1f);
+            tempMaterials[1].SetFloat("_Metallic", 1f);
+            
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+        }
     }
-}
-public class Invisible : ISkill
-{
-    public string SkillName => "Invisible";
-    public int ManaCost => 20;
-    public string AnimationName => "Invisible";
 
-    public void Cast(ICaster caster)
+    public class Invisible : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-        caster.ComsumeMana(ManaCost);
-        PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "Invisible";
+        public int ManaCost => 20;
 
-        Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
-        tempMaterials[0] = player.PhantomMaterial;
-        tempMaterials[1] = player.PhantomMaterial;
+        public string AnimationName => "Invisible";
 
-        Color newColor = tempMaterials[0].GetColor("_BaseColor");
-        newColor.a = 0.4f;
+        public void Cast(ICaster caster)
+        {
+            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            caster.ComsumeMana(ManaCost);
+            PlayerStateMachine player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
 
-        tempMaterials[0].SetColor("_BaseColor", newColor);
-        tempMaterials[1].SetColor("_BaseColor", newColor);
-        player.SkinnedMeshRenderer.materials = tempMaterials;
+            Material[] tempMaterials = player.SkinnedMeshRenderer.materials;
+            tempMaterials[0] = player.PhantomMaterial;
+            tempMaterials[1] = player.PhantomMaterial;
 
-        //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        //skill.Play();
+            Color newColor = tempMaterials[0].GetColor("_BaseColor");
+            newColor.a = 0.4f;
+
+            tempMaterials[0].SetColor("_BaseColor", newColor);
+            tempMaterials[1].SetColor("_BaseColor", newColor);
+            player.SkinnedMeshRenderer.materials = tempMaterials;
+
+            //ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            //skill.Play();
+        }
     }
-}
-public class Worldbreaker : ISkill
-{
-    public string SkillName => "Worldbreaker";
-    public int ManaCost => 30;
 
-    public string AnimationName => "Worldbreaker";
-
-    public void Cast(ICaster caster)
+    public class WorldBreaker : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-        caster.ComsumeMana(ManaCost);
-        getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-        Debug.Log("Worldbreaker");
-        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        skill.Play();
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+
+        public string SkillName => "WorldBreaker";
+        public int ManaCost => 30;
+
+        public string AnimationName => "WorldBreaker";
+
+        public void Cast(ICaster caster)
+        {
+            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            caster.ComsumeMana(ManaCost);
+            getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+            Debug.Log("WorldBreaker");
+            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            skill.Play();
+        }
     }
-}
-public class PhantomRetreat : ISkill
-{
-    public string SkillName => "PhantomRetreat";
-    public int ManaCost => 30;
 
-    public string AnimationName => "PhantomRetreat";
-
-    public void Cast(ICaster caster)
+    public class PhantomRetreat : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
 
-        Vector3 spawnPos = caster.TargetCaster().transform.position;
-        spawnPos.y += 1f;
-        spawnPos.x += .6f;
+        public string SkillName => "PhantomRetreat";
+        public int ManaCost => 30;
 
-        caster.ComsumeMana(ManaCost);
-        getSkill.SpawnSkill(SkillName, spawnPos);
+        public string AnimationName => "PhantomRetreat";
 
-        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        skill.Play();
+        public void Cast(ICaster caster)
+        {
+            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+
+            Vector3 spawnPos = caster.TargetCaster().transform.position;
+            spawnPos.y += 1f;
+            spawnPos.x += .6f;
+
+            caster.ComsumeMana(ManaCost);
+            getSkill.SpawnSkill(SkillName, spawnPos);
+
+            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            skill.Play();
+        }
     }
-}
 
-public class PhantomMirage : ISkill
-{
-    public string SkillName => "PhantomMirage";
-    public int ManaCost => 30;
-
-    public string AnimationName => "PhantomMirage";
-
-    public void Cast(ICaster caster)
+    public class PhantomMirage : ISkill
     {
-        GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-        caster.ComsumeMana(ManaCost);
-        getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-        ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
-        skill.Play();
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "PhantomMirage";
+        public int ManaCost => 30;
+
+        public string AnimationName => "PhantomMirage";
+
+        public void Cast(ICaster caster)
+        {
+            GetSkill getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            caster.ComsumeMana(ManaCost);
+            getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+            ParticleSystem skill = GameObject.Find(SkillName).GetComponent<ParticleSystem>();
+            skill.Play();
+        }
     }
 }
-
-
-

@@ -1,28 +1,31 @@
 using UnityEngine;
 
-public abstract class State
+namespace Script.Design_Pattern.StateMachine.Base
 {
-    public abstract void Enter();
-    public abstract void Tick(float deltaTime);
-    public abstract void PhysicTick(float fixedDeltaTime);
-    public abstract void Exit();
-
-    public float GetNormalizeTime(Animator animator, string animationTag, int layer)
+    public abstract class State
     {
-        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(layer);
-        AnimatorStateInfo nextState = animator.GetNextAnimatorStateInfo(layer);
+        public abstract void Enter();
+        public abstract void Tick(float deltaTime);
+        public abstract void PhysicTick(float fixedDeltaTime);
+        public abstract void Exit();
 
-        if (nextState.IsTag(animationTag) && animator.IsInTransition(layer)) // if blending (transition)
+        protected float GetNormalizeTime(Animator animator, string animationTag, int layer)
         {
-            return nextState.normalizedTime;
-        }
-        else if (currentState.IsTag(animationTag) && !animator.IsInTransition(layer)) // if not blending
-        {
-            return currentState.normalizedTime;
-        }
-        else
-        {
-            return 0f;
+            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(layer);
+            AnimatorStateInfo nextState = animator.GetNextAnimatorStateInfo(layer);
+
+            if (nextState.IsTag(animationTag) && animator.IsInTransition(layer)) // if blending (transition)
+            {
+                return nextState.normalizedTime;
+            }
+            else if (currentState.IsTag(animationTag) && !animator.IsInTransition(layer)) // if not blending
+            {
+                return currentState.normalizedTime;
+            }
+            else
+            {
+                return 0f;
+            }
         }
     }
 }

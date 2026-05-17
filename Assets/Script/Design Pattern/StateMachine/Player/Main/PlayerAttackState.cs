@@ -1,74 +1,79 @@
-public class PlayerAttackState : PlayerBaseState
+using Script.Design_Pattern.StateMachine.Player.Base;
+
+namespace Script.Design_Pattern.StateMachine.Player.Main
 {
-    AttackData attackData;
-    float previousTime;
-    bool alreadyApplyForce;
-
-    public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
+    public class PlayerAttackState : PlayerBaseState
     {
-        attackData = playerStateMachine.AttackData[attackDataIndex];
-    }
+        private readonly AttackData attackData;
+        private float previousTime;
+        private bool alreadyApplyForce;
 
-    public override void Enter()
-    {
-        playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
-        playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition, 0);
-        playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag, 0);
-        if (normalizeTime >= previousTime && normalizeTime <= 1f)
+        public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
         {
-            if (normalizeTime >= attackData.ForceTime)
-            {
-                TryApplyForce();
-            }
-
-            if (playerStateMachine.InputReader.IsAttack)
-            {
-                TryCombo(normalizeTime);
-            }
-
-        }
-        else
-        {
-            playerStateMachine.ReturnLocomotion();
+            attackData = playerStateMachine.AttackData[attackDataIndex];
         }
 
-        previousTime = normalizeTime;
-        FaceTarget(deltaTime);
-        Move(deltaTime);
+        public override void Enter()
+        {
+            playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
+            playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition, 0);
+            playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
+        }
 
-    }
+        public override void Tick(float deltaTime)
+        {
+            float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag, 0);
+            if (normalizeTime >= previousTime && normalizeTime <= 1f)
+            {
+                if (normalizeTime >= attackData.ForceTime)
+                {
+                    TryApplyForce();
+                }
 
-    public override void PhysicTick(float fixedDeltaTime)
-    {
+                if (playerStateMachine.InputReader.IsAttack)
+                {
+                    TryCombo(normalizeTime);
+                }
 
-    }
+            }
+            else
+            {
+                playerStateMachine.ReturnLocomotion();
+            }
 
-    public override void Exit()
-    {
-        playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
-        //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
-    }
+            previousTime = normalizeTime;
+            FaceTarget(deltaTime);
+            Move(deltaTime);
 
-    void TryCombo(float normalizeTime)
-    {
-        if (attackData.NextAttackDataIndex == -1) { return; }
-        if (normalizeTime < attackData.AttackAnimationTime) { return; }
+        }
 
-        playerStateMachine.SwitchState(new PlayerAttackState(
-            playerStateMachine,
-            attackData.NextAttackDataIndex
+        public override void PhysicTick(float fixedDeltaTime)
+        {
+
+        }
+
+        public override void Exit()
+        {
+            playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
+            //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
+        }
+
+        private void TryCombo(float normalizeTime)
+        {
+            if (attackData.NextAttackDataIndex == -1) { return; }
+            if (normalizeTime < attackData.AttackAnimationTime) { return; }
+
+            playerStateMachine.SwitchState(new PlayerAttackState(
+                playerStateMachine,
+                attackData.NextAttackDataIndex
             ));
-    }
+        }
 
-    void TryApplyForce()
-    {
-        if (alreadyApplyForce) { return; }
-        playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * attackData.Force);
-        alreadyApplyForce = true;
+        private void TryApplyForce()
+        {
+            if (alreadyApplyForce) { return; }
+            playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * attackData.Force);
+            alreadyApplyForce = true;
+        }
     }
 }

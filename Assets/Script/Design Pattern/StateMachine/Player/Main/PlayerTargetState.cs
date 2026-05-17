@@ -1,91 +1,95 @@
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-public class PlayerTargetState : PlayerBaseState
+namespace Script.Design_Pattern.StateMachine.Player.Main
 {
-    readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
-    readonly int MovementXParam = Animator.StringToHash("MovementX");
-    readonly int MovementYParam = Animator.StringToHash("MovementY");
-    public PlayerTargetState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public class PlayerTargetState : PlayerBaseState
     {
-    }
-
-    public override void Enter()
-    {
-        playerStateMachine.InputReader.JumpAction += EnterJumpState;
-        playerStateMachine.InputReader.TargetAction += OutTargetState;
-        playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-        playerStateMachine.InputReader.SkillAction += UseSkill;
-
-        playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
-
-        playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
-
-        if (!playerStateMachine.isAttackState)
+        private readonly int targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
+        private readonly int movementXParam = Animator.StringToHash("MovementX");
+        private readonly int movementYParam = Animator.StringToHash("MovementY");
+        public PlayerTargetState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            playerStateMachine.EnterChangeAction(true);
-        }
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        if (playerStateMachine.Targeter.currentTarget == null)
-        {
-            OutTargetState();
         }
 
-        if (playerStateMachine.InputReader.IsAttack)
+        public override void Enter()
         {
-            playerStateMachine.EnterAttackState(0);
+            playerStateMachine.InputReader.JumpAction += EnterJumpState;
+            playerStateMachine.InputReader.TargetAction += OutTargetState;
+            playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
+            playerStateMachine.InputReader.SkillAction += UseSkill;
+
+            playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
+
+            playerStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+
+            if (!playerStateMachine.isAttackState)
+            {
+                playerStateMachine.EnterChangeAction(true);
+            }
         }
 
-        Vector3 movement = CalculateMovementInTarget();
-        Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
-        UpdateAnimation(deltaTime);
-        FaceTarget(deltaTime);
-    }
-
-    public override void PhysicTick(float fixedDeltaTime)
-    {
-
-    }
-
-    public override void Exit()
-    {
-        playerStateMachine.InputReader.TargetAction -= OutTargetState;
-        playerStateMachine.InputReader.JumpAction -= EnterJumpState;
-        playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-        playerStateMachine.InputReader.SkillAction -= UseSkill;
-        playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
-    }
-
-    void OutTargetState()
-    {
-        playerStateMachine.Targeter.CancelTarget();
-        playerStateMachine.EnterChangeAction(false);
-        return;
-    }
-
-    void EnterDodgeState()
-    {
-        playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
-    }
-
-    void UpdateAnimation(float deltaTime)
-    {
-        float dirX = 0f;
-        float dirY = 0f;
-        if (playerStateMachine.InputReader.InputMovement.x != 0)
+        public override void Tick(float deltaTime)
         {
-            dirX = Mathf.Sign(playerStateMachine.InputReader.InputMovement.x);
+            if (playerStateMachine.Targeter.currentTarget is null)
+            {
+                OutTargetState();
+            }
 
-        }
-        if (playerStateMachine.InputReader.InputMovement.y != 0)
-        {
-            dirY = Mathf.Sign(playerStateMachine.InputReader.InputMovement.y);
+            if (playerStateMachine.InputReader.IsAttack)
+            {
+                playerStateMachine.EnterAttackState(0);
+            }
+
+            Vector3 movement = CalculateMovementInTarget();
+            Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
+            UpdateAnimation(deltaTime);
+            FaceTarget(deltaTime);
         }
 
-        playerStateMachine.Animator.SetFloat(MovementXParam, dirX, playerStateMachine.AnimationCrossFade, deltaTime);
-        playerStateMachine.Animator.SetFloat(MovementYParam, dirY, playerStateMachine.AnimationCrossFade, deltaTime);
-    }
+        public override void PhysicTick(float fixedDeltaTime)
+        {
 
+        }
+
+        public override void Exit()
+        {
+            playerStateMachine.InputReader.TargetAction -= OutTargetState;
+            playerStateMachine.InputReader.JumpAction -= EnterJumpState;
+            playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
+            playerStateMachine.InputReader.SkillAction -= UseSkill;
+            playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
+        }
+
+        void OutTargetState()
+        {
+            playerStateMachine.Targeter.CancelTarget();
+            playerStateMachine.EnterChangeAction(false);
+            return;
+        }
+
+        void EnterDodgeState()
+        {
+            playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
+        }
+
+        void UpdateAnimation(float deltaTime)
+        {
+            float dirX = 0f;
+            float dirY = 0f;
+            if (playerStateMachine.InputReader.InputMovement.x != 0)
+            {
+                dirX = Mathf.Sign(playerStateMachine.InputReader.InputMovement.x);
+
+            }
+            if (playerStateMachine.InputReader.InputMovement.y != 0)
+            {
+                dirY = Mathf.Sign(playerStateMachine.InputReader.InputMovement.y);
+            }
+
+            playerStateMachine.Animator.SetFloat(movementXParam, dirX, playerStateMachine.AnimationCrossFade, deltaTime);
+            playerStateMachine.Animator.SetFloat(movementYParam, dirY, playerStateMachine.AnimationCrossFade, deltaTime);
+        }
+
+    }
 }

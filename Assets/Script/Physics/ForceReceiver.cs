@@ -1,44 +1,56 @@
 using UnityEngine;
 
-public class ForceReceiver : MonoBehaviour
+namespace Script.Physics
 {
-    [Header("Physics")]
-    [SerializeField] float drag = .3f;
-    public float verticalVelocity { get; set; }
-
-    CharacterController characterController;
-    Vector3 dampingVelocity;
-    Vector3 impact;
-    public Vector3 Movement => (impact + Vector3.up * verticalVelocity);
-
-    void Start()
+    public class ForceReceiver : MonoBehaviour
     {
+        [Header("Physics")]
+        [SerializeField] float drag = .3f;
+
+        private float VerticalVelocity { get; set; }
+        private float CoefficientOfMovement { get; set; } = 1f;
+
+        private CharacterController characterController;
+        private Vector3 dampingVelocity;
+        private Vector3 impact;
         
-        characterController = GetComponent<CharacterController>();
-    }
+        public Vector3 Movement => (impact + Vector3.up * VerticalVelocity);
 
-    void Update()
-    {
-        if (verticalVelocity < 0f && characterController.isGrounded)
+        private void Start()
         {
-            verticalVelocity = Physics.gravity.y * Time.deltaTime;
-        }
-        else
-        {
-            verticalVelocity += Physics.gravity.y * Time.deltaTime;
+            characterController = GetComponent<CharacterController>();
         }
 
-        impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
-    }
+        private void Update()
+        {
+            if (VerticalVelocity < 0f && characterController.isGrounded)
+            {
+                VerticalVelocity = UnityEngine.Physics.gravity.y * Time.deltaTime;
+            }
+            else
+            {
+                VerticalVelocity += UnityEngine.Physics.gravity.y * Time.deltaTime;
+            }
 
-    public void AddForce(Vector3 force)
-    {
-        impact += force;
-    }
+            impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
+        }
 
-    public void Jump(float jumpForce)
-    {
-        verticalVelocity += jumpForce;
-    }
+        public void AddForce(Vector3 force)
+        {
+            impact += force;
+        }
 
+        public void Jump(float jumpForce)
+        {
+            VerticalVelocity += jumpForce;
+        }
+
+        public void SetCoefficientOfMovement(float  coefficientOfMovement)
+        {
+            CoefficientOfMovement = coefficientOfMovement;
+        }
+
+        public float GetCoefficientOfMovement() => CoefficientOfMovement;
+
+    }
 }

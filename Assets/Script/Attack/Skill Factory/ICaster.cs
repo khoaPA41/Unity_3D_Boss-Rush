@@ -1,9 +1,11 @@
-using System;
 using UnityEngine;
 
-public interface ICaster
+namespace Script.Attack.Skill_Factory
 {
-    void ComsumeMana(int amount);
-    Transform GetTransform();
-    GameObject TargetCaster();
+    public interface ICaster
+    {
+        void ComsumeMana(int amount);
+        Transform GetTransform();
+        GameObject TargetCaster();
+    }
 }

@@ -1,72 +1,77 @@
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-public class PlayerHitState : PlayerBaseState
+namespace Script.Design_Pattern.StateMachine.Player.Main
 {
-    readonly int HitAnimationHash = Animator.StringToHash("Hit");
-    readonly int HitKnockbackAnimationHash = Animator.StringToHash("Hit_Knockback");
-
-    readonly string HitAnimationTag = "Hit";
-    float previousTime;
-
-    bool isKnockBack = false;
-
-    bool alreadyApplyForce = false;
-    float force;
-    public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
+    public class PlayerHitState : PlayerBaseState
     {
-        this.isKnockBack = isKnockBack;
-    }
+        private readonly int hitAnimationHash = Animator.StringToHash("Hit");
+        private readonly int hitKnockbackAnimationHash = Animator.StringToHash("Hit_Knockback");
 
-    public override void Enter()
-    {
-        if (isKnockBack)
+        private const string HitAnimationTag = "Hit";
+        
+        private float previousTime;
+
+        private readonly bool isKnockBack = false;
+
+        private bool alreadyApplyForce = false;
+        private float force;
+        public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
         {
-            force = playerStateMachine.HitKnockback;
-            playerStateMachine.Animator.CrossFadeInFixedTime(HitKnockbackAnimationHash, playerStateMachine.AnimationCrossFade);
+            this.isKnockBack = isKnockBack;
         }
-        else
-        {
-            force = playerStateMachine.HitForce;
-            playerStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, playerStateMachine.AnimationCrossFade);
-        }
-    }
 
-    public override void Tick(float deltaTime)
-    {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag, 0);
-
-        if (normalizeTime >= previousTime && normalizeTime <= 1f)
+        public override void Enter()
         {
-            if (normalizeTime >= playerStateMachine.HitForceTime)
+            if (isKnockBack)
             {
-                TryApplyForce(force);
+                force = playerStateMachine.HitKnockback;
+                playerStateMachine.Animator.CrossFadeInFixedTime(hitKnockbackAnimationHash, playerStateMachine.AnimationCrossFade);
+            }
+            else
+            {
+                force = playerStateMachine.HitForce;
+                playerStateMachine.Animator.CrossFadeInFixedTime(hitAnimationHash, playerStateMachine.AnimationCrossFade);
             }
         }
-        else
+
+        public override void Tick(float deltaTime)
         {
-            playerStateMachine.ReturnLocomotion();
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag, 0);
+
+            if (normalizeTime >= previousTime && normalizeTime <= 1f)
+            {
+                if (normalizeTime >= playerStateMachine.HitForceTime)
+                {
+                    TryApplyForce(force);
+                }
+            }
+            else
+            {
+                playerStateMachine.ReturnLocomotion();
+            }
+
+            previousTime = normalizeTime;
+            Move(deltaTime);
+            FaceTarget(deltaTime);
+
         }
 
-        previousTime = normalizeTime;
-        Move(deltaTime);
-        FaceTarget(deltaTime);
+        public override void PhysicTick(float fixedDeltaTime)
+        {
 
-    }
+        }
 
-    public override void PhysicTick(float fixedDeltaTime)
-    {
+        public override void Exit()
+        {
 
-    }
+        }
 
-    public override void Exit()
-    {
-
-    }
-
-    void TryApplyForce(float force)
-    {
-        if (alreadyApplyForce) { return; }
-        playerStateMachine.ForceReceiver.AddForce(-playerStateMachine.transform.forward * force);
-        alreadyApplyForce = true;
+        private void TryApplyForce(float force)
+        {
+            if (alreadyApplyForce) { return; }
+            playerStateMachine.ForceReceiver.AddForce(-playerStateMachine.transform.forward * force);
+            alreadyApplyForce = true;
+        }
     }
 }

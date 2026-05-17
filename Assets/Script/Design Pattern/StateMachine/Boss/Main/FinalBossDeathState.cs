@@ -1,3 +1,4 @@
+using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 
 public class FinalBossDeathState : FinalBossBaseState

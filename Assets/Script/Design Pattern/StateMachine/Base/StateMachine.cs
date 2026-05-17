@@ -1,25 +1,30 @@
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+namespace Script.Design_Pattern.StateMachine.Base
 {
-    State currentState;
-
-    public void SwitchState(State newState)
+    public class StateMachine : MonoBehaviour
     {
-        currentState?.Exit();
-        currentState = newState;
-        currentState?.Enter();
-    }
+        private State currentState;
+
+        public void SwitchState(State newState)
+        {
+            currentState?.Exit();
+            currentState = newState;
+            currentState?.Enter();
+        }
 
 
-    void Update()
-    {
-        currentState?.Tick(Time.deltaTime);
-    }
+        private void Update()
+        {
+            currentState?.Tick(Time.deltaTime);
+        }
 
 
-    void FixedUpdate()
-    {
-        currentState?.PhysicTick(Time.fixedDeltaTime);
+
+
+        private void FixedUpdate()
+        {
+            currentState?.PhysicTick(Time.fixedDeltaTime);
+        }
     }
 }
