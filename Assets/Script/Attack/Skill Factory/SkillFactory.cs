@@ -19,8 +19,9 @@ namespace Script.Attack.Skill_Factory
         NonEffect,
         Inescapable,
         Stunned,
-        ThrowUp
- 
+        ThrowUp,
+        NoDamage,
+        Invisible
     }
     
     public static class SkillFactory

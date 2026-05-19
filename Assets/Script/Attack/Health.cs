@@ -2,43 +2,47 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+namespace Script.Attack
 {
-    [SerializeField] int maxHealth;
-    [SerializeField] float timeFreeze;
-    [SerializeField] float timeToBackNormal;
-
-    public int currentHealth { get; private set; }
-
-    public event Action DeathAction;
-    public event Action HitAction;
-    void Start()
+    public class Health : MonoBehaviour
     {
-        currentHealth = maxHealth;
-    }
+        [SerializeField] private int maxHealth;
+        [SerializeField] private float timeFreeze;
+        [SerializeField] private float timeToBackNormal;
 
-    public void DealDamage(int damage)
-    {
-        currentHealth = Mathf.Max(currentHealth - damage, 0);
-        HitAction?.Invoke();
+        public int currentHealth;
 
-        if (currentHealth <= 0)
+        public bool noDamage { get; set; } = false;
+
+        public event Action DeathAction;
+        public event Action HitAction;
+
+        private void Start()
         {
-            DeathAction?.Invoke();
+            currentHealth = maxHealth;
         }
 
-    }
+        public void DealDamage(int damage)
+        {
+            currentHealth = Mathf.Max(currentHealth - damage, 0);
+            HitAction?.Invoke();
 
-    IEnumerator TimeFreeHit()
-    {
-        Time.timeScale = timeFreeze;
-        yield return new WaitForSecondsRealtime(timeToBackNormal);
-        Time.timeScale = 1f;
-    }
+            if (currentHealth <= 0)
+            {
+                DeathAction?.Invoke();
+            }
+        }
 
-    public void HitStop()
-    {
-        StartCoroutine(TimeFreeHit());
-    }
+        private IEnumerator TimeFreeHit()
+        {
+            Time.timeScale = timeFreeze;
+            yield return new WaitForSecondsRealtime(timeToBackNormal);
+            Time.timeScale = 1f;
+        }
 
+        public void HitStop()
+        {
+            StartCoroutine(TimeFreeHit());
+        }
+    }
 }

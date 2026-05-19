@@ -1,13 +1,21 @@
 using UnityEngine;
 
-public class PooledObject : MonoBehaviour
+namespace Script.Design_Pattern.Object_Pooling
 {
-    ObjectPooling instance { get; set; }
-    public ObjectPooling Instance { get => instance; set => instance = value; }
-
-
-    public void Release(string name)
+    public class PooledObject : MonoBehaviour
     {
-        instance?.ReturnToPool(name, this);
+        ObjectPooling instance { get; set; }
+
+        public ObjectPooling Instance
+        {
+            get => instance;
+            set => instance = value;
+        }
+
+
+        public void Release(string name)
+        {
+            instance?.ReturnToPool(name, this);
+        }
     }
 }

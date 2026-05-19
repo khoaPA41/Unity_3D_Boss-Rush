@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class GetSkill : MonoBehaviour
+namespace Script.Design_Pattern.Object_Pooling
 {
-    [SerializeField] ObjectPooling objectPooling;
-
-
-    public void SpawnSkill(string name, Vector3 skillPosition)
+    public class GetSkill : MonoBehaviour
     {
-        objectPooling.GetPooledObject(name, skillPosition);
+        [SerializeField] private ObjectPooling objectPooling;
+
+        public GameObject skill;
+        
+        public void SpawnSkill(string name, Vector3 skillPosition)
+        {
+            skill = objectPooling.GetPooledObject(name, skillPosition).gameObject;
+        }
     }
 }

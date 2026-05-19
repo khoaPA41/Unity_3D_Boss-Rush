@@ -1,6 +1,9 @@
 using System;
+using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
+using Script.Design_Pattern.StateMachine.Boss.Main;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Physics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -35,10 +38,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public int TimesHitted { get; set; } = 0;
 
         public Health Player { get; private set; }
+        
+        public PlayerStateMachine PlayerStateMachine { get; private set; }
 
         private void Start()
         {
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
+            PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
             ReturnLocomotion();
         }
 
@@ -57,25 +63,21 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public void ReturnLocomotion()
         {
             SwitchState(new FinalBossLocomotionState(this));
-            return;
         }
 
         public void EnterChasingState(bool isWalk)
         {
             SwitchState(new FinalBossChasingState(this, isWalk));
-            return;
         }
 
         public void EnterAttackState()
         {
             SwitchState(new FinalBossAttackState(this, 0));
-            return;
         }
 
-        void EnterDeathState()
+        private void EnterDeathState()
         {
             SwitchState(new FinalBossDeathState(this));
-            return;
         }
 
         public void EnterHitState()
@@ -100,14 +102,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
         {
-            if (TargetCaster() == caster.TargetCaster())
-            {
-                Debug.Log("It's Me!");
-            }
-            else
-            {
                 ActiveEnventBySkill(skillEffect)?.Invoke();
-            }
         }
 
         public void ComsumeMana(int amount)
@@ -134,10 +129,11 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                 {
                     ForceReceiver.SetCoefficientOfMovement(0f);
                     ReturnLocomotion();
-                    Debug.Log("Non");
                 },
-                SkillEffect.Stunned => null,
-                SkillEffect.ThrowUp => null,
+                SkillEffect.Stunned => () => {Debug.Log("Stunned"); },
+                SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
+                SkillEffect.NoDamage => () => {Debug.Log("NoDamage"); },
+                SkillEffect.Invisible => ReturnLocomotion,
                 _ => null
             };
         }

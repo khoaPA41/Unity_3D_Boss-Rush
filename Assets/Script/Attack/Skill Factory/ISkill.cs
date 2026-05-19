@@ -9,7 +9,3 @@ namespace Script.Attack.Skill_Factory
         void Cast(ICaster caster);
     }
 }
-
-
-
-

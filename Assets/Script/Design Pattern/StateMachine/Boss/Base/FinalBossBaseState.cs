@@ -15,6 +15,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         protected void Move(Vector3 motion, float deltaTime)
         {
+            if (finalBossStateMachine.PlayerStateMachine.Invisible) { return;}
             finalBossStateMachine.CharacterController.Move(
                 (motion + finalBossStateMachine.ForceReceiver.Movement) *
                 (finalBossStateMachine.ForceReceiver.GetCoefficientOfMovement() * deltaTime));
@@ -27,12 +28,14 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         protected void FaceTarget(Vector3 dir)
         {
+            if (finalBossStateMachine.PlayerStateMachine.Invisible) { return;}
             finalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
 
         protected Vector3 GetDirToPlayer()
         {
-            Vector3 dir = (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
+            if (finalBossStateMachine.PlayerStateMachine.Invisible) { return Vector3.zero; }
+            var dir = (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
                 .normalized;
             dir.y = 0;
             return dir;
@@ -40,15 +43,17 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         protected bool IsAttackRange()
         {
-            return (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
-                .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.AttackRange;
+            return ((finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
+                .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.AttackRange) && 
+                   !finalBossStateMachine.PlayerStateMachine.Invisible;
         }
 
 
         protected bool IsWalkRange()
         {
-            return (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
-                .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.WalkRange;
+            return ((finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
+                .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.WalkRange) && 
+                   !finalBossStateMachine.PlayerStateMachine.Invisible;
         }
     }
 }

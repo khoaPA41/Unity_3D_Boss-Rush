@@ -9,10 +9,10 @@ namespace Script.Design_Pattern.StateMachine.Base
         public abstract void PhysicTick(float fixedDeltaTime);
         public abstract void Exit();
 
-        protected float GetNormalizeTime(Animator animator, string animationTag, int layer)
+        protected static float GetNormalizeTime(Animator animator, string animationTag, int layer)
         {
-            AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(layer);
-            AnimatorStateInfo nextState = animator.GetNextAnimatorStateInfo(layer);
+            var currentState = animator.GetCurrentAnimatorStateInfo(layer);
+            var nextState = animator.GetNextAnimatorStateInfo(layer);
 
             if (nextState.IsTag(animationTag) && animator.IsInTransition(layer)) // if blending (transition)
             {

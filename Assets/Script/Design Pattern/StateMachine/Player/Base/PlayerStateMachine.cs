@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.StateMachine.Player.Main;
@@ -16,7 +18,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [Header("Physics")]
         [field: SerializeField]
         public CharacterController CharacterController { get; private set; }
-
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float FreeLookMovementSpeed { get; private set; } = 5f;
         [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
@@ -31,9 +32,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
 
         [Header("Attack")]
-        [field: SerializeField]
-        public AttackData[] AttackData { get; private set; }
-
+        [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }
@@ -41,28 +40,33 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
 
         [Header("Animation")]
-        [field: SerializeField]
-        public Animator Animator { get; private set; }
-
+        [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
         [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
         [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
 
         [Header("Skill")]
-        [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
-        [field: SerializeField] public float SkillTime { get; private set; }
-        [field: SerializeField] public Material PhantomMaterial { get; private set; }
+        [field: SerializeField]
+        public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
 
+        [field: SerializeField] public float SkillTime { get; private set; }
+        [field: SerializeField] public Material PhantomMaterial1 { get; private set; }
+        [field: SerializeField] public Material PhantomMaterial2 { get; private set; }
+        [field: SerializeField] public Material IronMaterial1 { get; private set; }
+        [field: SerializeField] public Material IronMaterial2 { get; private set; }
+        [field: SerializeField] public Material MainMaterial1 { get; private set; }
+        [field: SerializeField] public Material MainMaterial2 { get; private set; }
 
         public Transform MainCameraTransform { get; private set; }
-        private int HitTimes { get; set; }
-
-        public float CountSkillTime { get; set; }
         
+        public bool Invisible;
+        
+        public bool Invincible;
+        private int HitTimes { get; set; }
+        public float CountSkillTime { get; set; }
         public bool isAttackState;
-
-
+        public bool IsActiveEffect { get; set; } = false;
         private void Start()
         {
             InputReader.ApplicationCursor();
@@ -72,14 +76,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         private void OnEnable()
         {
-            Health.DeathAction += EnterDeathState;
             GameEventManagers.OnSkillCasted += HandleSkillEvent;
+            Health.HitAction += EnterHitState;
+            Health.DeathAction += EnterDeathState;
         }
 
         private void OnDisable()
         {
+            GameEventManagers.OnSkillCasted += HandleSkillEvent;
+            Health.HitAction -= EnterHitState;
             Health.DeathAction -= EnterDeathState;
-            GameEventManagers.OnSkillCasted -= HandleSkillEvent;
         }
 
         public void ReturnLocomotion()
@@ -128,14 +134,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             SwitchState(new PlayerHitState(this, isKnockBack));
         }
 
-        public void EnterSkillState(string animationName)
+        public void EnterSkillState(int skillNumber)
         {
-            if (Mana.currentMana <= 0 || CountSkillTime < SkillTime)
+            if (Invincible) {return;}
+            
+            if (Mana.currentMana <= 0)
             {
                 return;
             }
-
-            SwitchState(new PlayerUseSkillState(this, animationName));
+            
+            SwitchState(new PlayerUseSkillState(this, skillNumber));
         }
 
         public void ComsumeMana(int amount)
@@ -155,26 +163,35 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
         {
-            if (TargetCaster() == caster.TargetCaster())
-            {
-                
-            }else
-            {
-                ActiveSkillEvent(skillEffect)?.Invoke();
-            }
+            ActiveSkillEvent(skillEffect)?.Invoke();
         }
-
-
+        
         private Action ActiveSkillEvent(SkillEffect skillEffect)
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => null,
-                SkillEffect.Inescapable => null,
-                SkillEffect.Stunned => null,
-                SkillEffect.ThrowUp => null,
-                _ => throw new ArgumentOutOfRangeException(nameof(skillEffect), skillEffect, null)
+                SkillEffect.NonEffect => () => {Debug.Log("NonEffect"); },
+                SkillEffect.Inescapable => () => {Debug.Log("Inescapable");},
+                SkillEffect.Stunned => () => {Debug.Log("Stunned"); },
+                SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
+                SkillEffect.NoDamage => () =>
+                {
+                    Debug.Log("NoDamage");
+                },
+                SkillEffect.Invisible => () => { },
+                _ => null
             };
-        } 
+        }
+
+        public void InvincibleState()
+        {
+            FreeLookMovementSpeed *= 1.5f;
+            FreeLookMovementSprintSpeed *= 0.8f;
+
+            foreach (var dame in AttackData)
+            {
+                dame.AttackDamage *= 2;
+            }
+        }
     }
 }

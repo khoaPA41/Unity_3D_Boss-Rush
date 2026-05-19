@@ -1,63 +1,66 @@
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 
-public class FinalBossLocomotionState : FinalBossBaseState
+namespace Script.Design_Pattern.StateMachine.Boss.Main
 {
-    readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
-    readonly int MovementParam = Animator.StringToHash("Movement");
-    //readonly int MovementYParam = Animator.StringToHash("MovementY");
-    Vector3 dir;
-    float countTimeToChangeChasing = 0;
-    bool isWalk = false;
-    public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
+    public class FinalBossLocomotionState : FinalBossBaseState
     {
-
-    }
-
-    public override void Enter()
-    {
-        finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
-        countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
-        finalBossStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        countTimeToChangeChasing -= deltaTime;
-
-        if (countTimeToChangeChasing <= 0)
+        private readonly int targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
+        private readonly int movementParam = Animator.StringToHash("Movement");
+        
+        private Vector3 dir;
+        private float countTimeToChangeChasing = 0;
+        private bool isWalk = false;
+        
+        public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
         {
-            if (IsWalkRange())
+
+        }
+
+        public override void Enter()
+        {
+            finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
+            countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
+            finalBossStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
+        }
+
+        public override void Tick(float deltaTime)
+        {
+            countTimeToChangeChasing -= deltaTime;
+
+            if (countTimeToChangeChasing <= 0)
             {
-                isWalk = true;
+                if (IsWalkRange())
+                {
+                    isWalk = true;
+                }
+
+                finalBossStateMachine.EnterChasingState(isWalk);
             }
 
-            finalBossStateMachine.EnterChasingState(isWalk);
+            if (IsAttackRange())
+            {
+                finalBossStateMachine.EnterAttackState();
+            }
+
+            dir = GetDirToPlayer();
+            UpdateAnimation(deltaTime);
+            FaceTarget(dir);
         }
 
-        if (IsAttackRange())
+        public override void PhysicTick(float fixedDeltaTime)
         {
-            finalBossStateMachine.EnterAttackState();
+
         }
 
-        dir = GetDirToPlayer();
-        UpdateAnimation(deltaTime);
-        FaceTarget(dir);
-    }
+        public override void Exit()
+        {
+            finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
+        }
 
-    public override void PhysicTick(float fixedDeltaTime)
-    {
-
-    }
-
-    public override void Exit()
-    {
-        finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
-    }
-
-    void UpdateAnimation(float deltaTime)
-    {
-        finalBossStateMachine.Animator.SetFloat(MovementParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
-        //finalBossStateMachine.Animator.SetFloat(MovementYParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        private void UpdateAnimation(float deltaTime)
+        {
+            finalBossStateMachine.Animator.SetFloat(movementParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+        }
     }
 }

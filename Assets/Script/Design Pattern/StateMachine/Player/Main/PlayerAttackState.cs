@@ -16,7 +16,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public override void Enter()
         {
             playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
-            playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition, 0);
+            playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition,
+                0);
             playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
         }
 
@@ -34,7 +35,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 {
                     TryCombo(normalizeTime);
                 }
-
             }
             else
             {
@@ -44,12 +44,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             previousTime = normalizeTime;
             FaceTarget(deltaTime);
             Move(deltaTime);
-
         }
 
         public override void PhysicTick(float fixedDeltaTime)
         {
-
         }
 
         public override void Exit()
@@ -60,8 +58,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void TryCombo(float normalizeTime)
         {
-            if (attackData.NextAttackDataIndex == -1) { return; }
-            if (normalizeTime < attackData.AttackAnimationTime) { return; }
+            if (attackData.NextAttackDataIndex == -1)
+            {
+                return;
+            }
+
+            if (normalizeTime < attackData.AttackAnimationTime)
+            {
+                return;
+            }
 
             playerStateMachine.SwitchState(new PlayerAttackState(
                 playerStateMachine,
@@ -71,7 +76,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void TryApplyForce()
         {
-            if (alreadyApplyForce) { return; }
+            if (alreadyApplyForce)
+            {
+                return;
+            }
+
             playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * attackData.Force);
             alreadyApplyForce = true;
         }

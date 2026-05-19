@@ -1,13 +1,15 @@
 using System.Collections.Generic;
+using Script.Attack;
 using UnityEngine;
+
 public class WeaponDealDamage : MonoBehaviour
 {
-    [SerializeField] GameObject myCollider;
-    List<GameObject> alreadyDealDamage = new List<GameObject>();
+    [SerializeField] private GameObject myCollider;
+    private readonly List<GameObject> alreadyDealDamage = new List<GameObject>();
 
-    int damage;
+    private int damage;
 
-    void OnEnable()
+    private void OnEnable()
     {
         alreadyDealDamage.Clear();
     }
@@ -17,17 +19,29 @@ public class WeaponDealDamage : MonoBehaviour
         damage = weaponDamage;
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (alreadyDealDamage.Contains(other.gameObject)) { return; }
-        if (other.gameObject == myCollider) { return; }
+        if (alreadyDealDamage.Contains(other.gameObject))
+        {
+            return;
+        }
+
+        if (other.gameObject == myCollider)
+        {
+            return;
+        }
 
         alreadyDealDamage.Add(other.gameObject);
 
-        if (other.TryGetComponent<Health>(out Health enemy))
+        if (!other.TryGetComponent<Health>(out var enemy)) return;
+
+        if (enemy.noDamage)
         {
-            enemy.DealDamage(damage);
-            enemy.HitStop();
+            return;
         }
+Debug.Log("Bullet");
+
+        enemy.DealDamage(damage);
+        enemy.HitStop();
     }
 }

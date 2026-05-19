@@ -8,7 +8,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
     {
         protected readonly PlayerStateMachine playerStateMachine;
         private AnimatorOverrideController overrideController;
-
+        
         protected PlayerBaseState(PlayerStateMachine playerStateMachine)
         {
             this.playerStateMachine = playerStateMachine;
@@ -17,7 +17,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         protected void Move(Vector3 motion, float deltaTime)
         {
             playerStateMachine.CharacterController.Move
-            ((motion + playerStateMachine.ForceReceiver.Movement) * 
+            ((motion + playerStateMachine.ForceReceiver.Movement) *
              (playerStateMachine.ForceReceiver.GetCoefficientOfMovement() * deltaTime));
         }
 
@@ -77,7 +77,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         protected void EnterJumpState()
         {
             playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
-            return;
         }
 
         protected void ChangeSwordIdle(string idleAnimationName, AnimationClip animationClip)
@@ -87,20 +86,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             overrideController[idleAnimationName] = animationClip;
         }
 
-        protected void UseSkill(int skillNumber)
-        {
-            ISkill skill = SkillFactory.CreateSkill(skillNumber);
 
-            if (playerStateMachine.Mana.currentMana < 0) return;
-            
-            if (skill == null) return;
-         
-            playerStateMachine.EnterSkillState(skill.AnimationName);
-
-            if (playerStateMachine.Mana.currentMana >= skill.ManaCost)
-            {
-                skill.Cast(playerStateMachine);
-            }
-        }
     }
 }

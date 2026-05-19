@@ -6,13 +6,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
     public class FreeLookState : PlayerBaseState
     {
         private static readonly int Movement = Animator.StringToHash("Movement");
-        readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+        private readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
         private Vector3 movement;
         public float CountTimeToChangeIdleLoop { get; } = 0;
 
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            
         }
 
         public override void Enter()
@@ -21,16 +20,19 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.TargetAction += EnterTargetState;
             playerStateMachine.InputReader.JumpAction += EnterJumpState;
             playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-            playerStateMachine.InputReader.SkillAction += UseSkill;
-            playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
+            playerStateMachine.InputReader.SkillAction += playerStateMachine.EnterSkillState;
 
-            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+
+            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash,
+                playerStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)
         {
             movement = CalculateMovementInFreeLook();
-            float speed = playerStateMachine.InputReader.IsSprint ? playerStateMachine.FreeLookMovementSprintSpeed : playerStateMachine.FreeLookMovementSpeed;
+            float speed = playerStateMachine.InputReader.IsSprint
+                ? playerStateMachine.FreeLookMovementSprintSpeed
+                : playerStateMachine.FreeLookMovementSpeed;
 
             if (playerStateMachine.InputReader.IsAttack)
             {
@@ -41,12 +43,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 else
                 {
                     playerStateMachine.EnterChangeAction(true);
-
                 }
             }
 
             // playerStateMachine.CountSkillTime -= deltaTime;
-            
+
             Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceDir(movement, deltaTime);
@@ -61,8 +62,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.TargetAction -= EnterTargetState;
             playerStateMachine.InputReader.JumpAction -= EnterJumpState;
             playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-            playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
-            playerStateMachine.InputReader.SkillAction -= UseSkill;
+            playerStateMachine.InputReader.SkillAction -= playerStateMachine.EnterSkillState;
         }
 
         private void UpdateAnimation(float deltaTime)
@@ -71,7 +71,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             {
                 playerStateMachine.Animator.SetFloat(Movement, 0f, playerStateMachine.AnimationCrossFade, deltaTime);
                 return;
-
             }
 
             if (playerStateMachine.InputReader.IsSprint)
@@ -85,14 +84,19 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void EnterTargetState()
         {
-            if (!playerStateMachine.Targeter.SelectedTarget()) { return; }
+            if (!playerStateMachine.Targeter.SelectedTarget())
+            {
+                return;
+            }
+
             playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
             return;
         }
 
         private void EnterDodgeState()
         {
-            playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine, playerStateMachine.InputReader.InputMovement));
+            playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine,
+                playerStateMachine.InputReader.InputMovement));
         }
     }
 }

@@ -11,5 +11,5 @@ public class AttackData
     [field: SerializeField] public float AnimationTransition { get; private set; }
     [field: SerializeField] public float ForceTime { get; private set; }
     [field: SerializeField] public float Force { get; private set; }
-    [field: SerializeField] public int AttackDamage { get; private set; }
+    [field: SerializeField] public int AttackDamage { get; set; }
 }

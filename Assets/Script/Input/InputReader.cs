@@ -20,20 +20,20 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action<int> SkillAction;
 
 
-    InputController inputActions;
+    private InputController inputActions;
 
-    bool cursorInputForLook = true;
-    bool cursorLocked = true;
+    private bool cursorInputForLook = true;
+    private bool cursorLocked = true;
 
 
-    void Start()
+    private void Start()
     {
         inputActions = new InputController();
         inputActions.Player.SetCallbacks(this);
         inputActions.Enable();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         inputActions.Disable();
     }
@@ -46,14 +46,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            IsSprint = true;
-        }
-        else
-        {
-            IsSprint = false;
-        }
+        IsSprint = context.performed;
     }
 
     public void OnTarget(InputAction.CallbackContext context)
@@ -81,11 +74,10 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     }
     public void OnSkill(InputAction.CallbackContext context)
     {
-        if (context.canceled && context.performed) { return; }
+        if (context is {canceled: true, performed: true}) { return; }
         if (context.started)
         {
             SkillAction?.Invoke(Convert.ToInt32(context.control.name));
-            Debug.Log(Convert.ToInt32(context.control.name));
         }
     }
 
@@ -126,7 +118,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         SetCursor(cursorLocked);
     }
 
-    void SetCursor(bool newState)
+    private void SetCursor(bool newState)
     {
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
     }

@@ -1,3 +1,4 @@
+using Script.Attack;
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 

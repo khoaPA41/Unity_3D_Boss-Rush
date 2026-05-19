@@ -1,7 +1,6 @@
-using System;
 using Script.Design_Pattern.EventBus;
+using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.Player.Base;
-using UnityEngine;
 
 namespace Script.Attack.Skill_Factory
 {
@@ -12,7 +11,6 @@ namespace Script.Attack.Skill_Factory
         public string AnimationName => "Inescapable";
         public int ManaCost => 20;
         
-
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
@@ -20,14 +18,17 @@ namespace Script.Attack.Skill_Factory
             
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
-            
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+
+            if (player.Targeter.currentTarget is not null)
+            {
+                GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            }
         }
     }
 
     public class Indestructible : ISkill
     {
-        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public SkillEffect SkillEffect => SkillEffect.NoDamage;
         public string SkillName => "Indestructible";
         public int ManaCost => 30;
         public string AnimationName => "Indestructible";
@@ -35,16 +36,19 @@ namespace Script.Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-            caster.ComsumeMana(ManaCost);
             var spawnPos = caster.TargetCaster().transform.position;
-            Debug.Log(caster.TargetCaster().transform.position);
+            var effect = caster.TargetCaster().GetComponent<PlayerStateMachine>().Health;
+            var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
+
+            var ironMaterials = new[] {player.IronMaterial1, player.IronMaterial2 };
+            player.SkinnedMeshRenderer.materials = ironMaterials;
+            
+            caster.ComsumeMana(ManaCost);
+            
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
-
-            var tempMaterials = caster.TargetCaster().GetComponent<PlayerStateMachine>().SkinnedMeshRenderer.materials;
+            effect.noDamage = true;
             
-            tempMaterials[0].SetFloat("_Metallic", 1f);
-            tempMaterials[1].SetFloat("_Metallic", 1f);
             
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
@@ -52,7 +56,7 @@ namespace Script.Attack.Skill_Factory
 
     public class Invisible : ISkill
     {
-        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public SkillEffect SkillEffect => SkillEffect.Invisible;
         public string SkillName => "Invisible";
         public int ManaCost => 20;
 
@@ -60,20 +64,13 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-            caster.ComsumeMana(ManaCost);
+            // var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
-
-            var tempMaterials = player.SkinnedMeshRenderer.materials;
-            tempMaterials[0] = player.PhantomMaterial;
-            tempMaterials[1] = player.PhantomMaterial;
-
-            Color newColor = tempMaterials[0].GetColor("_BaseColor");
-            newColor.a = 0.4f;
-
-            tempMaterials[0].SetColor("_BaseColor", newColor);
-            tempMaterials[1].SetColor("_BaseColor", newColor);
-            player.SkinnedMeshRenderer.materials = tempMaterials;
+            caster.ComsumeMana(ManaCost);
+            player.Invisible = true;
+            var phantomMaterials = new[] {player.PhantomMaterial1, player.PhantomMaterial2 };
+            player.SkinnedMeshRenderer.materials = phantomMaterials;
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -88,10 +85,14 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
+            var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
+            player.Invincible = true;
+            player.InvincibleState();
+            
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-            Debug.Log("WorldBreaker");
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -104,17 +105,21 @@ namespace Script.Attack.Skill_Factory
 
         public string AnimationName => "PhantomRetreat";
 
+        
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-
+            var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
             var spawnPos = caster.TargetCaster().transform.position;
             spawnPos.y += 1f;
             spawnPos.x += .6f;
 
             caster.ComsumeMana(ManaCost);
-            getSkill.SpawnSkill(SkillName, spawnPos);
             
+            getSkill.SpawnSkill(SkillName, spawnPos);
+            var bullet = getSkill.skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
+            bullet.SetTarget(player.Targeter.currentTarget.gameObject);
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -131,6 +136,7 @@ namespace Script.Attack.Skill_Factory
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 }
