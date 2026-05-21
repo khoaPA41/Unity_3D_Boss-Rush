@@ -118,7 +118,7 @@ namespace Script.Attack.Skill_Factory
             
             getSkill.SpawnSkill(SkillName, spawnPos);
             var bullet = getSkill.skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
-            bullet.SetTarget(player.Targeter.currentTarget.gameObject);
+            bullet?.SetTarget(player.Targeter.currentTarget.gameObject);
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
@@ -128,14 +128,18 @@ namespace Script.Attack.Skill_Factory
         public SkillEffect SkillEffect => SkillEffect.NonEffect;
         public string SkillName => "PhantomMirage";
         public int ManaCost => 30;
-
         public string AnimationName => "PhantomMirage";
-
+        public string clone = "PlayerClone";  
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+
+            for (var i = 0; i < 3; i++)
+            {
+                getSkill.SpawnSkill(clone, caster.TargetCaster().transform.position);
+            }
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }

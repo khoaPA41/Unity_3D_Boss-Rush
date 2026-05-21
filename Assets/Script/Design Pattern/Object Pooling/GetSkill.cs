@@ -6,7 +6,7 @@ namespace Script.Design_Pattern.Object_Pooling
     {
         [SerializeField] private ObjectPooling objectPooling;
 
-        public GameObject skill;
+        public GameObject skill { get; private set; }
         
         public void SpawnSkill(string name, Vector3 skillPosition)
         {

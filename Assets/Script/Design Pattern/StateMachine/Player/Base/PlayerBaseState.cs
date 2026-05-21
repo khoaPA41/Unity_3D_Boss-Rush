@@ -85,7 +85,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             playerStateMachine.Animator.runtimeAnimatorController = overrideController;
             overrideController[idleAnimationName] = animationClip;
         }
-
-
+        
     }
 }

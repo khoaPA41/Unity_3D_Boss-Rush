@@ -19,13 +19,13 @@ public class SkillPooledObject : MonoBehaviour
     
     private void OnEnable()
     {
-        particle.Clear();
-        particle.Play();
+        particle?.Clear();
+        particle?.Play();
     }
     
     private void OnParticleSystemStopped()
     {
-        particle.Stop();
+        particle?.Stop();
         
         pooled.Release(this.gameObject.name);
     }
