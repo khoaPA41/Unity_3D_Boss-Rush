@@ -33,8 +33,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         [field: SerializeField] public float AttackRange { get; private set; } = 2f;
 
-
-
+        
 
         [field: SerializeField] public GameObject Target { get; private set; }
 

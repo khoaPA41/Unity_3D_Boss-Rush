@@ -1,4 +1,5 @@
 using Script.Design_Pattern.StateMachine.Player.Base;
+using Script.Design_Pattern.StateMachine.Player.Main;
 using UnityEngine;
 
 public class PlayerStartJumpState : PlayerBaseState
@@ -11,6 +12,7 @@ public class PlayerStartJumpState : PlayerBaseState
 
     public override void Enter()
     {
+        
         playerStateMachine.Animator.CrossFadeInFixedTime(JumpAnimationHash, playerStateMachine.AnimationCrossFade);
         playerStateMachine.ForceReceiver.Jump(playerStateMachine.JumpForce);
         momentum = playerStateMachine.CharacterController.velocity;

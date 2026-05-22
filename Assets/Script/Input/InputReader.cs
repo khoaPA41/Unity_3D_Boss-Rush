@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputReader : MonoBehaviour, InputController.IPlayerActions
+public class InputReader : MonoBehaviour, InputController.IPlayerActions, ICombatInput
 {
     public Vector2 InputMovement { get; private set; }
     public Vector2 Look { get; private set; }

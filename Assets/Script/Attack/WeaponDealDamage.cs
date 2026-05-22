@@ -39,7 +39,6 @@ public class WeaponDealDamage : MonoBehaviour
         {
             return;
         }
-Debug.Log("Bullet");
 
         enemy.DealDamage(damage);
         enemy.HitStop();

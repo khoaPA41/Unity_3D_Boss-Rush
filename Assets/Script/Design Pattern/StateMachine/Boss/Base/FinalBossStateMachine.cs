@@ -124,7 +124,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => null,
+                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); },
                 SkillEffect.Inescapable => () =>
                 {
                     ForceReceiver.SetCoefficientOfMovement(0f);

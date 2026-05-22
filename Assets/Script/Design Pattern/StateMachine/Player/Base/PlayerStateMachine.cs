@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
 using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.StateMachine.Player.Main;
 using Script.Physics;
+using Script.Target;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Design_Pattern.StateMachine.Player.Base
 {
@@ -60,9 +61,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public Transform MainCameraTransform { get; private set; }
         
-        public bool Invisible;
-        
         public bool Invincible;
+
+        public int SkillNumber;
         private int HitTimes { get; set; }
         public float CountSkillTime { get; set; }
         public bool isAttackState;
@@ -71,80 +72,39 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             InputReader.ApplicationCursor();
             if (Camera.main is not null) MainCameraTransform = Camera.main.transform;
-            SwitchState(new FreeLookState(this));
+            // SwitchState(new FreeLookState(this));
         }
 
         private void OnEnable()
         {
             GameEventManagers.OnSkillCasted += HandleSkillEvent;
-            Health.HitAction += EnterHitState;
-            Health.DeathAction += EnterDeathState;
         }
-
+        
         private void OnDisable()
         {
             GameEventManagers.OnSkillCasted += HandleSkillEvent;
-            Health.HitAction -= EnterHitState;
-            Health.DeathAction -= EnterDeathState;
         }
 
-        public void ReturnLocomotion()
-        {
-            if (Targeter.currentTarget is null)
-            {
-                SwitchState(new FreeLookState(this));
-            }
-            else
-            {
-                SwitchState(new PlayerTargetState(this));
-            }
-
-            return;
-        }
-
-        public void EnterAttackState(int attackDataIndex)
-        {
-            SwitchState(new PlayerAttackState(this, attackDataIndex));
-            return;
-        }
-
-        private void EnterDeathState()
-        {
-            SwitchState(new PlayerDeathState(this));
-            return;
-        }
-
+        
         public void EnterChangeAction(bool isAttack)
         {
             SwitchState(new PlayerChangeAction(this, isAttack));
             return;
         }
 
-        public void EnterHitState()
-        {
-            HitTimes++;
-            var isKnockBack = false;
-
-            if (HitTimes == TimeToGetKnockBackHit)
-            {
-                isKnockBack = true;
-                HitTimes = 0;
-            }
-
-            SwitchState(new PlayerHitState(this, isKnockBack));
-        }
-
-        public void EnterSkillState(int skillNumber)
-        {
-            if (Invincible) {return;}
-            
-            if (Mana.currentMana <= 0)
-            {
-                return;
-            }
-            
-            SwitchState(new PlayerUseSkillState(this, skillNumber));
-        }
+        // public void EnterHitState()
+        // {
+        //     HitTimes++;
+        //     var isKnockBack = false;
+        //
+        //     if (HitTimes == TimeToGetKnockBackHit)
+        //     {
+        //         isKnockBack = true;
+        //         HitTimes = 0;
+        //     }
+        //
+        //     SwitchState(new PlayerHitState(this, isKnockBack));
+        // }
 
         public void ComsumeMana(int amount)
         {
@@ -193,5 +153,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 dame.AttackDamage *= 2;
             }
         }
+        
     }
 }

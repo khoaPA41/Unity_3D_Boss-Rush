@@ -10,22 +10,23 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
     public class PlayerUseSkillState : PlayerBaseState
     {
         private const string UseSkillAnimationString = "UseSkill";
-        private readonly int skillNumber;
+        private int skillNumber;
         private ISkill currentSkill;
         
-        public PlayerUseSkillState(PlayerStateMachine playerStateMachine, int skillNumber) : base(
-            playerStateMachine)
+        public PlayerUseSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            this.skillNumber = skillNumber;
         }
         
         public override void Enter()
         {
+            skillNumber = playerStateMachine.SkillNumber;
+            IsFinished = false;
             currentSkill = UseSkill(skillNumber);
 
             if (currentSkill is null)
             {
-                playerStateMachine.ReturnLocomotion();
+                IsFinished = true;
+                return;
             }
             
             playerStateMachine.Animator.CrossFadeInFixedTime(currentSkill.AnimationName, playerStateMachine.AnimationCrossFade, 0);
@@ -37,7 +38,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
             if (normalizeTime is > 0.8f and <= 1f)
             {
-                playerStateMachine.ReturnLocomotion();
+                ResetAfterSkill(currentSkill.SkillEffect);
+                IsFinished = true;
             }
         }
 
@@ -48,16 +50,17 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            ResetAfterSkill(currentSkill.SkillEffect);
+            IsFinished = true;
         }
         
         private ISkill UseSkill(int skillNumber)
         {
             var skill = SkillFactory.CreateSkill(skillNumber);
             
+            if (skill == null) return null;
+            
             if (playerStateMachine.Mana.currentMana <= 0 &&
                 playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
-            if (skill == null) return null;
             
             skill.Cast(playerStateMachine);
             return skill;
@@ -70,9 +73,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             {
                 case SkillEffect.NonEffect: return;
                 case SkillEffect.Inescapable:
-                    break;
                 case SkillEffect.Stunned:
-                    break;
                 case SkillEffect.ThrowUp:
                     break;
                 case SkillEffect.NoDamage:
@@ -86,7 +87,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 case SkillEffect.Invisible:
                     playerStateMachine.StartCoroutine(Count(5f, () =>
                     {
-                        playerStateMachine.Invisible = false;
+                        playerStateMachine.Invincible = false;
                         ResetToMainMaterial();
                     }));
                     break;

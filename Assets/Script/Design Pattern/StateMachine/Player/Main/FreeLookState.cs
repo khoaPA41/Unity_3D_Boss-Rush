@@ -13,16 +13,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
         }
+        
 
         public override void Enter()
         {
-            //countTimeToChangeIdleLoop = playerStateMachine.TimeToBackIdleLoop;
-            playerStateMachine.InputReader.TargetAction += EnterTargetState;
-            playerStateMachine.InputReader.JumpAction += EnterJumpState;
-            playerStateMachine.InputReader.DodgeAction += EnterDodgeState;
-            playerStateMachine.InputReader.SkillAction += playerStateMachine.EnterSkillState;
-
-
+            IsFinished = false;
+            Debug.Log(IsFinished);
             playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
         }
@@ -33,18 +29,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             float speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
-
-            if (playerStateMachine.InputReader.IsAttack)
-            {
-                if (playerStateMachine.isAttackState)
-                {
-                    playerStateMachine.EnterAttackState(0);
-                }
-                else
-                {
-                    playerStateMachine.EnterChangeAction(true);
-                }
-            }
 
             // playerStateMachine.CountSkillTime -= deltaTime;
 
@@ -59,10 +43,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            playerStateMachine.InputReader.TargetAction -= EnterTargetState;
-            playerStateMachine.InputReader.JumpAction -= EnterJumpState;
-            playerStateMachine.InputReader.DodgeAction -= EnterDodgeState;
-            playerStateMachine.InputReader.SkillAction -= playerStateMachine.EnterSkillState;
+            IsFinished = true;
         }
 
         private void UpdateAnimation(float deltaTime)

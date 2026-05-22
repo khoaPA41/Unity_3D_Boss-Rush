@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
 
-public class Target : MonoBehaviour
+namespace Script.Target
 {
-    public event Action<Target> CancelTargetEvent;
+    public class Target : MonoBehaviour
+    {
+        public event Action<Target> CancelTargetEvent;
 
-    private void OnDisable()
-    {
-        OnCancelTarget();
-    }
-    void OnCancelTarget()
-    {
-        CancelTargetEvent?.Invoke(this);
+        private void OnDisable()
+        {
+            OnCancelTarget();
+        }
+        private void OnCancelTarget()
+        {
+            CancelTargetEvent?.Invoke(this);
+        }
     }
 }

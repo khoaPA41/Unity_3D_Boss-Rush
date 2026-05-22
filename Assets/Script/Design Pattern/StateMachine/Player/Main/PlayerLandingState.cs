@@ -1,42 +1,46 @@
 using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-public class PlayerLandingState : PlayerBaseState
+namespace Script.Design_Pattern.StateMachine.Player.Main
 {
-    readonly int LandingAnimationHash = Animator.StringToHash("Landing");
-    readonly string LandingAnimationTag = "Landing";
-
-    Vector3 momentum;
-
-    public PlayerLandingState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public class PlayerLandingState : PlayerBaseState
     {
-    }
+        readonly int LandingAnimationHash = Animator.StringToHash("Landing");
+        readonly string LandingAnimationTag = "Landing";
 
-    public override void Enter()
-    {
-        playerStateMachine.Animator.CrossFadeInFixedTime(LandingAnimationHash, playerStateMachine.AnimationCrossFade);
-        momentum = playerStateMachine.CharacterController.velocity;
-        momentum.y = 0;
-    }
+        private Vector3 momentum;
 
-    public override void Tick(float deltaTime)
-    {
-        float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, LandingAnimationTag, 0);
-        if (normalizeTime > .9f && normalizeTime <= 1f)
+        public PlayerLandingState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            playerStateMachine.ReturnLocomotion();
         }
-        Move(deltaTime);
-        FaceTarget(deltaTime);
-    }
 
-    public override void PhysicTick(float fixedDeltaTime)
-    {
+        public override void Enter()
+        {
+            IsFinished = false;
+            playerStateMachine.Animator.CrossFadeInFixedTime(LandingAnimationHash, playerStateMachine.AnimationCrossFade);
+            momentum = playerStateMachine.CharacterController.velocity;
+            momentum.y = 0;
+        }
 
-    }
+        public override void Tick(float deltaTime)
+        {
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, LandingAnimationTag, 0);
+            if (normalizeTime is > .9f and <= 1f)
+            {
+                IsFinished = true;
+            }
+            Move(deltaTime);
+            FaceTarget(deltaTime);
+        }
 
-    public override void Exit()
-    {
+        public override void PhysicTick(float fixedDeltaTime)
+        {
 
+        }
+
+        public override void Exit()
+        {
+            IsFinished = true;
+        }
     }
 }

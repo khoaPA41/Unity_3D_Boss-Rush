@@ -14,6 +14,7 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Enter()
     {
+        IsFinished = false;
         randomAnimation = Random.Range(0, 2);
         if (randomAnimation == 0)
         {
@@ -37,6 +38,6 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Exit()
     {
-
+        IsFinished = true;
     }
 }

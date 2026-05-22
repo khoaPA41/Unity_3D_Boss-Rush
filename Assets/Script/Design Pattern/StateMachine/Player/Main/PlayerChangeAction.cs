@@ -17,9 +17,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         readonly string SwordChangeTag = "SwordChange";
         readonly string IdleAnimationName = "Idle_Loop";
         readonly string SwordIdleAnimationName = "Sword_Idle";
-        
+
         private readonly bool isSwordEnter;
         private Vector3 movement;
+
         public PlayerChangeAction(PlayerStateMachine playerStateMachine, bool isSwordEnter) : base(playerStateMachine)
         {
             this.isSwordEnter = isSwordEnter;
@@ -27,25 +28,28 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
+            IsFinished = false;
             if (playerStateMachine.Targeter.currentTarget is not null)
             {
-
-                playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+                playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash,
+                    playerStateMachine.AnimationCrossFade, 0);
             }
             else
             {
-                playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
-
+                playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash,
+                    playerStateMachine.AnimationCrossFade, 0);
             }
 
             if (isSwordEnter)
             {
-                playerStateMachine.Animator.CrossFadeInFixedTime(SwordEnterAnimationHash, playerStateMachine.AnimationCrossFade, 1);
+                playerStateMachine.Animator.CrossFadeInFixedTime(SwordEnterAnimationHash,
+                    playerStateMachine.AnimationCrossFade, 1);
                 playerStateMachine.isAttackState = true;
             }
             else
             {
-                playerStateMachine.Animator.CrossFadeInFixedTime(SwordExitAnimationHash, playerStateMachine.AnimationCrossFade, 1);
+                playerStateMachine.Animator.CrossFadeInFixedTime(SwordExitAnimationHash,
+                    playerStateMachine.AnimationCrossFade, 1);
                 playerStateMachine.isAttackState = false;
             }
         }
@@ -54,9 +58,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, SwordChangeTag, 1);
 
-            if (normalizeTime > .9f && normalizeTime <= 1f)
+            if (normalizeTime is > .9f and <= 1f)
             {
-                playerStateMachine.ReturnLocomotion();
+                IsFinished = true;
             }
 
             if (playerStateMachine.Targeter.currentTarget != null)
@@ -76,11 +80,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void PhysicTick(float fixedDeltaTime)
         {
-
         }
 
         public override void Exit()
         {
+            IsFinished = true;
             if (isSwordEnter)
             {
                 ChangeSwordIdle(IdleAnimationName, playerStateMachine.SwordIdleAnimationClip);
@@ -98,15 +102,17 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             if (playerStateMachine.InputReader.InputMovement.x != 0)
             {
                 dirX = Mathf.Sign(playerStateMachine.InputReader.InputMovement.x);
-
             }
+
             if (playerStateMachine.InputReader.InputMovement.y != 0)
             {
                 dirY = Mathf.Sign(playerStateMachine.InputReader.InputMovement.y);
             }
 
-            playerStateMachine.Animator.SetFloat(MovementXParam, dirX, playerStateMachine.AnimationCrossFade, deltaTime);
-            playerStateMachine.Animator.SetFloat(MovementYParam, dirY, playerStateMachine.AnimationCrossFade, deltaTime);
+            playerStateMachine.Animator.SetFloat(MovementXParam, dirX, playerStateMachine.AnimationCrossFade,
+                deltaTime);
+            playerStateMachine.Animator.SetFloat(MovementYParam, dirY, playerStateMachine.AnimationCrossFade,
+                deltaTime);
         }
     }
 }

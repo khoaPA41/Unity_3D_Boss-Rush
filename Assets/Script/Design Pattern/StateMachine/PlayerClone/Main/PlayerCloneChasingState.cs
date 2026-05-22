@@ -24,7 +24,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
             Vector3 dir = DirToTarget();
             if (IsAttackRange())
             {
-                cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
+                // cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
             }
 
             Move(DirToTarget() * cloneStateMachine.MovementSpeed, deltaTime);

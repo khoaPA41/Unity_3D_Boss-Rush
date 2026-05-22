@@ -5,7 +5,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
     public class PlayerAttackState : PlayerBaseState
     {
         private readonly AttackData attackData;
-        private float previousTime;
+        private float previousTime = 0f;
         private bool alreadyApplyForce;
 
         public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
@@ -15,7 +15,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
+            IsFinished = false;
+            // playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
             playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition,
                 0);
             playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
@@ -38,7 +39,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
             else
             {
-                playerStateMachine.ReturnLocomotion();
+                // playerStateMachine.ReturnLocomotion();
+                IsFinished = true;
             }
 
             previousTime = normalizeTime;
@@ -52,7 +54,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
+            IsFinished = true;
+            // playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
             //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
         }
 

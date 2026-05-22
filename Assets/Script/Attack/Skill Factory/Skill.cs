@@ -67,7 +67,7 @@ namespace Script.Attack.Skill_Factory
             // var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             var player = caster.TargetCaster().GetComponent<PlayerStateMachine>();
             caster.ComsumeMana(ManaCost);
-            player.Invisible = true;
+            player.Invincible = true;
             var phantomMaterials = new[] {player.PhantomMaterial1, player.PhantomMaterial2 };
             player.SkinnedMeshRenderer.materials = phantomMaterials;
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
