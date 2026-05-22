@@ -3,12 +3,12 @@ using UnityEngine;
 
 public interface ICombatInput
 {
-    Vector2 InputMovement { get;}
-    Vector2 Look { get; }
+    Vector2 InputMovement { get; set; }
+    Vector2 Look { get; set;}
 
-    bool IsSprint { get;}
-    bool IsAttack { get;}
-    int SkillNumber { get;}
+    bool IsSprint { get;set;}
+    bool IsAttack { get; set;}
+    int SkillNumber { get; set;}
 
     event Action JumpAction;
 

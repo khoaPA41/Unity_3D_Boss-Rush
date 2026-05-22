@@ -59,8 +59,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             
             if (skill == null) return null;
             
-            if (playerStateMachine.Mana.currentMana <= 0 &&
-                playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
+            if (playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
             
             skill.Cast(playerStateMachine);
             return skill;
@@ -71,7 +70,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             switch (skillEffect)
             {
-                case SkillEffect.NonEffect: return;
+                case SkillEffect.NonEffect:
                 case SkillEffect.Inescapable:
                 case SkillEffect.Stunned:
                 case SkillEffect.ThrowUp:
@@ -87,7 +86,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 case SkillEffect.Invisible:
                     playerStateMachine.StartCoroutine(Count(5f, () =>
                     {
-                        playerStateMachine.Invincible = false;
+                        playerStateMachine.Invisible = false;
                         ResetToMainMaterial();
                     }));
                     break;

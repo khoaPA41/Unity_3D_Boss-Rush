@@ -10,8 +10,6 @@ namespace Script.Design_Pattern.Tree_Behavious
     public class PlayerBehavious : MonoBehaviour
     {
         private PlayerStateMachine _sm;
-        // private InputReader inputReader;
-
         ICombatInput inputHandler;
 
         private State freeLookState;

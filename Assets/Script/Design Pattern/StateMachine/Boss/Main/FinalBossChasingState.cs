@@ -27,7 +27,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-
             finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
             finalBossStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
         }

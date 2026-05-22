@@ -1,3 +1,4 @@
+using System;
 using Script.Attack;
 using Script.Design_Pattern.StateMachine.Player.Main;
 using Script.Design_Pattern.StateMachine.PlayerClone.Main;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
 {
-    public class PlayerCloneStateMachine : StateMachine.Base.StateMachine
+    public class PlayerCloneStateMachine : StateMachine.Base.StateMachine, ICombatInput
     {
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
@@ -18,9 +19,6 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         public CharacterController CharacterController { get; private set; }
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float MovementSpeed { get; private set; } = 5f;
-        [field: SerializeField] public float JumpForce { get; private set; }
-        [field: SerializeField] public float DodgeLength { get; private set; }
-        [field: SerializeField] public float DodgeDuration { get; private set; }
         [field: SerializeField] public float HitForceTime { get; private set; } = .3f;
         [field: SerializeField] public float HitForce { get; private set; } = 3f;
         [field: SerializeField] public float HitKnockback { get; private set; } = 8f;
@@ -32,15 +30,24 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         [field: SerializeField] public float AttackRange { get; private set; } = 2f;
-
         
 
-        [field: SerializeField] public GameObject Target { get; private set; }
+        public GameObject Target { get; set; }
 
         private void Start()
         {
-            SwitchState(new PlayerCloneEnterAttack(this));
+            // SwitchState(new PlayerCloneEnterAttack(this));
         }
+
+        public Vector2 InputMovement { get; set; }
+        public Vector2 Look { get; set; }
+        public bool IsSprint { get; set; }
+        public bool IsAttack { get; set; }
         
+        public int SkillNumber { get; set; }
+        public event Action JumpAction;
+        public event Action DodgeAction;
+        public event Action TargetAction;
+        public event Action<int> SkillAction;
     }
 }

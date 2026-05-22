@@ -15,22 +15,22 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Enter()
         {
-            cloneStateMachine.Animator.CrossFadeInFixedTime(SwordEnterAnimationHash, cloneStateMachine.AnimationCrossFade, 1);
+            // cloneStateMachine.Animator.CrossFadeInFixedTime(SwordEnterAnimationHash, cloneStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)
         {
-            float normalizedTime = GetNormalizeTime(cloneStateMachine.Animator, SwordChangeTag, 1);
+            // float normalizedTime = GetNormalizeTime(cloneStateMachine.Animator, SwordChangeTag, 1);
+            //
+            // if (normalizedTime > previousTime && normalizedTime <= 1f)
+            // {
+            //     if (normalizedTime > 0.8f)
+            //     {
+            //         cloneStateMachine.SwitchState(new PlayerCloneChasingState(cloneStateMachine));
+            //     }
+            // }
 
-            if (normalizedTime > previousTime && normalizedTime <= 1f)
-            {
-                if (normalizedTime > 0.8f)
-                {
-                    cloneStateMachine.SwitchState(new PlayerCloneChasingState(cloneStateMachine));
-                }
-            }
-
-            previousTime = normalizedTime;
+            // previousTime = normalizedTime;
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -40,8 +40,8 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Exit()
         {
-            ChangeSwordIdle(SwordIdleAnimationName, cloneStateMachine.SwordIdleAnimationClip);
-            cloneStateMachine.SwitchState(new PlayerCloneChasingState(cloneStateMachine));
+            // ChangeSwordIdle(SwordIdleAnimationName, cloneStateMachine.SwordIdleAnimationClip);
+            // cloneStateMachine.SwitchState(new PlayerCloneChasingState(cloneStateMachine));
         }
     }
 }

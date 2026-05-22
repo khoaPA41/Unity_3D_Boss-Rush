@@ -89,8 +89,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
             TimesHitted += 1;
 
+            Debug.Log("Boss hit");
+
             SwitchState(new FinalBossHitState(this));
-            return;
         }
     
 
@@ -112,7 +113,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         public Transform GetTransform()
         {
-            throw new System.NotImplementedException();
+            return this.transform;
         }
 
         public GameObject TargetCaster()
@@ -124,7 +125,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); },
+                SkillEffect.NonEffect => () => {Debug.Log("NonEffect");},
                 SkillEffect.Inescapable => () =>
                 {
                     ForceReceiver.SetCoefficientOfMovement(0f);

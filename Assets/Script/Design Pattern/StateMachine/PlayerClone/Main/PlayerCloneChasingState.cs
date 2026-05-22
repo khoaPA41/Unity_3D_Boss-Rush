@@ -15,7 +15,6 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Enter()
         {
-            
             cloneStateMachine.Animator.CrossFadeInFixedTime(Movement, cloneStateMachine.AnimationCrossFade, 0);
         }
 
@@ -24,7 +23,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
             Vector3 dir = DirToTarget();
             if (IsAttackRange())
             {
-                // cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
+                cloneStateMachine.IsAttack = true;
             }
 
             Move(DirToTarget() * cloneStateMachine.MovementSpeed, deltaTime);

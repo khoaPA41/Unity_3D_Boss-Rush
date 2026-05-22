@@ -619,17 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcb9741800bcfa4e82202cc3224978a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetAfterUseSkill
---- !u!114 &750136943 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 690828833572092213, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3000368fa2d67a64d9724b709422753d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDealDamage
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,118 +1116,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1977490172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &1977490175 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 5379748622969868685, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1977490176 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8323749953300343648, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1977490177 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8547879823119812425, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977490172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
---- !u!114 &1977490179 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4461827285485508565, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-  m_PrefabInstance: {fileID: 5913551623332550186}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977490172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde9d91489533294fa20df8181d5fa39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForceReceiver
---- !u!114 &1977490181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977490172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0953e965fc648ac49b14573a1825a3dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.StateMachine.PlayerClone.Base.PlayerCloneStateMachine
-  <Animator>k__BackingField: {fileID: 1977490176}
-  <AnimationCrossFade>k__BackingField: 0.1
-  <SwordIdleAnimationClip>k__BackingField: {fileID: 7400000, guid: a26a2ed0f92be854d828772dc24ff406, type: 2}
-  <CharacterController>k__BackingField: {fileID: 1977490175}
-  <ForceReceiver>k__BackingField: {fileID: 1977490179}
-  <MovementSpeed>k__BackingField: 2
-  <JumpForce>k__BackingField: 0
-  <DodgeLength>k__BackingField: 0
-  <DodgeDuration>k__BackingField: 0
-  <HitForceTime>k__BackingField: 0.3
-  <HitForce>k__BackingField: 3
-  <HitKnockback>k__BackingField: 8
-  <AttackData>k__BackingField:
-  - <AnimationName>k__BackingField: Attack_1
-    <EndAnimationName>k__BackingField: 
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: 1
-    <AttackAnimationTime>k__BackingField: 0.7
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.3
-    <Force>k__BackingField: 3
-    <AttackDamage>k__BackingField: 10
-  - <AnimationName>k__BackingField: Attack_2
-    <EndAnimationName>k__BackingField: Attack_2_End
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: 2
-    <AttackAnimationTime>k__BackingField: 0.7
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.3
-    <Force>k__BackingField: 3
-    <AttackDamage>k__BackingField: 20
-  - <AnimationName>k__BackingField: Attack_3
-    <EndAnimationName>k__BackingField: Attack_3_End
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: 3
-    <AttackAnimationTime>k__BackingField: 0.7
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.3
-    <Force>k__BackingField: 4
-    <AttackDamage>k__BackingField: 30
-  - <AnimationName>k__BackingField: Attack_4
-    <EndAnimationName>k__BackingField: 
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: 4
-    <AttackAnimationTime>k__BackingField: 0.7
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.3
-    <Force>k__BackingField: 3
-    <AttackDamage>k__BackingField: 40
-  - <AnimationName>k__BackingField: Attack_5
-    <EndAnimationName>k__BackingField: 
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: -1
-    <AttackAnimationTime>k__BackingField: 0.8
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.15
-    <Force>k__BackingField: 8
-    <AttackDamage>k__BackingField: 50
-  <WeaponDealDamage>k__BackingField: {fileID: 750136943}
-  <Health>k__BackingField: {fileID: 1977490177}
-  <TimeToGetKnockBackHit>k__BackingField: 3
-  <AttackRange>k__BackingField: 2
-  <Target>k__BackingField: {fileID: 8104945070158242835}
 --- !u!4 &2017561729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
@@ -2705,14 +2582,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1097714152238222431, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145670316632038626, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: objectPooling
-      value: 
-      objectReference: {fileID: 1705571622}
     - target: {fileID: 5121804601581103365, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
       propertyPath: m_LocalPosition.x
       value: 197.38527
@@ -2753,37 +2622,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8323749953300343648, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_Controller
+    - target: {fileID: 5820263907274494105, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
+      propertyPath: cinemachineTargetGroup
       value: 
-      objectReference: {fileID: 9100000, guid: 349f47bfdaaba0243b7cba396a093d29, type: 2}
-    - target: {fileID: 8831712932464151186, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8859883093167648078, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 7159635183857488121, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
+      propertyPath: <Target>k__BackingField
+      value: 
+      objectReference: {fileID: 8104945070158242835}
     - target: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
       propertyPath: m_Name
       value: Player_Clone
       objectReference: {fileID: 0}
-    - target: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: m_TagString
-      value: PlayerClone
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1977490181}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
 --- !u!4 &5941227562482245673
 Transform:

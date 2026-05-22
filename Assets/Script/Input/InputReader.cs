@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, InputController.IPlayerActions, ICombatInput
 {
-    public Vector2 InputMovement { get; private set; }
-    public Vector2 Look { get; private set; }
+    public Vector2 InputMovement { get; set; }
+    public Vector2 Look { get; set; }
 
-    public bool IsSprint { get; private set; }
-    public bool IsAttack { get; private set; }
-    public int SkillNumber { get; private set; }
+    public bool IsSprint { get; set; }
+    public bool IsAttack { get; set; }
+    public int SkillNumber { get; set; }
 
     public event Action JumpAction;
 

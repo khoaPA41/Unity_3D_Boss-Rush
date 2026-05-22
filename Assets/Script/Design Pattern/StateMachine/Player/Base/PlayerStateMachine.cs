@@ -62,6 +62,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public Transform MainCameraTransform { get; private set; }
         
         public bool Invincible;
+        public bool Invisible;
 
         public int SkillNumber;
         private int HitTimes { get; set; }
@@ -138,7 +139,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 {
                     Debug.Log("NoDamage");
                 },
-                SkillEffect.Invisible => () => { },
+                SkillEffect.Invisible => () => {Debug.Log("Invisible"); },
                 _ => null
             };
         }
