@@ -13,12 +13,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
         }
-        
 
         public override void Enter()
         {
             IsFinished = false;
-            Debug.Log(IsFinished);
             playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
         }
@@ -43,7 +41,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
+            IsFinished = false;
         }
 
         private void UpdateAnimation(float deltaTime)
@@ -61,23 +59,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
 
             playerStateMachine.Animator.SetFloat(Movement, .5f, playerStateMachine.AnimationCrossFade, deltaTime);
-        }
-
-        private void EnterTargetState()
-        {
-            if (!playerStateMachine.Targeter.SelectedTarget())
-            {
-                return;
-            }
-
-            playerStateMachine.SwitchState(new PlayerTargetState(playerStateMachine));
-            return;
-        }
-
-        private void EnterDodgeState()
-        {
-            playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine,
-                playerStateMachine.InputReader.InputMovement));
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Script.Attack;
 using Script.Design_Pattern.StateMachine.Player.Main;
 using Script.Design_Pattern.StateMachine.PlayerClone.Main;
+using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
 using UnityEngine;
 
@@ -13,10 +14,11 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
+        [field: SerializeField] public float ChangeChasingState { get; private set; } = 0.5f;
 
+        
         [Header("Physics")]
-        [field: SerializeField]
-        public CharacterController CharacterController { get; private set; }
+        [field: SerializeField] public CharacterController CharacterController { get; private set; }
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float MovementSpeed { get; private set; } = 5f;
         [field: SerializeField] public float HitForceTime { get; private set; } = .3f;
@@ -33,6 +35,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         
 
         public GameObject Target { get; set; }
+        public float CountTime { get; set; }
 
         private void Start()
         {
@@ -49,5 +52,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         public event Action DodgeAction;
         public event Action TargetAction;
         public event Action<int> SkillAction;
+        
+        
     }
 }

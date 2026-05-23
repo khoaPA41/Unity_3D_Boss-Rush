@@ -9,16 +9,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private readonly int DodgeRightHash = Animator.StringToHash("DodgeRight");
         private readonly int DodgeForwardHash = Animator.StringToHash("DodgeForward");
 
-        private readonly Vector2 dodgeDirection;
+        private Vector2 dodgeDirection;
 
         private float remainingTime;
-        public PlayerDodgeState(PlayerStateMachine playerStateMachine, Vector2 dodgeDirection) : base(playerStateMachine)
+        public PlayerDodgeState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            this.dodgeDirection = dodgeDirection;
         }
 
         public override void Enter()
         {
+            dodgeDirection = playerStateMachine.InputReader.InputMovement;
             IsFinished = false;
             playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);
             playerStateMachine.Animator.SetFloat(DodgeForwardHash, dodgeDirection.y);

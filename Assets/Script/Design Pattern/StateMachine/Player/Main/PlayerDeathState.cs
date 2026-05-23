@@ -16,14 +16,9 @@ public class PlayerDeathState : PlayerBaseState
     {
         IsFinished = false;
         randomAnimation = Random.Range(0, 2);
-        if (randomAnimation == 0)
-        {
-            playerStateMachine.Animator.CrossFadeInFixedTime(DeathAnimationOneHash, playerStateMachine.AnimationCrossFade);
-        }
-        else
-        {
-            playerStateMachine.Animator.CrossFadeInFixedTime(DeathAnimationTwoHash, playerStateMachine.AnimationCrossFade);
-        }
+        playerStateMachine.Animator.CrossFadeInFixedTime(
+            randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
+            playerStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
@@ -38,6 +33,6 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Exit()
     {
-        IsFinished = true;
+        IsFinished = false;
     }
 }

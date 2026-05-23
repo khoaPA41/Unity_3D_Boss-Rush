@@ -30,17 +30,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
             
             playerStateMachine.Animator.CrossFadeInFixedTime(currentSkill.AnimationName, playerStateMachine.AnimationCrossFade, 0);
-            // playerStateMachine.CountSkillTime = playerStateMachine.SkillTime;
         }
 
         public override void Tick(float deltaTime)
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
-            if (normalizeTime is > 0.8f and <= 1f)
-            {
-                ResetAfterSkill(currentSkill.SkillEffect);
-                IsFinished = true;
-            }
+            if (normalizeTime is <= 0.8f or > 1f) return;
+            ResetAfterSkill(currentSkill.SkillEffect);
+            IsFinished = true;
         }
 
         public override void PhysicTick(float fixedDeltaTime)

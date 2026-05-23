@@ -136,7 +136,7 @@ namespace Script.Attack.Skill_Factory
             
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
 
-            for (var i = 0; i < 3; i++)
+            for (var i = 0; i < 1; i++)
             {
                 getSkill.SpawnSkill(clone, caster.TargetCaster().transform.position);
                 

@@ -56,13 +56,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             playerStateMachine.Targeter.CancelTarget();
             playerStateMachine.EnterChangeAction(false);
-            return;
-        }
-
-        private void EnterDodgeState()
-        {
-            playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine,
-                playerStateMachine.InputReader.InputMovement));
         }
 
         private void UpdateAnimation(float deltaTime)

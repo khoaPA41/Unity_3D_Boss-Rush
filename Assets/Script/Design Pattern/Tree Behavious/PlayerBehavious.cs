@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Script.Design_Pattern.StateMachine.Base;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.Player.Main;
+using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using UnityEngine;
 
 namespace Script.Design_Pattern.Tree_Behavious
 {
-    public class PlayerBehavious : MonoBehaviour
+    public class PlayerBehavious : BaseBrain
     {
         private PlayerStateMachine _sm;
         ICombatInput inputHandler;
@@ -20,9 +22,8 @@ namespace Script.Design_Pattern.Tree_Behavious
         private State landingState;
         private State targetState;
         private State skillState;
+        private State dodgeState;
 
-        private readonly Dictionary<State, List<Transitions>> transitions = new Dictionary<State, List<Transitions>>();
-        private readonly List<Transitions> anyStateTransitions = new List<Transitions>();
 
         private bool isTarget = false;
 
@@ -38,9 +39,10 @@ namespace Script.Design_Pattern.Tree_Behavious
             landingState = new PlayerLandingState(_sm);
             targetState = new PlayerTargetState(_sm);
             skillState = new PlayerUseSkillState(_sm);
-            
+            dodgeState = new PlayerDodgeState(_sm);
+
             _sm.SwitchState(freeLookState);
-            SetupTransition();
+            SetupTransitions();
         }
 
 
@@ -51,6 +53,7 @@ namespace Script.Design_Pattern.Tree_Behavious
             inputHandler.JumpAction += HandleJump;
             inputHandler.TargetAction += HandleTargetState;
             inputHandler.SkillAction += HandleSkillEvent;
+            inputHandler.DodgeAction += HandleDodgeEvent;
         }
 
         private void OnDisable()
@@ -60,58 +63,32 @@ namespace Script.Design_Pattern.Tree_Behavious
             inputHandler.JumpAction -= HandleJump;
             inputHandler.TargetAction -= HandleTargetState;
             inputHandler.SkillAction -= HandleSkillEvent;
-
+            inputHandler.DodgeAction -= HandleDodgeEvent;
         }
 
         private void Update()
         {
-            foreach (var transition in anyStateTransitions)
+            foreach (var transition in anyStateTransitions.Where(transition => transition.Condition()))
             {
-                if (transition.Condition())
-                {
-                    _sm.SwitchState(transition.ToState);
-                }
+                _sm.SwitchState(transition.ToState);
             }
 
-            if (transitions.TryGetValue(_sm.currentState, out var curretnListTransition))
+            // if (_sm.currentState == null) return;
+            if (!transitions.TryGetValue(_sm.currentState, out var currentListTransition)) return;
+
+            foreach (var transition in currentListTransition.Where(transition => transition.Condition()))
             {
-                foreach (var transition in curretnListTransition)
-                {
-                    if (!transition.Condition()) continue;
-                    _sm.SwitchState(transition.ToState);
-                    break;
-                }
+                _sm.SwitchState(transition.ToState);
             }
         }
 
-        private void SetupTransition()
+        protected override void SetupTransitions()
         {
-            void AddTransition(State from, State to, Func<bool> condition)
-            {
-                if (!transitions.TryGetValue(from, out var curretnListTransition))
-                {
-                    curretnListTransition = new List<Transitions>();
-                    transitions.Add(from, curretnListTransition);
-                }
-
-                curretnListTransition.Add(new Transitions(to, condition));
-            }
-
-            void AddAnyTransition(State to, Func<bool> condition)
-            {
-                anyStateTransitions.Add(new Transitions(to, condition));
-            }
-
-            AddTransition(freeLookState, attackState, () => inputHandler.IsAttack);
-            
-            AddTransition(targetState, attackState, () => inputHandler.IsAttack);
-
-
-            // AddTransition(targetState, () => inputHandler.);
-            
-            AddAnyTransition(freeLookState, () => _sm.currentState.IsFinished && !isTarget);
-            
-            AddAnyTransition(targetState, () => _sm.currentState.IsFinished && isTarget);
+            AddTransitions(freeLookState, attackState, () => inputHandler.IsAttack);
+            AddTransitions(targetState, attackState, () => inputHandler.IsAttack);
+            /*******************************************************************************************/
+            AddAnyTransitions(freeLookState, () => _sm.currentState.IsFinished && !isTarget);
+            AddAnyTransitions(targetState, () => _sm.currentState.IsFinished && isTarget);
         }
 
         private void HandleHitEvent()
@@ -126,7 +103,7 @@ namespace Script.Design_Pattern.Tree_Behavious
 
         private void HandleJump()
         {
-            if (_sm.currentState == freeLookState || _sm.currentState == targetState) return;
+            if (_sm.currentState != freeLookState && _sm.currentState != targetState) return;
             _sm.SwitchState(jumpState);
         }
 
@@ -136,7 +113,7 @@ namespace Script.Design_Pattern.Tree_Behavious
             {
                 return;
             }
-            
+
             if (!isTarget)
             {
                 isTarget = true;
@@ -151,8 +128,11 @@ namespace Script.Design_Pattern.Tree_Behavious
 
         private void HandleSkillEvent(int skillNumber)
         {
-            if (_sm.Invincible) {return;}
-            
+            if (_sm.Invincible)
+            {
+                return;
+            }
+
             if (_sm.Mana.currentMana <= 0)
             {
                 return;
@@ -161,6 +141,12 @@ namespace Script.Design_Pattern.Tree_Behavious
             _sm.SkillNumber = skillNumber;
 
             _sm.SwitchState(skillState);
+        }
+
+        private void HandleDodgeEvent()
+        {
+            if (_sm.currentState != freeLookState && _sm.currentState != targetState) return;
+            _sm.SwitchState(dodgeState);
         }
     }
 }

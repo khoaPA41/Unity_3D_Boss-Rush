@@ -1003,6 +1003,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
+--- !u!114 &1863993000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2840511455722025406, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
+  m_PrefabInstance: {fileID: 5913551623332550186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363fcab8fdcc3274dbca82fcadf686ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Object_Pooling.PooledObject
 --- !u!1 &1880576689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,14 +2633,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5820263907274494105, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: cinemachineTargetGroup
+    - target: {fileID: 6405836188858637908, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
+      propertyPath: pooledObject
       value: 
+      objectReference: {fileID: 1863993000}
+    - target: {fileID: 8323749953300343648, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7159635183857488121, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
-      propertyPath: <Target>k__BackingField
-      value: 
-      objectReference: {fileID: 8104945070158242835}
     - target: {fileID: 9011084339830874085, guid: 408b50aad5e0d2f418d03fc6e6749949, type: 3}
       propertyPath: m_Name
       value: Player_Clone

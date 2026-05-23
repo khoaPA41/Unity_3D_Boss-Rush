@@ -2732,7 +2732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5121804601581103365
 Transform:
   m_ObjectHideFlags: 0
@@ -2776,6 +2776,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 8323749953300343648}
   <AnimationCrossFade>k__BackingField: 0.1
   <SwordIdleAnimationClip>k__BackingField: {fileID: 7400000, guid: a26a2ed0f92be854d828772dc24ff406, type: 2}
+  <ChangeChasingState>k__BackingField: 2
   <CharacterController>k__BackingField: {fileID: 5379748622969868685}
   <ForceReceiver>k__BackingField: {fileID: 4461827285485508565}
   <MovementSpeed>k__BackingField: 2
@@ -2832,7 +2833,6 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 8547879823119812425}
   <TimeToGetKnockBackHit>k__BackingField: 3
   <AttackRange>k__BackingField: 2
-  <Target>k__BackingField: {fileID: 0}
 --- !u!114 &4461827285485508565
 MonoBehaviour:
   m_ObjectHideFlags: 0

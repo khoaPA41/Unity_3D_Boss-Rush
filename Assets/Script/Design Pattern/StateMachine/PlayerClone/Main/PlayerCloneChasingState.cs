@@ -15,18 +15,21 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Enter()
         {
+            IsFinished = false;
             cloneStateMachine.Animator.CrossFadeInFixedTime(Movement, cloneStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)
         {
             Vector3 dir = DirToTarget();
-            if (IsAttackRange())
+    
+            if (cloneStateMachine.IsAttack)
             {
-                cloneStateMachine.IsAttack = true;
+                IsFinished = true;
             }
-
+            
             Move(DirToTarget() * cloneStateMachine.MovementSpeed, deltaTime);
+            IsAttackRange();
             FaceTarget();
         }
 
@@ -36,7 +39,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Exit()
         {
-            
+            IsFinished = false;
         }
     }
 }

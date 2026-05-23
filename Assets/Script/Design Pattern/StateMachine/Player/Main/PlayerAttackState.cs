@@ -54,7 +54,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
+            IsFinished = false;
             // playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
             //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
         }

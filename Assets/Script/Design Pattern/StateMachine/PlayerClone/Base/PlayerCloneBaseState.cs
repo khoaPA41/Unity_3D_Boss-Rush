@@ -35,17 +35,12 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
             cloneStateMachine.transform.rotation = Quaternion.LookRotation(DirToTarget());
         }
 
-        protected bool IsAttackRange()
+        protected void IsAttackRange()
         {
-            return (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
-                   cloneStateMachine.AttackRange * cloneStateMachine.AttackRange;
-        }
-        
-        protected void ChangeSwordIdle(string idleAnimationName, AnimationClip clip)
-        {
-            overrideController = new AnimatorOverrideController(cloneStateMachine.Animator.runtimeAnimatorController);
-            cloneStateMachine.Animator.runtimeAnimatorController = overrideController;
-            overrideController[idleAnimationName] = clip;
+            cloneStateMachine.IsAttack = (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
+                                         cloneStateMachine.AttackRange * cloneStateMachine.AttackRange;
+            // return (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
+            //        cloneStateMachine.AttackRange * cloneStateMachine.AttackRange;
         }
     }
 }

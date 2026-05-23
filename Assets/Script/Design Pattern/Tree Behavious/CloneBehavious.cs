@@ -1,83 +1,110 @@
 using System;
-using System.Collections.Generic;
-using Script.Design_Pattern.StateMachine.Player.Main;
+using System.Linq;
+using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Main;
-using Script.Design_Pattern.Tree_Behavious;
-using Unity.VisualScripting;
+using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using UnityEngine;
+using UnityEngine.Pool;
+using UnityEngine.Rendering;
 using State = Script.Design_Pattern.StateMachine.Base.State;
 
-public class CloneBehavious : MonoBehaviour
+namespace Script.Design_Pattern.Tree_Behavious
 {
-    private PlayerCloneStateMachine _sm;
-    // private InputReader inputReader;
-
-    ICombatInput inputHandler;
-
-    private State chasingState;
-    private State attackState;
-    private State hitState;    
-    private State deathState; 
-    
-    private Dictionary<State, List<Transitions>> transitions =  new Dictionary<State, List<Transitions>>();
-    
-    private List<Transitions> anyStateTransitions = new List<Transitions>();
-    
-    private void Awake()
+    public class CloneBehavious : BaseBrain
     {
-        inputHandler = GetComponent<ICombatInput>();
-        _sm = GetComponentInParent<PlayerCloneStateMachine>();
-        chasingState = new PlayerCloneChasingState(_sm);
-        attackState = new PlayerCloneEnterAttack(_sm);
-        
-        
-        SetupTransitions();
-    }
+        [SerializeField] private PooledObject pooledObject;
+        [SerializeField] private float timeToRelease = 10f;
+        private float countTime;
+        private PlayerCloneStateMachine _sm;
 
-    private void OnEnable()
-    {
-        _sm.SwitchState(chasingState);
-        _sm.Health.HitAction += HandleHitEvent;
-        _sm.Health.DeathAction += HandleDeathEvent;
-    }
+        ICombatInput inputHandler;
 
-    private void OnDisable()
-    {
-        _sm.Health.HitAction -= HandleHitEvent;
-        _sm.Health.DeathAction -= HandleDeathEvent;
-    }
-
-
-    private void SetupTransitions()
-    {
-        void AddTransition(State from, State to, Func<bool> transition)
+        private State idleState;
+        private State chasingState;
+        private State hitState;    
+        private State deathState; 
+        private State attackState;
+        // private State attackState2;
+        // private State attackState3;
+        // private State attackState4;
+        // private State attackState5;
+        private void Awake()
         {
-            if (!transitions.TryGetValue(from, out var currentTransitions))
+            inputHandler = GetComponent<ICombatInput>();
+            _sm = GetComponentInParent<PlayerCloneStateMachine>();
+            pooledObject = GetComponent<PooledObject>();
+            idleState = new PlayerCloneIdleState(_sm);
+            chasingState = new PlayerCloneChasingState(_sm);
+            attackState = new PlayerCloneAttackState(_sm, 0);
+            // attackState2 = new PlayerCloneAttackState(_sm, 1);
+            // attackState3 = new PlayerCloneAttackState(_sm, 2);
+            // attackState4 = new PlayerCloneAttackState(_sm, 3);
+            // attackState5 = new PlayerCloneAttackState(_sm, 4);
+
+        
+            // _sm.SwitchState(idleState);
+            SetupTransitions();
+        }
+
+        private void Update()
+        {
+            // if (_sm.currentState == new PlayerCloneAttackState(_sm, 4))
+            // {
+            //     pooledObject.Release(this.gameObject.name);
+            // }
+            countTime -= Time.deltaTime;
+            if (countTime <= 0)
             {
-                currentTransitions = new List<Transitions>();
-                transitions.Add(from, currentTransitions);
+                pooledObject.Release(this.gameObject.name);
             }
-            currentTransitions.Add(new Transitions(to, transition));
+            
+            foreach (var transition in anyStateTransitions.Where(transition => transition.Condition()))
+            {
+                _sm.SwitchState(transition.ToState);
+            }
+            if (_sm.currentState == null) return;
+            if (!transitions.TryGetValue(_sm.currentState, out var currentListTransition)) return;
+            foreach (var transition in currentListTransition.Where(transition => transition.Condition()))
+            {
+                _sm.SwitchState(transition.ToState);
+            }
         }
 
-        void AddAnyTransition(State to, Func<bool> transition)
+        private void OnEnable()
         {
-            anyStateTransitions.Add(new Transitions(to, transition));
+            countTime = timeToRelease;
+            _sm.SwitchState(idleState);
+            _sm.Health.HitAction += HandleHitEvent;
+            _sm.Health.DeathAction += HandleDeathEvent;
         }
 
+        private void OnDisable()
+        {
+            _sm.Health.HitAction -= HandleHitEvent;
+            _sm.Health.DeathAction -= HandleDeathEvent;
+        }
 
-        AddTransition(chasingState, attackState, () => inputHandler.IsAttack);
-    }
+        protected override void SetupTransitions()
+        {
+            AddTransitions(idleState, chasingState, () => idleState.IsFinished);
+            
+            AddTransitions(chasingState, attackState, () => inputHandler.IsAttack && chasingState.IsFinished);
+            
+            AddTransitions(idleState, attackState, () => inputHandler.IsAttack && idleState.IsFinished);
+            
+            // AddAnyTransitions(idleState, () => _sm.currentState.IsFinished);
+        }
     
-    private void HandleHitEvent()
-    {
-        _sm.SwitchState(hitState);
-    }
+        private void HandleHitEvent()
+        {
+            _sm.SwitchState(hitState);
+        }
 
-    private void HandleDeathEvent()
-    {
-        _sm.SwitchState(deathState);
-    }
+        private void HandleDeathEvent()
+        {
+            _sm.SwitchState(deathState);
+        }
     
+    }
 }
