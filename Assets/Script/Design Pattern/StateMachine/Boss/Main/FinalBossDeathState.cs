@@ -12,6 +12,7 @@ public class FinalBossDeathState : FinalBossBaseState
 
     public override void Enter()
     {
+        IsFinished = false;
         randomAnimation = Random.Range(0, 2);
         if (randomAnimation == 0)
         {

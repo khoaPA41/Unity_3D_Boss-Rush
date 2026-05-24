@@ -44,6 +44,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
 
         public Vector2 InputMovement { get; set; }
         public Vector2 Look { get; set; }
+        public bool IsChasing { get; set; }
         public bool IsSprint { get; set; }
         public bool IsAttack { get; set; }
         

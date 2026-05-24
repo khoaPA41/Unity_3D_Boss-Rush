@@ -2761,6 +2761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b9bbd2175227a4997d1e7f578def37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CloneBehavious
+  pooledObject: {fileID: 2840511455722025406}
+  timeToRelease: 10
 --- !u!114 &7159635183857488121
 MonoBehaviour:
   m_ObjectHideFlags: 0

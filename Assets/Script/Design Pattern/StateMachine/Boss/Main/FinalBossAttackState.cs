@@ -18,10 +18,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-            finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
-
+            IsFinished = false;
             finalBossStateMachine.WeaponDealDamage.SetDamage(10);
-
             finalBossStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName,
                 attackData.AnimationTransition);
         }
@@ -41,7 +39,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             }
             else
             {
-                finalBossStateMachine.ReturnLocomotion();
+                // finalBossStateMachine.ReturnLocomotion();
+                IsFinished = true;
+                finalBossStateMachine.IsAttack = false;
             }
 
             previousTime = normalizeTime;
@@ -55,7 +55,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-            finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
+            
         }
 
         private void TryCombo()

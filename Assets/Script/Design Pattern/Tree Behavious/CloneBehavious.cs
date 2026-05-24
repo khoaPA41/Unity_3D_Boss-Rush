@@ -37,6 +37,7 @@ namespace Script.Design_Pattern.Tree_Behavious
             idleState = new PlayerCloneIdleState(_sm);
             chasingState = new PlayerCloneChasingState(_sm);
             attackState = new PlayerCloneAttackState(_sm, 0);
+            hitState = new PlayerCloneHitState(_sm);
             // attackState2 = new PlayerCloneAttackState(_sm, 1);
             // attackState3 = new PlayerCloneAttackState(_sm, 2);
             // attackState4 = new PlayerCloneAttackState(_sm, 3);
@@ -63,6 +64,7 @@ namespace Script.Design_Pattern.Tree_Behavious
             {
                 _sm.SwitchState(transition.ToState);
             }
+            
             if (_sm.currentState == null) return;
             if (!transitions.TryGetValue(_sm.currentState, out var currentListTransition)) return;
             foreach (var transition in currentListTransition.Where(transition => transition.Condition()))
@@ -93,7 +95,7 @@ namespace Script.Design_Pattern.Tree_Behavious
             
             AddTransitions(idleState, attackState, () => inputHandler.IsAttack && idleState.IsFinished);
             
-            // AddAnyTransitions(idleState, () => _sm.currentState.IsFinished);
+            // AddAnyTransitions(idleState, () => _sm.currentState != idleState && _sm.currentState.IsFinished);
         }
     
         private void HandleHitEvent()

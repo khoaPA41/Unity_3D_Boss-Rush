@@ -11,6 +11,7 @@ public class FinalBossHitState : FinalBossBaseState
 
     public override void Enter()
     {
+        IsFinished = false;
         finalBossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationOneHash, finalBossStateMachine.AnimationCrossFade);
     }
 
@@ -19,7 +20,8 @@ public class FinalBossHitState : FinalBossBaseState
         float normalizeTime = GetNormalizeTime(finalBossStateMachine.Animator, HitAnimationTag, 0);
         if (normalizeTime > 0.8 && normalizeTime <= 1f)
         {
-            finalBossStateMachine.ReturnLocomotion();
+            // finalBossStateMachine.ReturnLocomotion();
+            IsFinished = true;
         }
     }
 

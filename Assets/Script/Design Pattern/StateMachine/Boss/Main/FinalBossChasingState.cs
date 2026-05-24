@@ -7,7 +7,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
     {
         readonly int TargetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
         readonly int MovementParam = Animator.StringToHash("Movement");
-        //readonly int MovementYParam = Animator.StringToHash("MovementY");
+        
         private readonly float animationValue = 2;
         private readonly float speed;
         private bool isWalk;
@@ -27,14 +27,20 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-            finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
+            IsFinished = false;
             finalBossStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
         }
 
         public override void Tick(float deltaTime)
         {
             Vector3 dir = GetDirToPlayer();
-            //speed = animationValue == 1 ? finalBossStateMachine.SprintSpeed : finalBossStateMachine.MovementSpeed;
+
+            if (finalBossStateMachine.IsAttack)
+            {
+                IsFinished = true;
+            }
+            
+            IsAttackRange();
             UpdateAnimation(deltaTime, animationValue);
             Move(dir * speed, deltaTime);
             FaceTarget(dir);
@@ -42,22 +48,16 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void PhysicTick(float fixedDeltaTime)
         {
-            if (IsAttackRange())
-            {
-                finalBossStateMachine.EnterAttackState();
-            }
         }
 
         public override void Exit()
         {
-            finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
-
+            finalBossStateMachine.IsChasing = false;
         }
 
-        void UpdateAnimation(float deltaTime, float value)
+        private void UpdateAnimation(float deltaTime, float value)
         {
             finalBossStateMachine.Animator.SetFloat(MovementParam, value, finalBossStateMachine.AnimationCrossFade, deltaTime);
-            //finalBossStateMachine.Animator.SetFloat(MovementYParam, value, finalBossStateMachine.AnimationCrossFade, deltaTime);
         }
     }
 }

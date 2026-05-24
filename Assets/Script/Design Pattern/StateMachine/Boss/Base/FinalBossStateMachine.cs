@@ -4,13 +4,14 @@ using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.StateMachine.Boss.Main;
 using Script.Design_Pattern.StateMachine.Player.Base;
+using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Design_Pattern.StateMachine.Boss.Base
 {
-    public class FinalBossStateMachine : StateMachine.Base.StateMachine, ICaster
+    public class FinalBossStateMachine : StateMachine.Base.StateMachine, ICaster, ICombatInput
     {
 
         [Header("Physics")]
@@ -41,22 +42,24 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         
         public PlayerStateMachine PlayerStateMachine { get; private set; }
 
+        
+        public bool isWalking {get; set;} = false;
         private void Start()
         {
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
-            ReturnLocomotion();
+            // ReturnLocomotion();
         }
 
         private void OnEnable()
         {
-            Health.DeathAction += EnterDeathState;
+            // Health.DeathAction += EnterDeathState;
             GameEventManagers.OnSkillCasted += HandleSkillEvent;
         }
 
         private void OnDisable()
         {
-            Health.DeathAction -= EnterDeathState;
+            // Health.DeathAction -= EnterDeathState;
             GameEventManagers.OnSkillCasted -= HandleSkillEvent;
         }
 
@@ -138,5 +141,16 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                 _ => null
             };
         }
+
+        public Vector2 InputMovement { get; set; }
+        public Vector2 Look { get; set; }
+        public bool IsChasing { get; set; }
+        public bool IsSprint { get; set; }
+        public bool IsAttack { get; set; }
+        public int SkillNumber { get; set; }
+        public event Action JumpAction;
+        public event Action DodgeAction;
+        public event Action TargetAction;
+        public event Action<int> SkillAction;
     }
 }

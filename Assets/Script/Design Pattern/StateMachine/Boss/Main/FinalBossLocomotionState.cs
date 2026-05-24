@@ -19,7 +19,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-            finalBossStateMachine.Health.HitAction += finalBossStateMachine.EnterHitState;
+            IsFinished = false;
             countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
             finalBossStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
         }
@@ -30,20 +30,18 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
             if (countTimeToChangeChasing <= 0)
             {
-                if (IsWalkRange())
-                {
-                    isWalk = true;
-                }
-
-                finalBossStateMachine.EnterChasingState(isWalk);
+                finalBossStateMachine.IsChasing = true;
+                // IsWalkRange();
+                // IsFinished = true;
             }
 
-            if (IsAttackRange())
+            if (finalBossStateMachine.IsAttack)
             {
-                finalBossStateMachine.EnterAttackState();
+                // IsFinished = true;
             }
 
             dir = GetDirToPlayer();
+            IsAttackRange();
             UpdateAnimation(deltaTime);
             FaceTarget(dir);
         }
@@ -55,7 +53,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-            finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
+           
+            // finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
         }
 
         private void UpdateAnimation(float deltaTime)
