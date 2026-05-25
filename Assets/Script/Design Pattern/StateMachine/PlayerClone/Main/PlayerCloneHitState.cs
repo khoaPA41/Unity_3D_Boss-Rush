@@ -21,9 +21,9 @@ public class PlayerCloneHitState : PlayerCloneBaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizeTime(cloneStateMachine.Animator, HitAnimationTag, 0);
-        if (normalizedTime > previousTime && normalizedTime < .9f)
+        if (normalizedTime > previousTime && normalizedTime > .8f)
         {
-            cloneStateMachine.SwitchState(new PlayerCloneIdleState(cloneStateMachine));
+            IsFinished = true;
         }
         
         previousTime = normalizedTime;

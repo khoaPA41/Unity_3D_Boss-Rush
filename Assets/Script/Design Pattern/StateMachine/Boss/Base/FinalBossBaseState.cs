@@ -5,24 +5,24 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 {
     public abstract class FinalBossBaseState : State
     {
-        protected readonly FinalBossStateMachine finalBossStateMachine;
+        protected readonly FinalBossStateMachine FinalBossStateMachine;
 
         protected FinalBossBaseState(FinalBossStateMachine finalBossStateMachine)
         {
-            this.finalBossStateMachine = finalBossStateMachine;
+            this.FinalBossStateMachine = finalBossStateMachine;
         }
 
 
         protected void Move(Vector3 motion, float deltaTime)
         {
-            if (finalBossStateMachine.PlayerStateMachine.Invisible)
+            if (FinalBossStateMachine.PlayerStateMachine.Invisible)
             {
                 return;
             }
 
-            finalBossStateMachine.CharacterController.Move(
-                (motion + finalBossStateMachine.ForceReceiver.Movement) *
-                (finalBossStateMachine.ForceReceiver.GetCoefficientOfMovement() * deltaTime));
+            FinalBossStateMachine.CharacterController.Move(
+                (motion + FinalBossStateMachine.ForceReceiver.Movement) *
+                (FinalBossStateMachine.ForceReceiver.GetCoefficientOfMovement() * deltaTime));
         }
 
         protected void Move(float deltaTime)
@@ -32,50 +32,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         protected void FaceTarget(Vector3 dir)
         {
-            if (finalBossStateMachine.PlayerStateMachine.Invisible)
+            if (FinalBossStateMachine.PlayerStateMachine.Invisible)
             {
                 return;
             }
 
-            finalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
+            FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
-
-        protected Vector3 GetDirToPlayer()
-        {
-            if (finalBossStateMachine.PlayerStateMachine.Invisible)
-            {
-                return Vector3.zero;
-            }
-
-            var dir = (finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
-                .normalized;
-            dir.y = 0;
-            return dir;
-        }
-
-        protected void IsAttackRange()
-        {
-            finalBossStateMachine.IsAttack = ((finalBossStateMachine.Player.transform.position -
-                                               finalBossStateMachine.transform.position)
-                                                 .sqrMagnitude <= finalBossStateMachine.AttackRange *
-                                                 finalBossStateMachine.AttackRange) &&
-                                             !finalBossStateMachine.PlayerStateMachine.Invisible;
-            // return ((finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
-            //            .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.AttackRange) &&
-            //        !finalBossStateMachine.PlayerStateMachine.Invisible;
-        }
-
-
-        protected void IsWalkRange()
-        {
-            finalBossStateMachine.isWalking = ((finalBossStateMachine.Player.transform.position -
-                                                finalBossStateMachine.transform.position)
-                                                  .sqrMagnitude <= finalBossStateMachine.AttackRange *
-                                                  finalBossStateMachine.WalkRange) &&
-                                              !finalBossStateMachine.PlayerStateMachine.Invisible;
-            // return ((finalBossStateMachine.Player.transform.position - finalBossStateMachine.transform.position)
-            //            .sqrMagnitude <= finalBossStateMachine.AttackRange * finalBossStateMachine.WalkRange) &&
-            //        !finalBossStateMachine.PlayerStateMachine.Invisible;
-        }
+        
     }
 }

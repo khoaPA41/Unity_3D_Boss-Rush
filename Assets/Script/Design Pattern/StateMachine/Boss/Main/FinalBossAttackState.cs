@@ -5,48 +5,47 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 {
     public class FinalBossAttackState : FinalBossBaseState
     {
-        private readonly AttackData attackData;
-        private float previousTime;
-        private bool alreadyApplyForce;
-        private Vector3 dir;
+        private readonly AttackData _attackData;
+        private float _previousTime;
+        private bool _alreadyApplyForce;
 
-        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int index) : base(
-            finalBossStateMachine)
+        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int index) : base(finalBossStateMachine)
         {
-            attackData = finalBossStateMachine.AttackDatas[index];
+            _attackData = finalBossStateMachine.AttackDatas[index];
         }
 
         public override void Enter()
         {
-            IsFinished = false;
-            finalBossStateMachine.WeaponDealDamage.SetDamage(10);
-            finalBossStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName,
-                attackData.AnimationTransition);
+            // FinalBossStateMachine.IsAttack = false;
+            FinalBossStateMachine.WeaponDealDamage.SetDamage(10);
+            FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName,
+                _attackData.AnimationTransition);
+            
         }
 
         public override void Tick(float deltaTime)
         {
-            dir = GetDirToPlayer();
-            float normalizeTime = GetNormalizeTime(finalBossStateMachine.Animator, "Attack", 0);
-            if (normalizeTime >= previousTime && normalizeTime < +1f)
+            float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
+            if (normalizeTime >= _previousTime && normalizeTime < 1f)
             {
-                if (normalizeTime >= attackData.ForceTime)
+                if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
                 }
 
-                TryCombo();
+                if (FinalBossStateMachine.IsAttack)
+                {
+                    TryCombo();
+                }
             }
             else
             {
-                // finalBossStateMachine.ReturnLocomotion();
-                IsFinished = true;
-                finalBossStateMachine.IsAttack = false;
+                FinalBossStateMachine.ReturnLocomotion();
             }
-
-            previousTime = normalizeTime;
+            
+            _previousTime = normalizeTime;
             Move(deltaTime);
-            FaceTarget(dir);
+            FaceTarget(FinalBossStateMachine.GetDirToPlayer());
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -55,36 +54,39 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-            
+            FinalBossStateMachine.IsAttack = false;
         }
 
         private void TryCombo()
         {
-            if (attackData.NextAttackDataIndex == -1)
+            if (_attackData.NextAttackDataIndex == -1)
             {
                 return;
             }
 
-            if (previousTime < attackData.AttackAnimationTime)
+            if (_previousTime < _attackData.AttackAnimationTime)
             {
                 return;
             }
 
-            finalBossStateMachine.SwitchState(new FinalBossAttackState(
-                finalBossStateMachine,
-                attackData.NextAttackDataIndex
+            FinalBossStateMachine.LastAttackTime = Time.time;
+            FinalBossStateMachine.CurrentComboIndex = _attackData.NextAttackDataIndex;
+            
+            FinalBossStateMachine.SwitchState(new FinalBossAttackState(
+                FinalBossStateMachine,
+                _attackData.NextAttackDataIndex
             ));
         }
 
         private void TryApplyForce()
         {
-            if (alreadyApplyForce)
+            if (_alreadyApplyForce)
             {
                 return;
             }
 
-            finalBossStateMachine.ForceReceiver.AddForce(finalBossStateMachine.transform.forward * attackData.Force);
-            alreadyApplyForce = true;
+            FinalBossStateMachine.ForceReceiver.AddForce(FinalBossStateMachine.transform.forward * _attackData.Force);
+            _alreadyApplyForce = true;
         }
     }
 }

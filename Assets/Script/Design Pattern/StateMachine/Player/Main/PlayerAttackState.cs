@@ -4,30 +4,28 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 {
     public class PlayerAttackState : PlayerBaseState
     {
-        private readonly AttackData attackData;
-        private float previousTime = 0f;
-        private bool alreadyApplyForce;
+        private readonly AttackData _attackData;
+        private float _previousTime;
+        private bool _alreadyApplyForce;
 
         public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
         {
-            attackData = playerStateMachine.AttackData[attackDataIndex];
+            _attackData = playerStateMachine.AttackData[attackDataIndex];
         }
 
         public override void Enter()
         {
-            IsFinished = false;
-            // playerStateMachine.Health.HitAction += playerStateMachine.EnterHitState;
-            playerStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition,
+            playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
                 0);
-            playerStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
+            playerStateMachine.WeaponDealDamage.SetDamage(_attackData.AttackDamage);
         }
 
         public override void Tick(float deltaTime)
         {
-            float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, attackData.AnimationTag, 0);
-            if (normalizeTime >= previousTime && normalizeTime <= 1f)
+            float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
+            if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
-                if (normalizeTime >= attackData.ForceTime)
+                if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
                 }
@@ -39,11 +37,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
             else
             {
-                // playerStateMachine.ReturnLocomotion();
-                IsFinished = true;
+                playerStateMachine.ReturnLocomotion();
             }
 
-            previousTime = normalizeTime;
+            _previousTime = normalizeTime;
             FaceTarget(deltaTime);
             Move(deltaTime);
         }
@@ -54,38 +51,36 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = false;
-            // playerStateMachine.Health.HitAction -= playerStateMachine.EnterHitState;
             //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
         }
 
         private void TryCombo(float normalizeTime)
         {
-            if (attackData.NextAttackDataIndex == -1)
+            if (_attackData.NextAttackDataIndex == -1)
             {
                 return;
             }
 
-            if (normalizeTime < attackData.AttackAnimationTime)
+            if (normalizeTime < _attackData.AttackAnimationTime)
             {
                 return;
             }
 
             playerStateMachine.SwitchState(new PlayerAttackState(
                 playerStateMachine,
-                attackData.NextAttackDataIndex
+                _attackData.NextAttackDataIndex
             ));
         }
 
         private void TryApplyForce()
         {
-            if (alreadyApplyForce)
+            if (_alreadyApplyForce)
             {
                 return;
             }
 
-            playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * attackData.Force);
-            alreadyApplyForce = true;
+            playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * _attackData.Force);
+            _alreadyApplyForce = true;
         }
     }
 }

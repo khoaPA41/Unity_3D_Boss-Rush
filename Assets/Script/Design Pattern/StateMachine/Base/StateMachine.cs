@@ -4,7 +4,7 @@ namespace Script.Design_Pattern.StateMachine.Base
 {
     public class StateMachine : MonoBehaviour
     {
-        public State currentState { get; set; }
+        public State currentState { get; private set; }
 
         public void SwitchState(State newState)
         {
@@ -14,7 +14,7 @@ namespace Script.Design_Pattern.StateMachine.Base
         }
 
 
-        private void Update()
+        protected void Update()
         {
             currentState?.Tick(Time.deltaTime);
         }

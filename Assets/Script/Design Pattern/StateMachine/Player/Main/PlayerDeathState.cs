@@ -14,7 +14,6 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Enter()
     {
-        IsFinished = false;
         randomAnimation = Random.Range(0, 2);
         playerStateMachine.Animator.CrossFadeInFixedTime(
             randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
@@ -33,6 +32,5 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Exit()
     {
-        IsFinished = false;
     }
 }

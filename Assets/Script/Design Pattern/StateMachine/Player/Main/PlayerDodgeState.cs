@@ -19,7 +19,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public override void Enter()
         {
             dodgeDirection = playerStateMachine.InputReader.InputMovement;
-            IsFinished = false;
             playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);
             playerStateMachine.Animator.SetFloat(DodgeForwardHash, dodgeDirection.y);
             playerStateMachine.Animator.CrossFadeInFixedTime(DodgeBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
@@ -37,7 +36,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             if (remainingTime <= 0f)
             {
-                IsFinished = true;
+                playerStateMachine.ReturnLocomotion();
             }
         }
 
@@ -48,7 +47,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
         }
 
         private Vector3 CalculateMovement()

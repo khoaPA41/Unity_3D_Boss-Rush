@@ -50,10 +50,6 @@ namespace Script.Design_Pattern.Tree_Behavious
 
         private void Update()
         {
-            // if (_sm.currentState == new PlayerCloneAttackState(_sm, 4))
-            // {
-            //     pooledObject.Release(this.gameObject.name);
-            // }
             countTime -= Time.deltaTime;
             if (countTime <= 0)
             {
@@ -89,13 +85,13 @@ namespace Script.Design_Pattern.Tree_Behavious
 
         protected override void SetupTransitions()
         {
-            AddTransitions(idleState, chasingState, () => idleState.IsFinished);
+            AddTransitions(idleState, chasingState, () => inputHandler.IsChasing);
             
-            AddTransitions(chasingState, attackState, () => inputHandler.IsAttack && chasingState.IsFinished);
+            AddTransitions(chasingState, attackState, () => inputHandler.IsAttack);
             
-            AddTransitions(idleState, attackState, () => inputHandler.IsAttack && idleState.IsFinished);
+            AddTransitions(idleState, attackState, () => inputHandler.IsAttack);
             
-            // AddAnyTransitions(idleState, () => _sm.currentState != idleState && _sm.currentState.IsFinished);
+            AddAnyTransitions(idleState, () => _sm.currentState.IsFinished);
         }
     
         private void HandleHitEvent()

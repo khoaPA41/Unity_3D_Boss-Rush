@@ -73,12 +73,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             movement += playerStateMachine.transform.right * playerStateMachine.InputReader.InputMovement.x;
             return movement;
         }
-
-        protected void EnterJumpState()
-        {
-            playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
-        }
-
+        
         protected void ChangeSwordIdle(string idleAnimationName, AnimationClip animationClip)
         {
             overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);

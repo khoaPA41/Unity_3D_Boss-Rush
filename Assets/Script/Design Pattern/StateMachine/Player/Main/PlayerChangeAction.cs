@@ -28,7 +28,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            IsFinished = false;
             if (playerStateMachine.Targeter.currentTarget is not null)
             {
                 playerStateMachine.Animator.CrossFadeInFixedTime(TargetLookBlendTreeHash,
@@ -60,10 +59,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             if (normalizeTime is > .9f and <= 1f)
             {
-                IsFinished = true;
+                playerStateMachine.ReturnLocomotion();
             }
 
-            if (playerStateMachine.Targeter.currentTarget != null)
+            if (playerStateMachine.Targeter.currentTarget is not null)
             {
                 movement = CalculateMovementInTarget();
                 FaceTarget(deltaTime);
@@ -84,7 +83,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = false;
             if (isSwordEnter)
             {
                 ChangeSwordIdle(IdleAnimationName, playerStateMachine.SwordIdleAnimationClip);

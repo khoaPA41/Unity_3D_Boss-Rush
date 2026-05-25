@@ -20,7 +20,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public override void Enter()
         {
             skillNumber = playerStateMachine.SkillNumber;
-            IsFinished = false;
             currentSkill = UseSkill(skillNumber);
 
             if (currentSkill is null)
@@ -37,7 +36,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
             if (normalizeTime is <= 0.8f or > 1f) return;
             ResetAfterSkill(currentSkill.SkillEffect);
-            IsFinished = true;
+            playerStateMachine.ReturnLocomotion();
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -47,7 +46,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
         }
         
         private ISkill UseSkill(int skillNumber)

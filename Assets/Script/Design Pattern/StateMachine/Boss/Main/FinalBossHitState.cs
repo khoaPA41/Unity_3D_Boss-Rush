@@ -1,4 +1,5 @@
 using Script.Design_Pattern.StateMachine.Boss.Base;
+using Script.Design_Pattern.StateMachine.Boss.Main;
 using UnityEngine;
 
 public class FinalBossHitState : FinalBossBaseState
@@ -11,17 +12,15 @@ public class FinalBossHitState : FinalBossBaseState
 
     public override void Enter()
     {
-        IsFinished = false;
-        finalBossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationOneHash, finalBossStateMachine.AnimationCrossFade);
+       FinalBossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationOneHash, FinalBossStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
     {
-        float normalizeTime = GetNormalizeTime(finalBossStateMachine.Animator, HitAnimationTag, 0);
-        if (normalizeTime > 0.8 && normalizeTime <= 1f)
+        float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, HitAnimationTag, 0);
+        if (normalizeTime >= 1f)
         {
-            // finalBossStateMachine.ReturnLocomotion();
-            IsFinished = true;
+            FinalBossStateMachine.ReturnLocomotion();
         }
     }
 

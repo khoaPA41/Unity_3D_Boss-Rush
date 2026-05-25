@@ -23,7 +23,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             if (playerStateMachine.CharacterController.isGrounded && playerStateMachine.CharacterController.velocity.y <= 0f)
             {
-                playerStateMachine.SwitchState(new PlayerLandingState(playerStateMachine));
+                playerStateMachine.SwitchState(playerStateMachine.landingState);
                 return;
             }
 

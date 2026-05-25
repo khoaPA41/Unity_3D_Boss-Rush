@@ -3387,7 +3387,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8876977727193071273}
-  - component: {fileID: 8876977727193071282}
   - component: {fileID: 8876977727193071274}
   - component: {fileID: 8876977727193071278}
   - component: {fileID: 8876977727193071277}
@@ -3698,18 +3697,6 @@ MonoBehaviour:
   timeToChangeChasing: 1
   limitZone: {fileID: 0}
   timeToChangeAttack: 1
---- !u!114 &8876977727193071282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8104945070158242835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2b120232ce09e64bbd518731c61ee86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossBehavious
 --- !u!4 &9002946438076789466
 Transform:
   m_ObjectHideFlags: 0

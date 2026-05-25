@@ -21,12 +21,10 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Tick(float deltaTime)
         {
-            Vector3 dir = DirToTarget();
-    
-            if (cloneStateMachine.IsAttack)
-            {
-                IsFinished = true;
-            }
+            // if (cloneStateMachine.IsAttack)
+            // {
+            //     IsFinished = true;
+            // }
             
             Move(DirToTarget() * cloneStateMachine.MovementSpeed, deltaTime);
             IsAttackRange();
@@ -39,7 +37,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Exit()
         {
-            IsFinished = false;
+            cloneStateMachine.IsChasing = false;
         }
     }
 }

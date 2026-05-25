@@ -24,7 +24,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            IsFinished = false;
             if (isKnockBack)
             {
                 force = playerStateMachine.HitKnockback;
@@ -52,7 +51,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
             else
             {
-                IsFinished = true;
+                playerStateMachine.ReturnLocomotion();
             }
 
             previousTime = normalizeTime;
@@ -66,7 +65,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
         }
 
         private void TryApplyForce(float force)

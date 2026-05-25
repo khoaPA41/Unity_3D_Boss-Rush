@@ -8,7 +8,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private static readonly int Movement = Animator.StringToHash("Movement");
         private readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
         private Vector3 movement;
-        public float CountTimeToChangeIdleLoop { get; } = 0;
 
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
@@ -16,9 +15,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            IsFinished = false;
-            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash,
-                playerStateMachine.AnimationCrossFade, 0);
+            playerStateMachine.InputReader.JumpAction += playerStateMachine.HandleJumpState;
+            playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
+            playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.TargetAction += playerStateMachine.HandleTargetState;
+            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)
@@ -28,8 +29,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
-            // playerStateMachine.CountSkillTime -= deltaTime;
-
+            playerStateMachine.HandleAttackState();
+            playerStateMachine.HandleHeavyAttackState();
+            
             Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceDir(movement, deltaTime);
@@ -41,7 +43,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = false;
+            playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.JumpAction -= playerStateMachine.HandleJumpState;
+            playerStateMachine.InputReader.DodgeAction -= playerStateMachine.HandleDodgeState;
+            playerStateMachine.InputReader.TargetAction -= playerStateMachine.HandleTargetState;
         }
 
         private void UpdateAnimation(float deltaTime)

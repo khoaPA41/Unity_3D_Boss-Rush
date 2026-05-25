@@ -21,12 +21,7 @@ public class PlayerCloneIdleState : PlayerCloneBaseState
         
         if (cloneStateMachine.CountTime >= cloneStateMachine.ChangeChasingState)
         {
-            IsFinished = true;
-        }
-        
-        if (cloneStateMachine.IsAttack)
-        {
-            IsFinished = true;
+            cloneStateMachine.IsChasing = true;
         }
 
         IsAttackRange();
@@ -40,6 +35,5 @@ public class PlayerCloneIdleState : PlayerCloneBaseState
     public override void Exit()
     {
         cloneStateMachine.CountTime = 0f;
-        IsFinished = false;
     }
 }

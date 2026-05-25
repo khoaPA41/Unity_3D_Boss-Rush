@@ -36,6 +36,7 @@ public class PlayerCloneAttackState : PlayerCloneBaseState
             else
             {
                 IsFinished = true;
+                cloneStateMachine.IsAttack = false;
             }
 
             previousTime = normalizeTime;

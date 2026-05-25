@@ -15,7 +15,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            IsFinished = false;
+            playerStateMachine.InputReader.JumpAction += playerStateMachine.HandleJumpState;
+            playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
+            playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.TargetAction += OutTargetState;
+
             playerStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
 
@@ -32,11 +36,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 OutTargetState();
             }
 
-            // if (playerStateMachine.InputReader.IsAttack)
-            // {
-            //     playerStateMachine.EnterAttackState(0);
-            // }
-
+            playerStateMachine.HandleAttackState();
+            playerStateMachine.HandleHeavyAttackState();
             Vector3 movement = CalculateMovementInTarget();
             Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
             UpdateAnimation(deltaTime);
@@ -49,7 +50,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
+            playerStateMachine.InputReader.JumpAction -= playerStateMachine.HandleJumpState;
+            playerStateMachine.InputReader.DodgeAction -= playerStateMachine.HandleDodgeState;
+            playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.TargetAction -= OutTargetState;
         }
 
         private void OutTargetState()

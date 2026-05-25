@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Targeter
   cinemachineTargetGroup: {fileID: 6184501885151179759}
+  targetList: []
 --- !u!1 &1338450227366318862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,7 +2477,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8220116246289507004}
-  - component: {fileID: 8030886267414615405}
   - component: {fileID: 4760237588493309127}
   - component: {fileID: 4874596431932724330}
   - component: {fileID: 8113725156071879154}
@@ -2510,18 +2510,6 @@ Transform:
   - {fileID: 5868688506669552791}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8030886267414615405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964073575420353791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1f34efac62c1bb4d98ec5dca0574213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Tree_Behavious.PlayerBehavious
 --- !u!114 &4760237588493309127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2591,21 +2579,12 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack_4
     <EndAnimationName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: 4
+    <NextAttackDataIndex>k__BackingField: -1
     <AttackAnimationTime>k__BackingField: 0.7
     <AnimationTransition>k__BackingField: 0.1
     <ForceTime>k__BackingField: 0.3
     <Force>k__BackingField: 3
     <AttackDamage>k__BackingField: 40
-  - <AnimationName>k__BackingField: Attack_5
-    <EndAnimationName>k__BackingField: 
-    <AnimationTag>k__BackingField: Attack
-    <NextAttackDataIndex>k__BackingField: -1
-    <AttackAnimationTime>k__BackingField: 0.8
-    <AnimationTransition>k__BackingField: 0.1
-    <ForceTime>k__BackingField: 0.15
-    <Force>k__BackingField: 8
-    <AttackDamage>k__BackingField: 50
   <WeaponDealDamage>k__BackingField: {fileID: 9121915549900251403}
   <Health>k__BackingField: {fileID: 5740855106322436881}
   <Mana>k__BackingField: {fileID: 6234928008955599887}
@@ -2623,8 +2602,9 @@ MonoBehaviour:
   <IronMaterial2>k__BackingField: {fileID: 2100000, guid: 072b0fc789a60814c9cb9b32f79737a0, type: 2}
   <MainMaterial1>k__BackingField: {fileID: 2100000, guid: 7d9348993b2f9954a9159444c07858ff, type: 2}
   <MainMaterial2>k__BackingField: {fileID: 2100000, guid: a88a216bab8fcf344a9d08052ec9d0fd, type: 2}
-  Invisible: 0
   Invincible: 0
+  Invisible: 0
+  SkillNumber: 0
   isAttackState: 0
 --- !u!114 &8113725156071879154
 MonoBehaviour:

@@ -6,7 +6,7 @@ namespace Script.Target
 {
     public class Targeter : MonoBehaviour
     {
-        [SerializeField] CinemachineTargetGroup cinemachineTargetGroup;
+        [SerializeField] private CinemachineTargetGroup cinemachineTargetGroup;
 
         private List<Target> targetList = new List<Target>();
 

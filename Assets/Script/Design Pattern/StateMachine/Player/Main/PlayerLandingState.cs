@@ -16,7 +16,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            IsFinished = false;
             playerStateMachine.Animator.CrossFadeInFixedTime(LandingAnimationHash, playerStateMachine.AnimationCrossFade);
             momentum = playerStateMachine.CharacterController.velocity;
             momentum.y = 0;
@@ -27,7 +26,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, LandingAnimationTag, 0);
             if (normalizeTime is > .9f and <= 1f)
             {
-                IsFinished = true;
+                playerStateMachine.ReturnLocomotion();
             }
             Move(deltaTime);
             FaceTarget(deltaTime);

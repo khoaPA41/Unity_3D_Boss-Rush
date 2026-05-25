@@ -9,41 +9,44 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private readonly int movementParam = Animator.StringToHash("Movement");
         
         private Vector3 dir;
-        private float countTimeToChangeChasing = 0;
-        private bool isWalk = false;
-        
+        private bool isWalk;
+        private float animationValue;
+        private float speed;
         public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
         {
-
+            
         }
 
         public override void Enter()
         {
-            IsFinished = false;
-            countTimeToChangeChasing = finalBossStateMachine.TimeToEnterChasing;
-            finalBossStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, finalBossStateMachine.AnimationCrossFade);
+            FinalBossStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash, FinalBossStateMachine.AnimationCrossFade);
         }
 
         public override void Tick(float deltaTime)
         {
-            countTimeToChangeChasing -= deltaTime;
-
-            if (countTimeToChangeChasing <= 0)
+            Vector2 movementInput = FinalBossStateMachine.InputMovement;
+            isWalk = FinalBossStateMachine.isWalking;
+            
+            if (movementInput == Vector2.zero)
             {
-                finalBossStateMachine.IsChasing = true;
-                // IsWalkRange();
-                // IsFinished = true;
+                animationValue = 0;
+                speed = 0;
             }
-
-            if (finalBossStateMachine.IsAttack)
+            else
             {
-                // IsFinished = true;
+                animationValue = isWalk ? 1 : 2;
+                speed = isWalk ? FinalBossStateMachine.SprintSpeed : FinalBossStateMachine.MovementSpeed;
+                Vector3 dir = new Vector3(movementInput.x, 0, movementInput.y);
+                Move(dir * speed, deltaTime);
             }
-
-            dir = GetDirToPlayer();
-            IsAttackRange();
-            UpdateAnimation(deltaTime);
-            FaceTarget(dir);
+            
+            if (FinalBossStateMachine.IsAttack)
+            {
+                FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, FinalBossStateMachine.CurrentComboIndex));
+            }
+            
+            UpdateAnimation(animationValue, deltaTime);
+            FaceTarget(FinalBossStateMachine.GetDirToPlayer());
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -53,13 +56,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-           
-            // finalBossStateMachine.Health.HitAction -= finalBossStateMachine.EnterHitState;
+            FinalBossStateMachine.InputMovement = Vector2.zero;
         }
 
-        private void UpdateAnimation(float deltaTime)
+        private void UpdateAnimation(float value, float deltaTime)
         {
-            finalBossStateMachine.Animator.SetFloat(movementParam, 0, finalBossStateMachine.AnimationCrossFade, deltaTime);
+            FinalBossStateMachine.Animator.SetFloat(movementParam, value, FinalBossStateMachine.AnimationCrossFade, deltaTime);
         }
     }
 }
