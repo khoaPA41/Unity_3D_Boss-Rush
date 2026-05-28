@@ -12,6 +12,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private bool isWalk;
         private float animationValue;
         private float speed;
+        
         public FinalBossLocomotionState(FinalBossStateMachine finalBossStateMachine) : base(finalBossStateMachine)
         {
             
@@ -24,6 +25,11 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Tick(float deltaTime)
         {
+            if (FinalBossStateMachine.IsActiveUltimate)
+            {
+                FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.NextPhase, 0));
+            }
+            
             Vector2 movementInput = FinalBossStateMachine.InputMovement;
             isWalk = FinalBossStateMachine.isWalking;
             
@@ -39,11 +45,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 Vector3 dir = new Vector3(movementInput.x, 0, movementInput.y);
                 Move(dir * speed, deltaTime);
             }
-            
-            if (FinalBossStateMachine.IsAttack)
-            {
-                FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, FinalBossStateMachine.CurrentComboIndex));
-            }
+
+
+            EnterAttackState();
             
             UpdateAnimation(animationValue, deltaTime);
             FaceTarget(FinalBossStateMachine.GetDirToPlayer());
@@ -62,6 +66,15 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private void UpdateAnimation(float value, float deltaTime)
         {
             FinalBossStateMachine.Animator.SetFloat(movementParam, value, FinalBossStateMachine.AnimationCrossFade, deltaTime);
+        }
+
+        private void EnterAttackState()
+        {
+            if (FinalBossStateMachine.IsAttack)
+            {
+                int randomCombo = Random.Range(0, FinalBossStateMachine.NormalCombo.Length);
+                FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, randomCombo, FinalBossStateMachine.CurrentComboIndex));
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.StateMachine.Base;
 using UnityEngine;
 
@@ -40,5 +41,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
         
+
+        protected void UseSkill(SkillType skillType)
+        {
+            var skill = SkillFactory.CreateSkill(skillType);
+            if (skill == null) return;
+
+            skill.Cast(FinalBossStateMachine);
+        }
     }
 }

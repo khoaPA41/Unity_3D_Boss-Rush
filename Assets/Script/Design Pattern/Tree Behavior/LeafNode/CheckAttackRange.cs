@@ -14,7 +14,7 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
         
         public override NodeState Evaluate()
         {
-            return bossSystem.IsAttackRange() ? NodeState.Success : NodeState.Failure;
+            return bossSystem.IsAttackRange() && !bossSystem.IsActiveUltimate ? NodeState.Success : NodeState.Failure;
         }
     }
 }

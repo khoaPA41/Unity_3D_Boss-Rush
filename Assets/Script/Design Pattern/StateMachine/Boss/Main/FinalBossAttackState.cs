@@ -8,15 +8,18 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private readonly AttackData _attackData;
         private float _previousTime;
         private bool _alreadyApplyForce;
+        private int normalComboIndex;
 
-        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int index) : base(finalBossStateMachine)
+        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int normalComboIndex, int index) : base(finalBossStateMachine)
         {
-            _attackData = finalBossStateMachine.AttackDatas[index];
+            FinalBossStateMachine.currentAttackData = FinalBossStateMachine.NormalCombo[normalComboIndex].AttackData;
+            _attackData = FinalBossStateMachine.currentAttackData[index];
+            this.normalComboIndex = normalComboIndex;
+            // _attackData = finalBossStateMachine.AttackData[index];
         }
 
         public override void Enter()
         {
-            // FinalBossStateMachine.IsAttack = false;
             FinalBossStateMachine.WeaponDealDamage.SetDamage(10);
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName,
                 _attackData.AnimationTransition);
@@ -28,6 +31,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
             if (normalizeTime >= _previousTime && normalizeTime < 1f)
             {
+                TrySlowAnimation(normalizeTime);
+                
                 if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
@@ -57,6 +62,20 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.IsAttack = false;
         }
 
+
+        private void TrySlowAnimation(float normalizedTime)
+        {
+            if (normalizedTime >= _attackData.AnimationSlowStartThreshold)
+            {
+                FinalBossStateMachine.Animator.speed = _attackData.AnimationSpeed;
+            }
+
+            if (normalizedTime >= _attackData.AnimationSlowEndThreshold)
+            {
+                FinalBossStateMachine.Animator.speed = 1;
+            }
+        }
+
         private void TryCombo()
         {
             if (_attackData.NextAttackDataIndex == -1)
@@ -74,6 +93,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             
             FinalBossStateMachine.SwitchState(new FinalBossAttackState(
                 FinalBossStateMachine,
+                normalComboIndex,
                 _attackData.NextAttackDataIndex
             ));
         }

@@ -6,7 +6,7 @@ namespace Script.Attack
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private int maxHealth;
+        [field: SerializeField] public int maxHealth { get; private  set; }
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
 

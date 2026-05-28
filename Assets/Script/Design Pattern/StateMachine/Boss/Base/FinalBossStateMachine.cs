@@ -16,6 +16,18 @@ using State = Script.Design_Pattern.StateMachine.Base.State;
 
 namespace Script.Design_Pattern.StateMachine.Boss.Base
 {
+    [Serializable]
+    public struct Combo
+    {
+        public AttackData[] AttackData;
+    }
+    [Serializable]
+    public struct UltimateCombo
+    {
+        public float HealthThreshold;
+        public AttackData[] AttackData;
+    }
+    
     public class FinalBossStateMachine : StateMachine.Base.StateMachine, ICaster, ICombatInput
     {
         [Header("Physics")]
@@ -25,7 +37,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public float SprintSpeed { get; private set; } = 5f;
         
         [Header("Attack")]
-        [field: SerializeField] public AttackData[] AttackDatas { get; private set; }
+        // [field: SerializeField] public AttackData[] AttackData { get; private set; }
+        [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
+        [field: SerializeField] public Combo[] NormalCombo { get; private set; }
+        public AttackData[] currentAttackData { get; set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
@@ -39,13 +54,15 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
-
         
         [Header("State")]
         [field: SerializeField] public float ChaseDuration { get; private set; } = 4f;
         [field: SerializeField] public float IdleDuration { get; private set; } = 2f;
         public float NextPhaseToggleTime { get; set; }
         public bool IsChasingState { get; set; }
+        public bool IsChangePhase { get; set; }
+        public int NextPhase { get; set; } = 0;
+        public bool IsActiveUltimate { get; set; }
 
         private Health Player { get; set; }
         
@@ -70,19 +87,21 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         private void OnEnable()
         {
             Health.HitAction += EnterHitState;
+            Health.DeathAction += EnterDeathState;
             GameEventManagers.OnSkillCasted += HandleSkillEvent;
         }
         
         private void OnDisable()
         {
             Health.HitAction -= EnterHitState;
+            Health.DeathAction -= EnterDeathState;
             GameEventManagers.OnSkillCasted -= HandleSkillEvent;
         }
+        
 
         public void ReturnLocomotion()
         {
             SwitchState(locomotionState);
-            return;
         }
         
         private void EnterHitState()
@@ -95,7 +114,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
             TimesHit += 1;
         }
-        
+        private void EnterDeathState()
+        {
+            SwitchState(new FinalBossDeathState(this));
+        }
         public void ResetMovement()
         {
             MovementSpeed = 5f;

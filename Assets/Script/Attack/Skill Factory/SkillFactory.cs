@@ -11,7 +11,12 @@ namespace Script.Attack.Skill_Factory
         Invisible,
         WorldBreaker,
         PhantomRetreat,
-        PhantomMirage
+        PhantomMirage,
+        PhaseTwoUltimate,
+        PhaseThreeUltimate,
+        ThrowSword,
+        JumpToSword,
+        SwordAround
     }
     
     public enum SkillEffect
@@ -26,9 +31,9 @@ namespace Script.Attack.Skill_Factory
     
     public static class SkillFactory
     {
-        public static ISkill CreateSkill(int skillNumber)
+        public static ISkill CreateSkill(SkillType  skillType)
         {
-            switch (GetSkillName(skillNumber))
+            switch (skillType)
             {
                 case SkillType.Inescapable:
                     return new Inescapable();
@@ -48,25 +53,20 @@ namespace Script.Attack.Skill_Factory
 
                 case SkillType.PhantomMirage:
                     return new PhantomMirage();
-
+                
+                case SkillType.ThrowSword:
+                    return new ThrowSword();
+                
+                case SkillType.JumpToSword:
+                    return new JumpToSword();
+                
+                case SkillType.SwordAround:
+                    return new SwordAround();
+                
                 case SkillType.NonSkill:
                 default:
                     return null;
             }
-        }
-
-        private static SkillType GetSkillName(int skillNumber)
-        {
-            return skillNumber switch
-            {
-                1 => SkillType.Inescapable,
-                2 => SkillType.Indestructible,
-                3 => SkillType.Invisible,
-                4 => SkillType.WorldBreaker,
-                5 => SkillType.PhantomRetreat,
-                6 => SkillType.PhantomMirage,
-                _ => SkillType.NonSkill
-            };
         }
     }
 }

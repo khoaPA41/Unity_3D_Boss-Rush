@@ -2,6 +2,7 @@ using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
+using UnityEngine;
 
 namespace Script.Attack.Skill_Factory
 {
@@ -144,6 +145,69 @@ namespace Script.Attack.Skill_Factory
                 playerClone.Target = player.Targeter.currentTarget.gameObject;
             }
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+        }
+    }
+    
+    public class PhaseTwoUltimate : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "PhaseTwoUltimate";
+        public string AnimationName => "PhaseTwoUltimate";
+        public int ManaCost => 20;
+        
+        public void Cast(ICaster caster)
+        {
+            Debug.Log("PhaseTwoUltimate");
+        }
+    }
+    
+    public class PhaseThreeUltimate : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "PhaseThreeUltimate";
+        public string AnimationName => "PhaseThreeUltimate";
+        public int ManaCost => 20;
+        
+        public void Cast(ICaster caster)
+        {
+            Debug.Log("PhaseThreeUltimate");
+        }
+    }
+    
+    public class ThrowSword : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "ThrowSword";
+        public string AnimationName => "ThrowSword";
+        public int ManaCost => 20;
+        
+        public void Cast(ICaster caster)
+        {
+            Debug.Log("ThrowSword");
+        }
+    }
+    public class JumpToSword : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "JumpToSword";
+        public string AnimationName => "Jump";
+        public int ManaCost => 20;
+        
+        public void Cast(ICaster caster)
+        {
+            Debug.Log("JumpToSword");
+        }
+    }
+    public class SwordAround : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "SwordAround";
+        public string AnimationName => "Attack5";
+        public int ManaCost => 20;
+        
+        public void Cast(ICaster caster)
+        {
+            Debug.Log("SwordAround");
         }
     }
 }

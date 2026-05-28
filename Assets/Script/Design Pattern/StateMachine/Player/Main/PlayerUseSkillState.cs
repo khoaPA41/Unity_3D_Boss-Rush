@@ -9,32 +9,30 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 {
     public class PlayerUseSkillState : PlayerBaseState
     {
-        private const string UseSkillAnimationString = "UseSkill";
-        private int skillNumber;
         private ISkill currentSkill;
+        private AttackData skillData;
         
         public PlayerUseSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
+            
         }
         
         public override void Enter()
         {
-            skillNumber = playerStateMachine.SkillNumber;
-            currentSkill = UseSkill(skillNumber);
-
+            skillData = playerStateMachine.SkillData[playerStateMachine.SkillNumber - 1];
+            currentSkill = UseSkill(skillData.SkillType);
             if (currentSkill is null)
             {
-                IsFinished = true;
-                return;
+                playerStateMachine.ReturnLocomotion();
             }
             
-            playerStateMachine.Animator.CrossFadeInFixedTime(currentSkill.AnimationName, playerStateMachine.AnimationCrossFade, 0);
+            playerStateMachine.Animator.CrossFadeInFixedTime(skillData.AnimationName, skillData.AnimationTransition, 0);
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UseSkillAnimationString, 0);
-            if (normalizeTime is <= 0.8f or > 1f) return;
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skillData.AnimationTag, 0);
+            if (normalizeTime < skillData.AttackAnimationTime && normalizeTime < 1f) return;
             ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.ReturnLocomotion();
         }
@@ -48,9 +46,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
         }
         
-        private ISkill UseSkill(int skillNumber)
+        private ISkill UseSkill(SkillType skillType)
         {
-            var skill = SkillFactory.CreateSkill(skillNumber);
+            var skill = SkillFactory.CreateSkill(skillType);
             
             if (skill == null) return null;
             
@@ -59,7 +57,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             skill.Cast(playerStateMachine);
             return skill;
         }
-        
         
         private void ResetAfterSkill(SkillEffect skillEffect)
         {

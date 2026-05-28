@@ -32,6 +32,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         [Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
+        [field: SerializeField] public AttackData[] SkillData { get; private set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }

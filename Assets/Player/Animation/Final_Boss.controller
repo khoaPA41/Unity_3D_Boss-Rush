@@ -92,46 +92,46 @@ AnimatorStateMachine:
     m_Position: {x: 230, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -162477683267724765}
-    m_Position: {x: 560, y: -120, z: 0}
+    m_Position: {x: 560, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8209968755090049157}
-    m_Position: {x: 560, y: 130, z: 0}
+    m_Position: {x: 560, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8854204778406474130}
-    m_Position: {x: 560, y: 80, z: 0}
+    m_Position: {x: 790, y: -350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1028507554257774571}
     m_Position: {x: 230, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3068865771602578142}
-    m_Position: {x: 560, y: -70, z: 0}
+    m_Position: {x: 560, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5386553962753668918}
     m_Position: {x: -110, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6033621345633534604}
-    m_Position: {x: 560, y: -20, z: 0}
+    m_Position: {x: 560, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1085813516066900573}
     m_Position: {x: -110, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -797526593751265703}
-    m_Position: {x: 560, y: 30, z: 0}
+    m_Position: {x: 560, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2603966282459796103}
     m_Position: {x: -110, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2899285778830231039}
-    m_Position: {x: 990, y: -1020, z: 0}
+    m_Position: {x: 330, y: -330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8310159563064236318}
-    m_Position: {x: 330, y: 290, z: 0}
+    m_Position: {x: 1110, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2920014801291351530}
-    m_Position: {x: 330, y: 340, z: 0}
+    m_Position: {x: 1110, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -414489492423691250}
-    m_Position: {x: 330, y: 240, z: 0}
+    m_Position: {x: 790, y: -400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3057979209843018784}
     m_Position: {x: 230, y: 110, z: 0}
@@ -150,6 +150,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -417830294075769994}
     m_Position: {x: 230, y: 170, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -163809693161148706}
+    m_Position: {x: 330, y: -270, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 6469029720609821277}
+    m_Position: {x: 790, y: -450, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -167,7 +173,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|BackFlip
+  m_Name: EnterPhaseThree
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -181,7 +187,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 5119502020559517934, guid: 5a4fc22d4066f194e8fe7a8d04694ef8, type: 3}
-  m_Tag: 
+  m_Tag: SkillChangePhase
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -324,7 +330,33 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: d3fc2758b0bb644489cdef9e9bec7cdd, type: 2}
-  m_Tag: Jump
+  m_Tag: Attack
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-163809693161148706
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EnterPhaseTwo
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 7c0e9d33eca05ce418789c09adb461e0, type: 2}
+  m_Tag: SkillChangePhase
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -615,6 +647,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: a66765cac553b534895de389655630d0, type: 2}
+  m_Tag: Attack
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &6469029720609821277
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Overhand_Throw
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 566076bc69cc63d42a0f14359c5be85e, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
