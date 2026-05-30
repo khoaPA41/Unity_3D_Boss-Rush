@@ -1,5 +1,7 @@
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
+using Script.Design_Pattern.StateMachine.Boss.Base;
+using Script.Design_Pattern.StateMachine.Boss.Main;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
@@ -116,7 +118,7 @@ namespace Script.Attack.Skill_Factory
             caster.ComsumeMana(ManaCost);
             
             getSkill.SpawnSkill(SkillName, spawnPos);
-            var bullet = getSkill.skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
+            var bullet = getSkill.Skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
             bullet?.SetTarget(player.Targeter.currentTarget.gameObject);
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
@@ -128,7 +130,7 @@ namespace Script.Attack.Skill_Factory
         public string SkillName => "PhantomMirage";
         public int ManaCost => 30;
         public string AnimationName => "PhantomMirage";
-        public string clone = "PlayerClone";  
+        private string Clone = "PlayerClone";  
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
@@ -139,9 +141,9 @@ namespace Script.Attack.Skill_Factory
 
             for (var i = 0; i < 1; i++)
             {
-                getSkill.SpawnSkill(clone, caster.TargetCaster().transform.position);
+                getSkill.SpawnSkill(Clone, caster.TargetCaster().transform.position);
                 
-                var playerClone = getSkill.skill.GetComponent<PlayerCloneStateMachine>();
+                var playerClone = getSkill.Skill.GetComponent<PlayerCloneStateMachine>();
                 playerClone.Target = player.Targeter.currentTarget.gameObject;
             }
             GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
@@ -183,9 +185,21 @@ namespace Script.Attack.Skill_Factory
         
         public void Cast(ICaster caster)
         {
-            Debug.Log("ThrowSword");
+            var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
+            var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
+            Vector3 spawnPos = caster.TargetCaster().transform.position + new Vector3(0f, 4f, 0f);
+            
+            
+            bossStateMachine.Coroutine(.5f, () =>
+            {
+                getSkill.SpawnSkill(SkillName, spawnPos);
+                var throwSword = getSkill.Skill.GetComponent<SwordSkill>();
+                throwSword.targetPosition = bossStateMachine.PlayerStateMachine.transform.position;
+            });
+
         }
     }
+    
     public class JumpToSword : ISkill
     {
         public SkillEffect SkillEffect => SkillEffect.NonEffect;
@@ -195,7 +209,10 @@ namespace Script.Attack.Skill_Factory
         
         public void Cast(ICaster caster)
         {
-            Debug.Log("JumpToSword");
+            var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
+            bossStateMachine.IsCanMove = true;
+            
+            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
         }
     }
     public class SwordAround : ISkill

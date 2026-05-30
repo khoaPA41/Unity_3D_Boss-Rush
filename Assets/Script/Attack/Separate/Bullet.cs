@@ -7,6 +7,7 @@ namespace Script.Attack
         [SerializeField] private float bulletSpeed;
         private GameObject enemy;
         private Rigidbody[] bullets;
+        
 
         private void Start()
         {

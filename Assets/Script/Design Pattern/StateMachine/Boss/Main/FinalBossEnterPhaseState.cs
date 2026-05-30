@@ -21,13 +21,15 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
+            FinalBossStateMachine.Health.noDamage = true;
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
+            
             UseSkill(_attackData.SkillType);
         }
 
         public override void Tick(float deltaTime)
         {
-            float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
+            var normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
             if (normalizeTime >= _previousTime && normalizeTime < 1f)
             {
                 if (normalizeTime >= _attackData.ForceTime)
@@ -42,7 +44,19 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             }
             
             _previousTime = normalizeTime;
-            Move(deltaTime);
+
+            if (FinalBossStateMachine.IsCanMove)
+            {
+                var input = FinalBossStateMachine.GetDirToPlayer();
+                FinalBossStateMachine.InputMovement = new Vector2(input.x, input.z);
+                var dir = new Vector3(FinalBossStateMachine.InputMovement.x, 0, FinalBossStateMachine.InputMovement.y);
+                Move(dir * FinalBossStateMachine.DashSpeed, deltaTime);
+            }
+            else
+            {
+                Move(deltaTime);
+            }
+            
             FaceTarget(FinalBossStateMachine.GetDirToPlayer());
         }
 
@@ -52,11 +66,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-            FinalBossStateMachine.IsActiveUltimate = false;
-            if (_attackData.NextAttackDataIndex != -1)
-            {
-                FinalBossStateMachine.IsChangePhase = false;
-            }
+            FinalBossStateMachine.IsActiveUltimate = _attackData.NextAttackDataIndex != -1;
+            FinalBossStateMachine.Health.noDamage = _attackData.NextAttackDataIndex != -1;
+            FinalBossStateMachine.IsChangePhase = _attackData.NextAttackDataIndex != -1;
+            FinalBossStateMachine.IsCanMove = false;
         }
         
         private void TryCombo()
@@ -67,6 +80,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 FinalBossStateMachine.ReturnLocomotion();
                 return;
             }
+            
+            FinalBossStateMachine.CurrentState = new FinalBossEnterPhaseState(
+                FinalBossStateMachine,
+                comboIndex,
+                _attackData.NextAttackDataIndex
+            );
             
             FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(
                 FinalBossStateMachine,

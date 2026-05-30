@@ -6,11 +6,11 @@ namespace Script.Design_Pattern.Object_Pooling
     {
         [SerializeField] private ObjectPooling objectPooling;
 
-        public GameObject skill { get; private set; }
+        public GameObject Skill { get; private set; }
         
         public void SpawnSkill(string name, Vector3 skillPosition)
         {
-            skill = objectPooling.GetPooledObject(name, skillPosition).gameObject;
+            Skill = objectPooling.GetPooledObject(name, skillPosition).gameObject;
         }
     }
 }

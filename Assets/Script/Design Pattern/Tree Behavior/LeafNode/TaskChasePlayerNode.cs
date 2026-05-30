@@ -29,13 +29,12 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
             
                 bossSystem.InputMovement = new Vector2(dir.x, dir.z);
             
-                bossSystem.isWalking = bossSystem.IsWalkRange();
+                bossSystem.IsWalking = bossSystem.IsWalkRange();
             }
             else
             {
                 bossSystem.InputMovement = Vector2.zero;
             }
-            
             
             return NodeState.Running;
         }

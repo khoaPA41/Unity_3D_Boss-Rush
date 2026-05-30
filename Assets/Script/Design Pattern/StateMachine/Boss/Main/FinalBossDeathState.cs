@@ -15,19 +15,16 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         public override void Enter()
         {
             randomAnimation = Random.Range(0, 2);
-            if (randomAnimation == 0)
-            {
-                FinalBossStateMachine.Animator.CrossFadeInFixedTime(DeathAnimationOneHash, FinalBossStateMachine.AnimationCrossFade);
-            }
-            else
-            {
-                FinalBossStateMachine.Animator.CrossFadeInFixedTime(DeathAnimationTwoHash, FinalBossStateMachine.AnimationCrossFade);
-            }
+            FinalBossStateMachine.Animator.CrossFadeInFixedTime(
+                randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
+                FinalBossStateMachine.AnimationCrossFade);
         }
+        
         public override void Tick(float deltaTime)
         {
 
         }
+        
         public override void PhysicTick(float fixedDeltaTime)
         {
 

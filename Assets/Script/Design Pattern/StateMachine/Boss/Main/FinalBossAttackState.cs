@@ -60,6 +60,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         public override void Exit()
         {
             FinalBossStateMachine.IsAttack = false;
+            FinalBossStateMachine.Animator.speed = 1;
         }
 
 

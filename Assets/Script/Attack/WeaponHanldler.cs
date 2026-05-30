@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class WeaponHanldler : MonoBehaviour
+public class WeaponHandler : MonoBehaviour
 {
-    [SerializeField] GameObject weaponLogic;
-    [SerializeField] GameObject weaponMain;
-    [SerializeField] GameObject weaponStore;
+    [SerializeField] private GameObject weaponLogic;
+    [SerializeField] private GameObject weaponMain;
+    [SerializeField] private GameObject weaponStore;
     public void OnActiveWeaponCollider()
     {
         weaponLogic?.SetActive(true);
@@ -13,18 +13,23 @@ public class WeaponHanldler : MonoBehaviour
     public void OnUnActiveWeaponCollider()
     {
         weaponLogic?.SetActive(false);
-
     }
 
     public void OnGetWeapon()
     {
         weaponMain?.SetActive(true);
-        weaponStore?.SetActive(false);
+        if (weaponStore)
+        {
+            weaponStore.SetActive(false);
+        }
     }
 
     public void OnStoreWeapon()
     {
         weaponMain?.SetActive(false);
-        weaponStore?.SetActive(true);
+        if (weaponStore)
+        {
+            weaponStore.SetActive(true);
+        }
     }
 }

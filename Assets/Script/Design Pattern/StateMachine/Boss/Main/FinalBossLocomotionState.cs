@@ -25,13 +25,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Tick(float deltaTime)
         {
-            if (FinalBossStateMachine.IsActiveUltimate)
+            if (FinalBossStateMachine.IsActiveUltimate && !FinalBossStateMachine.IsStillUltimate)
             {
                 FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.NextPhase, 0));
             }
             
-            Vector2 movementInput = FinalBossStateMachine.InputMovement;
-            isWalk = FinalBossStateMachine.isWalking;
+            var movementInput = FinalBossStateMachine.InputMovement;
+            isWalk = FinalBossStateMachine.IsWalking;
             
             if (movementInput == Vector2.zero)
             {
@@ -42,7 +42,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             {
                 animationValue = isWalk ? 1 : 2;
                 speed = isWalk ? FinalBossStateMachine.SprintSpeed : FinalBossStateMachine.MovementSpeed;
-                Vector3 dir = new Vector3(movementInput.x, 0, movementInput.y);
+                var dir = new Vector3(movementInput.x, 0, movementInput.y);
                 Move(dir * speed, deltaTime);
             }
 

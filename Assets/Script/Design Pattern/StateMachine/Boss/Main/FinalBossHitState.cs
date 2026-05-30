@@ -17,7 +17,7 @@ public class FinalBossHitState : FinalBossBaseState
 
     public override void Tick(float deltaTime)
     {
-        float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, HitAnimationTag, 0);
+        var normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, HitAnimationTag, 0);
         if (normalizeTime >= 1f)
         {
             FinalBossStateMachine.ReturnLocomotion();
