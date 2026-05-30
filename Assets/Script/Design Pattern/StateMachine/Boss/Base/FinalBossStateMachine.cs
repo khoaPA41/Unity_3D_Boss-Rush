@@ -63,6 +63,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public bool IsAttackState { get; set; }
         public int NextPhase { get; set; } = 0;
         public bool IsActiveUltimate { get; set; }
+        
+        [Header("Event")]
+        [field: SerializeField] public SkillSituationEvent SkillSituationEvent { get; private set; }
+
 
         private Health Player { get; set; }
         
@@ -72,7 +76,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private State _locomotionState;
 
-        public State CurrentState;
+        // public State CurrentState;
         
         public bool IsStillUltimate { get; set; } = false;
         public bool IsCanMove {get; set; } = false;
@@ -102,8 +106,21 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             Health.DeathAction -= EnterDeathState;
             GameEventManagers.OnSkillCasted -= HandleSkillEvent;
         }
-        
 
+        public void SendEvent()
+        {
+            SkillSituationEvent.Instance.SendSituationEvent();
+        }
+        public void SendActionEvent()
+        {
+            SkillSituationEvent.Instance.SendNextActionEvent();
+        }
+        
+        public void SendReleasePoolObjectEvent()
+        {
+            SkillSituationEvent.Instance.SendReleasePoolObjectEvent();
+        }
+        
         public void ReturnLocomotion()
         {
             SwitchState(_locomotionState);

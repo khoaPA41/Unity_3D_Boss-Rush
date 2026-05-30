@@ -1,7 +1,7 @@
+using System;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.Boss.Base;
-using Script.Design_Pattern.StateMachine.Boss.Main;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
@@ -130,7 +130,8 @@ namespace Script.Attack.Skill_Factory
         public string SkillName => "PhantomMirage";
         public int ManaCost => 30;
         public string AnimationName => "PhantomMirage";
-        private string Clone = "PlayerClone";  
+        private const string Clone = "PlayerClone";
+
         public void Cast(ICaster caster)
         {
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
@@ -187,16 +188,18 @@ namespace Script.Attack.Skill_Factory
         {
             var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
             var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
-            Vector3 spawnPos = caster.TargetCaster().transform.position + new Vector3(0f, 4f, 0f);
-            
-            
-            bossStateMachine.Coroutine(.5f, () =>
+            var spawnPos = caster.TargetCaster().transform.position + new Vector3(0f, 4f, 0f);
+            Action situationAction = null;
+
+            situationAction = () =>
             {
                 getSkill.SpawnSkill(SkillName, spawnPos);
                 var throwSword = getSkill.Skill.GetComponent<SwordSkill>();
-                throwSword.targetPosition = bossStateMachine.PlayerStateMachine.transform.position;
-            });
-
+                throwSword.TargetPosition = bossStateMachine.PlayerStateMachine.transform.position;
+                SkillSituationEvent.Instance.SituationEvent -= situationAction;
+            };
+            
+            SkillSituationEvent.Instance.SituationEvent += situationAction;
         }
     }
     
@@ -212,9 +215,18 @@ namespace Script.Attack.Skill_Factory
             var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
             bossStateMachine.IsCanMove = true;
             
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            Action situationAction = null;
+
+            situationAction = () =>
+            {
+                bossStateMachine.IsCanMove = false;
+                SkillSituationEvent.Instance.SituationEvent -= situationAction;
+            };
+            
+            SkillSituationEvent.Instance.SituationEvent += situationAction;
         }
     }
+    
     public class SwordAround : ISkill
     {
         public SkillEffect SkillEffect => SkillEffect.NonEffect;

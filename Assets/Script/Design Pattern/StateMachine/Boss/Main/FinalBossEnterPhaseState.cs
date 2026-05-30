@@ -9,18 +9,19 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private float _previousTime;
         private bool _alreadyApplyForce;
         private readonly AttackData _attackData;
-        private readonly int comboIndex;
+        private readonly int _comboIndex;
         
         public FinalBossEnterPhaseState(FinalBossStateMachine finalBossStateMachine, int comboIndex, int attackIndex) : base(finalBossStateMachine)
         {
             ultimate = FinalBossStateMachine.UltimateCombo[comboIndex];
             FinalBossStateMachine.currentAttackData = ultimate.AttackData;
             _attackData = FinalBossStateMachine.currentAttackData[attackIndex];
-            this.comboIndex = comboIndex;
+            _comboIndex = comboIndex;
         }
-
+        
         public override void Enter()
         {
+            SkillSituationEvent.Instance.NextActionEvent += TryCombo;
             FinalBossStateMachine.Health.noDamage = true;
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
             
@@ -35,11 +36,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
-                }
-
-                if (_previousTime > _attackData.AttackAnimationTime)
-                {
-                    TryCombo();
                 }
             }
             
@@ -69,6 +65,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.IsActiveUltimate = _attackData.NextAttackDataIndex != -1;
             FinalBossStateMachine.Health.noDamage = _attackData.NextAttackDataIndex != -1;
             FinalBossStateMachine.IsChangePhase = _attackData.NextAttackDataIndex != -1;
+            SkillSituationEvent.Instance.NextActionEvent -= TryCombo;
             FinalBossStateMachine.IsCanMove = false;
         }
         
@@ -81,15 +78,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 return;
             }
             
-            FinalBossStateMachine.CurrentState = new FinalBossEnterPhaseState(
-                FinalBossStateMachine,
-                comboIndex,
-                _attackData.NextAttackDataIndex
-            );
-            
             FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(
                 FinalBossStateMachine,
-                comboIndex,
+                _comboIndex,
                 _attackData.NextAttackDataIndex
             ));
         }

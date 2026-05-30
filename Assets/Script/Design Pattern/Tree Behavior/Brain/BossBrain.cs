@@ -41,7 +41,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
             });
 
             /*Duoi theo*/
-            var taticalChasing = new TaskChasePlayerNode(bossSystem);
+            var tacticalChasing = new TaskChasePlayerNode(bossSystem);
             var phaseTwo = new CheckChangePhase(bossSystem);
 
             /*Nhanh 3: uu tien tan cong truoc*/
@@ -50,7 +50,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
                 changePhaseSequence,
                 atkSequence,
                 phaseTwo,
-                taticalChasing
+                tacticalChasing
             });
         }
     }

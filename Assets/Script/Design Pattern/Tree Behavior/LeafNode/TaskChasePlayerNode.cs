@@ -19,7 +19,7 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
             if (Time.time >= bossSystem.NextPhaseToggleTime)
             {
                 bossSystem.IsChasingState = !bossSystem.IsChasingState;
-                float nextToggleTime = bossSystem.IsChasingState ? bossSystem.ChaseDuration : bossSystem.IdleDuration;
+                var nextToggleTime = bossSystem.IsChasingState ? bossSystem.ChaseDuration : bossSystem.IdleDuration;
                 bossSystem.NextPhaseToggleTime = Time.time + nextToggleTime;
             }
 

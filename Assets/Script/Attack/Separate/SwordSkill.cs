@@ -1,6 +1,3 @@
-using System;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
 using UnityEngine;
 
@@ -12,55 +9,67 @@ public class SwordSkill : MonoBehaviour
     [SerializeField] private float timeToReturn;
 
 
-    public Vector3 targetPosition { get; set; }
+    public Vector3 TargetPosition { get; set; }
 
-
-    private Rigidbody rb;
-    private Vector3 currentVelocity;
-    private Vector3 direction;
-    private PooledObject pooledObject;
-    private float countTime;
-
+    private Vector3 _currentVelocity;
+    private Vector3 _direction;
+    private PooledObject _pooledObject;
+    private float _countTime;
+    private bool alreadySendEvent = false;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        pooledObject = GetComponent<PooledObject>();
+        GetComponent<Rigidbody>();
+        _pooledObject = GetComponent<PooledObject>();
     }
 
     private void OnEnable()
     {
-        countTime =  timeToReturn;
-        var direction = (targetPosition - transform.position).normalized;
+        SkillSituationEvent.Instance.ReleasePoolObjectEvent += Release;
+        _countTime = timeToReturn;
+        var direction = (TargetPosition - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
+    }
+    
+    private void OnDisable()
+    {
+        SkillSituationEvent.Instance.ReleasePoolObjectEvent -= Release;
+    }
+
+    private void Release()
+    {
+        _pooledObject.Release(this.name);
     }
 
     private void Update()
-    { 
-        countTime -= Time.deltaTime;
-        if (countTime <= 0)
-        {
-            pooledObject.Release(this.name);
-        }
-        
-        var targetCenter = targetPosition + new Vector3(0f, .8f, 0f);
+    {
+        // _countTime -= Time.deltaTime;
+        // if (_countTime <= 0)
+        // {
+        //     _pooledObject.Release(this.name);
+        // }
+
+        var targetCenter = TargetPosition + new Vector3(0f, .8f, 0f);
         var distanceToTarget = targetCenter - transform.position;
-        
+
         if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
         {
+            if (alreadySendEvent) return;
+            SkillSituationEvent.Instance.SendNextActionEvent();
+            alreadySendEvent = true;
             return;
         }
 
-        direction = distanceToTarget.normalized;
-        transform.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(90f, 0f, 0f);
-        
+        _direction = distanceToTarget.normalized;
+        transform.rotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(90f, 0f, 0f);
+
         Move();
     }
 
     private void Move()
     {
-        var desiredVelocity = direction * speed;
-        currentVelocity = Vector3.Lerp(currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
-        transform.position += currentVelocity * Time.deltaTime;
+        var desiredVelocity = _direction * speed;
+        _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
+        transform.position += _currentVelocity * Time.deltaTime;
     }
 }

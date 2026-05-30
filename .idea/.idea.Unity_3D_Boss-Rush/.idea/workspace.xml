@@ -12,46 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Bullet.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Bullet.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Health.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Health.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Mana.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Mana.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/GetSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/GetSkill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/GameEventManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/GameEventManagers.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossDeathState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossHitState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckChangePhase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckChangePhase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Idle_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Idle_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Overhand_Throw.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Overhand_Throw.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Bone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Bone.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Earth.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Earth.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Frost.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Frost.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Iron.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Iron.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Lava.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Lava.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Gold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Gold.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Corrupted.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Corrupted.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Gold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Gold.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Red.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +34,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5e/cf8ae6f0/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/67/ef3454fc/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/db/93909165/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/eb/49333554/Vector2.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Attack/Separate/ThrowSword.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/SkillSituationEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Base/State.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -98,61 +68,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.3967352276724736E-27" />
-      <entry key="MS500" value="4.268895390971673E-6" />
-      <entry key="S2" value="0.05605696132649277" />
-      <entry key="S5" value="0.4805815669959775" />
-      <entry key="S10" value="1.5195979651107219" />
-      <entry key="S30" value="8.05757993834343" />
-      <entry key="S60" value="14.567959614557584" />
-      <entry key="M2" value="22.954189189478015" />
-      <entry key="M5" value="39.69471389496831" />
-      <entry key="M10" value="52.561526754514716" />
-      <entry key="M15" value="59.092323989056446" />
-      <entry key="M30" value="74.45567250679501" />
-      <entry key="H1" value="113.53898265106017" />
-      <entry key="H2" value="184.45198638604845" />
-      <entry key="H4" value="261.4178109995468" />
-      <entry key="D1" value="370.0112799366982" />
-      <entry key="W1" value="394.67750177432794" />
+      <entry key="MS100" value="1.0000033117635163" />
+      <entry key="MS500" value="1.1438869550342459" />
+      <entry key="S2" value="3.8225211470606943" />
+      <entry key="S5" value="6.964251987780614" />
+      <entry key="S10" value="9.070808596212098" />
+      <entry key="S30" value="12.635293435516484" />
+      <entry key="S60" value="16.409774601554183" />
+      <entry key="M2" value="23.80779818330856" />
+      <entry key="M5" value="39.43404839124978" />
+      <entry key="M10" value="57.21075304190053" />
+      <entry key="M15" value="75.52874745669737" />
+      <entry key="M30" value="129.97637720942228" />
+      <entry key="H1" value="212.8386592028219" />
+      <entry key="H2" value="322.343195223889" />
+      <entry key="H4" value="436.5578380745956" />
+      <entry key="D1" value="604.4481882439064" />
+      <entry key="W1" value="644.011184387175" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.8645372938758553" />
-      <entry key="MS500" value="1.0081715487578444" />
-      <entry key="S2" value="1.586698464021689" />
-      <entry key="S5" value="2.192341994069092" />
-      <entry key="S10" value="2.5367699070019536" />
-      <entry key="S30" value="2.832806794322929" />
-      <entry key="S60" value="3.0479385935150853" />
-      <entry key="M2" value="3.993962286105915" />
-      <entry key="M5" value="6.9664186112803534" />
-      <entry key="M10" value="9.523804086678563" />
-      <entry key="M15" value="10.969872793696215" />
-      <entry key="M30" value="15.486601123627262" />
-      <entry key="H1" value="27.389572056354144" />
-      <entry key="H2" value="46.74735237377884" />
-      <entry key="H4" value="66.19591964235933" />
-      <entry key="D1" value="92.23416282581914" />
-      <entry key="W1" value="97.99517136038189" />
+      <entry key="MS100" value="6.285635275025206E-27" />
+      <entry key="MS500" value="5.750026360539931E-6" />
+      <entry key="S2" value="0.049213693111012306" />
+      <entry key="S5" value="0.3592943645022805" />
+      <entry key="S10" value="1.0410675600527532" />
+      <entry key="S30" value="3.097237680620082" />
+      <entry key="S60" value="4.405179095128651" />
+      <entry key="M2" value="5.533407157439491" />
+      <entry key="M5" value="7.2440285919599905" />
+      <entry key="M10" value="9.69461046471571" />
+      <entry key="M15" value="12.597145627916607" />
+      <entry key="M30" value="21.746367983343713" />
+      <entry key="H1" value="37.92268969065603" />
+      <entry key="H2" value="62.352034474405556" />
+      <entry key="H4" value="88.72778708086587" />
+      <entry key="D1" value="127.37262186036607" />
+      <entry key="W1" value="136.40715578655585" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0052626311596322" />
-      <entry key="MS500" value="1.3512294488090917" />
-      <entry key="S2" value="2.110503873024948" />
-      <entry key="S5" value="3.2761190341907658" />
-      <entry key="S10" value="4.782047051900568" />
-      <entry key="S30" value="11.75063973145486" />
-      <entry key="S60" value="18.52550550745493" />
-      <entry key="M2" value="27.874532909837225" />
-      <entry key="M5" value="47.59905947194808" />
-      <entry key="M10" value="63.040073179887024" />
-      <entry key="M15" value="71.0269158040272" />
-      <entry key="M30" value="90.91817052497939" />
-      <entry key="H1" value="141.90794438167183" />
-      <entry key="H2" value="232.18143451178858" />
-      <entry key="H4" value="328.600767414238" />
-      <entry key="D1" value="463.24236112041206" />
-      <entry key="W1" value="493.67220340269085" />
+      <entry key="MS100" value="0.920190675966794" />
+      <entry key="MS500" value="1.1219908627582589" />
+      <entry key="S2" value="3.7068652804404083" />
+      <entry key="S5" value="7.081157629030123" />
+      <entry key="S10" value="9.853711870368546" />
+      <entry key="S30" value="15.52920070956658" />
+      <entry key="S60" value="20.678834061196515" />
+      <entry key="M2" value="29.259004035896375" />
+      <entry key="M5" value="46.63675749475288" />
+      <entry key="M10" value="66.87844311060947" />
+      <entry key="M15" value="88.10244036717563" />
+      <entry key="M30" value="151.70112131379312" />
+      <entry key="H1" value="250.74049148017414" />
+      <entry key="H2" value="384.67616344448453" />
+      <entry key="H4" value="525.2710541003239" />
+      <entry key="D1" value="731.8170927160074" />
+      <entry key="W1" value="780.4177651564717" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -315,7 +285,8 @@
       <workItem from="1780069908859" duration="165000" />
       <workItem from="1780070257781" duration="38000" />
       <workItem from="1780070346111" duration="24000" />
-      <workItem from="1780127802780" duration="13551000" />
+      <workItem from="1780127802780" duration="13926000" />
+      <workItem from="1780155885819" duration="4091000" />
     </task>
     <servers />
   </component>
