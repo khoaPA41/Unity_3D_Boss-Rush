@@ -25,7 +25,7 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
 
             if (bossSystem.IsChasingState)
             {
-                var dir = bossSystem.GetDirToPlayer();
+                var dir = bossSystem.GetDirToPlayer(bossSystem.Target);
             
                 bossSystem.InputMovement = new Vector2(dir.x, dir.z);
             

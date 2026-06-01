@@ -1,32 +1,30 @@
-using System;
+using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.Object_Pooling;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(PooledObject))]
 
 public class SkillPooledObject : MonoBehaviour
 {
-    private ParticleSystem particle;
-
-    private PooledObject pooled;
+    private ParticleSystem _particle;
+    private PooledObject _pooled;
 
     private void Awake()
     {
-        particle = GetComponent<ParticleSystem>();
-        pooled = GetComponent<PooledObject>();
+        _particle = GetComponent<ParticleSystem>();
+        _pooled = GetComponent<PooledObject>();
     }
     
     private void OnEnable()
     {
-        particle?.Clear();
-        particle?.Play();
+        _particle?.Clear();
+        _particle?.Play();
     }
     
     private void OnParticleSystemStopped()
     {
-        particle?.Stop();
+        _particle?.Stop();
         
-        pooled.Release(this.gameObject.name);
+        _pooled.Release(this.gameObject.name);
     }
 }

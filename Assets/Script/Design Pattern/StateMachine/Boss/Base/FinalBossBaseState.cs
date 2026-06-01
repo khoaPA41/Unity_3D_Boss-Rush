@@ -1,3 +1,4 @@
+using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.StateMachine.Base;
 using UnityEngine;
@@ -31,11 +32,14 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             Move(Vector3.zero, deltaTime);
         }
 
-        protected void FaceTarget(Vector3 dir)
+        protected void FaceTarget(Vector3 dir, Transform target)
         {
-            if (FinalBossStateMachine.PlayerStateMachine.Invisible)
+            if (target.TryGetComponent(out Health _))
             {
-                return;
+                if (FinalBossStateMachine.PlayerStateMachine.Invisible)
+                {
+                    return;
+                }
             }
 
             FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
@@ -45,9 +49,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         protected void UseSkill(SkillType skillType)
         {
             var skill = SkillFactory.CreateSkill(skillType);
-            if (skill == null) return;
-
-            skill.Cast(FinalBossStateMachine);
+            // if (skill is null) return;
+            skill?.Cast(FinalBossStateMachine);
         }
     }
 }

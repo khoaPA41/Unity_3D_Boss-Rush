@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
@@ -21,6 +22,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float FreeLookMovementSpeed { get; private set; } = 5f;
         [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
+        [field: SerializeField] public float MovementSpeedStunnedCoefficient { get; private set; } = .2f;
         [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
         [field: SerializeField] public Targeter Targeter { get; private set; }
         [field: SerializeField] public float JumpForce { get; private set; }
@@ -220,7 +222,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public GameObject TargetCaster()
         {
-            return this.gameObject;
+            return Targeter?.currentTarget.gameObject;
         }
 
         private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
@@ -234,13 +236,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             {
                 SkillEffect.NonEffect => () => {Debug.Log("NonEffect"); },
                 SkillEffect.Inescapable => () => {Debug.Log("Inescapable");},
-                SkillEffect.Stunned => () => {Debug.Log("Stunned"); },
+                SkillEffect.Stunned => () => StartEffectCoroutine(1f,StunnedEvent, ResetSpeed),
                 SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
                 SkillEffect.NoDamage => () =>
                 {
                     Debug.Log("NoDamage");
                 },
                 SkillEffect.Invisible => () => {Debug.Log("Invisible"); },
+                SkillEffect.PullBack => () => StartEffectCoroutine(8f, PullBackEvent, ResetInput),
                 _ => null
             };
         }
@@ -255,6 +258,39 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 dame.AttackDamage *= 2;
             }
         }
+
+        private void ResetSpeed()
+        {
+            FreeLookMovementSpeed /= MovementSpeedStunnedCoefficient;
+            FreeLookMovementSprintSpeed /= MovementSpeedStunnedCoefficient;
+        }
         
+        private void StunnedEvent()
+        {
+            FreeLookMovementSpeed *= MovementSpeedStunnedCoefficient;
+            FreeLookMovementSprintSpeed *= MovementSpeedStunnedCoefficient;
+        }
+
+        private void PullBackEvent()
+        {
+            InputReader.DisableInput();
+        }
+        
+        private void ResetInput()
+        {
+            InputReader.OnEnableInput();
+        }
+        
+        private void StartEffectCoroutine(float time, Action  action1, Action action2)
+        {
+            StartCoroutine(Coroutine(time, action1, action2));
+        }
+
+        private IEnumerator Coroutine(float time, Action  action1, Action action2)
+        {
+            action1?.Invoke();
+            yield return new WaitForSecondsRealtime(time);
+            action2?.Invoke();
+        }
     }
 }

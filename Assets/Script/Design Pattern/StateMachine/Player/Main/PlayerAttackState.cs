@@ -22,7 +22,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            float normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
             if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
                 if (normalizeTime >= _attackData.ForceTime)

@@ -43,7 +43,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
             if (FinalBossStateMachine.IsCanMove)
             {
-                var input = FinalBossStateMachine.GetDirToPlayer();
+                var input = FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target);
                 FinalBossStateMachine.InputMovement = new Vector2(input.x, input.z);
                 var dir = new Vector3(FinalBossStateMachine.InputMovement.x, 0, FinalBossStateMachine.InputMovement.y);
                 Move(dir * FinalBossStateMachine.DashSpeed, deltaTime);
@@ -53,7 +53,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 Move(deltaTime);
             }
             
-            FaceTarget(FinalBossStateMachine.GetDirToPlayer());
+            // FaceTarget(FinalBossStateMachine.GetDirToPlayer());
+            FaceTarget(FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target), FinalBossStateMachine.Target);
+
         }
 
         public override void PhysicTick(float fixedDeltaTime)

@@ -50,7 +50,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             EnterAttackState();
             
             UpdateAnimation(animationValue, deltaTime);
-            FaceTarget(FinalBossStateMachine.GetDirToPlayer());
+            FaceTarget(FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target), FinalBossStateMachine.Target);
         }
 
         public override void PhysicTick(float fixedDeltaTime)

@@ -50,7 +50,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             
             _previousTime = normalizeTime;
             Move(deltaTime);
-            FaceTarget(FinalBossStateMachine.GetDirToPlayer());
+            FaceTarget(FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target), FinalBossStateMachine.Target);
         }
 
         public override void PhysicTick(float fixedDeltaTime)

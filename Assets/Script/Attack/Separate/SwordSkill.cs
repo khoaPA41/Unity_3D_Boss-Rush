@@ -1,4 +1,8 @@
+using System;
+using Script.Attack.Skill_Factory;
+using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwordSkill : MonoBehaviour
@@ -71,5 +75,15 @@ public class SwordSkill : MonoBehaviour
         var desiredVelocity = _direction * speed;
         _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
         transform.position += _currentVelocity * Time.deltaTime;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Debug.Log(other.name);
+        if (!other.CompareTag("Player")) return;
+        var caster = GameObject.Find("Enemy");
+        caster.TryGetComponent(out ICaster casterObj);
+        GameEventManagers.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
     }
 }

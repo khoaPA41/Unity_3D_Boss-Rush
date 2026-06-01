@@ -8,6 +8,7 @@ using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
 using UnityEngine;
+using UnityEngine.Playables;
 using State = Script.Design_Pattern.StateMachine.Base.State;
 
 namespace Script.Design_Pattern.StateMachine.Boss.Base
@@ -39,8 +40,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public Combo[] NormalCombo { get; private set; }
         public AttackData[] currentAttackData { get; set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
-        [field: SerializeField] public GameObject Weapon { get; private set; }
-
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
         [field: SerializeField] public float WalkRange { get; private set; } = 8f;
@@ -53,6 +52,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
+        
+        [Header("TimeLine For Choke Neck")]
+        [field: SerializeField] public PlayableDirector PlayableDirector { get; private set; }
+        [field: SerializeField] public int PlayerIndexInTimeLine { get; private set; }
+        [field: SerializeField] public Transform BossHand { get; private set; }
+
         
         [Header("State")]
         [field: SerializeField] public float ChaseDuration { get; private set; } = 4f;
@@ -80,7 +85,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         
         public bool IsStillUltimate { get; set; } = false;
         public bool IsCanMove {get; set; } = false;
-
+        
+        public Transform Target {get; set;}
         
         private void Awake()
         {
@@ -90,6 +96,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         private void Start()
         {
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
+            Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
         }
         
@@ -106,7 +113,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             Health.DeathAction -= EnterDeathState;
             GameEventManagers.OnSkillCasted -= HandleSkillEvent;
         }
-
         public void SendEvent()
         {
             SkillSituationEvent.Instance.SendSituationEvent();
@@ -151,8 +157,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
                 ActiveEnventBySkill(skillEffect)?.Invoke();
         }
-        
-        
 
         public void ComsumeMana(int amount)
         {
@@ -166,7 +170,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         public GameObject TargetCaster()
         {
-            return gameObject;
+            return Target.gameObject;
         }
 
         private Action ActiveEnventBySkill(SkillEffect skillEffect)
@@ -183,6 +187,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                 SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
                 SkillEffect.NoDamage => () => {Debug.Log("NoDamage"); },
                 SkillEffect.Invisible => ReturnLocomotion,
+                SkillEffect.PullBack => () => {Debug.Log("PullBack"); },
                 _ => null
             };
         }
@@ -206,14 +211,17 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                    !PlayerStateMachine.Invisible;
         }
         
-        public Vector3 GetDirToPlayer()
+        public Vector3 GetDirToPlayer(Transform target)
         {
-            if (PlayerStateMachine.Invisible)
+            if (target.TryGetComponent(out Health _))
             {
-                return Vector3.zero;
+                if (PlayerStateMachine.Invisible)
+                {
+                    return Vector3.zero;
+                }
             }
-
-            var dir = (Player.transform.position - transform.position)
+            
+            var dir = (target.position - transform.position)
                 .normalized;
             dir.y = 0;
             return dir;

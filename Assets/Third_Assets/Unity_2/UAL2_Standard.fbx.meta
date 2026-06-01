@@ -235,14 +235,6 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: ball_l
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: ball_r
       humanName: RightToes
       limit:
@@ -499,6 +491,14 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: ball_l
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: UAL2_Standard(Clone)
       parentName: 
@@ -535,16 +535,6 @@ ModelImporter:
       position: {x: 0, y: 0.0000000018626451, z: -0.14127164}
       rotation: {x: -0.0002686382, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 0.9999999, z: 0.9999999}
-    - name: neck_01
-      parentName: spine_03
-      position: {x: 0, y: 0.0000000037252903, z: -0.17289078}
-      rotation: {x: 0.11098594, y: 0, z: 0, w: 0.993822}
-      scale: {x: 1, y: 0.99999994, z: 0.99999994}
-    - name: Head
-      parentName: neck_01
-      position: {x: 0, y: -0.00000002514571, z: -0.08258677}
-      rotation: {x: -0.07867401, y: 0, z: 0, w: 0.99690044}
-      scale: {x: 1, y: 1, z: 1}
     - name: clavicle_l
       parentName: spine_03
       position: {x: -0.0188, y: 0.08089504, z: -0.14055356}
@@ -648,7 +638,7 @@ ModelImporter:
     - name: thumb_01_l
       parentName: hand_l
       position: {x: -0.022800006, y: 0.033599988, z: -0.027299996}
-      rotation: {x: 0.109405264, y: -0.3510677, z: 0.9220903, w: 0.120546326}
+      rotation: {x: 0.10940527, y: -0.35106772, z: 0.92209035, w: 0.12054633}
       scale: {x: 1, y: 1, z: 1}
     - name: thumb_02_l
       parentName: thumb_01_l
@@ -785,6 +775,16 @@ ModelImporter:
       position: {x: -0.00000005478978, y: 0.000000024214387, z: -0.040862318}
       rotation: {x: 0.000000021597659, y: 0.00000027702373, z: -0.5061778, w: 0.86242914}
       scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: neck_01
+      parentName: spine_03
+      position: {x: 0, y: 0.0000000037252903, z: -0.17289078}
+      rotation: {x: 0.11098594, y: 0, z: 0, w: 0.993822}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Head
+      parentName: neck_01
+      position: {x: 0, y: -0.00000002514571, z: -0.08258677}
+      rotation: {x: -0.07867401, y: 0, z: 0, w: 0.99690044}
+      scale: {x: 1, y: 1, z: 1}
     - name: thigh_l
       parentName: pelvis
       position: {x: -0.08900001, y: 0.046023816, z: -0.027770778}

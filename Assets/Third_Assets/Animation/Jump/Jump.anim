@@ -35270,14 +35270,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.8
-    functionName: SendReleasePoolObjectEvent
+    functionName: OnGetWeapon
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.8
-    functionName: OnGetWeapon
+    functionName: SendReleasePoolObjectEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
