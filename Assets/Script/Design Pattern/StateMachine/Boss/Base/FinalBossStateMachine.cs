@@ -18,17 +18,20 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
     {
         public AttackData[] AttackData;
     }
+
     [Serializable]
     public struct UltimateCombo
     {
         public float HealthThreshold;
         public AttackData[] AttackData;
     }
-    
+
     public class FinalBossStateMachine : StateMachine.Base.StateMachine, ICaster, ICombatInput
     {
         [Header("Physics")]
-        [field: SerializeField] public CharacterController CharacterController { get; private set; }
+        [field: SerializeField]
+        public CharacterController CharacterController { get; private set; }
+
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float MovementSpeed { get; private set; } = 5f;
         [field: SerializeField] public float SprintSpeed { get; private set; } = 5f;
@@ -36,7 +39,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         [Header("Attack")]
         // [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
+        [field: SerializeField]
+        public UltimateCombo[] UltimateCombo { get; private set; }
+
         [field: SerializeField] public Combo[] NormalCombo { get; private set; }
         public AttackData[] currentAttackData { get; set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
@@ -44,94 +49,98 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
         [field: SerializeField] public float WalkRange { get; private set; } = 8f;
         [field: SerializeField] public float TimeOutCombo { get; private set; } = 2f;
-        public int CurrentComboIndex { get; set; } = 0;
-        public float LastAttackTime { get; set; } = 0;
+        public int CurrentComboIndex { get; set; }
+        public float LastAttackTime { get; set; }
         [field: SerializeField] public int TimesToHit { get; private set; } = 3;
         private int TimesHit { get; set; } = 0;
 
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
+        [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
+
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
-        
+
         [Header("TimeLine For Choke Neck")]
-        [field: SerializeField] public PlayableDirector PlayableDirector { get; private set; }
+        [field: SerializeField]
+        public PlayableDirector PlayableDirector { get; private set; }
+
         [field: SerializeField] public int PlayerIndexInTimeLine { get; private set; }
         [field: SerializeField] public Transform BossHand { get; private set; }
 
-        
+
         [Header("State")]
-        [field: SerializeField] public float ChaseDuration { get; private set; } = 4f;
+        [field: SerializeField]
+        public float ChaseDuration { get; private set; } = 4f;
+
         [field: SerializeField] public float IdleDuration { get; private set; } = 2f;
         public float NextPhaseToggleTime { get; set; }
         public bool IsChasingState { get; set; }
         public bool IsChangePhase { get; set; }
         public bool IsAttackState { get; set; }
-        public int NextPhase { get; set; } = 0;
+        public int NextPhase { get; set; }
         public bool IsActiveUltimate { get; set; }
-        
-        [Header("Event")]
-        [field: SerializeField] public SkillSituationEvent SkillSituationEvent { get; private set; }
 
+        [Header("Event")] private Health Player { get; set; }
 
-        private Health Player { get; set; }
-        
         public PlayerStateMachine PlayerStateMachine { get; private set; }
-        
-        public bool IsWalking {get; set;} = false;
+
+        public bool IsWalking { get; set; }
 
         private State _locomotionState;
 
         // public State CurrentState;
-        
+
         public bool IsStillUltimate { get; set; } = false;
-        public bool IsCanMove {get; set; } = false;
-        
-        public Transform Target {get; set;}
-        
+        public bool IsCanMove { get; set; } = false;
+
+        public Transform Target { get; set; }
+
         private void Awake()
         {
             _locomotionState = new FinalBossLocomotionState(this);
         }
-        
+
         private void Start()
         {
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
         }
-        
+
         private void OnEnable()
         {
             Health.HitAction += EnterHitState;
             Health.DeathAction += EnterDeathState;
-            GameEventManagers.OnSkillCasted += HandleSkillEvent;
+            GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
         }
-        
+
         private void OnDisable()
         {
             Health.HitAction -= EnterHitState;
             Health.DeathAction -= EnterDeathState;
-            GameEventManagers.OnSkillCasted -= HandleSkillEvent;
+            GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
         }
+
         public void SendEvent()
         {
-            SkillSituationEvent.Instance.SendSituationEvent();
+            ManageAnimationSkillEvent.SendSituationEvent();
         }
+
         public void SendActionEvent()
         {
-            SkillSituationEvent.Instance.SendNextActionEvent();
+            ManageAnimationSkillEvent.SendNextActionEvent();
         }
-        
+
         public void SendReleasePoolObjectEvent()
         {
-            SkillSituationEvent.Instance.SendReleasePoolObjectEvent();
+            ManageAnimationSkillEvent.SendReleasePoolObjectEvent();
         }
-        
+
         public void ReturnLocomotion()
         {
             SwitchState(_locomotionState);
         }
-        
+
         private void EnterHitState()
         {
             if (TimesHit == TimesToHit)
@@ -142,11 +151,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
             TimesHit += 1;
         }
+
         private void EnterDeathState()
         {
             SwitchState(new FinalBossDeathState(this));
         }
-        
+
         public void ResetMovement()
         {
             MovementSpeed = 5f;
@@ -155,7 +165,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
         {
-                ActiveEnventBySkill(skillEffect)?.Invoke();
+            if (caster.GetTransform().gameObject.TryGetComponent(out FinalBossStateMachine _)) return;
+            ActiveEnventBySkill(skillEffect)?.Invoke();
         }
 
         public void ComsumeMana(int amount)
@@ -165,7 +176,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         public Transform GetTransform()
         {
-            return this.transform;
+            return transform;
         }
 
         public GameObject TargetCaster()
@@ -177,17 +188,15 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => {Debug.Log("NonEffect");},
-                SkillEffect.Inescapable => () =>
-                {
-                    ForceReceiver.SetCoefficientOfMovement(0f);
-                    ReturnLocomotion();
-                },
-                SkillEffect.Stunned => () => {Debug.Log("Stunned"); },
-                SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
-                SkillEffect.NoDamage => () => {Debug.Log("NoDamage"); },
+                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); },
+                SkillEffect.Inescapable => () => Coroutine(3f, () =>
+                    {
+                        ForceReceiver.SetCoefficientOfMovement(0f);
+                        ReturnLocomotion();
+                    }, 
+                    () => ForceReceiver.SetCoefficientOfMovement(1f)
+                ),
                 SkillEffect.Invisible => ReturnLocomotion,
-                SkillEffect.PullBack => () => {Debug.Log("PullBack"); },
                 _ => null
             };
         }
@@ -210,7 +219,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                        WalkRange) &&
                    !PlayerStateMachine.Invisible;
         }
-        
+
         public Vector3 GetDirToPlayer(Transform target)
         {
             if (target.TryGetComponent(out Health _))
@@ -220,25 +229,51 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                     return Vector3.zero;
                 }
             }
-            
+
             var dir = (target.position - transform.position)
                 .normalized;
             dir.y = 0;
             return dir;
         }
 
-        public void Coroutine(float time, Action action)
+        private void Coroutine(float time, Action action1, Action action2)
         {
-            StartCoroutine(WaitToContinue(time, action));
+            StartCoroutine(WaitToContinue(time, action1, action2));
         }
 
 
-        private IEnumerator WaitToContinue(float time, Action action)
+        private IEnumerator WaitToContinue(float time, Action action1, Action action2)
         {
+            action1?.Invoke();
             yield return new WaitForSecondsRealtime(time);
-            action?.Invoke();
+            action2?.Invoke();
         }
-        
+
+        public void Move(Vector3 motion, float deltaTime)
+        {
+            if (PlayerStateMachine.Invisible)
+            {
+                return;
+            }
+
+            CharacterController.Move(
+                (motion + ForceReceiver.Movement) *
+                (ForceReceiver.GetCoefficientOfMovement() * deltaTime));
+        }
+
+        public void FaceTarget(Vector3 dir, Transform target)
+        {
+            if (target.TryGetComponent(out Health _))
+            {
+                if (PlayerStateMachine.Invisible)
+                {
+                    return;
+                }
+            }
+
+            transform.rotation = Quaternion.LookRotation(dir);
+        }
+
         public Vector2 InputMovement { get; set; }
         public Vector2 Look { get; set; }
         public bool IsChasing { get; set; }

@@ -12,33 +12,132 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/SoulSword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/SoulSword.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/TriggerSkillForBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/TriggerSkillForBoss.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/SkillPooledObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/SkillPooledObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/GameEventManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/GameEventManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/SkillSituationEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/SkillSituationEvent.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerBaseState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckChangePhase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckChangePhase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/Jump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/Jump.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Enter.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Enter.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Unity_2/UAL2_Standard.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Unity_2/UAL2_Standard.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerUseSkillState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerUseSkillState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Physics/ForceReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Physics/ForceReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/crouch idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/crouch idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/crouch to standing idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/crouch to standing idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing block idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing block idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing block react large.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing block react large.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing disarm over shoulder.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing disarm over shoulder.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing disarm underarm.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing disarm underarm.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle looking ver. 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle looking ver. 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle looking ver. 2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle looking ver. 2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing jump.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing jump.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack 360 high.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack 360 high.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack 360 low.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack 360 low.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack backhand.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack backhand.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack downward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack downward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack horizontal.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack horizontal.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack kick ver. 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack kick ver. 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack kick ver. 2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee attack kick ver. 2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 3.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee combo attack ver. 3.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee run jump attack.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing melee run jump attack.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large from left.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large from left.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large from right.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large from right.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large gut.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing react large gut.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing run back.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing run back.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing run forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing run forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing taunt battlecry.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing taunt battlecry.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing taunt chest thump.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing taunt chest thump.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing turn left 90.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing turn left 90.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing turn right 90.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing turn right 90.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk back.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk back.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk left.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk left.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk right.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/standing walk right.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed equip over shoulder.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed equip over shoulder.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed equip underarm.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed equip underarm.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle looking ver. 1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle looking ver. 1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle looking ver. 2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle looking ver. 2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed jump running.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed jump running.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed jump.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed jump.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed run back.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed run back.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed run forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed run forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed turn left 90.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed turn left 90.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed turn right 90.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed turn right 90.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed walk back.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed walk back.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed walk forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Mixamo/unarmed walk forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Aoe.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Aoe.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/ChokeNeck.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/ChokeNeck.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Indestructible.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Indestructible.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/PullBack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/PullBack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Idle_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Spell/Spell_Simple_Idle_Loop.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Overhand_Throw.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Overhand_Throw.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Cast.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Cast.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Skill/PullBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Skill/PullBack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TimeLine/BossChokeNeckTimeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/BossChokeNeckTimeline.playable" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +164,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/FreeLookState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAffectedState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerTargetState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerUseSkillState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/PlayerClone/Base/PlayerCloneBaseState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -87,61 +187,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0020645154067014" />
-      <entry key="MS500" value="1.3232269550367315" />
-      <entry key="S2" value="2.369072653458769" />
-      <entry key="S5" value="3.1317321998026766" />
-      <entry key="S10" value="3.517108476028562" />
-      <entry key="S30" value="4.037957563653583" />
-      <entry key="S60" value="4.993372284119572" />
-      <entry key="M2" value="7.207237777524511" />
-      <entry key="M5" value="12.921284599054475" />
-      <entry key="M10" value="21.625022430023556" />
-      <entry key="M15" value="32.457666051907545" />
-      <entry key="M30" value="68.10902365390413" />
-      <entry key="H1" value="150.65122499927526" />
-      <entry key="H2" value="336.06325705165455" />
-      <entry key="H4" value="609.0948600562863" />
-      <entry key="D1" value="1141.5705241458195" />
-      <entry key="W1" value="1289.0773940467811" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="7.502979297384593E-128" />
+      <entry key="S5" value="1.851405618094085E-51" />
+      <entry key="S10" value="6.547466856147878E-26" />
+      <entry key="S30" value="1.39447977823777E-8" />
+      <entry key="S60" value="3.745412972239495E-4" />
+      <entry key="M2" value="0.0636756918983384" />
+      <entry key="M5" value="1.4918940000636212" />
+      <entry key="M10" value="6.091594439607544" />
+      <entry key="M15" value="13.373319521780246" />
+      <entry key="M30" value="43.72066187624823" />
+      <entry key="H1" value="115.05601493969196" />
+      <entry key="H2" value="276.4393964119677" />
+      <entry key="H4" value="599.3537904774007" />
+      <entry key="D1" value="1632.1557028309767" />
+      <entry key="W1" value="2018.6951094774793" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="5.079567655197439E-18" />
-      <entry key="MS500" value="3.4766850478444117E-4" />
-      <entry key="S2" value="0.1365498846021872" />
-      <entry key="S5" value="0.45093775080648" />
-      <entry key="S10" value="0.6719225337677877" />
-      <entry key="S30" value="1.0273031064716927" />
-      <entry key="S60" value="1.610177614535898" />
-      <entry key="M2" value="2.4532838751008783" />
-      <entry key="M5" value="4.175752811997223" />
-      <entry key="M10" value="7.404463438352492" />
-      <entry key="M15" value="11.482521793934023" />
-      <entry key="M30" value="25.017083869385743" />
-      <entry key="H1" value="53.24181690071561" />
-      <entry key="H2" value="103.48574648089847" />
-      <entry key="H4" value="168.938205019747" />
-      <entry key="D1" value="290.0197566520136" />
-      <entry key="W1" value="322.99647737134495" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000028080036" />
+      <entry key="S60" value="1.0000725704536566" />
+      <entry key="M2" value="1.012255345595236" />
+      <entry key="M5" value="1.3656272269527443" />
+      <entry key="M10" value="2.947768421574889" />
+      <entry key="M15" value="5.56678584238319" />
+      <entry key="M30" value="16.682801062561943" />
+      <entry key="H1" value="44.4498375148897" />
+      <entry key="H2" value="104.03424125330174" />
+      <entry key="H4" value="207.2997284323614" />
+      <entry key="D1" value="491.8560796039667" />
+      <entry key="W1" value="591.7622884852067" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9284358314776864" />
-      <entry key="MS500" value="1.2846103702068663" />
-      <entry key="S2" value="2.343542295839471" />
-      <entry key="S5" value="3.427551695307477" />
-      <entry key="S10" value="4.083089688204185" />
-      <entry key="S30" value="5.01125952461027" />
-      <entry key="S60" value="6.556212967434334" />
-      <entry key="M2" value="9.617511687725301" />
-      <entry key="M5" value="17.06065122291611" />
-      <entry key="M10" value="28.995643062310773" />
-      <entry key="M15" value="43.9057924864777" />
-      <entry key="M30" value="93.09177510434746" />
-      <entry key="H1" value="203.8599388683375" />
-      <entry key="H2" value="439.51800533021606" />
-      <entry key="H4" value="778.0074869741956" />
-      <entry key="D1" value="1431.5826659873571" />
-      <entry key="W1" value="1612.0726477330356" />
+      <entry key="MS100" value="1.179121495269587E-4" />
+      <entry key="MS500" value="0.1637991754822954" />
+      <entry key="S2" value="0.6361769472982373" />
+      <entry key="S5" value="0.834509281155409" />
+      <entry key="S10" value="0.9135147952580784" />
+      <entry key="S30" value="0.9702981483552985" />
+      <entry key="S60" value="0.9854816410013639" />
+      <entry key="M2" value="1.0681955440939346" />
+      <entry key="M5" value="2.8522179660924865" />
+      <entry key="M10" value="9.03253201486854" />
+      <entry key="M15" value="18.930963352746215" />
+      <entry key="M30" value="60.38902637664584" />
+      <entry key="H1" value="159.48618261571153" />
+      <entry key="H2" value="380.4496276655931" />
+      <entry key="H4" value="806.6280897821451" />
+      <entry key="D1" value="2124.000702113583" />
+      <entry key="W1" value="2610.4554523136476" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -307,7 +407,11 @@
       <workItem from="1780127802780" duration="13926000" />
       <workItem from="1780155885819" duration="4502000" />
       <workItem from="1780211960951" duration="18196000" />
-      <workItem from="1780303587647" duration="6308000" />
+      <workItem from="1780303587647" duration="7483000" />
+      <workItem from="1780399103965" duration="8068000" />
+      <workItem from="1780416735319" duration="9643000" />
+      <workItem from="1780468949790" duration="1282000" />
+      <workItem from="1780484170176" duration="7963000" />
     </task>
     <servers />
   </component>

@@ -33,7 +33,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skillData.AnimationTag, 0);
             if (normalizeTime < skillData.AttackAnimationTime && normalizeTime < 1f) return;
-            ResetAfterSkill(currentSkill.SkillEffect);
+            // ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.ReturnLocomotion();
         }
 

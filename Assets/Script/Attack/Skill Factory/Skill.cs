@@ -5,7 +5,6 @@ using Script.Design_Pattern.StateMachine.Boss.Base;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
-using UnityEngine.Timeline;
 
 namespace Script.Attack.Skill_Factory
 {
@@ -26,7 +25,7 @@ namespace Script.Attack.Skill_Factory
 
             if (player.Targeter.currentTarget is not null)
             {
-                GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+                GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
             }
         }
     }
@@ -40,22 +39,30 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
+            caster.ComsumeMana(ManaCost);
+            
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
-
             var ironMaterials = new[] { player.IronMaterial1, player.IronMaterial2 };
+            
             player.SkinnedMeshRenderer.materials = ironMaterials;
-
-            caster.ComsumeMana(ManaCost);
-
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
             effect.noDamage = true;
-
-
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            
+            Action situationAction = null;
+            situationAction = () =>
+            {
+                effect.noDamage = false; 
+                var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
+                player.SkinnedMeshRenderer.materials = tempMaterials;
+                player.ManageAnimationSkillEvent.SituationEvent -= situationAction;
+            };
+            
+            player.ManageAnimationSkillEvent.SituationEvent += situationAction;
         }
     }
 
@@ -69,13 +76,22 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            // var getSkill = caster.TargetCaster().GetComponent<GetSkill>();
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             caster.ComsumeMana(ManaCost);
-            player.Invisible = true;
-            var phantomMaterials = new[] { player.PhantomMaterial1, player.PhantomMaterial2 };
-            player.SkinnedMeshRenderer.materials = phantomMaterials;
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            
+            player.Coroutine(4f, () =>
+            {
+                player.Invisible = true;
+                var phantomMaterials = new[] { player.PhantomMaterial1, player.PhantomMaterial2 };
+                player.SkinnedMeshRenderer.materials = phantomMaterials;
+            },
+            () =>
+            {
+                player.Invisible = false;
+                var tempMaterials = new Material[] {player.MainMaterial1, player.MainMaterial2};
+                player.SkinnedMeshRenderer.materials = tempMaterials;
+            });
         }
     }
 
@@ -91,12 +107,12 @@ namespace Script.Attack.Skill_Factory
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             caster.ComsumeMana(ManaCost);
+            
             player.Invincible = true;
-
             player.InvincibleState();
-
+            
             getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -106,7 +122,6 @@ namespace Script.Attack.Skill_Factory
         public string SkillName => "PhantomRetreat";
         public int ManaCost => 30;
         public string AnimationName => "PhantomRetreat";
-
 
         public void Cast(ICaster caster)
         {
@@ -121,7 +136,8 @@ namespace Script.Attack.Skill_Factory
             getSkill.SpawnSkill(SkillName, spawnPos);
             var bullet = getSkill.Skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
             bullet?.SetTarget(player.Targeter.currentTarget.gameObject);
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -135,25 +151,24 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
-            var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
+            // var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            // var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             caster.ComsumeMana(ManaCost);
-
-            getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
-
-            for (var i = 0; i < 1; i++)
-            {
-                getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
-
-                var playerClone = getSkill.Skill.GetComponent<PlayerCloneStateMachine>();
-                playerClone.Target = player.Targeter.currentTarget.gameObject;
-            }
-
-            GameEventManagers.TriggerSkillCasted(caster, SkillEffect);
+            //
+            // getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
+            //
+            // for (var i = 0; i < 1; i++)
+            // {
+            //     getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
+            //
+            //     var playerClone = getSkill.Skill.GetComponent<PlayerCloneStateMachine>();
+            //     playerClone.Target = player.Targeter.currentTarget.gameObject;
+            // }
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
-    /************************************************************************/
+    /*****************************BOSS*SKILL*******************************************/
 
     public class ThrowSword : ISkill
     {
@@ -166,6 +181,7 @@ namespace Script.Attack.Skill_Factory
         {
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var spawnPos = caster.GetTransform().transform.position + new Vector3(0f, 4f, 0f);
             Action situationAction = null;
             situationAction = () =>
@@ -174,10 +190,10 @@ namespace Script.Attack.Skill_Factory
                 var throwSword = getSkill.Skill.GetComponent<SwordSkill>();
                 throwSword.TargetPosition = bossStateMachine.PlayerStateMachine.transform.position;
                 bossStateMachine.Target = throwSword.transform;
-                SkillSituationEvent.Instance.SituationEvent -= situationAction;
+                manageEvent.SituationEvent -= situationAction;
             };
 
-            SkillSituationEvent.Instance.SituationEvent += situationAction;
+            manageEvent.SituationEvent += situationAction;
         }
     }
 
@@ -191,16 +207,17 @@ namespace Script.Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             bossStateMachine.IsCanMove = true;
 
             Action situationAction = null;
             situationAction = () =>
             {
                 bossStateMachine.IsCanMove = false;
-                SkillSituationEvent.Instance.SituationEvent -= situationAction;
+                manageEvent.SituationEvent -= situationAction;
             };
 
-            SkillSituationEvent.Instance.SituationEvent += situationAction;
+            manageEvent.SituationEvent += situationAction;
         }
     }
 
@@ -231,16 +248,24 @@ namespace Script.Attack.Skill_Factory
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
-
-            var spawnPos = caster.TargetCaster().transform.position + new Vector3(0f, 1f, 0f);
-            getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
-            getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
+            
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            
+            Action situationAction = null;
+            situationAction = () =>
+            {
+                getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
+                getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
+              
+                bossStateMachine.ManageAnimationSkillEvent.SituationEvent -= situationAction;
+            };
+            bossStateMachine.ManageAnimationSkillEvent.SituationEvent += situationAction;
         }
     }
 
     public class ChokeNeck : ISkill
     {
-        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public SkillEffect SkillEffect => SkillEffect.AttractiveForce;
         public string SkillName => "ChokeNeck";
         public string AnimationName => "ChokeNeck";
         public int ManaCost => 20;
@@ -248,20 +273,16 @@ namespace Script.Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
-            var timelineAsset = (TimelineAsset)bossStateMachine.PlayableDirector.playableAsset;
-            var playerTrack = timelineAsset.GetOutputTrack(bossStateMachine.PlayerIndexInTimeLine) as AnimationTrack;
-
-            playerTrack.trackOffset = TrackOffset.ApplyTransformOffsets;
-            playerTrack.position = bossStateMachine.BossHand.position;
-
-            bossStateMachine.PlayableDirector.SetGenericBinding(playerTrack, bossStateMachine.PlayerStateMachine.GetComponent<Animator>());
-            bossStateMachine.PlayableDirector.Play();
-
-            bossStateMachine.Coroutine(8f, () =>
-            {
-                bossStateMachine.PlayableDirector.Stop();
-                SkillSituationEvent.Instance.SendNextActionEvent();
-            });
+            var player =  bossStateMachine.PlayerStateMachine;
+            // Debug.Log("In Skill: " + player.IsAttractiveForce );
+            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            // Action situationAction = null;
+            // situationAction = () =>
+            // {
+            //     player.IsAttractiveForce = false;
+            //     bossStateMachine.ManageAnimationSkillEvent.SituationEvent -= situationAction;
+            // };
+            // bossStateMachine.ManageAnimationSkillEvent.SituationEvent += situationAction;
         }
     }
 

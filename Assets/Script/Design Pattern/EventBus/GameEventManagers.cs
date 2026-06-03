@@ -1,14 +1,21 @@
 using Script.Attack.Skill_Factory;
 using System;
+using UnityEngine;
 
 namespace Script.Design_Pattern.EventBus
 {
-    public static class GameEventManagers
+    public class GameEventManagers : MonoBehaviour
     {
-        public static event Action<ICaster, SkillEffect> OnSkillCasted;
+        public static GameEventManagers Instance;
+        public event Action<ICaster, SkillEffect> OnSkillCasted;
         
+        
+        private void Awake()
+        {
+            Instance = this;
+        }
 
-        public static void TriggerSkillCasted(ICaster caster, SkillEffect skillEffect)
+        public void TriggerSkillCasted(ICaster caster, SkillEffect skillEffect)
         {
             OnSkillCasted?.Invoke(caster, skillEffect);
         }

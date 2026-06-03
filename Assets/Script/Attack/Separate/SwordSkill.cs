@@ -2,6 +2,7 @@ using System;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
+using Script.Design_Pattern.StateMachine.Boss.Base;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,8 +20,15 @@ public class SwordSkill : MonoBehaviour
     private Vector3 _direction;
     private PooledObject _pooledObject;
     private float _countTime;
-    private bool alreadySendEvent = false;
+    private bool _alreadySendEvent;
 
+    private FinalBossStateMachine boss;
+    
+    private void Awake()
+    {
+        boss = GameObject.FindWithTag("Boss").GetComponent<FinalBossStateMachine>();
+    }
+    
     private void Start()
     {
         GetComponent<Rigidbody>();
@@ -29,7 +37,7 @@ public class SwordSkill : MonoBehaviour
 
     private void OnEnable()
     {
-        SkillSituationEvent.Instance.ReleasePoolObjectEvent += Release;
+        boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent += Release;
         _countTime = timeToReturn;
         var direction = (TargetPosition - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
@@ -37,7 +45,7 @@ public class SwordSkill : MonoBehaviour
     
     private void OnDisable()
     {
-        SkillSituationEvent.Instance.ReleasePoolObjectEvent -= Release;
+        boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent -= Release;
     }
 
     private void Release()
@@ -47,20 +55,14 @@ public class SwordSkill : MonoBehaviour
 
     private void Update()
     {
-        // _countTime -= Time.deltaTime;
-        // if (_countTime <= 0)
-        // {
-        //     _pooledObject.Release(this.name);
-        // }
-
         var targetCenter = TargetPosition + new Vector3(0f, .8f, 0f);
         var distanceToTarget = targetCenter - transform.position;
 
         if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
         {
-            if (alreadySendEvent) return;
-            SkillSituationEvent.Instance.SendNextActionEvent();
-            alreadySendEvent = true;
+            if (_alreadySendEvent) return;
+            boss.ManageAnimationSkillEvent.SendNextActionEvent();
+            _alreadySendEvent = true;
             return;
         }
 
@@ -80,10 +82,9 @@ public class SwordSkill : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log(other.name);
         if (!other.CompareTag("Player")) return;
         var caster = GameObject.Find("Enemy");
         caster.TryGetComponent(out ICaster casterObj);
-        GameEventManagers.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+        GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
     }
 }

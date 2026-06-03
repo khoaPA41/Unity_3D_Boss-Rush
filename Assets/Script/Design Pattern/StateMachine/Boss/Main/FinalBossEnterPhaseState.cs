@@ -1,3 +1,4 @@
+using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         
         public override void Enter()
         {
-            SkillSituationEvent.Instance.NextActionEvent += TryCombo;
+            FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent += TryCombo;
             FinalBossStateMachine.Health.noDamage = true;
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
             
@@ -53,9 +54,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                 Move(deltaTime);
             }
             
-            // FaceTarget(FinalBossStateMachine.GetDirToPlayer());
             FaceTarget(FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target), FinalBossStateMachine.Target);
-
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -67,7 +66,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.IsActiveUltimate = _attackData.NextAttackDataIndex != -1;
             FinalBossStateMachine.Health.noDamage = _attackData.NextAttackDataIndex != -1;
             FinalBossStateMachine.IsChangePhase = _attackData.NextAttackDataIndex != -1;
-            SkillSituationEvent.Instance.NextActionEvent -= TryCombo;
+            FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent -= TryCombo;
             FinalBossStateMachine.IsCanMove = false;
         }
         

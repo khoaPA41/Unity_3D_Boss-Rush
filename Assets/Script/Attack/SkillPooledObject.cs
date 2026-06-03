@@ -24,7 +24,6 @@ public class SkillPooledObject : MonoBehaviour
     private void OnParticleSystemStopped()
     {
         _particle?.Stop();
-        
         _pooled.Release(this.gameObject.name);
     }
 }

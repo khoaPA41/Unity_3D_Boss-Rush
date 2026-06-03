@@ -1,6 +1,7 @@
 using System.Collections;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
+using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 
 public class TriggerSkillForBoss : MonoBehaviour
@@ -10,14 +11,18 @@ public class TriggerSkillForBoss : MonoBehaviour
     private BoxCollider _collider;
     // public GameObject Caster {get; set;}
     public ICaster Caster {get; set;}
+    private FinalBossStateMachine boss;
+
     private void Start()
     {
+        boss = GameObject.FindWithTag("Boss").GetComponent<FinalBossStateMachine>();
         _collider = GetComponent<BoxCollider>();
         _collider.enabled = false;
     }
 
     private void OnEnable()
     {
+        // _collider.enabled = false;
         StartCoroutine(WaitToActiveTrigger());
     }
 
@@ -31,10 +36,8 @@ public class TriggerSkillForBoss : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        Debug.Log(other.name);
-        // Caster.TryGetComponent(out ICaster caster);
-        GameEventManagers.TriggerSkillCasted(Caster, effect);
-        SkillSituationEvent.Instance.SendNextActionEvent();
         
+        GameEventManagers.Instance.TriggerSkillCasted(Caster, effect);
+        boss.ManageAnimationSkillEvent.SendNextActionEvent();
     }
 }

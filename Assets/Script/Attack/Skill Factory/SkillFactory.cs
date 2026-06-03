@@ -27,7 +27,9 @@ namespace Script.Attack.Skill_Factory
         ThrowUp,
         NoDamage,
         Invisible,
-        PullBack
+        PullBack,
+        AttractiveForce,
+        PushOut
     }
     
     public static class SkillFactory

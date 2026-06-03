@@ -4,18 +4,15 @@ namespace Script.Physics
 {
     public class ForceReceiver : MonoBehaviour
     {
-        [Header("Physics")]
-        [SerializeField] float drag = .3f;
-
+        [Header("Physics")] [SerializeField] private float drag = .3f;
         private float VerticalVelocity { get; set; }
         private float CoefficientOfMovement { get; set; } = 1f;
 
         private CharacterController characterController;
         private Vector3 dampingVelocity;
         private Vector3 impact;
+        public Vector3 Movement=> impact + Vector3.up * VerticalVelocity;
         
-        public Vector3 Movement => (impact + Vector3.up * VerticalVelocity);
-
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
@@ -45,12 +42,12 @@ namespace Script.Physics
             VerticalVelocity += jumpForce;
         }
 
-        public void SetCoefficientOfMovement(float  coefficientOfMovement)
+        public void SetCoefficientOfMovement(float coefficientOfMovement)
         {
             CoefficientOfMovement = coefficientOfMovement;
         }
 
         public float GetCoefficientOfMovement() => CoefficientOfMovement;
-
+        
     }
 }

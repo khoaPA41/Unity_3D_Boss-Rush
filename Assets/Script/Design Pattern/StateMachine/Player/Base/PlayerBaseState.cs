@@ -16,7 +16,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         protected void Move(Vector3 motion, float deltaTime)
         {
-            playerStateMachine.CharacterController.Move
+            playerStateMachine.CharacterController?.Move
             ((motion + playerStateMachine.ForceReceiver.Movement) *
              (playerStateMachine.ForceReceiver.GetCoefficientOfMovement() * deltaTime));
         }

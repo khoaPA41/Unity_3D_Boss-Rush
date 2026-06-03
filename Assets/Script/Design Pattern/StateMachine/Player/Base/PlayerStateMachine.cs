@@ -20,8 +20,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField]
         public CharacterController CharacterController { get; private set; }
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
-        [field: SerializeField] public float FreeLookMovementSpeed { get; private set; } = 5f;
-        [field: SerializeField] public float FreeLookMovementSprintSpeed { get; private set; } = 5f;
+        [field: SerializeField] public float FreeLookMovementSpeed { get; set; } = 5f;
+        [field: SerializeField] public float FreeLookMovementSprintSpeed { get; set; } = 5f;
         [field: SerializeField] public float MovementSpeedStunnedCoefficient { get; private set; } = .2f;
         [field: SerializeField] public float RotationDamping { get; private set; } = .5f;
         [field: SerializeField] public Targeter Targeter { get; private set; }
@@ -46,6 +46,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
         [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
         [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
+        [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
+
 
         [Header("Skill")]
         [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
@@ -61,13 +63,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         public bool Invincible;
         public bool Invisible;
-
         public int SkillNumber;
-        private int HitTimes { get; set; }
-        public float CountSkillTime { get; set; }
         public bool isAttackState;
-
         public bool IsActiveEffect { get; set; } = false;
+        public bool IsAttractiveForce { get; set; }
         
         public State freeLookState { get; private set; }
         public State hitState { get; private set; }
@@ -84,12 +83,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public State attackState4 { get; private set; }
         public State attackState5 { get; private set; }
         public State heavyAttack { get; private set; }
-
         
         public State changeAction { get; private set; }
 
+
+        public GameObject Boss;
         private void Start()
         {
+            Boss = GameObject.FindWithTag("Boss");
             SetupState();
             InputReader.ApplicationCursor();
             if (Camera.main is not null) MainCameraTransform = Camera.main.transform;
@@ -114,42 +115,40 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             heavyAttack = new PlayerHeavyAttackState(this);
         }
         
-
         private void OnEnable()
         {
-            GameEventManagers.OnSkillCasted += HandleSkillEvent;
+            GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
             Health.HitAction += HandleHitState;
             Health.DeathAction += HandleDeathState;
         }
-
         
         private void OnDisable()
         {
-            GameEventManagers.OnSkillCasted += HandleSkillEvent;
+            GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
             Health.HitAction -= HandleHitState;
             Health.DeathAction -= HandleDeathState;
         }
 
+        public void SendSituationEvent()
+        {
+            ManageAnimationSkillEvent.SendSituationEvent();
+        }
+        public void SendNextActionEvent()
+        {
+            ManageAnimationSkillEvent.SendNextActionEvent();
+
+        }
+        public void SendReleaseObjectEvent()
+        {
+            ManageAnimationSkillEvent.SendReleasePoolObjectEvent();
+        }
+        
         
         public void EnterChangeAction(bool isAttack)
         {
             SwitchState(new PlayerChangeAction(this, isAttack));
             return;
         }
-
-        // public void EnterHitState()
-        // {
-        //     HitTimes++;
-        //     var isKnockBack = false;
-        //
-        //     if (HitTimes == TimeToGetKnockBackHit)
-        //     {
-        //         isKnockBack = true;
-        //         HitTimes = 0;
-        //     }
-        //
-        //     SwitchState(new PlayerHitState(this, isKnockBack));
-        // }
         
         public void ReturnLocomotion()
         {
@@ -181,6 +180,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             SwitchState(deathState);
         }
+        
         public void HandleSkillEvent(int skillNumber)
         {
             if (Invincible)
@@ -210,6 +210,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             SwitchState(heavyAttack);
         }
 
+        private void HandleEffectedState(ICaster caster, SkillEffect effect)
+        {
+            if (caster.GetTransform().gameObject.TryGetComponent(out PlayerStateMachine _))return;
+            SwitchState(new PlayerAffectedState(this, caster, effect));
+        }
+
         public void ComsumeMana(int amount)
         {
             Mana.currentMana = Mathf.Max(Mana.currentMana - amount, 0);
@@ -217,37 +223,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public Transform GetTransform()
         {
-            return this.transform;
+            return transform;
         }
 
         public GameObject TargetCaster()
         {
             return Targeter?.currentTarget.gameObject;
         }
-
-        private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
-        {
-            ActiveSkillEvent(skillEffect)?.Invoke();
-        }
         
-        private Action ActiveSkillEvent(SkillEffect skillEffect)
-        {
-            return skillEffect switch
-            {
-                SkillEffect.NonEffect => () => {Debug.Log("NonEffect"); },
-                SkillEffect.Inescapable => () => {Debug.Log("Inescapable");},
-                SkillEffect.Stunned => () => StartEffectCoroutine(1f,StunnedEvent, ResetSpeed),
-                SkillEffect.ThrowUp => () => {Debug.Log("ThrowUp"); },
-                SkillEffect.NoDamage => () =>
-                {
-                    Debug.Log("NoDamage");
-                },
-                SkillEffect.Invisible => () => {Debug.Log("Invisible"); },
-                SkillEffect.PullBack => () => StartEffectCoroutine(8f, PullBackEvent, ResetInput),
-                _ => null
-            };
-        }
-
         public void InvincibleState()
         {
             FreeLookMovementSpeed *= 1.5f;
@@ -258,35 +241,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 dame.AttackDamage *= 2;
             }
         }
-
-        private void ResetSpeed()
-        {
-            FreeLookMovementSpeed /= MovementSpeedStunnedCoefficient;
-            FreeLookMovementSprintSpeed /= MovementSpeedStunnedCoefficient;
-        }
         
-        private void StunnedEvent()
+        public void Coroutine(float time, Action action1, Action action2)
         {
-            FreeLookMovementSpeed *= MovementSpeedStunnedCoefficient;
-            FreeLookMovementSprintSpeed *= MovementSpeedStunnedCoefficient;
+            StartCoroutine(WaitToContinue(time, action1, action2));
         }
 
-        private void PullBackEvent()
-        {
-            InputReader.DisableInput();
-        }
-        
-        private void ResetInput()
-        {
-            InputReader.OnEnableInput();
-        }
-        
-        private void StartEffectCoroutine(float time, Action  action1, Action action2)
-        {
-            StartCoroutine(Coroutine(time, action1, action2));
-        }
 
-        private IEnumerator Coroutine(float time, Action  action1, Action action2)
+        private IEnumerator WaitToContinue(float time, Action action1, Action action2)
         {
             action1?.Invoke();
             yield return new WaitForSecondsRealtime(time);

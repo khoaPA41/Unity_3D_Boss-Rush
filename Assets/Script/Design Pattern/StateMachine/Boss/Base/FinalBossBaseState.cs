@@ -41,7 +41,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                     return;
                 }
             }
-
             FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
         
@@ -49,7 +48,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         protected void UseSkill(SkillType skillType)
         {
             var skill = SkillFactory.CreateSkill(skillType);
-            // if (skill is null) return;
             skill?.Cast(FinalBossStateMachine);
         }
     }
