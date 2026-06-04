@@ -38,10 +38,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public float DashSpeed { get; private set; } = 30f;
 
         [Header("Attack")]
-        // [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField]
-        public UltimateCombo[] UltimateCombo { get; private set; }
+        [field: SerializeField] public GameObject Weapon { get; private set; }
 
+        public Material WeaponMaterial;
+        public Color WeaponEmissionColor;
+        [field: SerializeField] public AnimationCurve AnimationWeaponEmissionCurve { get; private set; }
+        [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
         [field: SerializeField] public Combo[] NormalCombo { get; private set; }
         public AttackData[] currentAttackData { get; set; }
         [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
@@ -61,12 +63,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
 
         [Header("TimeLine For Choke Neck")]
-        [field: SerializeField]
-        public PlayableDirector PlayableDirector { get; private set; }
+        [field: SerializeField] public PlayableDirector PlayableDirector { get; private set; }
 
         [field: SerializeField] public int PlayerIndexInTimeLine { get; private set; }
         [field: SerializeField] public Transform BossHand { get; private set; }
-
 
         [Header("State")]
         [field: SerializeField]
@@ -102,6 +102,9 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void Start()
         {
+            WeaponMaterial = Weapon.GetComponent<MeshRenderer>().material;
+            WeaponEmissionColor = WeaponMaterial.GetColor("_EmissionColor");
+            
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();

@@ -11183,6 +11183,43 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 2
   <SprintSpeed>k__BackingField: 2
   <DashSpeed>k__BackingField: 15
+  <Weapon>k__BackingField: {fileID: 647843517683013313}
+  WeaponMaterial: {fileID: 0}
+  WeaponEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+  <TimeToGlowing>k__BackingField: 1
+  <AnimationWeaponEmissionCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -1127.2526
+      outSlope: -1127.2526
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0029053164
+    - serializedVersion: 3
+      time: 0.8010376
+      value: 2
+      inSlope: 412.68506
+      outSlope: 412.68506
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.01713553
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: -139.51038
+      outSlope: -139.51038
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.050965313
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   <UltimateCombo>k__BackingField:
   - HealthThreshold: 1
     AttackData:
@@ -11313,7 +11350,7 @@ MonoBehaviour:
       <EndAnimationName>k__BackingField: 
       <AnimationTag>k__BackingField: Attack
       <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
+      <AnimationSlowEndThreshold>k__BackingField: 0.5
       <AnimationSpeed>k__BackingField: 0.2
       <NextAttackDataIndex>k__BackingField: 1
       <AttackAnimationTime>k__BackingField: 0.7
@@ -11326,7 +11363,7 @@ MonoBehaviour:
       <EndAnimationName>k__BackingField: Attack_2_End
       <AnimationTag>k__BackingField: Attack
       <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.3
+      <AnimationSlowEndThreshold>k__BackingField: 0.5
       <AnimationSpeed>k__BackingField: 0.2
       <NextAttackDataIndex>k__BackingField: 2
       <AttackAnimationTime>k__BackingField: 0.7
@@ -11339,7 +11376,7 @@ MonoBehaviour:
       <EndAnimationName>k__BackingField: Attack_3_End
       <AnimationTag>k__BackingField: Attack
       <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.3
+      <AnimationSlowEndThreshold>k__BackingField: 0.5
       <AnimationSpeed>k__BackingField: 0.2
       <NextAttackDataIndex>k__BackingField: -1
       <AttackAnimationTime>k__BackingField: 0.7
@@ -11347,86 +11384,6 @@ MonoBehaviour:
       <ForceTime>k__BackingField: 0.3
       <Force>k__BackingField: 4
       <AttackDamage>k__BackingField: 30
-      <SkillType>k__BackingField: 0
-  - AttackData:
-    - <AnimationName>k__BackingField: Attack_2
-      <EndAnimationName>k__BackingField: Attack_2_End
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: 1
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 3
-      <AttackDamage>k__BackingField: 20
-      <SkillType>k__BackingField: 0
-    - <AnimationName>k__BackingField: Attack_3
-      <EndAnimationName>k__BackingField: Attack_3_End
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: 2
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 4
-      <AttackDamage>k__BackingField: 30
-      <SkillType>k__BackingField: 0
-    - <AnimationName>k__BackingField: Attack_4
-      <EndAnimationName>k__BackingField: Attack_3_End
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: -1
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 4
-      <AttackDamage>k__BackingField: 30
-      <SkillType>k__BackingField: 0
-  - AttackData:
-    - <AnimationName>k__BackingField: Attack_3
-      <EndAnimationName>k__BackingField: Attack_3_End
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: 1
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 4
-      <AttackDamage>k__BackingField: 30
-      <SkillType>k__BackingField: 0
-    - <AnimationName>k__BackingField: Attack_2
-      <EndAnimationName>k__BackingField: Attack_2_End
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: 2
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 3
-      <AttackDamage>k__BackingField: 20
-      <SkillType>k__BackingField: 0
-    - <AnimationName>k__BackingField: Attack_1
-      <EndAnimationName>k__BackingField: 
-      <AnimationTag>k__BackingField: Attack
-      <AnimationSlowStartThreshold>k__BackingField: 0.1
-      <AnimationSlowEndThreshold>k__BackingField: 0.2
-      <AnimationSpeed>k__BackingField: 0.2
-      <NextAttackDataIndex>k__BackingField: -1
-      <AttackAnimationTime>k__BackingField: 0.7
-      <AnimationTransition>k__BackingField: 0.1
-      <ForceTime>k__BackingField: 0.3
-      <Force>k__BackingField: 3
-      <AttackDamage>k__BackingField: 10
       <SkillType>k__BackingField: 0
   <WeaponDealDamage>k__BackingField: {fileID: 1484340572}
   <Health>k__BackingField: {fileID: 8876977727193071277}
