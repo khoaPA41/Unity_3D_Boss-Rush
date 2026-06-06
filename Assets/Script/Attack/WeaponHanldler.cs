@@ -5,6 +5,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private GameObject weaponLogic;
     [SerializeField] private GameObject weaponMain;
     [SerializeField] private GameObject weaponStore;
+    [SerializeField] private GameObject otherDamage;
     public void OnActiveWeaponCollider()
     {
         weaponLogic?.SetActive(true);
@@ -13,6 +14,16 @@ public class WeaponHandler : MonoBehaviour
     public void OnUnActiveWeaponCollider()
     {
         weaponLogic?.SetActive(false);
+    }
+    
+    public void OnActiveOtherCollider()
+    {
+        otherDamage?.SetActive(true);
+    }
+
+    public void OnUnActiveOtherCollider()
+    {
+        otherDamage?.SetActive(false);
     }
 
     public void OnGetWeapon()
@@ -32,4 +43,6 @@ public class WeaponHandler : MonoBehaviour
             weaponStore.SetActive(true);
         }
     }
+    
+    
 }

@@ -6,7 +6,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 {
     public class FinalBossEnterPhaseState : FinalBossBaseState
     {
-        private readonly UltimateCombo ultimate;
         private float _previousTime;
         private bool _alreadyApplyForce;
         private readonly AttackData _attackData;
@@ -14,9 +13,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         
         public FinalBossEnterPhaseState(FinalBossStateMachine finalBossStateMachine, int comboIndex, int attackIndex) : base(finalBossStateMachine)
         {
-            ultimate = FinalBossStateMachine.UltimateCombo[comboIndex];
-            FinalBossStateMachine.currentAttackData = ultimate.AttackData;
-            _attackData = FinalBossStateMachine.currentAttackData[attackIndex];
+            _attackData = FinalBossStateMachine.UltimateCombo[comboIndex].AttackData[attackIndex];
             _comboIndex = comboIndex;
         }
         
@@ -74,7 +71,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
-                FinalBossStateMachine.NextPhase++;
+                FinalBossStateMachine.CurrentPhase++;
                 FinalBossStateMachine.ReturnLocomotion();
                 return;
             }

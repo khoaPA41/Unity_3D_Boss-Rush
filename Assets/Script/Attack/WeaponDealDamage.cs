@@ -5,9 +5,14 @@ using UnityEngine;
 public class WeaponDealDamage : MonoBehaviour
 {
     [SerializeField] private GameObject myCollider;
-    private readonly List<GameObject> alreadyDealDamage = new List<GameObject>();
+    private List<GameObject> alreadyDealDamage = new();
 
     private int damage;
+
+    private void Start()
+    {
+        // alreadyDealDamage = new List<GameObject>();
+    }
 
     private void OnEnable()
     {

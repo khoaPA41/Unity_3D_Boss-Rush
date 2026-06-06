@@ -17,7 +17,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             playerStateMachine.Animator.CrossFadeInFixedTime(_heavyAttackAnimationHash, playerStateMachine.AnimationCrossFade,
                 0);
-            playerStateMachine.WeaponDealDamage.SetDamage(30);
+            playerStateMachine.DealDamage.SetDamage(10);
         }
 
         public override void Tick(float deltaTime)

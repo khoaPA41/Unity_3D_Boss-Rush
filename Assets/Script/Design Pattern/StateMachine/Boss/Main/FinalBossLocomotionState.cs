@@ -27,7 +27,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         {
             if (FinalBossStateMachine.IsActiveUltimate && !FinalBossStateMachine.IsStillUltimate)
             {
-                FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.NextPhase, 0));
+                var randomComboIndex = Random.Range(0, FinalBossStateMachine.NormalCombo.Length);
+                FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.CurrentPhase, randomComboIndex));
             }
             
             var movementInput = FinalBossStateMachine.InputMovement;
@@ -70,11 +71,18 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         private void EnterAttackState()
         {
-            if (FinalBossStateMachine.IsAttack)
+            if (!FinalBossStateMachine.IsAttack) return;
+            var randomCombo = Random.Range(0, FinalBossStateMachine.NormalCombo[FinalBossStateMachine.CurrentPhase].Combo.Length);
+            if (FinalBossStateMachine.NextAttackIndex == -1)
             {
-                int randomCombo = Random.Range(0, FinalBossStateMachine.NormalCombo.Length);
-                FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, randomCombo, FinalBossStateMachine.CurrentComboIndex));
+                FinalBossStateMachine.CurrentComboIndex = randomCombo;
+                FinalBossStateMachine.NextAttackIndex = 0;
             }
+            else
+            {
+                randomCombo = FinalBossStateMachine.CurrentComboIndex;
+            }
+            FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, FinalBossStateMachine.CurrentPhase, randomCombo, FinalBossStateMachine.NextAttackIndex));
         }
     }
 }

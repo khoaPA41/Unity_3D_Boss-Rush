@@ -30,7 +30,7 @@ public class PlayerAffectedState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        Debug.Log("Tick: " + playerStateMachine.IsAttractiveForce );
+        // Debug.Log("Tick: " + playerStateMachine.IsAttractiveForce );
         if (playerStateMachine.IsAttractiveForce)
         {
             HandleAttractiveForce(deltaTime);

@@ -12,7 +12,7 @@ namespace Script.Attack
 
         public int currentHealth;
 
-        public bool noDamage { get; set; } = false;
+        public bool noDamage { get; set; }
 
         public event Action DeathAction;
         public event Action HitAction;
@@ -20,6 +20,7 @@ namespace Script.Attack
         private void Start()
         {
             currentHealth = maxHealth;
+            noDamage = false;
         }
 
         public void DealDamage(int damage)

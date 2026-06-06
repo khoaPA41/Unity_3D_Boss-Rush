@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Script.Attack;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
@@ -20,6 +21,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
     }
 
     [Serializable]
+    public struct NormalCombo
+    {
+        public float HealthThreshold;
+        public Combo[] Combo;
+    }
+
+    [Serializable]
     public struct UltimateCombo
     {
         public float HealthThreshold;
@@ -28,47 +36,49 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
     public class FinalBossStateMachine : StateMachine.Base.StateMachine, ICaster, ICombatInput
     {
-        [Header("Physics")]
+        [field: Header("Physics")]
         [field: SerializeField]
         public CharacterController CharacterController { get; private set; }
-
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public float MovementSpeed { get; private set; } = 5f;
         [field: SerializeField] public float SprintSpeed { get; private set; } = 5f;
         [field: SerializeField] public float DashSpeed { get; private set; } = 30f;
 
-        [Header("Attack")]
-        [field: SerializeField] public GameObject Weapon { get; private set; }
-
-        public Material WeaponMaterial;
-        public Color WeaponEmissionColor;
+        [field: Header("Attack")]
+        [field: SerializeField]
+        public GameObject Weapon { get; private set; }
+        public Material WeaponMaterial { get; set; }
+        public Color WeaponEmissionColor { get; set; }
         [field: SerializeField] public AnimationCurve AnimationWeaponEmissionCurve { get; private set; }
         [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
-        [field: SerializeField] public Combo[] NormalCombo { get; private set; }
-        public AttackData[] currentAttackData { get; set; }
-        [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
+        [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
+        // public AttackData[] CurrentAttackData { get; set; }
+        [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
+        [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
+        [field: SerializeField] public float AttackFurtherRange { get; private set; } = 30f;
         [field: SerializeField] public float WalkRange { get; private set; } = 8f;
         [field: SerializeField] public float TimeOutCombo { get; private set; } = 2f;
-        public int CurrentComboIndex { get; set; }
-        public float LastAttackTime { get; set; }
         [field: SerializeField] public int TimesToHit { get; private set; } = 3;
         private int TimesHit { get; set; } = 0;
+        public int NextAttackIndex { get; set; }
+        public int CurrentComboIndex { get; set; }
+        public float LastAttackTime { get; set; }
 
-        [Header("Animation")]
-        [field: SerializeField] public Animator Animator { get; private set; }
+        [field: Header("Animation")]
+        [field: SerializeField]
+        public Animator Animator { get; private set; }
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
-
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
 
-        [Header("TimeLine For Choke Neck")]
-        [field: SerializeField] public PlayableDirector PlayableDirector { get; private set; }
-
+        [field: Header("TimeLine For Choke Neck")]
+        [field: SerializeField]
+        public PlayableDirector PlayableDirector { get; private set; }
         [field: SerializeField] public int PlayerIndexInTimeLine { get; private set; }
         [field: SerializeField] public Transform BossHand { get; private set; }
 
-        [Header("State")]
+        [field: Header("State")]
         [field: SerializeField]
         public float ChaseDuration { get; private set; } = 4f;
 
@@ -77,19 +87,13 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public bool IsChasingState { get; set; }
         public bool IsChangePhase { get; set; }
         public bool IsAttackState { get; set; }
-        public int NextPhase { get; set; }
+        public int CurrentPhase { get; set; } = 0;
         public bool IsActiveUltimate { get; set; }
 
-        [Header("Event")] private Health Player { get; set; }
-
+        [field: Header("Event")] private Health Player { get; set; }
         public PlayerStateMachine PlayerStateMachine { get; private set; }
-
         public bool IsWalking { get; set; }
-
         private State _locomotionState;
-
-        // public State CurrentState;
-
         public bool IsStillUltimate { get; set; } = false;
         public bool IsCanMove { get; set; } = false;
 
@@ -104,7 +108,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             WeaponMaterial = Weapon.GetComponent<MeshRenderer>().material;
             WeaponEmissionColor = WeaponMaterial.GetColor("_EmissionColor");
-            
+
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
@@ -122,6 +126,11 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             Health.HitAction -= EnterHitState;
             Health.DeathAction -= EnterDeathState;
             GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
+        }
+
+        public void ResetObjectHitList()
+        {
+            DealDamage.ResetObjectHitList();
         }
 
         public void SendEvent()
@@ -196,7 +205,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                     {
                         ForceReceiver.SetCoefficientOfMovement(0f);
                         ReturnLocomotion();
-                    }, 
+                    },
                     () => ForceReceiver.SetCoefficientOfMovement(1f)
                 ),
                 SkillEffect.Invisible => ReturnLocomotion,
@@ -213,6 +222,14 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                    !PlayerStateMachine.Invisible;
         }
 
+        public bool IsAttackFurtherRange()
+        {
+            return ((Player.transform.position -
+                     transform.position)
+                       .sqrMagnitude <= AttackFurtherRange *
+                       AttackFurtherRange) &&
+                   !PlayerStateMachine.Invisible;
+        }
 
         public bool IsWalkRange()
         {

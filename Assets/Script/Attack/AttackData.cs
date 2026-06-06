@@ -5,10 +5,8 @@ using UnityEngine;
 public class AttackData
 {
     [field: SerializeField] public string AnimationName { get; private set; }
-    [field: SerializeField] public string EndAnimationName { get; private set; }
     [field: SerializeField] public string AnimationTag { get; private set; } = "Attack";
-    [field: SerializeField] public float AnimationSlowStartThreshold { get; set; }
-    [field: SerializeField] public float AnimationSlowEndThreshold { get; set; }
+    [field: SerializeField] public float AnimationStartSlowThreshold { get; set; }
     [field: SerializeField] public float AnimationSpeed { get; set; }
     [field: SerializeField] public int NextAttackDataIndex { get; private set; } = -1;
     [field: SerializeField] public float AttackAnimationTime { get; private set; }

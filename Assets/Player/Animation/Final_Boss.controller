@@ -26,6 +26,46 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-6826175637020355238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 0
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.8
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.3
+--- !u!114 &-6701783810878120113
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 0
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.8
+  usingWeaponVFX: 0
+  triggerWeaponVFX: 0
 --- !u!1102 &-6459572973185921420
 AnimatorState:
   serializedVersion: 6
@@ -78,6 +118,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-4773285973371986872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 4.87
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.7
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.2
 --- !u!1107 &-4008216806759747714
 AnimatorStateMachine:
   serializedVersion: 6
@@ -95,7 +155,7 @@ AnimatorStateMachine:
     m_Position: {x: 560, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8209968755090049157}
-    m_Position: {x: 560, y: -60, z: 0}
+    m_Position: {x: 560, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1028507554257774571}
     m_Position: {x: 230, y: -110, z: 0}
@@ -113,7 +173,7 @@ AnimatorStateMachine:
     m_Position: {x: -110, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -797526593751265703}
-    m_Position: {x: 560, y: -110, z: 0}
+    m_Position: {x: 1310, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2603966282459796103}
     m_Position: {x: -110, y: 230, z: 0}
@@ -172,17 +232,11 @@ AnimatorStateMachine:
     m_State: {fileID: -3561739538836393090}
     m_Position: {x: 830, y: -160, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 2184390121864322478}
-    m_Position: {x: 1020, y: -360, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 4845825975674580080}
     m_Position: {x: 1040, y: -440, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 5362506569493462963}
-    m_Position: {x: 580.66626, y: -457.87805, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 7612757485948572186}
-    m_Position: {x: 640.0926, y: -394.20694, z: 0}
+    m_State: {fileID: -69264930825364060}
+    m_Position: {x: 1310, y: -260, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -230,7 +284,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 3320459090759131720}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -399,7 +454,8 @@ AnimatorState:
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -6826175637020355238}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -477,7 +533,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4773285973371986872}
+  - {fileID: 2142462947794907511}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -487,6 +545,53 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: cd1462bcf65ea3e4b8937fff971f59ef, type: 2}
+  m_Tag: Attack
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &-151027235738793032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 0
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.7
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.3
+--- !u!1102 &-69264930825364060
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Kick
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours:
+  - {fileID: -6701783810878120113}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 98e5e5686d9b0f94083b2dae70a75e1a, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -582,6 +687,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &956622939435540175
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 1
+  triggerSkillSituation: 0.6
+  usingReleaseObject: 1
+  triggerReleaseObject: 0.8
+  usingNextAction: 1
+  triggerNextAction: 0.9
+  usingWeaponVFX: 0
+  triggerWeaponVFX: 0
 --- !u!1102 &1028507554257774571
 AnimatorState:
   serializedVersion: 6
@@ -634,32 +759,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &2184390121864322478
-AnimatorState:
-  serializedVersion: 6
+--- !u!114 &2142462947794907511
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spell_Simple_Idle_Loop
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bce7ccff6f577b049b4906181c7eed1e, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1b06c2673f6ab479b316915f4c62b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1102 &2920014801291351530
 AnimatorState:
   serializedVersion: 6
@@ -723,7 +834,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -151027235738793032}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -738,6 +850,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &3320459090759131720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 0
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.8
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.2
 --- !u!1102 &4845825975674580080
 AnimatorState:
   serializedVersion: 6
@@ -759,32 +891,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: f35e777fb583b6d4d80dd496a219850c, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &5362506569493462963
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: mixamo_com
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: d00271de3794a4b47a9662e7a4fb85a5, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -820,7 +926,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 6305694672854575553}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -861,6 +968,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &6305694672854575553
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 0
+  triggerSkillSituation: 0
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.7
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.15
 --- !u!1102 &6469029720609821277
 AnimatorState:
   serializedVersion: 6
@@ -872,7 +999,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 7611238712325310744}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -898,7 +1026,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 956622939435540175}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -913,32 +1042,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &7612757485948572186
-AnimatorState:
-  serializedVersion: 6
+--- !u!114 &7611238712325310744
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HumanM@MagicAttackDirect1H01_L - Cast
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 3094330708855449807, guid: 8ab57abc06f7ffd47ae8d91e99f41fa2, type: 3}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 1
+  triggerSkillSituation: 0.25
+  usingReleaseObject: 0
+  triggerReleaseObject: 0
+  usingNextAction: 1
+  triggerNextAction: 0.8
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.2
 --- !u!206 &7837777244744659456
 BlendTree:
   m_ObjectHideFlags: 1

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 using Math = Unity.Mathematics.Geometry.Math;
@@ -12,40 +13,53 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         private bool _alreadyApplyForce;
         private int normalComboIndex;
         private float glowCountTime;
+        private int indexCombo;
+        
+        float enterStateTime;
 
-        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int normalComboIndex, int index) : base(finalBossStateMachine)
+        private bool isGlowing;
+        private bool isSlowAnimation;
+
+        public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int normalComboIndex, int indexCombo, int index) : base(finalBossStateMachine)
         {
-            FinalBossStateMachine.currentAttackData = FinalBossStateMachine.NormalCombo[normalComboIndex].AttackData;
-            _attackData = FinalBossStateMachine.currentAttackData[index];
+            _attackData = FinalBossStateMachine.NormalCombo[normalComboIndex].Combo[indexCombo].AttackData[index];
             this.normalComboIndex = normalComboIndex;
+            this.indexCombo = indexCombo;
         }
 
         public override void Enter()
         {
-            FinalBossStateMachine.WeaponDealDamage.SetDamage(10);
+            enterStateTime = Time.time;
+            FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent += TryCombo;
+            FinalBossStateMachine.ManageAnimationSkillEvent.SlashWeaponEvent += ActiveEasyEffect;
+            UseSkill(_attackData.SkillType);
+            FinalBossStateMachine.DealDamage.SetDamage(_attackData.AttackDamage);
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName,
                 _attackData.AnimationTransition);
         }
 
         public override void Tick(float deltaTime)
         {
-            float normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
+            var normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
 
             if (normalizeTime >= _previousTime && normalizeTime < 1f)
             {
                 glowCountTime += deltaTime;
                 var t = Mathf.Clamp01(glowCountTime / _attackData.AttackAnimationTime);
-                GlowingWeapon(t);
-                TrySlowAnimation(t);
+                
+                if (isGlowing)
+                {
+                    GlowingWeapon(t);
+                }
+
+                if (isSlowAnimation)
+                {
+                    TrySlowAnimation(t);
+                }
                 
                 if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
-                }
-
-                if (FinalBossStateMachine.IsAttack)
-                {
-                    TryCombo();
                 }
             }
             else
@@ -64,23 +78,25 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
+            FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent -= TryCombo;
+            FinalBossStateMachine.ManageAnimationSkillEvent.SlashWeaponEvent -= ActiveEasyEffect;
             FinalBossStateMachine.IsAttack = false;
+            FinalBossStateMachine.IsCanMove = false;
             FinalBossStateMachine.Animator.speed = 1;
             FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponEmissionColor);
         }
-
-
+        
         private void TrySlowAnimation(float time)
         {
             if (time < _attackData.AttackAnimationTime)
             {
-                FinalBossStateMachine.Animator.speed = time < _attackData.AnimationSlowStartThreshold ? 1f : 0f;
+                FinalBossStateMachine.Animator.speed = time < _attackData.AnimationStartSlowThreshold ? 1f : 0f;
                 return;
             }
-       
+        
             FinalBossStateMachine.Animator.speed = 1;
         }
-
+        
         private void GlowingWeapon(float time)
         {
             var currentIntensity = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
@@ -88,24 +104,32 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", finalColor * currentIntensity);
         }
 
+        private void ActiveEasyEffect()
+        {
+            isGlowing = true;
+            isSlowAnimation = true;
+        }
+
         private void TryCombo()
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
+                FinalBossStateMachine.NextAttackIndex = -1;
                 return;
             }
-
-            if (_previousTime < _attackData.AttackAnimationTime)
+            
+            if (Time.time - enterStateTime < 0.2f)
             {
                 return;
             }
 
             FinalBossStateMachine.LastAttackTime = Time.time;
-            FinalBossStateMachine.CurrentComboIndex = _attackData.NextAttackDataIndex;
+            FinalBossStateMachine.NextAttackIndex = _attackData.NextAttackDataIndex;
             
             FinalBossStateMachine.SwitchState(new FinalBossAttackState(
                 FinalBossStateMachine,
                 normalComboIndex,
+                indexCombo,
                 _attackData.NextAttackDataIndex
             ));
         }

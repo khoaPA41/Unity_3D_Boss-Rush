@@ -16,12 +16,12 @@ public class CheckChangePhase : BehaviorNode
     {
         if (!bossSystem.IsChangePhase)
         {
-            if (bossSystem.NextPhase == bossSystem.UltimateCombo.Length)
+            if (bossSystem.CurrentPhase == bossSystem.UltimateCombo.Length)
             {
                 return NodeState.Failure;
             }
 
-            if ((float)bossSystem.Health.currentHealth / bossSystem.Health.maxHealth <= bossSystem.UltimateCombo[bossSystem.NextPhase].HealthThreshold)
+            if ((float)bossSystem.Health.currentHealth / bossSystem.Health.maxHealth <= bossSystem.UltimateCombo[bossSystem.CurrentPhase].HealthThreshold)
             {
                 return NodeState.Success;
             }

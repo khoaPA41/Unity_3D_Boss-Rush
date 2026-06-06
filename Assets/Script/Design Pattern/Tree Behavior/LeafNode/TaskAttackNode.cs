@@ -18,7 +18,7 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
             bossSystem.IsAttack = true;
             if (Time.time - bossSystem.LastAttackTime >= bossSystem.TimeOutCombo)
             {
-                bossSystem.CurrentComboIndex = 0;
+                bossSystem.NextAttackIndex = 0;
             }
                 
             return NodeState.Success;
