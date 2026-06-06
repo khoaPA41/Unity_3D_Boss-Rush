@@ -39,7 +39,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
                 new CheckChangePhase(bossSystem),
                 new TaskUltimateNode(bossSystem)
             });
-
+            
             /*Duoi theo*/
             var tacticalChasing = new TaskChasePlayerNode(bossSystem);
             var phaseTwo = new CheckChangePhase(bossSystem);

@@ -71,6 +71,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public Animator Animator { get; private set; }
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
+        [field: SerializeField] public GameObject Neck { get; private set; }
+
 
         [field: Header("TimeLine For Choke Neck")]
         [field: SerializeField]
@@ -81,12 +83,12 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: Header("State")]
         [field: SerializeField]
         public float ChaseDuration { get; private set; } = 4f;
-
+        [field: SerializeField] public float AttackDuration { get; private set; } = 8f;
         [field: SerializeField] public float IdleDuration { get; private set; } = 2f;
         public float NextPhaseToggleTime { get; set; }
         public bool IsChasingState { get; set; }
         public bool IsChangePhase { get; set; }
-        public bool IsAttackState { get; set; }
+        public bool IsFinishedAttack { get; set; }
         public int CurrentPhase { get; set; } = 0;
         public bool IsActiveUltimate { get; set; }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponTrail : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask= 255;
-    [SerializeField] private GameObject _legaOwner;
+    [SerializeField] private GameObject _legalOwner;
     
     private List<GameObject> alreadyObjectHit = new();
     private BoxCollider _collider;
@@ -13,20 +13,20 @@ public class WeaponTrail : MonoBehaviour
 
     private int damage;
 
-    private void Start()
+    private void Awake()
     {
         _collider = GetComponent<BoxCollider>();
     }
 
     private void OnEnable()
     {
-        alreadyObjectHit?.Clear();
+        alreadyObjectHit.Clear();
         if(_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
     }
 
     public void ResetObjectHitList()
     {
-        alreadyObjectHit?.Clear();
+        alreadyObjectHit.Clear();
     }
 
     private void LateUpdate()
@@ -63,7 +63,7 @@ public class WeaponTrail : MonoBehaviour
 
     private void DealDamage(GameObject other)
     {
-        if (other.gameObject == this.gameObject) return;
+        if (other.gameObject == _legalOwner || other.gameObject == gameObject) return;
         if (alreadyObjectHit.Contains(other)) return;
 
         alreadyObjectHit.Add(other);

@@ -31,7 +31,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             Move(Vector3.zero, deltaTime);
         }
-
+        
         protected void FaceTarget(Vector3 dir, Transform target)
         {
             if (target.TryGetComponent(out Health _))
@@ -43,7 +43,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             }
             FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
-        
 
         protected void UseSkill(SkillType skillType)
         {

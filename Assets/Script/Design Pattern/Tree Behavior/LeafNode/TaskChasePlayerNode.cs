@@ -11,11 +11,12 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
         public TaskChasePlayerNode( FinalBossStateMachine bossSystem)
         {
             this.bossSystem = bossSystem;
-            bossSystem.NextPhaseToggleTime = Time.time + bossSystem.ChaseDuration; 
+            bossSystem.NextPhaseToggleTime = Time.time + bossSystem.IdleDuration; 
         }
         
         public override NodeState Evaluate()
         {
+            bossSystem.IsFinishedAttack = false;
             if (Time.time >= bossSystem.NextPhaseToggleTime)
             {
                 bossSystem.IsChasingState = !bossSystem.IsChasingState;

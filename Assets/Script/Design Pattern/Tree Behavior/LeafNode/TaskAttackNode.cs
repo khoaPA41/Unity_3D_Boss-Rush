@@ -15,13 +15,25 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
         
         public override NodeState Evaluate()
         {
-            bossSystem.IsAttack = true;
+            if (!bossSystem.IsAttack)
+            {
+               bossSystem.IsAttack = true;
+            }
+            Debug.Log("bossSystem.IsFinishedAttack: " + bossSystem.IsFinishedAttack);
+            
+            if (bossSystem.IsFinishedAttack)
+            {
+                bossSystem.IsAttack = false;
+                bossSystem.LastAttackTime = Time.time;
+                return NodeState.Failure;
+            }
+            
             if (Time.time - bossSystem.LastAttackTime >= bossSystem.TimeOutCombo)
             {
                 bossSystem.NextAttackIndex = 0;
             }
-                
-            return NodeState.Success;
+            
+            return NodeState.Running;
         }
     }
 }

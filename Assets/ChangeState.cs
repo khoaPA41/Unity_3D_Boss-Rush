@@ -36,6 +36,8 @@ public class ChangeState : StateMachineBehaviour
     
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // var bossSystem = animator.GetComponent<FinalBossStateMachine>();
+        // bossSystem.IsFinishedAttack = false;
         _hasTriggeredSkillSituation = false;
         _hasTriggeredNextAction = false;
         _hasTriggeredRelease =  false;
@@ -85,9 +87,10 @@ public class ChangeState : StateMachineBehaviour
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
      public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        
-    }
+     {
+         // var bossSystem = animator.GetComponent<FinalBossStateMachine>();
+         // bossSystem.IsFinishedAttack = true;
+     }
      
 #if UNITY_EDITOR
     [CustomEditor(typeof(ChangeState))]

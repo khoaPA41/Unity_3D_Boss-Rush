@@ -50,7 +50,7 @@ public class SwordSkill : MonoBehaviour
 
     private void Release()
     {
-        _pooledObject.Release(this.name);
+        _pooledObject.Release(name);
     }
 
     private void Update()
@@ -82,9 +82,20 @@ public class SwordSkill : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-        var caster = GameObject.Find("Enemy");
-        caster.TryGetComponent(out ICaster casterObj);
-        GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+        if (other.CompareTag("Player"))
+        {        
+            var caster = GameObject.Find("Enemy");
+            caster.TryGetComponent(out ICaster casterObj);
+            GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+        }
+        
+        if (other.CompareTag("Boss"))
+        {
+            var boss = other.GetComponent<FinalBossStateMachine>();
+            var weaponTouch = other.GetComponent<WeaponHandler>();
+            weaponTouch.OnGetWeapon();
+            boss.SendActionEvent();
+            boss.SendReleasePoolObjectEvent();
+        }
     }
 }

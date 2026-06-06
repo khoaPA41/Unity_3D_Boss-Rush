@@ -40,6 +40,17 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Tick(float deltaTime)
         {
+            if (FinalBossStateMachine.IsCanMove)
+            {
+                var input = FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target);
+                FinalBossStateMachine.InputMovement = new Vector2(input.x, input.z);
+                var dir = new Vector3(FinalBossStateMachine.InputMovement.x, 0, FinalBossStateMachine.InputMovement.y);
+                Move(dir * FinalBossStateMachine.DashSpeed, deltaTime);
+            }
+            else
+            {
+                Move(deltaTime);
+            }
             var normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
 
             if (normalizeTime >= _previousTime && normalizeTime < 1f)
@@ -114,6 +125,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
+                FinalBossStateMachine.IsFinishedAttack = true;
                 FinalBossStateMachine.NextAttackIndex = -1;
                 return;
             }

@@ -26,6 +26,8 @@ namespace Script.Design_Pattern.Tree_Behavior.Base
                         return state;
                     case NodeState.Failure:
                         continue;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 

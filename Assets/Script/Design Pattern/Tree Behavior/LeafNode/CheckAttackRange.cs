@@ -1,5 +1,6 @@
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using Script.Design_Pattern.Tree_Behavior.Base;
+using UnityEngine;
 
 namespace Script.Design_Pattern.Tree_Behavior.LeafNode
 {
@@ -10,13 +11,19 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
         public CheckAttackRange(FinalBossStateMachine bossSystem)
         {
             this.bossSystem = bossSystem;
+
         }
         
         public override NodeState Evaluate()
         {
             if (!bossSystem.IsChasingState) return NodeState.Failure;
             
-            return bossSystem.IsAttackRange() && !bossSystem.IsActiveUltimate ? NodeState.Success : NodeState.Failure;
+            if (bossSystem.IsAttackRange() && !bossSystem.IsChangePhase)
+            {
+                return NodeState.Success;
+            }
+            
+            return NodeState.Failure;
         }
     }
 }

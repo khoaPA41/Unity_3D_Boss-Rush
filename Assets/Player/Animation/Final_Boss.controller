@@ -987,7 +987,7 @@ MonoBehaviour:
   usingNextAction: 1
   triggerNextAction: 0.7
   usingWeaponVFX: 1
-  triggerWeaponVFX: 0.15
+  triggerWeaponVFX: 0.34
 --- !u!1102 &6469029720609821277
 AnimatorState:
   serializedVersion: 6
