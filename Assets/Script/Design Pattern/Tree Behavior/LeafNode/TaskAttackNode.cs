@@ -19,7 +19,6 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
             {
                bossSystem.IsAttack = true;
             }
-            Debug.Log("bossSystem.IsFinishedAttack: " + bossSystem.IsFinishedAttack);
             
             if (bossSystem.IsFinishedAttack)
             {

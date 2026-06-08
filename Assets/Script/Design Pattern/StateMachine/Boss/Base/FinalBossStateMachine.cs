@@ -54,6 +54,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
         // public AttackData[] CurrentAttackData { get; set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
+        [field: SerializeField] public WeaponTrail[] DealsDamage { get; private set; }
         [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
@@ -262,8 +263,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             StartCoroutine(WaitToContinue(time, action1, action2));
         }
-
-
+        
         private IEnumerator WaitToContinue(float time, Action action1, Action action2)
         {
             action1?.Invoke();

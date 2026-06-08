@@ -12,24 +12,474 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ChangeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChangeState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponTrail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Base/BehaviorSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Base/BehaviorSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskAttackNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskAttackNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Melee_Hook.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Melee_Hook.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingDamage01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingDamage01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingEnter01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingEnter01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingExit01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingExit01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingIdle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/HumanF@CastingIdle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Call/HumanF@MagicAttackCall1H01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect1H01_R.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01 - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01 - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01 - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01 - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Directional/HumanF@MagicAttackDirect2H01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01 - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01 - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01 - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01 - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanF@MagicAttackOmni01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01-Idle02.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01-Idle02.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01-Idle03.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01-Idle03.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle02-Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle02-Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle02.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle02.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle03-Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle03-Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle03.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Idles/HumanF@Idle03.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Backward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Backward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_BackwardLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_BackwardLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_BackwardRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_BackwardRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_ForwardLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_ForwardLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_ForwardRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_ForwardRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Left.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Left.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Right.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/HumanF@Run01_Right.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Backward [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Backward [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_BackwardLeft [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_BackwardLeft [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_BackwardRight [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_BackwardRight [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Forward [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Forward [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_ForwardLeft [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_ForwardLeft [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_ForwardRight [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_ForwardRight [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Left [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Left [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Right [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Female/Movement/Run/RootMotion/HumanF@Run01_Right [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/HumanSpellcastingAnimationsFREE_BlenderFiles.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/HumanSpellcastingAnimationsFREE_BlenderFiles.zip.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingDamage01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingDamage01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingEnter01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingEnter01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingExit01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingExit01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingIdle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/HumanM@CastingIdle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Call/HumanM@MagicAttackCall1H01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect1H01_R.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01 - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01 - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01 - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01 - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Directional/HumanM@MagicAttackDirect2H01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01 - Cast.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01 - Cast.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01 - Load.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01 - Load.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Combat/Spellcasting/MagicAttacks/Omnidirectional/HumanM@MagicAttackOmni01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01-Idle02.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01-Idle02.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01-Idle03.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01-Idle03.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle02-Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle02-Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle02.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle02.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle03-Idle01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle03-Idle01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle03.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Idles/HumanM@Idle03.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Backward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Backward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_BackwardLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_BackwardLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_BackwardRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_BackwardRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Forward.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Forward.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_ForwardLeft.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_ForwardLeft.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_ForwardRight.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_ForwardRight.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Left.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Left.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Right.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/HumanM@Run01_Right.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Backward [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Backward [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_BackwardLeft [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_BackwardLeft [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_BackwardRight [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_BackwardRight [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Forward [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Forward [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_ForwardLeft [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_ForwardLeft [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_ForwardRight [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_ForwardRight [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Left [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Left [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Right [RM].fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Male/Movement/Run/RootMotion/HumanM@Run01_Right [RM].fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/Human@HandsClosed01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/Human@HandsClosed01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/Human@ObjectGripHands01.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/Human@ObjectGripHands01.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanF@ObjectBook01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanF@ObjectBook01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanF@ObjectBook01_R.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanF@ObjectBook01_R.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanM@ObjectBook01_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanM@ObjectBook01_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanM@ObjectBook01_R.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Animations/Masked Poses/HumanM@ObjectBook01_R.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Human Spellcasting Animations 2.0 FREE.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Human Spellcasting Animations 2.0 FREE.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Materials/HumanAnimations_Dummy-Purple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Materials/HumanAnimations_Dummy-Purple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arm Left Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arm Left Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arm Right Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arm Right Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arms Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Arms/Human Arms Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hand Left Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hand Left Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hand Right Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hand Right Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hands Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Hands/Human Hands Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Body Full Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Body Full Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Body Upper Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Body Upper Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Head Mask.mask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/Avatar Masks/Human Head Mask.mask.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/HumanF_Model.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/HumanF_Model.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/HumanM_Model.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Models/HumanM_Model.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Scripts/SpineProxy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Scripts/SpineProxy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Scripts/UpperBodyAnimations-SpineProxy.url" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Scripts/UpperBodyAnimations-SpineProxy.url.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Textures/HumanAnimations_ColorPalette.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Textures/HumanAnimations_ColorPalette.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingBlock01.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingBlock01.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDamages.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDamages.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDeaths.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDeaths.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDodge01.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingDodge01.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingIdles.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@CastingIdles.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@IdlesBook_L.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@IdlesBook_L.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@IdlesBook_R.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@IdlesBook_R.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackCalls.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackCalls.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackDirectionals.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackDirectionals.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackGrounds.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackGrounds.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackOmnidirectionals.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@MagicAttackOmnidirectionals.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@RunningDirectionalCasts.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@RunningDirectionalCasts.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@SpecialMagicAttack01.overrideController" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanF@SpecialMagicAttack01.overrideController.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingBlock01.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingBlock01.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDamages.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDamages.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDeaths.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDeaths.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDodge01.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingDodge01.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingIdles.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@CastingIdles.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@IdlesBook_L.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@IdlesBook_L.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@IdlesBook_R.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@IdlesBook_R.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackCalls.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackCalls.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackDirectionals.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackDirectionals.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackGrounds.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackGrounds.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackOmnidirectionals.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@MagicAttackOmnidirectionals.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@RunningDirectionalCasts.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@RunningDirectionalCasts.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@SpecialMagicAttack01.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/AnimatorControllers/HumanM@SpecialMagicAttack01.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Human Spellcasting Animations - Unity Demo Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Human Spellcasting Animations - Unity Demo Scene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/HumanSpellcastingAnimations_Floor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/HumanSpellcastingAnimations_Floor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/HumanSpellcastingAnimations_Props.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/HumanSpellcastingAnimations_Props.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Burn_Mark.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Burn_Mark.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Fireball.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Fireball.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Flame.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Flame.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Aura.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Aura.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Base.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Base.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Glow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Glow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Particles.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Particles.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Seal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Seal.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Sparks.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Heal_Sparks.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Aura.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Aura.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Sparks.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Sparks.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Spikes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ice_Spikes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning01.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning01.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning03.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Lightning03.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningAura.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningAura.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningSpark.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningSpark.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningWind.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_LightningWind.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ring.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Ring.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shield.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shield.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Cone.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Cone.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Explosion.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Explosion.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Ground.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Ground.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Sparks.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Shockwave_Sparks.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Fire.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Fire.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Ice.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Ice.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Lighting.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Smoke_Lighting.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Spark.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Materials/Spells/HumanSpellcastingAnimations_Spell_Spark.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Human_MageBook.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Human_MageBook.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Human_MageHat.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Human_MageHat.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Ice.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Ice.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Lightning_Ground.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Lightning_Ground.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Lightning_Strike.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Lightning_Strike.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shield.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shield.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Cone.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Cone.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Ground.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Ground.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Sphere.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Shockwave_Sphere.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Spark.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Models/Spells/Human_Spell_Spark.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/HumanF_Dummy_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/HumanF_Dummy_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/HumanM_Dummy_Purple.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/HumanM_Dummy_Purple.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Human_MageBook.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Human_MageBook.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Human_MageHat.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Human_MageHat.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Fire.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Fire.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Heal.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Heal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Ice.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Ice.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Lightning.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Lightning.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Shockwave_Ground.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_SpellAura_Shockwave_Ground.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Fireball.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Fireball.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Fireball_Large.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Fireball_Large.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Heal.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Heal.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Ice.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Ice.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_LightningStrike.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_LightningStrike.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shield.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shield.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shockwave_Explosion.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shockwave_Explosion.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shockwave_Ground.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Prefabs/Spells/Human_Spell_Shockwave_Ground.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Burn_Mark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Burn_Mark.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Fireball_Texture.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Fireball_Texture.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Flame_Texture.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Flame_Texture.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_IceRing_Texture.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_IceRing_Texture.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_IceSpike_Texture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_IceSpike_Texture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Lightning_Texture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Lightning_Texture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Ring_Texture.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Ring_Texture.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Seal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Seal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shield.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shield.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shockwave_Cone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shockwave_Cone.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shockwave_Ground_Texture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Shockwave_Ground_Texture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Smoke_Texture.tga" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Smoke_Texture.tga.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Kevin Iglesias/Human Animations/Unity Demo Scenes/Human Spellcasting Animations/Textures/Human_Spell_Star.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Recovery.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Recovery/0.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Recovery/0.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +495,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5e/cf8ae6f0/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/67/ef3454fc/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/af/693213d4/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/db/93909165/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/eb/49333554/Vector2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6dd00658fb454e6fb4c06a416ab8eaa1a69000/53/985dae77/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Cube.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Base/State.cs" root0="FORCE_HIGHLIGHTING" />
@@ -79,61 +531,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000009340479832" />
-      <entry key="MS500" value="1.0631947327367774" />
-      <entry key="S2" value="1.7782245898172806" />
-      <entry key="S5" value="2.6619818032978757" />
-      <entry key="S10" value="3.214105629182694" />
-      <entry key="S30" value="3.7063382812587022" />
-      <entry key="S60" value="3.873539326048884" />
-      <entry key="M2" value="4.852622107678755" />
-      <entry key="M5" value="17.951795510872753" />
-      <entry key="M10" value="41.32564507224849" />
-      <entry key="M15" value="57.36622028588898" />
-      <entry key="M30" value="89.70296451239166" />
-      <entry key="H1" value="157.47156892529063" />
-      <entry key="H2" value="330.25389565478304" />
-      <entry key="H4" value="687.1954986938108" />
-      <entry key="D1" value="2713.2593787637825" />
-      <entry key="W1" value="4093.8546243511623" />
+      <entry key="MS100" value="4.3663345740219025E-5" />
+      <entry key="MS500" value="0.2336258303399111" />
+      <entry key="S2" value="1.1691961486778755" />
+      <entry key="S5" value="1.6135102213739663" />
+      <entry key="S10" value="1.7963931424223183" />
+      <entry key="S30" value="2.010645353430523" />
+      <entry key="S60" value="3.1352160256306973" />
+      <entry key="M2" value="6.619643318498941" />
+      <entry key="M5" value="12.755095935927832" />
+      <entry key="M10" value="16.28573797021758" />
+      <entry key="M15" value="17.71009105359622" />
+      <entry key="M30" value="19.96650950065605" />
+      <entry key="H1" value="35.776619067483324" />
+      <entry key="H2" value="125.98644879030782" />
+      <entry key="H4" value="409.25925999802325" />
+      <entry key="D1" value="2532.4738806612177" />
+      <entry key="W1" value="4175.973332496609" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.5120163307285745E-39" />
-      <entry key="MS500" value="2.1432440815531207E-8" />
-      <entry key="S2" value="0.019514062003995237" />
-      <entry key="S5" value="0.3127313787699981" />
-      <entry key="S10" value="0.7931334967683563" />
-      <entry key="S30" value="1.6089655640238398" />
-      <entry key="S60" value="2.157125306607204" />
-      <entry key="M2" value="3.2010032514059743" />
-      <entry key="M5" value="7.785400404567359" />
-      <entry key="M10" value="14.588473993798267" />
-      <entry key="M15" value="19.636381849645996" />
-      <entry key="M30" value="30.8001252760298" />
-      <entry key="H1" value="50.694528183709586" />
-      <entry key="H2" value="97.46818893431518" />
-      <entry key="H4" value="190.89997312957541" />
-      <entry key="D1" value="712.0093981209604" />
-      <entry key="W1" value="1067.6508900117856" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000005989" />
+      <entry key="S10" value="1.000000773926556" />
+      <entry key="S30" value="1.0091812099007476" />
+      <entry key="S60" value="1.0958186302383184" />
+      <entry key="M2" value="1.3095458451317321" />
+      <entry key="M5" value="1.6255902789987613" />
+      <entry key="M10" value="1.7909438306746672" />
+      <entry key="M15" value="1.8556044204477424" />
+      <entry key="M30" value="2.0550457601369265" />
+      <entry key="H1" value="5.322977998586076" />
+      <entry key="H2" value="27.000639406321895" />
+      <entry key="H4" value="98.63057449533349" />
+      <entry key="D1" value="642.4710533441806" />
+      <entry key="W1" value="1065.2131748255745" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.12500084181117688" />
-      <entry key="MS500" value="0.7216562711532093" />
-      <entry key="S2" value="1.6911666953927325" />
-      <entry key="S5" value="2.9019575398606765" />
-      <entry key="S10" value="3.9469897174267445" />
-      <entry key="S30" value="5.281072506549542" />
-      <entry key="S60" value="6.007807099141728" />
-      <entry key="M2" value="8.033383750581606" />
-      <entry key="M5" value="25.707996667933003" />
-      <entry key="M10" value="55.882997536967515" />
-      <entry key="M15" value="76.97382423203074" />
-      <entry key="M30" value="120.47989702635167" />
-      <entry key="H1" value="208.14582357024946" />
-      <entry key="H2" value="427.70050077748215" />
-      <entry key="H4" value="878.0724168724211" />
-      <entry key="D1" value="3425.2529418200656" />
-      <entry key="W1" value="5161.50204822496" />
+      <entry key="MS100" value="0.020928476849171356" />
+      <entry key="MS500" value="0.6488056130999875" />
+      <entry key="S2" value="1.9243922988845428" />
+      <entry key="S5" value="2.499575819692682" />
+      <entry key="S10" value="2.7361952578087227" />
+      <entry key="S30" value="2.9987184359757735" />
+      <entry key="S60" value="4.2190349232578015" />
+      <entry key="M2" value="7.921372544470502" />
+      <entry key="M5" value="14.376424484405607" />
+      <entry key="M10" value="18.074243256978153" />
+      <entry key="M15" value="19.563987842680028" />
+      <entry key="M30" value="22.02049751990046" />
+      <entry key="H1" value="41.09733279941043" />
+      <entry key="H2" value="152.980492087822" />
+      <entry key="H4" value="507.8773065464964" />
+      <entry key="D1" value="3174.9304806330424" />
+      <entry key="W1" value="5241.183023937697" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -311,7 +763,9 @@
       <workItem from="1780673232467" duration="8896000" />
       <workItem from="1780734146938" duration="16600000" />
       <workItem from="1780755309986" duration="281000" />
-      <workItem from="1780758789049" duration="9759000" />
+      <workItem from="1780758789049" duration="10149000" />
+      <workItem from="1780907398098" duration="505000" />
+      <workItem from="1780907954712" duration="6876000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,8 @@ namespace Script.Attack.Skill_Factory
         SwordAround,
         PullBack,
         ChokeNeck,
-        FirstAoe
+        FirstAoe,
+        IceBullet
     }
     
     public enum SkillEffect
@@ -50,6 +51,8 @@ namespace Script.Attack.Skill_Factory
                 SkillType.PullBack => new PullBack(),
                 SkillType.ChokeNeck => new ChokeNeck(),
                 SkillType.FirstAoe => new FirstAoe(),
+                SkillType.IceBullet => new IceBullet(),
+
                 _ => null
             };
         }

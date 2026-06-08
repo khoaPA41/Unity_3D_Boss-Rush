@@ -33,13 +33,15 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent += TryCombo;
             FinalBossStateMachine.ManageAnimationSkillEvent.SlashWeaponEvent += ActiveEasyEffect;
             UseSkill(_attackData.SkillType);
-            FinalBossStateMachine.DealDamage.SetDamage(_attackData.AttackDamage);
+            
+            // FinalBossStateMachine.DealDamage.SetDamage(_attackData.AttackDamage);
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName,
                 _attackData.AnimationTransition);
         }
 
         public override void Tick(float deltaTime)
         {
+            FinalBossStateMachine.DealsDamage.Where(dealDamage => dealDamage.gameObject.activeInHierarchy).ToList().ForEach(dealDamage => dealDamage.SetDamage(_attackData.AttackDamage));
             if (FinalBossStateMachine.IsCanMove)
             {
                 var input = FinalBossStateMachine.GetDirToPlayer(FinalBossStateMachine.Target);

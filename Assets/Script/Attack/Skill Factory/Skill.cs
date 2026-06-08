@@ -300,4 +300,21 @@ namespace Script.Attack.Skill_Factory
             Debug.Log("FirstAoe");
         }
     }
+    
+    /************************************************************************/
+    public class IceBullet : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "IceBullet";
+        public string AnimationName => "IceBullet";
+        public int ManaCost => 20;
+
+        public void Cast(ICaster caster)
+        {
+            // var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
+            // bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
+            Debug.Log("IceBullet");
+        }
+    }
+
 }
