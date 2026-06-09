@@ -8,6 +8,7 @@ public class TriggerSkillForBoss : MonoBehaviour
 {
     [SerializeField] private float timeToActiveTrigger;
     [SerializeField] private SkillEffect effect;
+    
     private BoxCollider _collider;
     // public GameObject Caster {get; set;}
     public ICaster Caster {get; set;}

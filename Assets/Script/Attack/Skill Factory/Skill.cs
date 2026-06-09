@@ -302,18 +302,32 @@ namespace Script.Attack.Skill_Factory
     }
     
     /************************************************************************/
-    public class IceBullet : ISkill
+    public class FireBullet : ISkill
     {
         public SkillEffect SkillEffect => SkillEffect.NonEffect;
-        public string SkillName => "IceBullet";
-        public string AnimationName => "IceBullet";
+        public string SkillName => "FireBullet";
+        public string AnimationName => "FireBullet";
         public int ManaCost => 20;
 
         public void Cast(ICaster caster)
         {
-            // var bossStateMachine = caster.TargetCaster().GetComponent<FinalBossStateMachine>();
-            // bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
-            Debug.Log("IceBullet");
+            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
+            var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
+            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var spawnPosition = caster.GetTransform().transform.position + new Vector3(2f, 3f, 0f);
+
+            Action situationAction = null;
+            situationAction = () =>
+            {
+                getSkill.SpawnSkill(SkillName, spawnPosition);
+                var skill = getSkill.Skill.GetComponent<SwordSkill>();
+                skill.TargetPosition = caster.TargetCaster().transform.position;
+                var weaponTrail = skill.GetComponent<WeaponTrail>();
+                weaponTrail.SetDamage(100);
+                manageEvent.SituationEvent -= situationAction;
+            };
+            manageEvent.SituationEvent += situationAction;
         }
     }
 

@@ -1,9 +1,7 @@
-using System;
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.Boss.Base;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwordSkill : MonoBehaviour
@@ -12,8 +10,10 @@ public class SwordSkill : MonoBehaviour
     [SerializeField] private float homingSensitivity;
     [SerializeField] private float hitDistance;
     [SerializeField] private float timeToReturn;
-
-
+    [SerializeField] private bool isRelease = false;
+    [SerializeField] private bool isActiveAnotherSkill = false; // if this skill have effect after touch player
+    private bool isPlayedAnotherSkill = false; // if added skill has played
+    [SerializeField] private string skillNameContinue;
     public Vector3 TargetPosition { get; set; }
 
     private Vector3 _currentVelocity;
@@ -27,17 +27,19 @@ public class SwordSkill : MonoBehaviour
     private void Awake()
     {
         boss = GameObject.FindWithTag("Boss").GetComponent<FinalBossStateMachine>();
+        GetComponent<Rigidbody>();
+        _pooledObject = GetComponent<PooledObject>();
     }
     
     private void Start()
     {
-        GetComponent<Rigidbody>();
-        _pooledObject = GetComponent<PooledObject>();
+        
     }
 
     private void OnEnable()
     {
         boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent += Release;
+        isPlayedAnotherSkill = false;
         _countTime = timeToReturn;
         var direction = (TargetPosition - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
@@ -60,6 +62,13 @@ public class SwordSkill : MonoBehaviour
 
         if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
         {
+            if (isActiveAnotherSkill && !isPlayedAnotherSkill) 
+            {
+                var getSkill = boss.GetComponent<GetSkill>();
+                getSkill.SpawnSkill(skillNameContinue, transform.position);
+                isPlayedAnotherSkill = true;
+            }
+            
             if (_alreadySendEvent) return;
             boss.ManageAnimationSkillEvent.SendNextActionEvent();
             _alreadySendEvent = true;
@@ -89,6 +98,7 @@ public class SwordSkill : MonoBehaviour
             GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
         }
         
+        if (isRelease) return;
         if (other.CompareTag("Boss"))
         {
             var boss = other.GetComponent<FinalBossStateMachine>();

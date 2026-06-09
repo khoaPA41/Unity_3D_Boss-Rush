@@ -47,9 +47,9 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
             /*Nhanh 3: uu tien tan cong truoc*/
             topNode = new BehaviorSelector(new List<BehaviorNode>
             {
-                // changePhaseSequence,
+                changePhaseSequence,
                 atkSequence,
-                // phaseTwo,
+                phaseTwo,
                 tacticalChasing
             });
         }

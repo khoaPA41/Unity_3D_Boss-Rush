@@ -216,6 +216,26 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-4860809012214182955
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45da31f78134eb64fa68f3ea5b73f3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeState
+  usingSkillSituation: 1
+  triggerSkillSituation: 0.25
+  usingReleaseObject: 1
+  triggerReleaseObject: 0.8
+  usingNextAction: 1
+  triggerNextAction: 0.8
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.2
 --- !u!114 &-4773285973371986872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,7 +410,7 @@ AnimatorStateMachine:
     m_Position: {x: 830, y: -310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6589838619617278325}
-    m_Position: {x: 240, y: -340, z: 0}
+    m_Position: {x: 1560, y: -260, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1414,11 +1434,12 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IceBullet
+  m_Name: FireBullet
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4860809012214182955}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1427,7 +1448,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5712864786948760157, guid: 151732afde1d3e54ab3c9cac5c295015, type: 3}
+  m_Motion: {fileID: 7400000, guid: d6c3a44c7cee6b84497a7bdfe02be7e9, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 

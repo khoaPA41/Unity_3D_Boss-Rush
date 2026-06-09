@@ -28,7 +28,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             if (FinalBossStateMachine.IsActiveUltimate && !FinalBossStateMachine.IsStillUltimate)
             {
                 var randomComboIndex = Random.Range(0, FinalBossStateMachine.NormalCombo.Length);
-                FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.CurrentPhase, randomComboIndex));
+                FinalBossStateMachine.SwitchState(new FinalBossEnterPhaseState(FinalBossStateMachine, FinalBossStateMachine.NextPhase, randomComboIndex));
             }
             
             var movementInput = FinalBossStateMachine.InputMovement;

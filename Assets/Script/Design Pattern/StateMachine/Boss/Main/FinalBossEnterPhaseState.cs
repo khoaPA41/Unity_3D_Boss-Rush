@@ -71,7 +71,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
-                FinalBossStateMachine.CurrentPhase++;
+                FinalBossStateMachine.NextPhase++;
+                FinalBossStateMachine.CurrentPhase = FinalBossStateMachine.NextPhase - 1;
                 FinalBossStateMachine.ReturnLocomotion();
                 return;
             }

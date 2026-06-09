@@ -91,6 +91,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public bool IsChangePhase { get; set; }
         public bool IsFinishedAttack { get; set; }
         public int CurrentPhase { get; set; } = 0;
+        public int NextPhase { get; set; } = 0;
+
         public bool IsActiveUltimate { get; set; }
 
         [field: Header("Event")] private Health Player { get; set; }

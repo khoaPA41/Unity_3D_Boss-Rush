@@ -6,7 +6,7 @@ public class WeaponTrail : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask= 255;
     [SerializeField] private GameObject _legalOwner;
-    
+    [SerializeField] private int baseDamage;
     private List<GameObject> alreadyObjectHit = new();
     private BoxCollider _collider;
     private Vector3 previousPosition;
@@ -14,6 +14,12 @@ public class WeaponTrail : MonoBehaviour
     private int damage;
 
     private void Awake()
+    {
+        _collider = GetComponent<BoxCollider>();
+        damage = baseDamage;
+    }
+
+    private void Start()
     {
         _collider = GetComponent<BoxCollider>();
     }
