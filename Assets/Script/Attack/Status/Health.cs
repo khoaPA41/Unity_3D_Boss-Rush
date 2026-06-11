@@ -11,7 +11,7 @@ namespace Script.Attack
         [SerializeField] private float timeToBackNormal;
 
         public int currentHealth;
-
+        public bool isPerfectDodge;
         public bool noDamage { get; set; }
 
         public event Action DeathAction;
@@ -39,6 +39,24 @@ namespace Script.Attack
             Time.timeScale = timeFreeze;
             yield return new WaitForSecondsRealtime(timeToBackNormal);
             Time.timeScale = 1f;
+        }
+        
+        private IEnumerator SlowTime()
+        {
+            noDamage = true;
+            Time.timeScale = .5f;
+            yield return new WaitForSecondsRealtime(.8f);
+            Time.timeScale = 1f;
+        }
+        
+        public void PerfectDodgeAward()
+        {
+            if (isPerfectDodge)
+            {
+                noDamage = true;
+                Debug.Log("Perfect Dodge");
+                StartCoroutine(SlowTime());
+            }
         }
 
         public void HitStop()

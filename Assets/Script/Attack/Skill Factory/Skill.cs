@@ -330,5 +330,59 @@ namespace Script.Attack.Skill_Factory
             manageEvent.SituationEvent += situationAction;
         }
     }
+    
+    /************************************************************************/
+    public class TransformToTwoSword  : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "TransformToTwoSword";
+        public string AnimationName => "TransformToTwoSword";
+        public int ManaCost => 20;
 
+        public void Cast(ICaster caster)
+        {
+            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
+            var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
+            var weaponHandler = bossStateMachine.GetComponent<WeaponHandler>();
+            
+            Action situationAction = null;
+            situationAction = () =>
+            {
+                weaponHandler.OnStoreWeapon();
+                weaponHandler.OnUnActiveDoubleEdgedSword();
+                weaponHandler.OnActiveLeftSingleSword();
+                weaponHandler.OnActiveRightSingleSword();
+                manageEvent.SituationEvent -= situationAction;
+            };
+            manageEvent.SituationEvent += situationAction;
+        }
+    }
+    
+    public class TransformToBlade : ISkill
+    {
+        public SkillEffect SkillEffect => SkillEffect.NonEffect;
+        public string SkillName => "TransformToBlade";
+        public string AnimationName => "TransformToBlade";
+        public int ManaCost => 20;
+
+        public void Cast(ICaster caster)
+        {
+            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
+            var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
+            var weaponHandler = bossStateMachine.GetComponent<WeaponHandler>();
+            
+            Action situationAction = null;
+            situationAction = () =>
+            {
+                weaponHandler.OnUnActiveLeftSingleSword();
+                weaponHandler.OnUnActiveRightSingleSword();
+                weaponHandler.OnStoreWeapon();
+                weaponHandler.OnActiveDoubleEdgedSword();
+                manageEvent.SituationEvent -= situationAction;
+            };
+            manageEvent.SituationEvent += situationAction;
+        }
+    }
 }

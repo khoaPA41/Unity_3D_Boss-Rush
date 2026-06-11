@@ -12,12 +12,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private Vector2 dodgeDirection;
 
         private float remainingTime;
+
+        private float countPerfectFrame = 0;
         public PlayerDodgeState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
+            
         }
 
         public override void Enter()
         {
+            playerStateMachine.Health.isPerfectDodge = true;
             dodgeDirection = playerStateMachine.InputReader.InputMovement;
             playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);
             playerStateMachine.Animator.SetFloat(DodgeForwardHash, dodgeDirection.y);
@@ -27,13 +31,20 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            Vector3 movement = CalculateMovement();
+            countPerfectFrame += deltaTime;
+
+            
+            var movement = CalculateMovement();
 
             Move(movement, deltaTime);
             FaceTarget(deltaTime);
 
             remainingTime -= deltaTime;
 
+            if (remainingTime <= .3f)
+            {
+                playerStateMachine.Health.isPerfectDodge = false;
+            }
             if (remainingTime <= 0f)
             {
                 playerStateMachine.ReturnLocomotion();
@@ -47,6 +58,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
+            playerStateMachine.Health.isPerfectDodge = false;
+            playerStateMachine.Health.noDamage = false;
         }
 
         private Vector3 CalculateMovement()

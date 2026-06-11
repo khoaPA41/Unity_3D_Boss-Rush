@@ -48421,14 +48421,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 1
   m_Events:
   - time: 0.16666667
-    functionName: OnActiveWeaponCollider
+    functionName: OnActiveWeaponRightCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1
-    functionName: OnUnActiveWeaponCollider
+    functionName: OnUnActiveWeaponRightCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

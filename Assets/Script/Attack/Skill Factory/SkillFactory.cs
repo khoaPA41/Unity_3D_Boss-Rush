@@ -17,7 +17,9 @@ namespace Script.Attack.Skill_Factory
         PullBack,
         ChokeNeck,
         FirstAoe,
-        FireBullet
+        FireBullet,
+        TransformToTwoSword,
+        TransformToBlade
     }
     
     public enum SkillEffect
@@ -52,6 +54,8 @@ namespace Script.Attack.Skill_Factory
                 SkillType.ChokeNeck => new ChokeNeck(),
                 SkillType.FirstAoe => new FirstAoe(),
                 SkillType.FireBullet => new FireBullet(),
+                SkillType.TransformToTwoSword => new TransformToTwoSword(),
+                SkillType.TransformToBlade => new TransformToBlade(),
 
                 _ => null
             };
