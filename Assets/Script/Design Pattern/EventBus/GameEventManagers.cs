@@ -9,7 +9,6 @@ namespace Script.Design_Pattern.EventBus
         public static GameEventManagers Instance;
         public event Action<ICaster, SkillEffect> OnSkillCasted;
         
-        
         private void Awake()
         {
             Instance = this;

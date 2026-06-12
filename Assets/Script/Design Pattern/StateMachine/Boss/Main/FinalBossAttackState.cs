@@ -96,7 +96,34 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.IsAttack = false;
             FinalBossStateMachine.IsCanMove = false;
             FinalBossStateMachine.Animator.speed = 1;
-            FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponEmissionColor);
+
+            if (!FinalBossStateMachine.isBothWeaponVFX)
+            {
+                if (FinalBossStateMachine.isRightWeaponVFX)
+                {
+                    if (FinalBossStateMachine.Weapon.activeInHierarchy)
+                    {
+                        FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponEmissionColor);
+                    }
+
+                    if (FinalBossStateMachine.isRightWeaponVFX)
+                    {
+                        FinalBossStateMachine.WeaponRightMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponRightEmissionColor);
+                    }
+                }
+                else
+                {
+                    FinalBossStateMachine.WeaponLeftMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponLeftEmissionColor);
+                }
+            }
+
+            if (FinalBossStateMachine.isBothWeaponVFX)
+            {
+                FinalBossStateMachine.WeaponLeftMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponLeftEmissionColor);
+                FinalBossStateMachine.WeaponRightMaterial.SetColor("_EmissionColor", FinalBossStateMachine.WeaponRightEmissionColor);
+            }
+            
+ 
         }
         
         private void TrySlowAnimation(float time)
@@ -112,9 +139,42 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         
         private void GlowingWeapon(float time)
         {
-            var currentIntensity = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
-            var finalColor = FinalBossStateMachine.WeaponEmissionColor * Mathf.Pow(2f, 10f);
-            FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", finalColor * currentIntensity);
+            if (!FinalBossStateMachine.isBothWeaponVFX)
+            {
+                if (FinalBossStateMachine.isRightWeaponVFX)
+                {
+                    if (FinalBossStateMachine.Weapon.activeInHierarchy)
+                    {
+                        var currentIntensity = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
+                        var finalColor = FinalBossStateMachine.WeaponEmissionColor * Mathf.Pow(2f, 10f);
+                        FinalBossStateMachine.WeaponMaterial.SetColor("_EmissionColor", finalColor * currentIntensity);
+                    }
+
+                    if (FinalBossStateMachine.WeaponRight.activeInHierarchy)
+                    {
+                        var currentIntensity = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
+                        var finalColor = FinalBossStateMachine.WeaponRightEmissionColor * Mathf.Pow(2f, 10f);
+                        FinalBossStateMachine.WeaponRightMaterial.SetColor("_EmissionColor", finalColor * currentIntensity);
+                    }
+                }
+                else
+                {
+                    var currentIntensity = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
+                    var finalColor = FinalBossStateMachine.WeaponLeftEmissionColor * Mathf.Pow(2f, 10f);
+                    FinalBossStateMachine.WeaponLeftMaterial.SetColor("_EmissionColor", finalColor * currentIntensity);
+                }
+            }
+            
+            if (FinalBossStateMachine.isBothWeaponVFX)
+            {
+                var currentIntensityLeft = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
+                var finalColorLeft = FinalBossStateMachine.WeaponLeftEmissionColor * Mathf.Pow(2f, 10f);
+                FinalBossStateMachine.WeaponLeftMaterial.SetColor("_EmissionColor", finalColorLeft * currentIntensityLeft);
+                
+                var currentIntensityRight = FinalBossStateMachine.AnimationWeaponEmissionCurve.Evaluate(time);
+                var finalColorRight = FinalBossStateMachine.WeaponRightEmissionColor * Mathf.Pow(2f, 10f);
+                FinalBossStateMachine.WeaponRightMaterial.SetColor("_EmissionColor", finalColorRight * currentIntensityRight);
+            }
         }
 
         private void ActiveEasyEffect()

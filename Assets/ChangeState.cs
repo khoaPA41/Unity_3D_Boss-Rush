@@ -32,8 +32,12 @@ public class ChangeState : StateMachineBehaviour
     private bool _hasTriggeredNextAction;
     private bool _hasTriggeredRelease;
     private bool _hasTriggeredWeaponVFX;
-
     
+    [Header("Params for weapon VFX")]
+    [SerializeField] private bool isRightWeapon;
+    [SerializeField] private bool isBothWeapon;
+
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // var bossSystem = animator.GetComponent<FinalBossStateMachine>();
@@ -82,8 +86,15 @@ public class ChangeState : StateMachineBehaviour
          var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
          animationEvent.SendSlashWeaponEventEvent();
          _hasTriggeredWeaponVFX = true;
+         
+         var stateMachine = animator.GetComponent<FinalBossStateMachine>();
+
+         if (!isBothWeapon)
+         {
+             stateMachine.isRightWeaponVFX = isRightWeapon;
+         }
+         stateMachine.isBothWeaponVFX = isBothWeapon;
      }
-     
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
      public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -128,6 +139,7 @@ public class ChangeState : StateMachineBehaviour
             {
                 EditorGUI.indentLevel++;
                 script.triggerNextAction = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerNextAction);
+                script.triggerNextAction = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerNextAction);
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(3);
@@ -138,6 +150,9 @@ public class ChangeState : StateMachineBehaviour
             {
                 EditorGUI.indentLevel++;
                 script.triggerWeaponVFX = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerWeaponVFX);
+                script.isRightWeapon = EditorGUILayout.ToggleLeft("Right or Left: ", script.isRightWeapon);
+                script.isBothWeapon = EditorGUILayout.ToggleLeft("Both: ", script.isBothWeapon);
+
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(3);
@@ -148,7 +163,6 @@ public class ChangeState : StateMachineBehaviour
                 serializedObject.ApplyModifiedProperties();
             }
         }
-    
     }
 #endif
 

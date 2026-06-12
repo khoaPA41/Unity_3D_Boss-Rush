@@ -20,6 +20,8 @@ MonoBehaviour:
   triggerNextAction: 0.9
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.01
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &-8894459660788003162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -38,8 +40,10 @@ MonoBehaviour:
   triggerReleaseObject: 0
   usingNextAction: 1
   triggerNextAction: 0.8
-  usingWeaponVFX: 0
-  triggerWeaponVFX: 0
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &-8849495465046217536
 AnimatorState:
   serializedVersion: 6
@@ -195,6 +199,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &-7771376027683984914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +221,8 @@ MonoBehaviour:
   triggerNextAction: 0.9
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!114 &-7687843518206923848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +243,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &-7603594579770999404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +265,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &-7442525203771676833
 AnimatorState:
   serializedVersion: 6
@@ -328,6 +340,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &-7126475955742080596
 AnimatorState:
   serializedVersion: 6
@@ -375,6 +389,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &-6871216909858866900
 AnimatorState:
   serializedVersion: 6
@@ -502,6 +518,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &-5692445000975916648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,6 +540,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.35
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &-5439321224479893130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +562,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &-5386553962753668918
 AnimatorState:
   serializedVersion: 6
@@ -670,6 +692,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1107 &-4008216806759747714
 AnimatorStateMachine:
   serializedVersion: 6
@@ -760,7 +784,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 4365810607230049061}
-    m_Position: {x: 1000, y: -360, z: 0}
+    m_Position: {x: 1000, y: -350, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -3937868434959722813}
     m_Position: {x: 520, y: -360, z: 0}
@@ -1052,6 +1076,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &-2251527139721900568
 AnimatorState:
   serializedVersion: 6
@@ -1191,6 +1217,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &-959917793550388842
 AnimatorState:
   serializedVersion: 6
@@ -1290,6 +1318,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &-163809693161148706
 AnimatorState:
   serializedVersion: 6
@@ -1427,6 +1457,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.35
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &591802094334409839
 AnimatorState:
   serializedVersion: 6
@@ -1473,6 +1505,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &774538778958505837
 AnimatorState:
   serializedVersion: 6
@@ -1520,6 +1554,8 @@ MonoBehaviour:
   triggerNextAction: 0.9
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &1028507554257774571
 AnimatorState:
   serializedVersion: 6
@@ -1590,8 +1626,10 @@ MonoBehaviour:
   triggerReleaseObject: 0
   usingNextAction: 1
   triggerNextAction: 0.8
-  usingWeaponVFX: 0
-  triggerWeaponVFX: 0
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.3
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &1860409758216409767
 AnimatorState:
   serializedVersion: 6
@@ -1666,6 +1704,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.34
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &2920014801291351530
 AnimatorState:
   serializedVersion: 6
@@ -1739,7 +1779,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b02d22172d2de084d87b8be2b2925196, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5aa2c3afc2d57d148806aa1c0165cc00, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1765,6 +1805,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!114 &4113535315507758079
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1783,8 +1825,10 @@ MonoBehaviour:
   triggerReleaseObject: 0
   usingNextAction: 1
   triggerNextAction: 0.8
-  usingWeaponVFX: 0
-  triggerWeaponVFX: 0
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.35
+  isRightWeapon: 1
+  isBothWeapon: 1
 --- !u!1107 &4365810607230049061
 AnimatorStateMachine:
   serializedVersion: 6
@@ -1907,6 +1951,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.34
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &5270967032912691353
 AnimatorState:
   serializedVersion: 6
@@ -1954,6 +2000,8 @@ MonoBehaviour:
   triggerNextAction: 0.7
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &5478455890591272891
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1974,6 +2022,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &5855958819282265030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1994,6 +2044,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1107 &5918652384934441588
 AnimatorStateMachine:
   serializedVersion: 6
@@ -2086,6 +2138,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &6469029720609821277
 AnimatorState:
   serializedVersion: 6
@@ -2133,6 +2187,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!114 &7002774725534371948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2153,6 +2209,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &7081647111860831517
 AnimatorState:
   serializedVersion: 6
@@ -2252,8 +2310,10 @@ MonoBehaviour:
   triggerReleaseObject: 0
   usingNextAction: 1
   triggerNextAction: 0.8
-  usingWeaponVFX: 0
-  triggerWeaponVFX: 0
+  usingWeaponVFX: 1
+  triggerWeaponVFX: 0.35
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &7319283519634175252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2274,6 +2334,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!1102 &7325634550190169984
 AnimatorState:
   serializedVersion: 6
@@ -2321,6 +2383,8 @@ MonoBehaviour:
   triggerNextAction: 0.9
   usingWeaponVFX: 0
   triggerWeaponVFX: 0
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!1102 &7369101074397462125
 AnimatorState:
   serializedVersion: 6
@@ -2368,6 +2432,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.4
+  isRightWeapon: 1
+  isBothWeapon: 0
 --- !u!114 &7611238712325310744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2388,6 +2454,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 0
+  isBothWeapon: 0
 --- !u!206 &7837777244744659456
 BlendTree:
   m_ObjectHideFlags: 1
@@ -2521,6 +2589,8 @@ MonoBehaviour:
   triggerNextAction: 0.8
   usingWeaponVFX: 1
   triggerWeaponVFX: 0.2
+  isRightWeapon: 0
+  isBothWeapon: 1
 --- !u!1102 &8209968755090049157
 AnimatorState:
   serializedVersion: 6

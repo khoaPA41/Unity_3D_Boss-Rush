@@ -96469,7 +96469,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.47500002
+        time: 0.475
         value: -0.21292557
         inSlope: -1.4852147
         outSlope: -1.4852147
@@ -96478,7 +96478,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.48333335
+        time: 0.48333332
         value: -0.2255705
         inSlope: -1.5446899
         outSlope: -1.5446899
@@ -96487,7 +96487,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.4916667
+        time: 0.49166667
         value: -0.23867042
         inSlope: -1.5946213
         outSlope: -1.5946213
@@ -96505,7 +96505,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5083334
+        time: 0.5083333
         value: -0.2659292
         inSlope: -1.6679702
         outSlope: -1.6679702
@@ -96514,7 +96514,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5166667
+        time: 0.51666665
         value: -0.27994707
         inSlope: -1.6924684
         outSlope: -1.6924684
@@ -96523,7 +96523,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.52500004
+        time: 0.525
         value: -0.29413697
         inSlope: -1.7096488
         outSlope: -1.7096488
@@ -96568,7 +96568,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5666667
+        time: 0.56666666
         value: -0.3658103
         inSlope: -1.7068818
         outSlope: -1.7068818
@@ -381253,7 +381253,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.47500002
+        time: 0.475
         value: -0.21292557
         inSlope: -1.4852147
         outSlope: -1.4852147
@@ -381262,7 +381262,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.48333335
+        time: 0.48333332
         value: -0.2255705
         inSlope: -1.5446899
         outSlope: -1.5446899
@@ -381271,7 +381271,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.4916667
+        time: 0.49166667
         value: -0.23867042
         inSlope: -1.5946213
         outSlope: -1.5946213
@@ -381289,7 +381289,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5083334
+        time: 0.5083333
         value: -0.2659292
         inSlope: -1.6679702
         outSlope: -1.6679702
@@ -381298,7 +381298,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5166667
+        time: 0.51666665
         value: -0.27994707
         inSlope: -1.6924684
         outSlope: -1.6924684
@@ -381307,7 +381307,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.52500004
+        time: 0.525
         value: -0.29413697
         inSlope: -1.7096488
         outSlope: -1.7096488
@@ -381352,7 +381352,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5666667
+        time: 0.56666666
         value: -0.3658103
         inSlope: -1.7068818
         outSlope: -1.7068818
@@ -638096,4 +638096,46 @@ AnimationClip:
     flags: 0
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.175
+    functionName: OnActiveWeaponCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.51666665
+    functionName: OnUnActiveWeaponCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7083333
+    functionName: OnActiveWeaponLeftCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.7083333
+    functionName: OnActiveWeaponRightCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1
+    functionName: OnUnActiveWeaponRightCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1
+    functionName: OnUnActiveWeaponLeftCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

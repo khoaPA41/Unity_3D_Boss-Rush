@@ -77,11 +77,18 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             {
                 FinalBossStateMachine.CurrentComboIndex = randomCombo;
                 FinalBossStateMachine.NextAttackIndex = 0;
+                Debug.Log("Random Combo: " + randomCombo);
             }
             else
             {
                 randomCombo = FinalBossStateMachine.CurrentComboIndex;
+                Debug.Log("Random Combo: " + randomCombo);
             }
+
+            Debug.Log("Current Phase: " + FinalBossStateMachine.CurrentPhase);
+            
+            Debug.Log("Next Attack Index: " + FinalBossStateMachine.NextAttackIndex);
+
             FinalBossStateMachine.SwitchState(new FinalBossAttackState(FinalBossStateMachine, FinalBossStateMachine.CurrentPhase, randomCombo, FinalBossStateMachine.NextAttackIndex));
         }
     }

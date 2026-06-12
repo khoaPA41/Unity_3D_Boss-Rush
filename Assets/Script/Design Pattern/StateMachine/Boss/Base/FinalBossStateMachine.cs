@@ -46,9 +46,19 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         [field: Header("Attack")]
         [field: SerializeField]
-        public GameObject Weapon { get; private set; }
+        public GameObject WeaponRight { get; private set; }
+        [field: SerializeField] public GameObject WeaponLeft { get; private set; }
+        [field: SerializeField] public GameObject Weapon { get; private set; }
+
+        public Material WeaponRightMaterial { get; set; }
+        public Material WeaponLeftMaterial { get; set; }
         public Material WeaponMaterial { get; set; }
+        public Color WeaponRightEmissionColor { get; set; }
+        public Color WeaponLeftEmissionColor { get; set; }
         public Color WeaponEmissionColor { get; set; }
+        public bool isRightWeaponVFX { get; set; }
+        public bool isBothWeaponVFX { get; set; }
+
         [field: SerializeField] public AnimationCurve AnimationWeaponEmissionCurve { get; private set; }
         [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
@@ -73,8 +83,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public GameObject Neck { get; private set; }
-
-
+        
         [field: Header("TimeLine For Choke Neck")]
         [field: SerializeField]
         public PlayableDirector PlayableDirector { get; private set; }
@@ -111,12 +120,18 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void Start()
         {
-            WeaponMaterial = Weapon.GetComponent<MeshRenderer>().material;
-            WeaponEmissionColor = WeaponMaterial.GetColor("_EmissionColor");
-
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
+            
+            WeaponRightMaterial = WeaponRight.GetComponent<MeshRenderer>().material;
+            WeaponRightEmissionColor = WeaponRightMaterial.GetColor("_EmissionColor");
+            
+            WeaponLeftMaterial = WeaponLeft.GetComponent<MeshRenderer>().material;
+            WeaponLeftEmissionColor = WeaponLeftMaterial.GetColor("_EmissionColor");
+            
+            WeaponMaterial = Weapon.GetComponent<MeshRenderer>().material;
+            WeaponEmissionColor = WeaponMaterial.GetColor("_EmissionColor");
         }
 
         private void OnEnable()
