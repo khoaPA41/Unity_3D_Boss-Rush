@@ -40,7 +40,6 @@ namespace Script.Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             caster.ComsumeMana(ManaCost);
-            
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;

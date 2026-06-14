@@ -2547,13 +2547,15 @@ GameObject:
   - component: {fileID: 7078260653431286299}
   - component: {fileID: 6234928008955599887}
   - component: {fileID: 5740855106322436881}
+  - component: {fileID: 3297095670443799765}
   - component: {fileID: 7385563671594872099}
   - component: {fileID: 8368696863466638971}
   - component: {fileID: 6383406867310112901}
+  - component: {fileID: 3369746024849944489}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2728,6 +2730,7 @@ MonoBehaviour:
   <DealDamage>k__BackingField: {fileID: 1844805876966560640}
   <Health>k__BackingField: {fileID: 5740855106322436881}
   <Mana>k__BackingField: {fileID: 6234928008955599887}
+  <Stamina>k__BackingField: {fileID: 3297095670443799765}
   <TimeToGetKnockBackHit>k__BackingField: 3
   <Animator>k__BackingField: {fileID: 7385563671594872099}
   <AnimationCrossFade>k__BackingField: 0.1
@@ -2806,7 +2809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5971d30a31cfcc84095809b2ad398781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mana
-  maxMana: 1000
+  <maxMana>k__BackingField: 1000
+  <reduceManaDuration>k__BackingField: 0.8
 --- !u!114 &5740855106322436881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,10 +2824,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   <maxHealth>k__BackingField: 1000
+  <reduceHealthFollowingDuration>k__BackingField: 0.25
+  <reduceHealPrevDuration>k__BackingField: 0.5
   timeFreeze: 0
   timeToBackNormal: 0.05
   currentHealth: 0
   isPerfectDodge: 0
+--- !u!114 &3297095670443799765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1e3be33bd502244a45d2e91aa8def2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stamina
+  <maxStamina>k__BackingField: 1000
+  <recoveryStaminaDuration>k__BackingField: 1
+  <reduceStaminaDuration>k__BackingField: 0.2
+  <dodgeReduce>k__BackingField: 10
+  <movementReduce>k__BackingField: 1
+  <lightAttackReduce>k__BackingField: 5
+  <HeavyAttackReduce>k__BackingField: 8
+  <JumpReduce>k__BackingField: 7
 --- !u!95 &7385563671594872099
 Animator:
   serializedVersion: 7
@@ -2883,6 +2909,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81baae89869d9d0459b79d0135ba7436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManageAnimationSkillEvent
+--- !u!114 &3369746024849944489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f33c87a84b24340a4dcb061afd39ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPlayerManagers
+  healthPrevSlider: {fileID: 0}
+  healthFollowingSlider: {fileID: 0}
+  manaSlider: {fileID: 0}
+  staminaSlider: {fileID: 0}
+  transitionDuration: 0.5
 --- !u!1 &6998069725804410616
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
+            playerStateMachine.CheckStamina();
+            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.lightAttackReduce);
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
                 0);
             // playerStateMachine.WeaponDealDamage.SetDamage(_attackData.AttackDamage);

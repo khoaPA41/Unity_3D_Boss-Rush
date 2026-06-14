@@ -38,8 +38,27 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
-            Vector3 movement = CalculateMovementInTarget();
-            Move(movement * playerStateMachine.FreeLookMovementSpeed, deltaTime);
+            var movement = CalculateMovementInTarget();
+            var speed = playerStateMachine.InputReader.IsSprint
+                ? playerStateMachine.FreeLookMovementSprintSpeed
+                : playerStateMachine.FreeLookMovementSpeed;
+            
+            if (movement != Vector3.zero)
+            {
+                playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
+            }
+            else
+            {
+                playerStateMachine.Stamina.RecoveryStamina();
+            }
+            
+            if (playerStateMachine.Stamina.currentStamina <= 0f)
+            {
+                speed = 0f;
+                movement = Vector3.zero;
+            }
+            
+            Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceTarget(deltaTime);
         }

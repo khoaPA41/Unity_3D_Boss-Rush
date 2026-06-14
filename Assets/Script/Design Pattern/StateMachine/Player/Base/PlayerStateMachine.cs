@@ -38,6 +38,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }
+        [field: SerializeField] public Stamina Stamina { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         
         [Header("Animation")]
@@ -47,8 +48,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
         [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
-
-
+        
         [Header("Skill")]
         [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
         [field: SerializeField] public float SkillTime { get; private set; }
@@ -85,8 +85,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public State heavyAttack { get; private set; }
         
         public State changeAction { get; private set; }
-
-
+        
         public GameObject Boss;
         private void Start()
         {
@@ -133,6 +132,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             ManageAnimationSkillEvent.SendSituationEvent();
         }
+        
         public void SendNextActionEvent()
         {
             ManageAnimationSkillEvent.SendNextActionEvent();
@@ -142,7 +142,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             ManageAnimationSkillEvent.SendReleasePoolObjectEvent();
         }
-        
         
         public void EnterChangeAction(bool isAttack)
         {
@@ -198,6 +197,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             
         }
 
+        public void CheckStamina()
+        {
+            if (Stamina.currentStamina <= 0f)
+            {
+                ReturnLocomotion(); 
+            }
+        }
+        
         public void HandleAttackState()
         {
             if (!InputReader.IsAttack) return;
@@ -218,7 +225,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public void ComsumeMana(int amount)
         {
-            Mana.currentMana = Mathf.Max(Mana.currentMana - amount, 0);
+            Mana.ChangeMana(amount);
         }
 
         public Transform GetTransform()
@@ -246,8 +253,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             StartCoroutine(WaitToContinue(time, action1, action2));
         }
-
-
+        
         private IEnumerator WaitToContinue(float time, Action action1, Action action2)
         {
             action1?.Invoke();

@@ -82,6 +82,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             else
             {
                 randomCombo = FinalBossStateMachine.CurrentComboIndex;
+                if (FinalBossStateMachine.CurrentComboIndex >= FinalBossStateMachine.NormalCombo[FinalBossStateMachine.CurrentPhase].Combo.Length)
+                {
+                    randomCombo = 0;
+                }
                 Debug.Log("Random Combo: " + randomCombo);
             }
 

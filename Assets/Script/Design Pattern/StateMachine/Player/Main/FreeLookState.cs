@@ -29,6 +29,21 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
+            if (movement != Vector3.zero)
+            {
+                playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
+            }
+            else
+            {
+                playerStateMachine.Stamina.RecoveryStamina();
+            }
+
+
+            if (playerStateMachine.Stamina.currentStamina <= 0f)
+            {
+                speed = 0f;
+            }
+            
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
             

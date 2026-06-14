@@ -12,7 +12,9 @@ public class PlayerStartJumpState : PlayerBaseState
 
     public override void Enter()
     {
-        
+        playerStateMachine.CheckStamina();
+
+        playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.jumpReduce);
         playerStateMachine.Animator.CrossFadeInFixedTime(JumpAnimationHash, playerStateMachine.AnimationCrossFade);
         playerStateMachine.ForceReceiver.Jump(playerStateMachine.JumpForce);
         momentum = playerStateMachine.CharacterController.velocity;
