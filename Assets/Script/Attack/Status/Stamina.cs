@@ -12,13 +12,13 @@ public class Stamina : MonoBehaviour
     [field: SerializeField] public int heavyAttackReduce { get; set; }
     [field: SerializeField] public int jumpReduce { get; set; }
 
-    public float currentStamina  { get; set; }
+    public int currentStamina  { get; set; }
     
     public event Action<float> OnChangeStamina = delegate { };
     public event Action<float> OnRecoveryStamina = delegate { };
 
     
-    private void Start()
+    private void Awake()
     {
         currentStamina = maxStamina;
     }

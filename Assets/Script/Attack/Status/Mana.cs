@@ -6,9 +6,9 @@ public class Mana : MonoBehaviour
     [field: SerializeField] public int maxMana { get; set; }
     [field: SerializeField] public float reduceManaDuration { get; set; }
     public event Action<float> OnChangeMana = delegate { };
-    public int currentMana { get; set; }
+    public int currentMana;
     
-    private void Start()
+    private void Awake()
     {
         currentMana = maxMana;
     }

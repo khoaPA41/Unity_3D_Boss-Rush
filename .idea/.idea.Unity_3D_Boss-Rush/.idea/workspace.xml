@@ -12,171 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/RFA_Model_Avatar.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/RFA_Model_Avatar.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_BaseColor.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_BaseColor.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_Normal.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_Normal.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_Specular.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Armour_Specular.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_AO.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_AO.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_BaseColor.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_BaseColor.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_Normal.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_Normal.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_Specular.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Clothes_Specular.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_BaseColor.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_BaseColor.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_Normal.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_Normal.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_Specular.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Hair_Specular.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_AO.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_AO.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_BaseColor.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_BaseColor.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_Normal.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_Normal.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_Specular.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Head_Specular.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_AO.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_AO.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_BaseColor.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_BaseColor.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_Normal.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_Normal.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_Specular.tga" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Common/Textures/Weapon_Specular.tga.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Readme.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Third-Party Notices.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/Third-Party Notices.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Armour.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Armour.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Clothes.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Clothes.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Extra.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Extra/Ground_MAT.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Extra/Ground_MAT.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Hair.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Hair.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Head.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Head.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Weapon.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Materials/Weapon.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Models/RFA_Model.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Models/RFA_Model.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Prefabs/RFA_Model.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RFA/URP/Prefabs/RFA_Model.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Mana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Mana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/FreeLookState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/FreeLookState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDodgeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDodgeState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerStartJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerStartJumpState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerTargetState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerTargetState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Yellow.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_01_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_01_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_02_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_02_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_Attack01_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_Attack01_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_Attack02_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Inplace/Blades2Sword_Transform_Attack02_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_01_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_01_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_02_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_02_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_Attack01_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_Attack01_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_Attack02_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Blades2Sword_Transform/Root/Blades2Sword_Transform_Attack02_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_01_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_01_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_02_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_02_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_Attack01_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_Attack01_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_Attack02_Inplace.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Inplace/Sword2Blades_Transform_Attack02_Inplace.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_01_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_01_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_02_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_02_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_Attack01_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_Attack01_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_Attack02_Root.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Sword2Blades_Transform/Root/Sword2Blades_Transform_Attack02_Root.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/TwinSword_Idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/TwinSword_Idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Twinblades_Idle.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Animation/Twinblades_Idle.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Background.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Background.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Background.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Background.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelBody1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelBody1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelBody2.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelBody2.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelEye.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Material/Mat_UnityModelEye.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/WM_Master_Unity.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/WM_Master_Unity.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/WM_Master_Unity.mask" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/WM_Master_Unity.mask.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/Materials/Mat_WeaponTwinSword.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/Materials/Mat_WeaponTwinSword.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/Materials/Material #2.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/Materials/Material #2.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/TwinSword.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Model/Weapon/TwinSword.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/Material.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/Material/Mat_Floor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/Material/Mat_Floor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/Preview.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/Preview.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/PreviewAC.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TransformAnimation SxB_V2/Scene/PreviewAC.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Recovery.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Recovery/0.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Recovery/0.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Stamina.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Stamina.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Terrain/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Terrain/New Terrain.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,61 +74,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000000000016" />
-      <entry key="S2" value="1.000200898932244" />
-      <entry key="S5" value="1.0376865405308378" />
-      <entry key="S10" value="1.2766729013132703" />
-      <entry key="S30" value="2.2891577691382006" />
-      <entry key="S60" value="2.9601460655631313" />
-      <entry key="M2" value="3.744623317097306" />
-      <entry key="M5" value="10.746267559189059" />
-      <entry key="M10" value="32.16880138203854" />
-      <entry key="M15" value="58.25446741232695" />
-      <entry key="M30" value="141.26020934992613" />
-      <entry key="H1" value="301.39007125561227" />
-      <entry key="H2" value="562.9193137390499" />
-      <entry key="H4" value="942.6990965160262" />
-      <entry key="D1" value="3322.896296073122" />
-      <entry key="W1" value="5667.710536881728" />
+      <entry key="MS100" value="1.0315428321437916E-46" />
+      <entry key="MS500" value="8.502413580604453E-10" />
+      <entry key="S2" value="0.011526719697538023" />
+      <entry key="S5" value="0.40747054305177993" />
+      <entry key="S10" value="1.40779803693846" />
+      <entry key="S30" value="3.4059324335096877" />
+      <entry key="S60" value="4.686252684437884" />
+      <entry key="M2" value="5.907714328574215" />
+      <entry key="M5" value="8.788089697020775" />
+      <entry key="M10" value="21.49461597533052" />
+      <entry key="M15" value="40.46454425681696" />
+      <entry key="M30" value="110.57917556033507" />
+      <entry key="H1" value="263.65174692705915" />
+      <entry key="H2" value="534.8326899638719" />
+      <entry key="H4" value="938.8048423956698" />
+      <entry key="D1" value="3373.531548017548" />
+      <entry key="W1" value="5776.1184246090625" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.3361868572477214E-123" />
-      <entry key="S5" value="8.85988321528948E-50" />
-      <entry key="S10" value="3.014935358332373E-25" />
-      <entry key="S30" value="1.020125752615495E-8" />
-      <entry key="S60" value="2.1277094462889324E-4" />
-      <entry key="M2" value="0.037667828858345166" />
-      <entry key="M5" value="1.0490468628935448" />
-      <entry key="M10" value="4.587266280520662" />
-      <entry key="M15" value="9.204964231615433" />
-      <entry key="M30" value="24.804734754402563" />
-      <entry key="H1" value="53.204261241624565" />
-      <entry key="H2" value="92.3585755447173" />
-      <entry key="H4" value="146.8081713814247" />
-      <entry key="D1" value="664.8483728598753" />
-      <entry key="W1" value="1239.959154108171" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000000675" />
+      <entry key="S2" value="1.0005098993078259" />
+      <entry key="S5" value="1.0481940941201886" />
+      <entry key="S10" value="1.2196078495325637" />
+      <entry key="S30" value="1.6456716254590387" />
+      <entry key="S60" value="1.9826529229389274" />
+      <entry key="M2" value="2.336440911354334" />
+      <entry key="M5" value="3.0327706196434026" />
+      <entry key="M10" value="5.395948079288011" />
+      <entry key="M15" value="8.501456456783057" />
+      <entry key="M30" value="20.090542224010544" />
+      <entry key="H1" value="46.072084460714166" />
+      <entry key="H2" value="87.7634298772401" />
+      <entry key="H4" value="146.78904690853983" />
+      <entry key="D1" value="669.7196632360531" />
+      <entry key="W1" value="1255.9185056714302" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.3815648022401398" />
-      <entry key="MS500" value="0.8247335486100816" />
-      <entry key="S2" value="0.9530856364763258" />
-      <entry key="S5" value="1.0114585043637014" />
-      <entry key="S10" value="1.2407913068142373" />
-      <entry key="S30" value="2.2461524429751125" />
-      <entry key="S60" value="2.9285666304900286" />
-      <entry key="M2" value="3.760042645038589" />
-      <entry key="M5" value="11.773379327455938" />
-      <entry key="M10" value="36.729662314646426" />
-      <entry key="M15" value="67.4294912023266" />
-      <entry key="M30" value="166.0292395149971" />
-      <entry key="H1" value="354.5575709748938" />
-      <entry key="H2" value="655.2467291551586" />
-      <entry key="H4" value="1089.4834441346622" />
-      <entry key="D1" value="3987.7288042172013" />
-      <entry key="W1" value="6907.665511649491" />
+      <entry key="MS100" value="8.211879055212052E-4" />
+      <entry key="MS500" value="0.24148408286061304" />
+      <entry key="S2" value="0.7102057094127123" />
+      <entry key="S5" value="1.2756804149211112" />
+      <entry key="S10" value="2.474087579606934" />
+      <entry key="S30" value="4.959320527956379" />
+      <entry key="S60" value="6.610245900352914" />
+      <entry key="M2" value="8.209060627831418" />
+      <entry key="M5" value="11.801978354365495" />
+      <entry key="M10" value="26.872277627027984" />
+      <entry key="M15" value="48.945691639679374" />
+      <entry key="M30" value="130.6440371266699" />
+      <entry key="H1" value="309.69355557141245" />
+      <entry key="H2" value="622.567234161825" />
+      <entry key="H4" value="1085.5703301361818" />
+      <entry key="D1" value="4043.235212555243" />
+      <entry key="W1" value="7032.032693797686" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -473,7 +318,9 @@
       <workItem from="1781259691568" duration="9384000" />
       <workItem from="1781325756115" duration="1204000" />
       <workItem from="1781372604954" duration="3935000" />
-      <workItem from="1781427115721" duration="7172000" />
+      <workItem from="1781427115721" duration="9825000" />
+      <workItem from="1781453004602" duration="1202000" />
+      <workItem from="1781509312685" duration="6285000" />
     </task>
     <servers />
   </component>

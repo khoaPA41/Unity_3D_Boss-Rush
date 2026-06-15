@@ -15,8 +15,11 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
         private void Start()
         {
             bossSystem = GetComponent<FinalBossStateMachine>();
-            // bossSystem.SwitchState(new FinalBossLocomotionState(bossSystem));
             bossSystem.ReturnLocomotion();
+        }
+
+        private void OnEnable()
+        {
             ConstructBehaviorTree();
         }
 

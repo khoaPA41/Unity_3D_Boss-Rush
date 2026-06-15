@@ -21,10 +21,14 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     private bool cursorLocked = true;
 
 
-    private void Start()
+    private void Awake()
     {
         inputActions = new InputController();
         inputActions.Player.SetCallbacks(this);
+    }
+
+    private void OnEnable()
+    {
         inputActions.Enable();
     }
 
