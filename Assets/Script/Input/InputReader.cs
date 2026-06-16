@@ -19,10 +19,10 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     private InputController inputActions;
     private bool cursorInputForLook = true;
     private bool cursorLocked = true;
-
-
+    private InputBuffering _inputBuffering;
     private void Awake()
     {
+        _inputBuffering = GetComponent<InputBuffering>();
         inputActions = new InputController();
         inputActions.Player.SetCallbacks(this);
     }
@@ -41,6 +41,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     {
         inputActions.Disable();
     }
+    
     public void OnEnableInput()
     {
         inputActions.Enable();
@@ -65,18 +66,24 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (context.canceled) { IsAttack = false; }
-        else if (context.performed) { IsAttack = true; }
+        else if (context.performed)
+        {
+            _inputBuffering.Register(ActionType.Attack);
+            IsAttack = true; 
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.canceled) { return; }
+        _inputBuffering.Register(ActionType.Jump);
         JumpAction?.Invoke();
     }
 
     public void OnDodge(InputAction.CallbackContext context)
     {
         if (context.canceled) { return; }
+        _inputBuffering.Register(ActionType.Dodge);
         DodgeAction?.Invoke();
     }
     

@@ -15,7 +15,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
     {
         [Header("Input")]
         [field: SerializeField] public InputReader InputReader { get; private set; }
-        
+        [field: SerializeField] public InputBuffering InputBuffering { get; private set; }
+
         [Header("Physics")]
         [field: SerializeField]
         public CharacterController CharacterController { get; private set; }
@@ -60,7 +61,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Material MainMaterial2 { get; private set; }
 
         public Transform MainCameraTransform { get; private set; }
-        
         public bool Invincible;
         public bool Invisible;
         public int SkillNumber;
@@ -83,10 +83,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public State attackState4 { get; private set; }
         public State attackState5 { get; private set; }
         public State heavyAttack { get; private set; }
-        
         public State changeAction { get; private set; }
-        
         public GameObject Boss;
+
+        [field: SerializeField] public float DodgeBufferTime { get; private set; }
+        private float DodgeBufferCounter;
+        
         private void Start()
         {
             Boss = GameObject.FindWithTag("Boss");
@@ -138,6 +140,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             ManageAnimationSkillEvent.SendNextActionEvent();
 
         }
+        
         public void SendReleaseObjectEvent()
         {
             ManageAnimationSkillEvent.SendReleasePoolObjectEvent();
@@ -208,12 +211,22 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public void HandleAttackState()
         {
             if (!InputReader.IsAttack) return;
+            if (!isAttackState)
+            {
+                EnterChangeAction(true);
+                return;
+            }
             SwitchState(attackState1);
         }
         
         public void HandleHeavyAttackState()
         {
             if (!InputReader.IsHeavyAttack) return;
+            if (!isAttackState)
+            {
+                EnterChangeAction(true);
+                return;
+            }
             SwitchState(heavyAttack);
         }
 
@@ -260,5 +273,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             yield return new WaitForSecondsRealtime(time);
             action2?.Invoke();
         }
+        
     }
 }

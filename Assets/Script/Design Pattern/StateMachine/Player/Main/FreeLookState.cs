@@ -7,7 +7,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
     {
         private static readonly int Movement = Animator.StringToHash("Movement");
         private readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
-        private Vector3 movement;
+        private Vector3 _movement;
 
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
@@ -24,12 +24,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            movement = CalculateMovementInFreeLook();
+            _movement = CalculateMovementInFreeLook();
             float speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
-            if (movement != Vector3.zero)
+            if (_movement != Vector3.zero)
             {
                 playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
             }
@@ -46,10 +46,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
+            // if (InputBuffering.TryConsume(ActionType.Dodge, out_))
+            // {
+            //     
+            // }
             
-            Move(movement * speed, deltaTime);
+            
+            Move(_movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
-            FaceDir(movement, deltaTime);
+            FaceDir(_movement, deltaTime);
         }
 
         public override void PhysicTick(float fixedDeltaTime)

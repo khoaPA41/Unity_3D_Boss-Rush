@@ -25,17 +25,35 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
+            
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
             if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
+                
+                if (normalizeTime >= _attackData.AttackAnimationTime)
+                {
+                    
+                    if (playerStateMachine.InputBuffering.TryConsume(ActionType.Dodge))
+                    {
+                        playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine));
+                        return;
+                    }
+                    
+                    if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
+                    {
+                        TryCombo(normalizeTime);
+                    }
+                    
+                    if (playerStateMachine.InputBuffering.TryConsume(ActionType.Jump))
+                    {
+                        playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
+                        return;
+                    }
+                }
+                
                 if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
-                }
-
-                if (playerStateMachine.InputReader.IsAttack)
-                {
-                    TryCombo(normalizeTime);
                 }
             }
             else
@@ -64,11 +82,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 return;
             }
 
-            if (normalizeTime < _attackData.AttackAnimationTime)
-            {
-                return;
-            }
 
+            // if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
             playerStateMachine.SwitchState(new PlayerAttackState(
                 playerStateMachine,
                 _attackData.NextAttackDataIndex

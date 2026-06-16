@@ -16,11 +16,13 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
         {
             bossSystem = GetComponent<FinalBossStateMachine>();
             bossSystem.ReturnLocomotion();
+            ConstructBehaviorTree();
         }
 
         private void OnEnable()
         {
-            ConstructBehaviorTree();
+            // bossSystem.ReturnLocomotion();
+            // ConstructBehaviorTree();
         }
 
         private void Update()

@@ -11,7 +11,6 @@ public class UIPlayerManagers : MonoBehaviour
 
     [SerializeField] private Slider manaSlider;
     [SerializeField] private Slider staminaSlider;
-    [SerializeField] private float transitionDuration = 0.5f;
     private Health _health;
     private Mana _mana;
     private Stamina _stamina;
