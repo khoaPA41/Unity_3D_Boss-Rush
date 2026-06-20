@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 

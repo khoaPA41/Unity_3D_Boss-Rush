@@ -12,7 +12,7 @@ public class Stamina : MonoBehaviour
     [field: SerializeField] public float heavyAttackReduce { get; set; }
     [field: SerializeField] public float jumpReduce { get; set; }
     [SerializeField] private float reduceStamina;
-    public float currentStamina  { get; set; }
+    public float currentStamina;
     
     public event Action<float> OnChangeStamina = delegate { };
     public event Action<float> OnRecoveryStamina = delegate { };
@@ -33,6 +33,13 @@ public class Stamina : MonoBehaviour
     public void RecoveryStamina()
     {
         currentStamina = maxStamina;
+        OnRecoveryStamina?.Invoke(currentStamina / maxStamina);
+    }
+
+    public void DodgeAwardStamina()
+    {
+        var staminaLost = maxStamina - currentStamina;
+        currentStamina += staminaLost * .5f;
         OnRecoveryStamina?.Invoke(currentStamina / maxStamina);
     }
 }

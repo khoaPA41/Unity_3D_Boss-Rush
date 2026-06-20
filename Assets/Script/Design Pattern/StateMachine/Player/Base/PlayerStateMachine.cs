@@ -41,6 +41,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Mana Mana { get; private set; }
         [field: SerializeField] public Stamina Stamina { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
+        [field: SerializeField] public DodgeAward DodgeAward { get; private set; }
         
         [Header("Potion")]
         [field: SerializeField]
@@ -69,7 +70,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         [Header("Effect")]
         [field: SerializeField] public GameObject PotionLight { get; private set; }
-
         [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
 
@@ -85,6 +85,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public bool IsHealthPotion { get; set; } = true;
         public bool IsIncreaseDamePotion { get; set; }
 
+        /*Dodge Award*/
+        public bool IsCounterAttack { get; set; }
+        
+        /****************************************************************/
         public State freeLookState { get; private set; }
         public State hitState { get; private set; }
         public State deathState { get; private set; }

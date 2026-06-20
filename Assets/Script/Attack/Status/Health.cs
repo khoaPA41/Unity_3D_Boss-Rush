@@ -17,14 +17,13 @@ namespace Script.Attack
         
         public float currentHealth;
         public bool isPerfectDodge;
-
         public bool isReduceDame;
         
         public bool noDamage { get; set; }
 
         public event Action DeathAction;
         public event Action HitAction;
-        
+        public event Action DodgeAwardAction;
         public event Action<float> OnChangeHealth = delegate { };
 
         private void Awake()
@@ -72,7 +71,7 @@ namespace Script.Attack
         {
             if (!isPerfectDodge) return;
             noDamage = true;
-            Debug.Log("Perfect Dodge");
+            DodgeAwardAction?.Invoke();
             StartCoroutine(SlowTime());
         }
 

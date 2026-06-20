@@ -75,6 +75,7 @@ public class WeaponTrail : MonoBehaviour
         alreadyObjectHit.Add(other);
         
         if (!other.TryGetComponent(out Health health)) return;
+        
         health.PerfectDodgeAward();
 
         if (health.noDamage) return;

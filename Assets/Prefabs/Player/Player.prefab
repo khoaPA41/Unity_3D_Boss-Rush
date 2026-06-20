@@ -12013,17 +12013,18 @@ GameObject:
   - component: {fileID: 8113725156071879154}
   - component: {fileID: 8599713390173066374}
   - component: {fileID: 7078260653431286299}
-  - component: {fileID: 6234928008955599887}
-  - component: {fileID: 5740855106322436881}
-  - component: {fileID: 3297095670443799765}
   - component: {fileID: 7385563671594872099}
   - component: {fileID: 8368696863466638971}
   - component: {fileID: 6383406867310112901}
   - component: {fileID: 3369746024849944489}
   - component: {fileID: 5338122984875100652}
+  - component: {fileID: 5740855106322436881}
+  - component: {fileID: 6234928008955599887}
+  - component: {fileID: 3297095670443799765}
   - component: {fileID: 3710905981597236340}
   - component: {fileID: 6311084434600137132}
   - component: {fileID: 4805002615408738902}
+  - component: {fileID: 2556437998171310569}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -12207,6 +12208,7 @@ MonoBehaviour:
   <Mana>k__BackingField: {fileID: 6234928008955599887}
   <Stamina>k__BackingField: {fileID: 3297095670443799765}
   <TimeToGetKnockBackHit>k__BackingField: 3
+  <DodgeAward>k__BackingField: {fileID: 0}
   <HealthPotion>k__BackingField: {fileID: 3710905981597236340}
   <ManaPotion>k__BackingField: {fileID: 6311084434600137132}
   <SubPotion>k__BackingField: {fileID: 4805002615408738902}
@@ -12277,63 +12279,6 @@ MonoBehaviour:
   LeftSingleSword: {fileID: 0}
   RightSingleSword: {fileID: 0}
   DoubleEdgedSword: {fileID: 0}
---- !u!114 &6234928008955599887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964073575420353791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5971d30a31cfcc84095809b2ad398781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mana
-  <maxMana>k__BackingField: 100
-  <reduceManaDuration>k__BackingField: 0.8
-  currentMana: 0
---- !u!114 &5740855106322436881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964073575420353791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  <maxHealth>k__BackingField: 1000
-  <reduceHealthFollowingDuration>k__BackingField: 0.2
-  <reduceHealPrevDuration>k__BackingField: 0.3
-  reduceHealth: 1.3
-  timeFreeze: 0
-  timeToBackNormal: 0.05
-  currentHealth: 0
-  isPerfectDodge: 0
-  isReduceDame: 0
---- !u!114 &3297095670443799765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6964073575420353791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce1e3be33bd502244a45d2e91aa8def2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  <maxStamina>k__BackingField: 1000
-  <recoveryStaminaDuration>k__BackingField: 1
-  <reduceStaminaDuration>k__BackingField: 0.2
-  <dodgeReduce>k__BackingField: 150
-  <movementReduce>k__BackingField: 1
-  <lightAttackReduce>k__BackingField: 100
-  <heavyAttackReduce>k__BackingField: 200
-  <jumpReduce>k__BackingField: 100
-  reduceStamina: 2
 --- !u!95 &7385563671594872099
 Animator:
   serializedVersion: 7
@@ -12438,6 +12383,63 @@ MonoBehaviour:
     BufferWindow: 0.5
   - ActionType: 3
     BufferWindow: 0.3
+--- !u!114 &5740855106322436881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  <maxHealth>k__BackingField: 1000
+  <reduceHealthFollowingDuration>k__BackingField: 0.2
+  <reduceHealPrevDuration>k__BackingField: 0.3
+  reduceHealth: 1.3
+  timeFreeze: 0
+  timeToBackNormal: 0.05
+  currentHealth: 0
+  isPerfectDodge: 0
+  isReduceDame: 0
+--- !u!114 &6234928008955599887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5971d30a31cfcc84095809b2ad398781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mana
+  <maxMana>k__BackingField: 100
+  <reduceManaDuration>k__BackingField: 0.8
+  currentMana: 0
+--- !u!114 &3297095670443799765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1e3be33bd502244a45d2e91aa8def2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stamina
+  <maxStamina>k__BackingField: 1000
+  <recoveryStaminaDuration>k__BackingField: 1
+  <reduceStaminaDuration>k__BackingField: 0.2
+  <dodgeReduce>k__BackingField: 150
+  <movementReduce>k__BackingField: 1
+  <lightAttackReduce>k__BackingField: 100
+  <heavyAttackReduce>k__BackingField: 200
+  <jumpReduce>k__BackingField: 100
+  reduceStamina: 2
 --- !u!114 &3710905981597236340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12495,6 +12497,21 @@ MonoBehaviour:
     quantity: 3
     timeToDone: 30
     hexColor: D700C3
+--- !u!114 &2556437998171310569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964073575420353791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795484ace12c67b4fba16d7c88bc6941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DodgeAward
+  <IsRecoveryStamina>k__BackingField: 1
+  <IsCounterAttack>k__BackingField: 0
+  <IsMovementPush>k__BackingField: 0
 --- !u!1 &6998069725804410616
 GameObject:
   m_ObjectHideFlags: 0

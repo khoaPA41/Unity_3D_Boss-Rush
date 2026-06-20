@@ -22,7 +22,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public override void Enter()
         {
             playerStateMachine.CheckStamina();
-
             playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.dodgeReduce);
             playerStateMachine.Health.isPerfectDodge = true;
             dodgeDirection = playerStateMachine.InputReader.InputMovement;
@@ -30,13 +29,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.Animator.SetFloat(DodgeForwardHash, dodgeDirection.y);
             playerStateMachine.Animator.CrossFadeInFixedTime(DodgeBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
             remainingTime = playerStateMachine.DodgeDuration;
+
+            playerStateMachine.Health.DodgeAwardAction += playerStateMachine.DodgeAward.DodgeAwardActive;
         }
 
         public override void Tick(float deltaTime)
         {
-            countPerfectFrame += deltaTime;
-
+            CheckCounterattack();
             
+            countPerfectFrame += deltaTime;
             var movement = CalculateMovement();
 
             Move(movement, deltaTime);
@@ -63,6 +64,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             playerStateMachine.Health.isPerfectDodge = false;
             playerStateMachine.Health.noDamage = false;
+            playerStateMachine.Health.DodgeAwardAction -= playerStateMachine.DodgeAward.DodgeAwardActive;
         }
 
         private Vector3 CalculateMovement()
@@ -73,6 +75,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             movement += playerStateMachine.transform.forward * (dodgeDirection.y * playerStateMachine.DodgeLength) / playerStateMachine.DodgeDuration;
 
             return movement;
+        }
+
+        private void CheckCounterattack()
+        {
+            if (playerStateMachine.IsCounterAttack && playerStateMachine.InputReader.IsAttack)
+            {
+                playerStateMachine.SwitchState(new PlayerCounterAttackState(playerStateMachine));
+            }
         }
     }
 }
