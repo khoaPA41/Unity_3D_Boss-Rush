@@ -19,6 +19,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
             playerStateMachine.InputReader.TargetAction += playerStateMachine.HandleTargetState;
+            playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
+            playerStateMachine.InputReader.UseSubPotionAction += playerStateMachine.HandleUseSubPotionState;
+
+
             playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
         }
 
@@ -67,6 +71,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.JumpAction -= playerStateMachine.HandleJumpState;
             playerStateMachine.InputReader.DodgeAction -= playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.TargetAction -= playerStateMachine.HandleTargetState;
+            playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
+            playerStateMachine.InputReader.UseSubPotionAction -= playerStateMachine.HandleUseSubPotionState;
         }
 
         private void UpdateAnimation(float deltaTime)

@@ -3,28 +3,29 @@ using UnityEngine;
 
 public class Stamina : MonoBehaviour
 {
-    [field: SerializeField] public int maxStamina { get; set; }
+    [field: SerializeField] public float maxStamina { get; set; }
     [field: SerializeField] public float recoveryStaminaDuration { get; set; }
     [field: SerializeField] public float reduceStaminaDuration { get; set; }
-    [field: SerializeField] public int dodgeReduce { get; set; }
-    [field: SerializeField] public int movementReduce { get; set; }
-    [field: SerializeField] public int lightAttackReduce { get; set; }
-    [field: SerializeField] public int heavyAttackReduce { get; set; }
-    [field: SerializeField] public int jumpReduce { get; set; }
-
-    public int currentStamina  { get; set; }
+    [field: SerializeField] public float dodgeReduce { get; set; }
+    [field: SerializeField] public float movementReduce { get; set; }
+    [field: SerializeField] public float lightAttackReduce { get; set; }
+    [field: SerializeField] public float heavyAttackReduce { get; set; }
+    [field: SerializeField] public float jumpReduce { get; set; }
+    [SerializeField] private float reduceStamina;
+    public float currentStamina  { get; set; }
     
     public event Action<float> OnChangeStamina = delegate { };
     public event Action<float> OnRecoveryStamina = delegate { };
 
-    
+    public bool isReduceStamina { get; set; }
     private void Awake()
     {
         currentStamina = maxStamina;
     }
     
-    public void ChangeStamina(int amount)
+    public void ChangeStamina(float amount)
     {
+        if (isReduceStamina) amount /= reduceStamina;
         currentStamina = Mathf.Max(currentStamina - amount, 0);
         OnChangeStamina?.Invoke((float)currentStamina / maxStamina);
     }
@@ -32,6 +33,6 @@ public class Stamina : MonoBehaviour
     public void RecoveryStamina()
     {
         currentStamina = maxStamina;
-        OnRecoveryStamina?.Invoke((float)currentStamina / maxStamina);
+        OnRecoveryStamina?.Invoke(currentStamina / maxStamina);
     }
 }

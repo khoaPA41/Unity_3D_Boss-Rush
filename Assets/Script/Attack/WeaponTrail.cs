@@ -11,7 +11,7 @@ public class WeaponTrail : MonoBehaviour
     private BoxCollider _collider;
     private Vector3 previousPosition;
 
-    private int damage;
+    private float damage;
 
     private void Awake()
     {
@@ -61,7 +61,7 @@ public class WeaponTrail : MonoBehaviour
         previousPosition  = currentPosition;
     }
 
-    public void SetDamage(int damage)
+    public void SetDamage(float damage)
     {
         this.damage = damage;
     }

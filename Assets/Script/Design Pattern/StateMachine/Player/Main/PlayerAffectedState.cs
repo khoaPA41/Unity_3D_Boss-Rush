@@ -23,14 +23,12 @@ public class PlayerAffectedState : PlayerBaseState
 
     public override void Enter()
     {
-        // Debug.Log("Enter: " + playerStateMachine.IsAttractiveForce );
         ActiveSkillEvent(playerEffected).Invoke();
         playerStateMachine.Animator.CrossFadeInFixedTime(AffectedAnimationHash, playerStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
     {
-        // Debug.Log("Tick: " + playerStateMachine.IsAttractiveForce );
         if (playerStateMachine.IsAttractiveForce)
         {
             HandleAttractiveForce(deltaTime);

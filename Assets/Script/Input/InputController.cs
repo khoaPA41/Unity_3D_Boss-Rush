@@ -208,6 +208,24 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Potion"",
+                    ""type"": ""Button"",
+                    ""id"": ""6eed575e-7d51-4122-9983-3c8eabe60bb8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Change Main Potion"",
+                    ""type"": ""Value"",
+                    ""id"": ""b5438879-1908-4583-b71d-795a9edf6892"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -703,6 +721,28 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Heavy Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b514a25-92d0-4ad7-9684-79323f079913"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Use Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1cfeb25-81a4-41ba-939e-81196c705e2e"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Change Main Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1303,6 +1343,8 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
         m_Player_HeavyAttack = m_Player.FindAction("Heavy Attack", throwIfNotFound: true);
+        m_Player_UsePotion = m_Player.FindAction("Use Potion", throwIfNotFound: true);
+        m_Player_ChangeMainPotion = m_Player.FindAction("Change Main Potion", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1409,6 +1451,8 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dodge;
     private readonly InputAction m_Player_Skill;
     private readonly InputAction m_Player_HeavyAttack;
+    private readonly InputAction m_Player_UsePotion;
+    private readonly InputAction m_Player_ChangeMainPotion;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1472,6 +1516,14 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/HeavyAttack".
         /// </summary>
         public InputAction @HeavyAttack => m_Wrapper.m_Player_HeavyAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/UsePotion".
+        /// </summary>
+        public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ChangeMainPotion".
+        /// </summary>
+        public InputAction @ChangeMainPotion => m_Wrapper.m_Player_ChangeMainPotion;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1537,6 +1589,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @HeavyAttack.started += instance.OnHeavyAttack;
             @HeavyAttack.performed += instance.OnHeavyAttack;
             @HeavyAttack.canceled += instance.OnHeavyAttack;
+            @UsePotion.started += instance.OnUsePotion;
+            @UsePotion.performed += instance.OnUsePotion;
+            @UsePotion.canceled += instance.OnUsePotion;
+            @ChangeMainPotion.started += instance.OnChangeMainPotion;
+            @ChangeMainPotion.performed += instance.OnChangeMainPotion;
+            @ChangeMainPotion.canceled += instance.OnChangeMainPotion;
         }
 
         /// <summary>
@@ -1587,6 +1645,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @HeavyAttack.started -= instance.OnHeavyAttack;
             @HeavyAttack.performed -= instance.OnHeavyAttack;
             @HeavyAttack.canceled -= instance.OnHeavyAttack;
+            @UsePotion.started -= instance.OnUsePotion;
+            @UsePotion.performed -= instance.OnUsePotion;
+            @UsePotion.canceled -= instance.OnUsePotion;
+            @ChangeMainPotion.started -= instance.OnChangeMainPotion;
+            @ChangeMainPotion.performed -= instance.OnChangeMainPotion;
+            @ChangeMainPotion.canceled -= instance.OnChangeMainPotion;
         }
 
         /// <summary>
@@ -1978,6 +2042,20 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHeavyAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Use Potion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUsePotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Change Main Potion" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnChangeMainPotion(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

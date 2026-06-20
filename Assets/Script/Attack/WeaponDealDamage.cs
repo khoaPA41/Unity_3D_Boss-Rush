@@ -7,7 +7,7 @@ public class WeaponDealDamage : MonoBehaviour
     [SerializeField] private GameObject myCollider;
     private List<GameObject> alreadyDealDamage = new();
 
-    private int damage;
+    private float damage;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class WeaponDealDamage : MonoBehaviour
         alreadyDealDamage.Clear();
     }
 
-    public void SetDamage(int weaponDamage)
+    public void SetDamage(float weaponDamage)
     {
         damage = weaponDamage;
     }

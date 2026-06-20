@@ -42,6 +42,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Stamina Stamina { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         
+        [Header("Potion")]
+        [field: SerializeField]
+        public HealthPotion HealthPotion { get; private set; }
+        [field: SerializeField] public ManaPotion ManaPotion { get; private set; }
+        [field: SerializeField] public SubPotion SubPotion { get; private set; }
+
+        
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
@@ -60,6 +67,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Material MainMaterial1 { get; private set; }
         [field: SerializeField] public Material MainMaterial2 { get; private set; }
 
+        [Header("Effect")]
+        [field: SerializeField] public GameObject PotionLight { get; private set; }
+
+        [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
+        [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
+
         public Transform MainCameraTransform { get; private set; }
         public bool Invincible;
         public bool Invisible;
@@ -68,6 +81,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public bool IsActiveEffect { get; set; } = false;
         public bool IsAttractiveForce { get; set; }
         
+        /*Potion*/
+        public bool IsHealthPotion { get; set; } = true;
+        public bool IsIncreaseDamePotion { get; set; }
+
         public State freeLookState { get; private set; }
         public State hitState { get; private set; }
         public State deathState { get; private set; }
@@ -84,10 +101,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public State attackState5 { get; private set; }
         public State heavyAttack { get; private set; }
         public State changeAction { get; private set; }
-        public GameObject Boss;
-
-        [field: SerializeField] public float DodgeBufferTime { get; private set; }
-        private float DodgeBufferCounter;
+        public GameObject Boss { get; private set; }
         
         private void Start()
         {
@@ -121,6 +135,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
             Health.HitAction += HandleHitState;
             Health.DeathAction += HandleDeathState;
+            InputReader.ChangeHealthPotionAction += ChangeHealthPotion;
+            InputReader.ChangeManaPotionAction += ChangeManaPotion;
+            InputReader.UseSubPotionAction += HandleUseSubPotionState;
         }
         
         private void OnDisable()
@@ -128,6 +145,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
             Health.HitAction -= HandleHitState;
             Health.DeathAction -= HandleDeathState;
+            InputReader.ChangeHealthPotionAction -= ChangeHealthPotion;
+            InputReader.ChangeManaPotionAction -= ChangeManaPotion;
+            InputReader.UseSubPotionAction -= HandleUseSubPotionState;
+
         }
 
         public void SendSituationEvent()
@@ -149,7 +170,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public void EnterChangeAction(bool isAttack)
         {
             SwitchState(new PlayerChangeAction(this, isAttack));
-            return;
         }
         
         public void ReturnLocomotion()
@@ -181,6 +201,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         private void HandleDeathState()
         {
             SwitchState(deathState);
+        }
+        
+        public void HandleUsePotionState()
+        {
+            SwitchState(new PlayerUsePotionState(this));
+        }
+        
+        public void HandleUseSubPotionState()
+        {
+            SwitchState(new PlayerUseSubPotionState(this));
         }
         
         public void HandleSkillEvent(int skillNumber)
@@ -234,6 +264,17 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             if (caster.GetTransform().gameObject.TryGetComponent(out PlayerStateMachine _))return;
             SwitchState(new PlayerAffectedState(this, caster, effect));
+        }
+
+
+        private void ChangeHealthPotion()
+        {
+            IsHealthPotion = true;
+        }
+        
+        private void ChangeManaPotion()
+        {
+            IsHealthPotion = false;
         }
 
         public void ComsumeMana(int amount)

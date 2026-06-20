@@ -7,14 +7,19 @@ namespace Script.Attack
 {
     public class Health : MonoBehaviour
     {
-        [field: SerializeField] public int maxHealth { get; private  set; }
+        [field: SerializeField] public float maxHealth { get; private  set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
         [field: SerializeField] public float reduceHealPrevDuration { get; set; }
+
+        [SerializeField] private float reduceHealth;
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
         
-        public int currentHealth;
+        public float currentHealth;
         public bool isPerfectDodge;
+
+        public bool isReduceDame;
+        
         public bool noDamage { get; set; }
 
         public event Action DeathAction;
@@ -28,8 +33,10 @@ namespace Script.Attack
             noDamage = false;
         }
         
-        public void DealDamage(int damage)
+        public void DealDamage(float damage)
         {
+            if(isReduceDame) damage /= reduceHealth;
+            
             currentHealth = Mathf.Max(currentHealth - damage, 0);
             HitAction?.Invoke();
 
@@ -37,7 +44,13 @@ namespace Script.Attack
             {
                 DeathAction?.Invoke();
             }
-            OnChangeHealth?.Invoke((float)currentHealth / maxHealth);
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+        }
+
+        public void RecoveryHealth(float amount)
+        {
+            currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
         }
 
         private IEnumerator TimeFreeHit()
@@ -57,12 +70,10 @@ namespace Script.Attack
         
         public void PerfectDodgeAward()
         {
-            if (isPerfectDodge)
-            {
-                noDamage = true;
-                Debug.Log("Perfect Dodge");
-                StartCoroutine(SlowTime());
-            }
+            if (!isPerfectDodge) return;
+            noDamage = true;
+            Debug.Log("Perfect Dodge");
+            StartCoroutine(SlowTime());
         }
 
         public void HitStop()

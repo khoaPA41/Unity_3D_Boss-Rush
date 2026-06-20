@@ -81,5 +81,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             overrideController[idleAnimationName] = animationClip;
         }
         
+        
+        protected void ChangeColorEffect(string hexCode)
+        {
+            var formattedHex = hexCode.StartsWith("#") ? hexCode : "#" + hexCode;
+
+            if (ColorUtility.TryParseHtmlString(formattedHex, out var color))
+            {
+                playerStateMachine.PotionLight.GetComponent<Light>().color = color;
+            }
+        }
     }
 }

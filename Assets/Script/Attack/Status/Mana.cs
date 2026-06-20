@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-    [field: SerializeField] public int maxMana { get; set; }
+    [field: SerializeField] public float maxMana { get; set; }
     [field: SerializeField] public float reduceManaDuration { get; set; }
     public event Action<float> OnChangeMana = delegate { };
-    public int currentMana;
+    public float currentMana;
     
     private void Awake()
     {
@@ -16,6 +16,12 @@ public class Mana : MonoBehaviour
     public void ChangeMana(int amount)
     {
         currentMana = Mathf.Max(currentMana - amount, 0);
-        OnChangeMana?.Invoke((float)currentMana / maxMana);
+        OnChangeMana?.Invoke(currentMana / maxMana);
+    }
+
+    public void RecoveryMana(float amount)
+    {
+        currentMana = Mathf.Min(currentMana + amount, maxMana);
+        OnChangeMana?.Invoke(currentMana / maxMana);
     }
 }

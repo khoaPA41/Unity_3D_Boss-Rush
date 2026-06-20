@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStartJumpState : PlayerBaseState
 {
-    readonly int JumpAnimationHash = Animator.StringToHash("Jump");
+    private readonly int _jumpAnimationHash = Animator.StringToHash("Jump");
     Vector3 momentum;
     public PlayerStartJumpState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
     {
@@ -15,7 +15,7 @@ public class PlayerStartJumpState : PlayerBaseState
         playerStateMachine.CheckStamina();
 
         playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.jumpReduce);
-        playerStateMachine.Animator.CrossFadeInFixedTime(JumpAnimationHash, playerStateMachine.AnimationCrossFade);
+        playerStateMachine.Animator.CrossFadeInFixedTime(_jumpAnimationHash, playerStateMachine.AnimationCrossFade);
         playerStateMachine.ForceReceiver.Jump(playerStateMachine.JumpForce);
         momentum = playerStateMachine.CharacterController.velocity;
         momentum.y = 0;

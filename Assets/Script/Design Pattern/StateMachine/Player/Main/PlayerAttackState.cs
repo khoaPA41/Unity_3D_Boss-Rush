@@ -19,8 +19,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.lightAttackReduce);
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
                 0);
-            // playerStateMachine.WeaponDealDamage.SetDamage(_attackData.AttackDamage);
-            playerStateMachine.DealDamage.SetDamage(_attackData.AttackDamage);
+            playerStateMachine.DealDamage.SetDamage(playerStateMachine.IsIncreaseDamePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
         }
 
         public override void Tick(float deltaTime)
@@ -72,7 +71,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            //playerStateMachine.Animator.CrossFadeInFixedTime("Sword_Regular_A_Rec", playerStateMachine.AnimationCrossFade);
         }
 
         private void TryCombo(float normalizeTime)
@@ -82,8 +80,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 return;
             }
 
-
-            // if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
             playerStateMachine.SwitchState(new PlayerAttackState(
                 playerStateMachine,
                 _attackData.NextAttackDataIndex

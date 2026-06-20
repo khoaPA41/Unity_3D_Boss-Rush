@@ -14,8 +14,15 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action JumpAction;
     public event Action DodgeAction;
     public event Action TargetAction;
+    public event Action UsePotionAction;
+    public event Action ChangeHealthPotionAction;
+    public event Action ChangeManaPotionAction;
+    public event Action UseSubPotionAction;
+    public event Action ChangeNextSubPotionAction;
+    public event Action ChangePrevSubPotionAction;
     public event Action<int> SkillAction;
-    
+
+
     private InputController inputActions;
     private bool cursorInputForLook = true;
     private bool cursorLocked = true;
@@ -101,6 +108,62 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         if (context.canceled) { IsHeavyAttack = false; }
         else if (context.performed) { IsHeavyAttack = true; }
     }
+
+    public void OnUsePotion(InputAction.CallbackContext context)
+    {
+        if (context is {canceled: true, performed: true}) return;
+        if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
+        {
+            Debug.Log("Sub Potion");
+            if(context.started) UseSubPotionAction?.Invoke();
+            return;
+        }
+        
+        if (context.started)
+        {
+            UsePotionAction?.Invoke();
+        }
+    }
+    
+    
+
+    public void OnChangeMainPotion(InputAction.CallbackContext context)
+    {
+        if ((Keyboard.current != null && Keyboard.current.qKey.isPressed) && !context.canceled)
+        {
+            var scrollY = context.ReadValue<Vector2>();
+            if (!context.performed) return;
+            switch (scrollY.y)
+            {
+                case > 0:
+                    Debug.Log("Next Main Potion");
+                    ChangeHealthPotionAction?.Invoke();
+                    return;
+                case < 0:
+                    Debug.Log("Prev Main Potion");
+                    ChangeManaPotionAction?.Invoke();
+                    return;
+            }
+        }
+
+        if ((Keyboard.current != null && Keyboard.current.altKey.isPressed) && !context.canceled)
+        {
+            var scrollY = context.ReadValue<Vector2>();
+            if (!context.performed) return;
+            switch (scrollY.y)
+            {
+                case > 0:
+                    Debug.Log("Next Main Potion");
+                    ChangeNextSubPotionAction?.Invoke();
+                    return;
+                case < 0:
+                    Debug.Log("Prev Main Potion");
+                    ChangePrevSubPotionAction?.Invoke();
+                    return;
+            }
+        }
+    }
+    
 
     public void OnCrouch(InputAction.CallbackContext context)
     {

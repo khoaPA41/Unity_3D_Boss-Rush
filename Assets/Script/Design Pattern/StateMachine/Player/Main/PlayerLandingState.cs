@@ -5,8 +5,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 {
     public class PlayerLandingState : PlayerBaseState
     {
-        readonly int LandingAnimationHash = Animator.StringToHash("Landing");
-        readonly string LandingAnimationTag = "Landing";
+        private readonly int _landingAnimationHash = Animator.StringToHash("Landing");
+        private const string LandingAnimationTag = "Landing";
 
         private Vector3 momentum;
 
@@ -16,7 +16,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.Animator.CrossFadeInFixedTime(LandingAnimationHash, playerStateMachine.AnimationCrossFade);
+            playerStateMachine.Animator.CrossFadeInFixedTime(_landingAnimationHash, playerStateMachine.AnimationCrossFade);
             momentum = playerStateMachine.CharacterController.velocity;
             momentum.y = 0;
         }

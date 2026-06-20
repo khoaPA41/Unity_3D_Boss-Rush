@@ -5,9 +5,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 {
     public class PlayerTargetState : PlayerBaseState
     {
-        private readonly int targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
-        private readonly int movementXParam = Animator.StringToHash("MovementX");
-        private readonly int movementYParam = Animator.StringToHash("MovementY");
+        private readonly int _targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
+        private readonly int _movementXParam = Animator.StringToHash("MovementX");
+        private readonly int _movementYParam = Animator.StringToHash("MovementY");
 
         public PlayerTargetState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
@@ -18,9 +18,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.JumpAction += playerStateMachine.HandleJumpState;
             playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
             playerStateMachine.InputReader.TargetAction += OutTargetState;
 
-            playerStateMachine.Animator.CrossFadeInFixedTime(targetLookBlendTreeHash,
+            playerStateMachine.Animator.CrossFadeInFixedTime(_targetLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
 
             if (!playerStateMachine.isAttackState)
@@ -72,6 +73,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.JumpAction -= playerStateMachine.HandleJumpState;
             playerStateMachine.InputReader.DodgeAction -= playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;
+            playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
             playerStateMachine.InputReader.TargetAction -= OutTargetState;
         }
 
@@ -95,9 +97,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 dirY = Mathf.Sign(playerStateMachine.InputReader.InputMovement.y);
             }
 
-            playerStateMachine.Animator.SetFloat(movementXParam, dirX, playerStateMachine.AnimationCrossFade,
+            playerStateMachine.Animator.SetFloat(_movementXParam, dirX, playerStateMachine.AnimationCrossFade,
                 deltaTime);
-            playerStateMachine.Animator.SetFloat(movementYParam, dirY, playerStateMachine.AnimationCrossFade,
+            playerStateMachine.Animator.SetFloat(_movementYParam, dirY, playerStateMachine.AnimationCrossFade,
                 deltaTime);
         }
     }
