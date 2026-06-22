@@ -226,6 +226,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""System"",
+                    ""type"": ""Button"",
+                    ""id"": ""65843019-0b21-4634-b1ab-a2c784e4fbc1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -682,39 +691,6 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a7ff07fd-d9b4-4326-8139-4eec95ae605c"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Skill"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e4464bbd-719c-444f-9ad5-2d5a52b5ea95"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Skill"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""08ec363d-a7e0-4f48-80cb-0874e8cc4ac6"",
-                    ""path"": ""<Keyboard>/6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Skill"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""778a2b68-dab5-47dd-a3c4-1e7733b3d0cc"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -743,6 +719,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Change Main Potion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c744ea5e-6b58-44a3-b1c5-9c07aecbcd6d"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""System"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1345,6 +1332,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_HeavyAttack = m_Player.FindAction("Heavy Attack", throwIfNotFound: true);
         m_Player_UsePotion = m_Player.FindAction("Use Potion", throwIfNotFound: true);
         m_Player_ChangeMainPotion = m_Player.FindAction("Change Main Potion", throwIfNotFound: true);
+        m_Player_System = m_Player.FindAction("System", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1453,6 +1441,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_HeavyAttack;
     private readonly InputAction m_Player_UsePotion;
     private readonly InputAction m_Player_ChangeMainPotion;
+    private readonly InputAction m_Player_System;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1525,6 +1514,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @ChangeMainPotion => m_Wrapper.m_Player_ChangeMainPotion;
         /// <summary>
+        /// Provides access to the underlying input action "Player/System".
+        /// </summary>
+        public InputAction @System => m_Wrapper.m_Player_System;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1595,6 +1588,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @ChangeMainPotion.started += instance.OnChangeMainPotion;
             @ChangeMainPotion.performed += instance.OnChangeMainPotion;
             @ChangeMainPotion.canceled += instance.OnChangeMainPotion;
+            @System.started += instance.OnSystem;
+            @System.performed += instance.OnSystem;
+            @System.canceled += instance.OnSystem;
         }
 
         /// <summary>
@@ -1651,6 +1647,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @ChangeMainPotion.started -= instance.OnChangeMainPotion;
             @ChangeMainPotion.performed -= instance.OnChangeMainPotion;
             @ChangeMainPotion.canceled -= instance.OnChangeMainPotion;
+            @System.started -= instance.OnSystem;
+            @System.performed -= instance.OnSystem;
+            @System.canceled -= instance.OnSystem;
         }
 
         /// <summary>
@@ -2056,6 +2055,13 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnChangeMainPotion(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "System" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSystem(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

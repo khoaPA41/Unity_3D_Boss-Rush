@@ -19,6 +19,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
             playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
+            playerStateMachine.InputReader.UseSubPotionAction += playerStateMachine.HandleUseSubPotionState;
             playerStateMachine.InputReader.TargetAction += OutTargetState;
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_targetLookBlendTreeHash,
@@ -74,6 +75,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.DodgeAction -= playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;
             playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
+            playerStateMachine.InputReader.UseSubPotionAction -= playerStateMachine.HandleUseSubPotionState;
+
             playerStateMachine.InputReader.TargetAction -= OutTargetState;
         }
 

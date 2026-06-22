@@ -21,6 +21,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action ChangeNextSubPotionAction;
     public event Action ChangePrevSubPotionAction;
     public event Action<int> SkillAction;
+    public event Action SystemUIAction;
 
 
     private InputController inputActions;
@@ -112,17 +113,19 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public void OnUsePotion(InputAction.CallbackContext context)
     {
         if (context is {canceled: true, performed: true}) return;
+        
         if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
         {
             Debug.Log("Sub Potion");
-            if(context.started) UseSubPotionAction?.Invoke();
+            // if(context.started)
+            UseSubPotionAction?.Invoke();
             return;
         }
         
-        if (context.started)
-        {
+        // if (context.started)
+        // {
             UsePotionAction?.Invoke();
-        }
+        // }
     }
     
     
@@ -163,7 +166,12 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             }
         }
     }
-    
+
+    public void OnSystem(InputAction.CallbackContext context)
+    {
+        if (context.performed) SystemUIAction?.Invoke();
+    }
+
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
@@ -175,8 +183,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     }
 
-
-
     public void OnLook(InputAction.CallbackContext context)
     {
         if (cursorInputForLook)
@@ -184,8 +190,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             Look = context.ReadValue<Vector2>();
         }
     }
-
-
 
     public void OnNext(InputAction.CallbackContext context)
     {
@@ -202,7 +206,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         SetCursor(cursorLocked);
     }
 
-    private void SetCursor(bool newState)
+    public void SetCursor(bool newState)
     {
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
     }

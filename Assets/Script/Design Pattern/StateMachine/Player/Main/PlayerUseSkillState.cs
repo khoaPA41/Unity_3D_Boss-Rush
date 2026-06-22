@@ -9,8 +9,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
     public class PlayerUseSkillState : PlayerBaseState
     {
         private ISkill currentSkill;
-        private AttackData skillData;
-        
+        private SkillActiveType skill;
         public PlayerUseSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
             
@@ -18,20 +17,27 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         
         public override void Enter()
         {
-            skillData = playerStateMachine.SkillData[playerStateMachine.SkillNumber - 1];
-            currentSkill = UseSkill(skillData.SkillType);
+            GetTheSkillActive();
+            if (!skill.canUse)
+            {
+                playerStateMachine.ReturnLocomotion();
+                return;
+            }
+            skill.canUse = false;
+            currentSkill = UseSkill(skill.skillType);
             if (currentSkill is null)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
             
-            playerStateMachine.Animator.CrossFadeInFixedTime(skillData.AnimationName, skillData.AnimationTransition, 0);
+            playerStateMachine.Animator.CrossFadeInFixedTime(skill.skillAnimationName, .1f, 0);
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skillData.AnimationTag, 0);
-            if (normalizeTime < skillData.AttackAnimationTime && normalizeTime < 1f) return;
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skill.skillAnimationTag, 0);
+            if (normalizeTime <.9f) return;
             // ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.ReturnLocomotion();
         }
@@ -43,6 +49,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
+            
         }
         
         private ISkill UseSkill(SkillType skillType)
@@ -81,6 +88,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                         ResetToMainMaterial();
                     }));
                     break;
+                case SkillEffect.PullBack:
+                case SkillEffect.AttractiveForce:
+                case SkillEffect.PushOut:
                 default:
                     return;
             }
@@ -96,6 +106,17 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             var tempMaterials = new Material[] {playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2};
             playerStateMachine.SkinnedMeshRenderer.materials = tempMaterials;
+        }
+
+        private void GetTheSkillActive()
+        {
+            skill = playerStateMachine.SkillNumber switch
+            {
+                1 => playerStateMachine.SkillActive.changingTheGameSkill,
+                2 => playerStateMachine.SkillActive.escapeSkill,
+                3 => playerStateMachine.SkillActive.responseSkill,
+                _=> null
+            };
         }
     }
 }

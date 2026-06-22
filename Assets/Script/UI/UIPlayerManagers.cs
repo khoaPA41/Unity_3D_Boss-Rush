@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Script.Attack;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +40,14 @@ public class UIPlayerManagers : MonoBehaviour
     [SerializeField] private Image subPotionImage2;
     [SerializeField] private Image subPotionImage3;
 
+    [Header("Skill UI")] [SerializeField] private Image icon_ChangingTheGame;
+    [SerializeField] private Image icon_Escape;
+    [SerializeField] private Image icon_Response;
+
+    [Header("System UI")] [SerializeField] private GameObject systemUI;
+
+    [SerializeField] private List<Image> skillSystemList;
+
     private InputReader _inputReader;
     private Health _health;
     private Mana _mana;
@@ -46,6 +55,7 @@ public class UIPlayerManagers : MonoBehaviour
     private HealthPotion _healthPotion;
     private ManaPotion _manaPotion;
     private SubPotion _subPotion;
+    private SkillActive _skillActive;
     // private bool _isPrevHealthChanged;
 
     private void Awake()
@@ -57,6 +67,7 @@ public class UIPlayerManagers : MonoBehaviour
         _healthPotion = GetComponent<HealthPotion>();
         _manaPotion = GetComponent<ManaPotion>();
         _subPotion = GetComponent<SubPotion>();
+        _skillActive = GetComponent<SkillActive>();
     }
 
     private void Start()
@@ -66,6 +77,7 @@ public class UIPlayerManagers : MonoBehaviour
         SetupStaminaSlider(_stamina.currentStamina / _stamina.maxStamina);
         SetupHealthPotionSlider(_healthPotion.currentPotion / _healthPotion.maxPotion);
         SetupManaPotionSlider(_manaPotion.currentPotion / _manaPotion.maxPotion);
+        ChangeOpacityImageSkill();
     }
 
     private void OnEnable()
@@ -80,6 +92,9 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction += UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction += NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction += PrevSubPotionAnimation;
+        _inputReader.SystemUIAction += ActiveSystemUI;
+        _inputReader.SkillAction += UpdateSkillFilled;
+        _skillActive.OnUseSkill += OnUpdateByCoolDown;
     }
 
     private void OnDisable()
@@ -94,6 +109,9 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction -= UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction -= NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction -= PrevSubPotionAnimation;
+        _inputReader.SystemUIAction -= ActiveSystemUI;
+        _inputReader.SkillAction -= UpdateSkillFilled;
+        _skillActive.OnUseSkill -= OnUpdateByCoolDown;
     }
 
     /********************************************Setup*********************************************/
@@ -124,7 +142,7 @@ public class UIPlayerManagers : MonoBehaviour
         manaPotionSlider.value = value;
     }
 
-    /*********************************************Update*********************************************/
+    /*********************************************Update Status*********************************************/
     private void UpdateHealthSlider(float value)
     {
         if (_healthChangeCoroutine != null) StopCoroutine(_healthChangeCoroutine);
@@ -243,5 +261,123 @@ public class UIPlayerManagers : MonoBehaviour
         }
 
         slider.value = value;
+    }
+
+    /*********************************************System UI*********************************************/
+    private void ActiveSystemUI()
+    {
+        systemUI.SetActive(!systemUI.activeInHierarchy);
+        _inputReader.SetCursor(!systemUI.activeInHierarchy);
+    }
+
+    /*********************************************Skill UI*********************************************/
+    private void ChangeOpacityImageSkill()
+    {
+        foreach (var skillImage in skillSystemList)
+        {
+            var color = skillImage.color;
+            color.a = .5f;
+            skillImage.color = color;
+        }
+    }
+
+    private void ChangOpacityImageUnActive()
+    {
+        foreach (var skillImage in skillSystemList)
+        {
+            if (_skillActive.changingTheGameSkill.skillIcon == skillImage.sprite) continue;
+            if (_skillActive.escapeSkill.skillIcon == skillImage.sprite) continue;
+            if (_skillActive.responseSkill.skillIcon == skillImage.sprite) continue;
+
+            var color = skillImage.color;
+            color.a = .5f;
+            skillImage.color = color;
+        }
+    }
+
+    public void UpdateChangeTheGameSkillUI()
+    {
+        ChangOpacityImageUnActive();
+        icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
+        var skillImage = FindImage(icon_ChangingTheGame.sprite);
+        var tempColor = skillImage.color;
+        tempColor.a = 1f;
+        skillImage.color = tempColor;
+    }
+
+    public void UpdateEscapeSkillUI()
+    {
+        ChangOpacityImageUnActive();
+        icon_Escape.sprite = _skillActive.escapeSkill.skillIcon;
+        var skillImage = FindImage(icon_Escape.sprite);
+        var tempColor = skillImage.color;
+        tempColor.a = 1f;
+        skillImage.color = tempColor;
+    }
+
+    public void UpdateResponseSkillUI()
+    {
+        ChangOpacityImageUnActive();
+        icon_Response.sprite = _skillActive.responseSkill.skillIcon;
+        var skillImage = FindImage(icon_Response.sprite);
+        var tempColor = skillImage.color;
+        tempColor.a = 1f;
+        skillImage.color = tempColor;
+    }
+
+    private void UpdateSkillFilled(int skillNumber)
+    {
+        switch (skillNumber)
+        {
+            case 1:
+                if (_skillActive.changingTheGameSkill.canUse)
+                    icon_ChangingTheGame.fillAmount = 0;
+                break;
+            case 2:
+                if (_skillActive.escapeSkill.canUse)
+                    icon_Escape.fillAmount = 0;
+                break;
+            case 3:
+                if (_skillActive.responseSkill.canUse)
+                    icon_Response.fillAmount = 0;
+                break;
+        }
+    }
+
+    private Image FindImage(Sprite targetSprite)
+    {
+        return skillSystemList.Find(sprite => sprite.sprite == targetSprite);
+    }
+
+
+    private Image FindSkillImage(int skillNumber)
+    {
+        return skillNumber switch
+        {
+            1 => icon_ChangingTheGame,
+            2 => icon_Escape,
+            3 => icon_Response
+        };
+    }
+
+    private void OnUpdateByCoolDown(int skillNumber, SkillActiveType skillActiveType)
+    {
+        StartCoroutine(UpdateFillByCoolDown(skillNumber, skillActiveType));
+    }
+
+    private IEnumerator UpdateFillByCoolDown(int skillNumber, SkillActiveType type)
+    {
+        float coolDown = 0;
+        var targetImage = FindSkillImage(skillNumber);
+        while (coolDown < type.coolDown)
+        {
+            coolDown += Time.deltaTime;
+            Debug.Log(coolDown);
+            var t = coolDown / type.coolDown;
+            targetImage.fillAmount = Mathf.Lerp(0, 1f, t);
+            yield return null;
+        }
+
+        targetImage.fillAmount = 1f;
     }
 }

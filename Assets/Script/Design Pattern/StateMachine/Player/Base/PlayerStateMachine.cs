@@ -36,6 +36,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public AttackData[] SkillData { get; private set; }
+        [field: SerializeField] public SkillActive SkillActive { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }
@@ -141,7 +142,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             Health.DeathAction += HandleDeathState;
             InputReader.ChangeHealthPotionAction += ChangeHealthPotion;
             InputReader.ChangeManaPotionAction += ChangeManaPotion;
-            InputReader.UseSubPotionAction += HandleUseSubPotionState;
         }
         
         private void OnDisable()
@@ -151,8 +151,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             Health.DeathAction -= HandleDeathState;
             InputReader.ChangeHealthPotionAction -= ChangeHealthPotion;
             InputReader.ChangeManaPotionAction -= ChangeManaPotion;
-            InputReader.UseSubPotionAction -= HandleUseSubPotionState;
-
         }
 
         public void SendSituationEvent()
@@ -178,6 +176,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         public void ReturnLocomotion()
         {
+            Debug.Log("Return Locomotion");
             SwitchState(Targeter.currentTarget is null ? freeLookState : targetState);
         }
 
@@ -209,11 +208,25 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         public void HandleUsePotionState()
         {
+            if (IsHealthPotion)
+            {
+                if (HealthPotion.currentPotion <= 0) return;
+            }
+            else
+            {
+                if (ManaPotion.currentPotion <= 0) return;
+            }
+            
             SwitchState(new PlayerUsePotionState(this));
         }
         
         public void HandleUseSubPotionState()
         {
+            if (SubPotion.currentPotion.quantity <= 0)
+            {
+                Debug.Log("Sold out");
+                return;
+            }
             SwitchState(new PlayerUseSubPotionState(this));
         }
         
@@ -228,10 +241,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             {
                 return;
             }
-
-            SkillNumber = skillNumber;
-            SwitchState(skillState);
             
+            SkillNumber =  skillNumber;
+            SwitchState(skillState);
         }
 
         public void CheckStamina()
@@ -269,8 +281,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             if (caster.GetTransform().gameObject.TryGetComponent(out PlayerStateMachine _))return;
             SwitchState(new PlayerAffectedState(this, caster, effect));
         }
-
-
+        
         private void ChangeHealthPotion()
         {
             IsHealthPotion = true;
