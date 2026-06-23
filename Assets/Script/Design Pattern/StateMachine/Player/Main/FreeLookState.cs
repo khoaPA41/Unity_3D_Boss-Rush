@@ -49,12 +49,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
-            // if (InputBuffering.TryConsume(ActionType.Dodge, out_))
-            // {
-            //     
-            // }
-            
-            
+
             Move(_movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceDir(_movement, deltaTime);

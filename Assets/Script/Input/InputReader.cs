@@ -22,6 +22,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action ChangePrevSubPotionAction;
     public event Action<int> SkillAction;
     public event Action SystemUIAction;
+    public event Action ActiveCheckPointAction;
 
 
     private InputController inputActions;
@@ -128,8 +129,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         // }
     }
     
-    
-
     public void OnChangeMainPotion(InputAction.CallbackContext context)
     {
         if ((Keyboard.current != null && Keyboard.current.qKey.isPressed) && !context.canceled)
@@ -180,7 +179,8 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-
+        if (!context.canceled) return;
+        ActiveCheckPointAction?.Invoke();
     }
 
     public void OnLook(InputAction.CallbackContext context)

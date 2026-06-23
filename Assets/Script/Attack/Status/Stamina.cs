@@ -42,4 +42,19 @@ public class Stamina : MonoBehaviour
         currentStamina += staminaLost * .5f;
         OnRecoveryStamina?.Invoke(currentStamina / maxStamina);
     }
+    
+    public void AddStamina()
+    {
+        maxStamina += 1;
+        currentStamina = maxStamina;
+        OnChangeStamina?.Invoke(currentStamina / maxStamina);
+    }
+
+    public void SubStamina()
+    {
+        if(maxStamina == 1000)
+        maxStamina -= 1;
+        currentStamina = maxStamina;
+        OnChangeStamina?.Invoke(currentStamina / maxStamina);
+    }
 }

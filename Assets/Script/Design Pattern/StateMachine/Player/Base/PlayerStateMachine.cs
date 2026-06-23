@@ -35,7 +35,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         [Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField] public AttackData[] SkillData { get; private set; }
         [field: SerializeField] public SkillActive SkillActive { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
@@ -73,7 +72,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public GameObject PotionLight { get; private set; }
         [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
-
+        
+        [Header("Coins")]
+        [field: SerializeField] public int PlayerCoins { get; private set; }
+        
         public Transform MainCameraTransform { get; private set; }
         public bool Invincible;
         public bool Invisible;
@@ -88,7 +90,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
-        
         /****************************************************************/
         public State freeLookState { get; private set; }
         public State hitState { get; private set; }
@@ -246,12 +247,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             SwitchState(skillState);
         }
 
-        public void CheckStamina()
+        public bool CheckLowStamina()
         {
-            if (Stamina.currentStamina <= 0f)
-            {
-                ReturnLocomotion(); 
-            }
+            return Stamina.currentStamina <= 0f;
         }
         
         public void HandleAttackState()
@@ -329,6 +327,32 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             yield return new WaitForSecondsRealtime(time);
             action2?.Invoke();
         }
+
+
+        public void SubCoins()
+        {
+            PlayerCoins -= Mathf.Max(PlayerCoins - 1, 0);
+        }
+
+        public void AddCoins()
+        {
+            PlayerCoins += Mathf.Min(PlayerCoins + 1, 100000);
+        }
+
+        public void AddDamage()
+        {
+            foreach (var damage in AttackData)
+            {
+                damage.AddDame(10f);
+            }
+        }
         
+        public void SubtractDamage()
+        {
+            foreach (var damage in AttackData)
+            {
+                damage.SubtractDame(10f);
+            }
+        }
     }
 }

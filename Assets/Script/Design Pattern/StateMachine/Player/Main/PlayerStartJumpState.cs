@@ -12,7 +12,11 @@ public class PlayerStartJumpState : PlayerBaseState
 
     public override void Enter()
     {
-        playerStateMachine.CheckStamina();
+        if (playerStateMachine.CheckLowStamina())
+        {
+            playerStateMachine.ReturnLocomotion();
+            return;
+        }
 
         playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.jumpReduce);
         playerStateMachine.Animator.CrossFadeInFixedTime(_jumpAnimationHash, playerStateMachine.AnimationCrossFade);

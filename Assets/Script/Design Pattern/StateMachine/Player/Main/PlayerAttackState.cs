@@ -15,7 +15,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.CheckStamina();
+            if (playerStateMachine.CheckLowStamina())
+            {
+                playerStateMachine.ReturnLocomotion();
+                return;
+            }
             playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.lightAttackReduce);
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
                 0);
@@ -40,7 +44,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                     
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
                     {
-                        TryCombo(normalizeTime);
+                        TryCombo();
                     }
                     
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Jump))
@@ -73,7 +77,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
         }
 
-        private void TryCombo(float normalizeTime)
+        private void TryCombo()
         {
             if (_attackData.NextAttackDataIndex == -1)
             {

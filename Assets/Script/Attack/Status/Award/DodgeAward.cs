@@ -12,11 +12,34 @@ public class DodgeAward : MonoBehaviour
     private PlayerStateMachine _playerStateMachine;
     private Stamina _stamina;
     
-    
     private void Start()
     {
         _playerStateMachine = GetComponent<PlayerStateMachine>();
         _stamina = GetComponent<Stamina>();
+    }
+
+    private void SetFalseAllAward()
+    {
+        IsRecoveryStamina = false;
+        IsCounterAttack =  false;
+        IsMovementPush =  false;
+    }
+
+    public void SetDodgeAward(int awardNumber)
+    {
+        SetFalseAllAward();
+        switch (awardNumber)
+        {
+            case 1:
+                IsMovementPush = true;
+                break;
+            case 2:
+                IsRecoveryStamina = true;
+                break;
+            case 3:
+                IsCounterAttack = true;
+                break;
+        }
     }
 
     public void DodgeAwardActive()
@@ -37,7 +60,7 @@ public class DodgeAward : MonoBehaviour
         if (!IsMovementPush) return;
 
         StartCoroutine(RecoveryStaminaRoutine(1.5f,
-            () => _playerStateMachine.ForceReceiver.SetCoefficientOfMovement(1.5f),
+            () => _playerStateMachine.ForceReceiver.SetCoefficientOfMovement(3f),
             () => _playerStateMachine.ForceReceiver.SetCoefficientOfMovement(1)
         ));
     }

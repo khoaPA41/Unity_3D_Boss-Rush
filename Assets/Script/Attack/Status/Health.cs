@@ -7,7 +7,8 @@ namespace Script.Attack
 {
     public class Health : MonoBehaviour
     {
-        [field: SerializeField] public float maxHealth { get; private  set; }
+        [field: SerializeField] public float maxHealth { get; set; }
+        [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
         [field: SerializeField] public float reduceHealPrevDuration { get; set; }
 
@@ -36,7 +37,7 @@ namespace Script.Attack
         {
             if(isReduceDame) damage /= reduceHealth;
             
-            currentHealth = Mathf.Max(currentHealth - damage, 0);
+            currentHealth = Mathf.Max(currentHealth - damage + resistance, 0);
             HitAction?.Invoke();
 
             if (currentHealth <= 0)
@@ -78,6 +79,31 @@ namespace Script.Attack
         public void HitStop()
         {
             StartCoroutine(TimeFreeHit());
+        }
+        
+        public void AddHealth()
+        {
+            maxHealth += 1;
+            currentHealth = maxHealth;
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+        }
+        
+        public void SubHealth()
+        {
+            if (maxHealth == 1000) return;
+            maxHealth -= 1;
+            currentHealth = maxHealth;
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+        }
+
+        public void AddResistance()
+        {
+            resistance++;
+        }
+        
+        public void SubResistance()
+        {
+            resistance = Mathf.Max(10, resistance - 1);
         }
     }
 }

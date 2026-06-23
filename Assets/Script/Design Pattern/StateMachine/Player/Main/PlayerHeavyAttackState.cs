@@ -15,7 +15,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.CheckStamina();
+            if (playerStateMachine.CheckLowStamina())
+            {
+                playerStateMachine.ReturnLocomotion();
+                return;
+            }
 
             playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.heavyAttackReduce);
             playerStateMachine.Animator.CrossFadeInFixedTime(_heavyAttackAnimationHash, playerStateMachine.AnimationCrossFade,

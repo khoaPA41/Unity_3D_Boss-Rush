@@ -2,35 +2,44 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Script.Attack;
+using Script.Design_Pattern.StateMachine.Player.Base;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class StatusUI
+{
+    public TextMeshProUGUI text;
+    public string name;
+}
+
 public class UIPlayerManagers : MonoBehaviour
 {
-    [Header("Status UI")] [SerializeField] private Slider healthPrevSlider;
+    [Header("Status UI")] [SerializeField] 
+    private Slider healthPrevSlider;
     [SerializeField] private Slider healthFollowingSlider;
     [SerializeField] private Slider manaSlider;
     [SerializeField] private Slider staminaSlider;
 
-    [Header("Item UI")] [SerializeField] private Slider healthPotionSlider;
+    [Header("Item UI")] [SerializeField] 
+    private Slider healthPotionSlider;
     [SerializeField] private Slider manaPotionSlider;
 
     [Header("Main Potion UI")] [SerializeField]
     private GameObject healthPotionUI;
-
     [SerializeField] private GameObject manaPotionUI;
     [SerializeField] private GameObject nextHealthPotionUI;
     [SerializeField] private GameObject nextManaPotionUI;
 
-    [Header("Coroutines")] private Coroutine _healthChangeCoroutine;
+    [Header("Coroutines")] 
+    private Coroutine _healthChangeCoroutine;
     private Coroutine _healthFollowingChangeCoroutine;
     private Coroutine _manaChangeCoroutine;
     private Coroutine _staminaChangeCoroutine;
     private Coroutine _staminaRecoveryCoroutine;
     private Coroutine _healthPotionChangeCoroutine;
     private Coroutine _manaPotionChangeCoroutine;
-
-
+    
     [Header("Sub Potion")] [SerializeField]
     private GameObject subPotion;
 
@@ -40,14 +49,24 @@ public class UIPlayerManagers : MonoBehaviour
     [SerializeField] private Image subPotionImage2;
     [SerializeField] private Image subPotionImage3;
 
-    [Header("Skill UI")] [SerializeField] private Image icon_ChangingTheGame;
+    [Header("Skill UI")] [SerializeField] 
+    private Image icon_ChangingTheGame;
     [SerializeField] private Image icon_Escape;
     [SerializeField] private Image icon_Response;
 
-    [Header("System UI")] [SerializeField] private GameObject systemUI;
-
+    [Header("System UI")] [SerializeField] 
+    private GameObject systemUI;
     [SerializeField] private List<Image> skillSystemList;
+    
+    [Header("Status UI")] 
+    [SerializeField] private List<TextMeshProUGUI> statusTextList;
 
+    [Header("Dodge Award UI")] 
+    [SerializeField] private Image dodgeAwardImage1;
+    [SerializeField] private Image dodgeAwardImage2;
+    [SerializeField] private Image dodgeAwardImage3;
+    
+    /************************************************************************/
     private InputReader _inputReader;
     private Health _health;
     private Mana _mana;
@@ -56,6 +75,10 @@ public class UIPlayerManagers : MonoBehaviour
     private ManaPotion _manaPotion;
     private SubPotion _subPotion;
     private SkillActive _skillActive;
+    private DodgeAward _dodgeAward;
+    private PlayerStateMachine _playerStateMachine;
+
+    public event Action DodgeAwardAction;
     // private bool _isPrevHealthChanged;
 
     private void Awake()
@@ -68,6 +91,8 @@ public class UIPlayerManagers : MonoBehaviour
         _manaPotion = GetComponent<ManaPotion>();
         _subPotion = GetComponent<SubPotion>();
         _skillActive = GetComponent<SkillActive>();
+        _dodgeAward = GetComponent<DodgeAward>();
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
     }
 
     private void Start()
@@ -78,6 +103,12 @@ public class UIPlayerManagers : MonoBehaviour
         SetupHealthPotionSlider(_healthPotion.currentPotion / _healthPotion.maxPotion);
         SetupManaPotionSlider(_manaPotion.currentPotion / _manaPotion.maxPotion);
         ChangeOpacityImageSkill();
+        ChangOpacityDodgeIcon();
+
+        foreach (var text in statusTextList)
+        {
+            ReviewStatusTextList(text.gameObject.name);
+        }
     }
 
     private void OnEnable()
@@ -276,7 +307,7 @@ public class UIPlayerManagers : MonoBehaviour
         foreach (var skillImage in skillSystemList)
         {
             var color = skillImage.color;
-            color.a = .5f;
+            color.a = .3f;
             skillImage.color = color;
         }
     }
@@ -289,9 +320,7 @@ public class UIPlayerManagers : MonoBehaviour
             if (_skillActive.escapeSkill.skillIcon == skillImage.sprite) continue;
             if (_skillActive.responseSkill.skillIcon == skillImage.sprite) continue;
 
-            var color = skillImage.color;
-            color.a = .5f;
-            skillImage.color = color;
+            ChangeOpacity(skillImage, .3f);
         }
     }
 
@@ -300,9 +329,7 @@ public class UIPlayerManagers : MonoBehaviour
         ChangOpacityImageUnActive();
         icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
         var skillImage = FindImage(icon_ChangingTheGame.sprite);
-        var tempColor = skillImage.color;
-        tempColor.a = 1f;
-        skillImage.color = tempColor;
+        ChangeOpacity(skillImage, 1f);
     }
 
     public void UpdateEscapeSkillUI()
@@ -310,9 +337,7 @@ public class UIPlayerManagers : MonoBehaviour
         ChangOpacityImageUnActive();
         icon_Escape.sprite = _skillActive.escapeSkill.skillIcon;
         var skillImage = FindImage(icon_Escape.sprite);
-        var tempColor = skillImage.color;
-        tempColor.a = 1f;
-        skillImage.color = tempColor;
+        ChangeOpacity(skillImage, 1f);
     }
 
     public void UpdateResponseSkillUI()
@@ -320,9 +345,7 @@ public class UIPlayerManagers : MonoBehaviour
         ChangOpacityImageUnActive();
         icon_Response.sprite = _skillActive.responseSkill.skillIcon;
         var skillImage = FindImage(icon_Response.sprite);
-        var tempColor = skillImage.color;
-        tempColor.a = 1f;
-        skillImage.color = tempColor;
+        ChangeOpacity(skillImage, 1f);
     }
 
     private void UpdateSkillFilled(int skillNumber)
@@ -348,7 +371,6 @@ public class UIPlayerManagers : MonoBehaviour
     {
         return skillSystemList.Find(sprite => sprite.sprite == targetSprite);
     }
-
 
     private Image FindSkillImage(int skillNumber)
     {
@@ -379,5 +401,124 @@ public class UIPlayerManagers : MonoBehaviour
         }
 
         targetImage.fillAmount = 1f;
+    }
+    
+    /*********************************************Dodge Award UI*********************************************/
+    private void ChangOpacityDodgeIcon()
+    {
+        ChangeOpacity(dodgeAwardImage1, .3f);
+        ChangeOpacity(dodgeAwardImage2, .3f);
+        ChangeOpacity(dodgeAwardImage3, .3f);
+    }
+    
+    public void ActiveDodgeAward(int buttonNumber)
+    {
+        ChangOpacityDodgeIcon();
+        switch (buttonNumber)
+        {
+            case 1:
+                ChangeOpacity(dodgeAwardImage1, 1f);
+                break;
+            case 2: 
+                ChangeOpacity(dodgeAwardImage2, 1f);
+                break;
+            case 3: 
+                ChangeOpacity(dodgeAwardImage3, 1f);
+                break;
+        }
+    }
+
+    private void ChangeOpacity(Image image, float opacity)
+    {
+        var tempColor = image.color;
+        tempColor.a = opacity;
+        image.color = tempColor;
+    }
+    
+    /*********************************************Status UI*********************************************/
+
+    private void ReviewStatusTextList(string name)
+    {
+        switch (name)
+        {
+            case "Health":
+                UpdateStatus(_health.currentHealth, FindStatusText(name));
+                break;
+            case "Mana":
+                UpdateStatus(_mana.currentMana, FindStatusText(name));
+                break;
+            case "Stamina":
+                UpdateStatus(_stamina.currentStamina, FindStatusText(name));
+                break;
+            case "Resistance":
+                UpdateStatus(_health.resistance, FindStatusText(name));
+                break;
+            case "Strength":
+                UpdateStatus(_playerStateMachine.AttackData[0].AttackDamage, FindStatusText(name));
+                break;
+        }
+    }
+
+    private TextMeshProUGUI FindStatusText(string name)
+    {
+        return statusTextList.Find(text => text.gameObject.name == name);
+    }
+    private void UpdateStatus(float value, TextMeshProUGUI statusText)
+    {
+        statusText.text = value.ToString();
+    }
+
+    public void AddStatusButton(string name)
+    {
+        switch (name)
+        {
+            case "Health":
+                _health.AddHealth();
+                UpdateStatus(_health.currentHealth, FindStatusText(name));
+                break;
+            case "Mana":
+                _mana.AddMana();
+                UpdateStatus(_mana.currentMana, FindStatusText(name));
+                break;
+            case "Stamina":
+                _stamina.AddStamina();
+                UpdateStatus(_stamina.currentStamina, FindStatusText(name));
+                break;
+            case "Resistance":
+                _health.AddResistance();
+                UpdateStatus(_health.resistance, FindStatusText(name));
+                break;
+            case "Strength":
+                _playerStateMachine.AddDamage();
+                UpdateStatus(_playerStateMachine.AttackData[0].AttackDamage, FindStatusText(name));
+                break;
+        }
+    }
+    
+    public void SubStatusButton(string name)
+    {
+        switch (name)
+        {
+            case "Health":
+                _health.SubHealth();
+                UpdateStatus(_health.currentHealth, FindStatusText(name));
+                break;
+            case "Mana":
+                _mana.SubMana();
+                UpdateStatus(_mana.currentMana, FindStatusText(name));
+                break;
+            case "Stamina":
+                _stamina.SubStamina();
+                UpdateStatus(_stamina.currentStamina, FindStatusText(name));
+                break;
+            case "Resistance":
+                _health.SubResistance();
+                UpdateStatus(_health.resistance, FindStatusText(name));
+                break;
+            case "Strength":
+                _playerStateMachine.SubtractDamage();
+                UpdateStatus(_playerStateMachine.AttackData[0].AttackDamage, FindStatusText(name));
+                break;
+        }
     }
 }

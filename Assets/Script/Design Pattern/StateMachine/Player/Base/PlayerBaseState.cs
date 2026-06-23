@@ -39,7 +39,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         protected void FaceTarget(float deltaTime)
         {
-            Target.Target currentTarget = playerStateMachine.Targeter.currentTarget;
+            var currentTarget = playerStateMachine.Targeter.currentTarget;
             if (currentTarget is null)
             {
                 return;

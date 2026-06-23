@@ -8,6 +8,8 @@ TagManager:
   - PlayerClone
   - Stunned
   - BossSkill
+  - CheckPoint
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Player_UI
   - 
   - 
   - 

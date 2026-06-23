@@ -21,7 +21,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.CheckStamina();
+            if (playerStateMachine.CheckLowStamina())
+            {
+                playerStateMachine.ReturnLocomotion();
+                return;
+            }
             playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.dodgeReduce);
             playerStateMachine.Health.isPerfectDodge = true;
             dodgeDirection = playerStateMachine.InputReader.InputMovement;

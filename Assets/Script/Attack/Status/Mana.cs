@@ -24,4 +24,19 @@ public class Mana : MonoBehaviour
         currentMana = Mathf.Min(currentMana + amount, maxMana);
         OnChangeMana?.Invoke(currentMana / maxMana);
     }
+
+    public void AddMana()
+    {
+        maxMana += 1;
+        currentMana = maxMana;
+        OnChangeMana?.Invoke(currentMana / maxMana);
+    }
+
+    public void SubMana()
+    {
+        if (currentMana == 1000) return;
+        maxMana -= 1;
+        currentMana = maxMana;
+        OnChangeMana?.Invoke(currentMana / maxMana);
+    }
 }
