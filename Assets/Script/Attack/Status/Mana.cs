@@ -1,4 +1,5 @@
 using System;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
 public class Mana : MonoBehaviour
@@ -7,9 +8,11 @@ public class Mana : MonoBehaviour
     [field: SerializeField] public float reduceManaDuration { get; set; }
     public event Action<float> OnChangeMana = delegate { };
     public float currentMana;
-    
+    private PlayerStateMachine _playerStateMachine;
+
     private void Awake()
     {
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
         currentMana = maxMana;
     }
 
@@ -27,6 +30,11 @@ public class Mana : MonoBehaviour
 
     public void AddMana()
     {
+        if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+        {
+            _playerStateMachine.isCanNotSubSpiritual = false;
+            return;
+        }
         maxMana += 1;
         currentMana = maxMana;
         OnChangeMana?.Invoke(currentMana / maxMana);
@@ -34,7 +42,11 @@ public class Mana : MonoBehaviour
 
     public void SubMana()
     {
-        if (currentMana == 1000) return;
+        if (currentMana == 1000)
+        {
+            _playerStateMachine.isCanNotAddSpiritual = true;
+            return;
+        }
         maxMana -= 1;
         currentMana = maxMana;
         OnChangeMana?.Invoke(currentMana / maxMana);

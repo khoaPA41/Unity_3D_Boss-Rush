@@ -76,7 +76,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;
             playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
             playerStateMachine.InputReader.UseSubPotionAction -= playerStateMachine.HandleUseSubPotionState;
-
             playerStateMachine.InputReader.TargetAction -= OutTargetState;
         }
 

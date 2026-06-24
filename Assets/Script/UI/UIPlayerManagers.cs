@@ -54,8 +54,8 @@ public class UIPlayerManagers : MonoBehaviour
     [SerializeField] private Image icon_Escape;
     [SerializeField] private Image icon_Response;
 
-    [Header("System UI")] [SerializeField] 
-    private GameObject systemUI;
+    [Header("System UI")] [field:SerializeField] 
+    public GameObject systemUI;
     [SerializeField] private List<Image> skillSystemList;
     
     [Header("Status UI")] 
@@ -65,6 +65,9 @@ public class UIPlayerManagers : MonoBehaviour
     [SerializeField] private Image dodgeAwardImage1;
     [SerializeField] private Image dodgeAwardImage2;
     [SerializeField] private Image dodgeAwardImage3;
+    
+    [Header("Spiritual Power UI")] 
+    [SerializeField] private TextMeshProUGUI spiritualPowerText;
     
     /************************************************************************/
     private InputReader _inputReader;
@@ -100,8 +103,8 @@ public class UIPlayerManagers : MonoBehaviour
         SetupHealthSlider(_health.currentHealth / _health.maxHealth);
         SetupManaSlider(_mana.currentMana / _mana.maxMana);
         SetupStaminaSlider(_stamina.currentStamina / _stamina.maxStamina);
-        SetupHealthPotionSlider(_healthPotion.currentPotion / _healthPotion.maxPotion);
-        SetupManaPotionSlider(_manaPotion.currentPotion / _manaPotion.maxPotion);
+        SetupHealthPotionSlider(_healthPotion.CurrentPotion / _healthPotion.maxPotion);
+        SetupManaPotionSlider(_manaPotion.CurrentPotion / _manaPotion.maxPotion);
         ChangeOpacityImageSkill();
         ChangOpacityDodgeIcon();
 
@@ -123,9 +126,10 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction += UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction += NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction += PrevSubPotionAnimation;
-        _inputReader.SystemUIAction += ActiveSystemUI;
+        // _inputReader.SystemUIAction += ActiveSystemUI;
         _inputReader.SkillAction += UpdateSkillFilled;
         _skillActive.OnUseSkill += OnUpdateByCoolDown;
+        _playerStateMachine.UpdateSpiritualPower += UpdateSpiritualPower;
     }
 
     private void OnDisable()
@@ -140,9 +144,10 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction -= UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction -= NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction -= PrevSubPotionAnimation;
-        _inputReader.SystemUIAction -= ActiveSystemUI;
+        // _inputReader.SystemUIAction -= ActiveSystemUI;
         _inputReader.SkillAction -= UpdateSkillFilled;
         _skillActive.OnUseSkill -= OnUpdateByCoolDown;
+        _playerStateMachine.UpdateSpiritualPower -= UpdateSpiritualPower;
     }
 
     /********************************************Setup*********************************************/
@@ -299,6 +304,10 @@ public class UIPlayerManagers : MonoBehaviour
     {
         systemUI.SetActive(!systemUI.activeInHierarchy);
         _inputReader.SetCursor(!systemUI.activeInHierarchy);
+        if (systemUI.activeInHierarchy)
+        {
+            _playerStateMachine.SwitchState(new PlayerEmptyState(_playerStateMachine));
+        }
     }
 
     /*********************************************Skill UI*********************************************/
@@ -520,5 +529,12 @@ public class UIPlayerManagers : MonoBehaviour
                 UpdateStatus(_playerStateMachine.AttackData[0].AttackDamage, FindStatusText(name));
                 break;
         }
+    }
+    
+    /*********************************************Spiritual Powe*********************************************/
+
+    private void UpdateSpiritualPower(int value)
+    {
+        spiritualPowerText.SetText(": " +  value.ToString());
     }
 }

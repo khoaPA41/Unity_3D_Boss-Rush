@@ -98,11 +98,34 @@ public class SubPotion : MonoBehaviour
         ));
     }
 
-
     private IEnumerator SubPotionCoroutine(float timeToDone, Action callback1, Action callback2)
     {
         callback1?.Invoke();
         yield return new WaitForSecondsRealtime(timeToDone);
         callback2?.Invoke();
+    }
+
+    public void AddSubPotionQuantity(string potionName)
+    {
+        var targetPotion = FindPotion(potionName);
+        if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+        { 
+            _playerStateMachine.isCanNotSubSpiritual = false;
+            return;
+        }
+        targetPotion.quantity++;
+    }
+    
+    public void SubtractSubPotionQuantity(string potionName)
+    {
+        var targetPotion = FindPotion(potionName);
+
+        if (targetPotion.quantity == 0)
+        {
+            _playerStateMachine.isCanNotAddSpiritual = true;
+            return;
+        }
+
+        targetPotion.quantity--;
     }
 }

@@ -9,10 +9,9 @@ namespace Script.Attack
         private Rigidbody[] bullets;
         
 
-        private void Start()
+        private void Awake()
         {
             bullets = GetComponentsInChildren<Rigidbody>();
-
         }
     
         private void Update()
@@ -36,9 +35,11 @@ namespace Script.Attack
         {
             foreach (var bullet in bullets)
             {
-                var bulletDamage = bullet.GetComponent<WeaponDealDamage>();
+                
+                var bulletDamage = bullet.GetComponent<WeaponTrail>();
                 bulletDamage.SetDamage(10);
                 bullet.MovePosition(bullet.transform.position + (DirToTarget() * (bulletSpeed * Time.deltaTime)));
+                Debug.Log(bullet.transform.position);
             }
         }
     }

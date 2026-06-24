@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ namespace Script.Attack
         public float currentHealth;
         public bool isPerfectDodge;
         public bool isReduceDame;
-        
+        private PlayerStateMachine _playerStateMachine;
         public bool noDamage { get; set; }
 
         public event Action DeathAction;
@@ -29,6 +30,7 @@ namespace Script.Attack
 
         private void Awake()
         {
+            _playerStateMachine = GetComponent<PlayerStateMachine>();
             currentHealth = maxHealth;
             noDamage = false;
         }
@@ -83,6 +85,11 @@ namespace Script.Attack
         
         public void AddHealth()
         {
+            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            { 
+                _playerStateMachine.isCanNotSubSpiritual = false;
+                return;
+            }
             maxHealth += 1;
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(currentHealth / maxHealth);
@@ -90,7 +97,11 @@ namespace Script.Attack
         
         public void SubHealth()
         {
-            if (maxHealth == 1000) return;
+            if (maxHealth == 1000)
+            {
+                _playerStateMachine.isCanNotAddSpiritual = true;
+                return;
+            }
             maxHealth -= 1;
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(currentHealth / maxHealth);
@@ -98,12 +109,22 @@ namespace Script.Attack
 
         public void AddResistance()
         {
+            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            { 
+                _playerStateMachine.isCanNotSubSpiritual = false;
+                return;
+            }
             resistance++;
         }
         
         public void SubResistance()
         {
-            resistance = Mathf.Max(10, resistance - 1);
+            if (resistance == 0)
+            {
+                _playerStateMachine.isCanNotAddSpiritual = true;
+                return;
+            }
+            resistance = Mathf.Max(0, resistance - 1);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
 public class Stamina : MonoBehaviour
@@ -18,8 +19,12 @@ public class Stamina : MonoBehaviour
     public event Action<float> OnRecoveryStamina = delegate { };
 
     public bool isReduceStamina { get; set; }
+    
+    private PlayerStateMachine _playerStateMachine;
+
     private void Awake()
     {
+        _playerStateMachine = GetComponent<PlayerStateMachine>();
         currentStamina = maxStamina;
     }
     
@@ -45,6 +50,12 @@ public class Stamina : MonoBehaviour
     
     public void AddStamina()
     {
+        if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+        {
+            _playerStateMachine.isCanNotSubSpiritual = false;
+            return;
+        }
+
         maxStamina += 1;
         currentStamina = maxStamina;
         OnChangeStamina?.Invoke(currentStamina / maxStamina);
@@ -52,7 +63,11 @@ public class Stamina : MonoBehaviour
 
     public void SubStamina()
     {
-        if(maxStamina == 1000)
+        if (maxStamina == 1000)
+        {
+            _playerStateMachine.isCanNotAddSpiritual = true;
+            return;
+        }
         maxStamina -= 1;
         currentStamina = maxStamina;
         OnChangeStamina?.Invoke(currentStamina / maxStamina);

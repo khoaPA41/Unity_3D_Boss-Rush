@@ -74,8 +74,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
         
         [Header("Coins")]
-        [field: SerializeField] public int PlayerCoins { get; private set; }
-        
+        [field: SerializeField] public int PlayerSpiritualPower { get; private set; }
+        public event Action<int> UpdateSpiritualPower;
         public Transform MainCameraTransform { get; private set; }
         public bool Invincible;
         public bool Invisible;
@@ -88,6 +88,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public bool IsHealthPotion { get; set; } = true;
         public bool IsIncreaseDamePotion { get; set; }
 
+        public bool isCanNotSubSpiritual;
+
+        public bool isCanNotAddSpiritual;
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
         /****************************************************************/
@@ -112,6 +115,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         private void Start()
         {
             Boss = GameObject.FindWithTag("Boss");
+            AddSpiritualPower();
             SetupState();
             InputReader.ApplicationCursor();
             if (Camera.main is not null) MainCameraTransform = Camera.main.transform;
@@ -211,11 +215,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             if (IsHealthPotion)
             {
-                if (HealthPotion.currentPotion <= 0) return;
+                if (HealthPotion.CurrentPotion <= 0) return;
             }
             else
             {
-                if (ManaPotion.currentPotion <= 0) return;
+                if (ManaPotion.CurrentPotion <= 0) return;
             }
             
             SwitchState(new PlayerUsePotionState(this));
@@ -327,31 +331,58 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             yield return new WaitForSecondsRealtime(time);
             action2?.Invoke();
         }
-
-
-        public void SubCoins()
+        
+        public void SubSpiritualPower()
         {
-            PlayerCoins -= Mathf.Max(PlayerCoins - 1, 0);
+            if (PlayerSpiritualPower <= 0)
+            {
+                isCanNotSubSpiritual = true;
+                return;
+            }
+            PlayerSpiritualPower = Mathf.Max(PlayerSpiritualPower - 1, 0);
+            UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
 
-        public void AddCoins()
+        public void AddSpiritualPower()
         {
-            PlayerCoins += Mathf.Min(PlayerCoins + 1, 100000);
+            if (isCanNotAddSpiritual)
+            {
+                isCanNotAddSpiritual = false;
+                return;
+            }
+            PlayerSpiritualPower = Mathf.Min(PlayerSpiritualPower + 1, 1000000);
+            UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
 
+        private void ResetStateSpiritualPower()
+        {
+            isCanNotAddSpiritual = false;
+            isCanNotSubSpiritual = false;
+        }
+        
         public void AddDamage()
         {
+            if (isCanNotSubSpiritual || PlayerSpiritualPower <= 0)
+            { 
+                isCanNotSubSpiritual = false;
+                return;
+            }
             foreach (var damage in AttackData)
             {
-                damage.AddDame(10f);
+                damage.AttackDamage += 1f;
             }
         }
         
         public void SubtractDamage()
         {
+            if (AttackData[0].AttackDamage == 10)
+            {
+                isCanNotAddSpiritual = true;
+                return;
+            }
             foreach (var damage in AttackData)
             {
-                damage.SubtractDame(10f);
+                damage.AttackDamage = Mathf.Max(damage.AttackDamage - 1, 10);
             }
         }
     }

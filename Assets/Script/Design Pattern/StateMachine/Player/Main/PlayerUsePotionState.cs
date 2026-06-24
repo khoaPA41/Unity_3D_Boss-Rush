@@ -62,16 +62,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void UseHealthPotion()
         {
-            playerStateMachine.Health.RecoveryHealth(playerStateMachine.HealthPotion.potionUsage);
-            playerStateMachine.HealthPotion.ChangePotion(playerStateMachine.HealthPotion.potionUsage);
+            playerStateMachine.HealthPotion.ChangePotion();
+            playerStateMachine.Health.RecoveryHealth(playerStateMachine.HealthPotion.PossibleUsage);
             playerStateMachine.PotionLight.SetActive(true);
             playerStateMachine.HealthParticle.Play();
         }
 
         private void UseManaPotion()
         {
-            playerStateMachine.Mana.RecoveryMana(playerStateMachine.ManaPotion.potionUsage);
-            playerStateMachine.ManaPotion.ChangePotion(playerStateMachine.ManaPotion.potionUsage);
+            playerStateMachine.ManaPotion.ChangePotion();
+            playerStateMachine.Mana.RecoveryMana(playerStateMachine.ManaPotion.PossibleUsage);
             playerStateMachine.PotionLight.SetActive(true);
             playerStateMachine.ManaParticle.Play();
         }

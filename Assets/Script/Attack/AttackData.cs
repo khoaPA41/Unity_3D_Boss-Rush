@@ -15,14 +15,4 @@ public class AttackData
     [field: SerializeField] public float Force { get; private set; }
     [field: SerializeField] public float AttackDamage { get; set; }
     [field: SerializeField] public SkillType SkillType { get; private set; }
-
-    public void AddDame(float value)
-    {
-        AttackDamage += value;
-    }
-
-    public void SubtractDame(float value)
-    {
-        AttackDamage = Mathf.Max(AttackDamage - value, 0);
-    }
 }
