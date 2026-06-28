@@ -73,6 +73,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
         
+        [Header("Effect")] [field: SerializeField]
+        public CheckPoint CheckPoint { get; private set; }
+        
         [Header("Coins")]
         [field: SerializeField] public int PlayerSpiritualPower { get; private set; }
         public event Action<int> UpdateSpiritualPower;
@@ -181,7 +184,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         public void ReturnLocomotion()
         {
-            Debug.Log("Return Locomotion");
             SwitchState(Targeter.currentTarget is null ? freeLookState : targetState);
         }
 
@@ -229,7 +231,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         {
             if (SubPotion.currentPotion.quantity <= 0)
             {
-                Debug.Log("Sold out");
                 return;
             }
             SwitchState(new PlayerUseSubPotionState(this));

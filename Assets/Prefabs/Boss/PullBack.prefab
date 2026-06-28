@@ -9796,7 +9796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TriggerSkillForBoss
   timeToActiveTrigger: 1.5
-  effect: 6
+  effect: 7
 --- !u!65 &6489121480358371934
 BoxCollider:
   m_ObjectHideFlags: 0

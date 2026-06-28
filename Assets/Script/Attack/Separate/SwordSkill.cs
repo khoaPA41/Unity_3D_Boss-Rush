@@ -26,16 +26,12 @@ public class SwordSkill : MonoBehaviour
     
     private void Awake()
     {
-        boss = GameObject.FindWithTag("Boss").GetComponent<FinalBossStateMachine>();
+        var container =  GameObject.FindWithTag("Boss");
+        boss = container.GetComponentInChildren<FinalBossStateMachine>(true);
         GetComponent<Rigidbody>();
         _pooledObject = GetComponent<PooledObject>();
     }
     
-    private void Start()
-    {
-        
-    }
-
     private void OnEnable()
     {
         boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent += Release;
@@ -93,15 +89,15 @@ public class SwordSkill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {        
-            var caster = GameObject.Find("Enemy");
-            caster.TryGetComponent(out ICaster casterObj);
+            // var caster = GameObject.Find("Enemy");
+            boss.TryGetComponent(out ICaster casterObj);
             GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
         }
         
         if (isRelease) return;
         if (other.CompareTag("Boss"))
         {
-            var boss = other.GetComponent<FinalBossStateMachine>();
+            // var boss = other.GetComponent<FinalBossStateMachine>();
             var weaponTouch = other.GetComponent<WeaponHandler>();
             weaponTouch.OnGetWeapon();
             boss.SendActionEvent();

@@ -4,7 +4,7 @@ namespace Script.Design_Pattern.StateMachine.Base
 {
     public abstract class State
     {
-        public bool IsFinished { get; protected set; } = false;
+        // public bool IsFinished { get; protected set; } = false;
         public abstract void Enter();
         public abstract void Tick(float deltaTime);
         public abstract void PhysicTick(float fixedDeltaTime);

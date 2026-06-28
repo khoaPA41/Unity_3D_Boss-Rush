@@ -28,7 +28,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         public override void Tick(float deltaTime)
         {
             _movement = CalculateMovementInFreeLook();
-            float speed = playerStateMachine.InputReader.IsSprint
+            var speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
@@ -84,6 +84,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             }
 
             playerStateMachine.Animator.SetFloat(Movement, .5f, playerStateMachine.AnimationCrossFade, deltaTime);
+        }
+
+        private void ActiveSysUIScene()
+        {
+            playerStateMachine.SwitchState(new PlayerActiveCheckPointState(playerStateMachine));
         }
     }
 }

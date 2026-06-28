@@ -9,7 +9,7 @@ public class SkillPooledObject : MonoBehaviour
 {
     private ParticleSystem _particle;
     private PooledObject _pooled;
-    private FinalBossStateMachine boss;
+    private FinalBossStateMachine _boss;
 
     private void Awake()
     {
@@ -19,7 +19,6 @@ public class SkillPooledObject : MonoBehaviour
     
     private void OnEnable()
     {
-        
         _particle?.Clear();
         _particle?.Play();
     }

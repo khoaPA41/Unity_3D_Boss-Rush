@@ -306,7 +306,7 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.SetCursor(!systemUI.activeInHierarchy);
         if (systemUI.activeInHierarchy)
         {
-            _playerStateMachine.SwitchState(new PlayerEmptyState(_playerStateMachine));
+            _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine));
         }
     }
 
@@ -403,7 +403,6 @@ public class UIPlayerManagers : MonoBehaviour
         while (coolDown < type.coolDown)
         {
             coolDown += Time.deltaTime;
-            Debug.Log(coolDown);
             var t = coolDown / type.coolDown;
             targetImage.fillAmount = Mathf.Lerp(0, 1f, t);
             yield return null;

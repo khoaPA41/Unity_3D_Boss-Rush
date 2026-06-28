@@ -14,7 +14,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
-        [field: SerializeField] public float ChangeChasingState { get; private set; } = 0.5f;
+        [field: SerializeField] public float ChangeChasingState { get; private set; } = 2f;
 
         
         [Header("Physics")]
@@ -24,22 +24,26 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public float HitForceTime { get; private set; } = .3f;
         [field: SerializeField] public float HitForce { get; private set; } = 3f;
         [field: SerializeField] public float HitKnockback { get; private set; } = 8f;
-
-
+        
         [Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField] public WeaponDealDamage WeaponDealDamage { get; private set; }
+        [field: SerializeField] public WeaponTrail WeaponDealDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         [field: SerializeField] public float AttackRange { get; private set; } = 2f;
         
-
         public GameObject Target { get; set; }
         public float CountTime { get; set; }
 
         private void Start()
         {
-            // SwitchState(new PlayerCloneEnterAttack(this));
+            
+            Target = GameObject.FindGameObjectWithTag("Boss");
+        }
+
+        private void OnEnable()
+        {
+            SwitchState(new PlayerCloneIdleState(this));
         }
 
         public Vector2 InputMovement { get; set; }

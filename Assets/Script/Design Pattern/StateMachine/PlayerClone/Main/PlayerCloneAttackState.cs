@@ -1,45 +1,43 @@
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
-using UnityEngine;
 
 public class PlayerCloneAttackState : PlayerCloneBaseState
 {
-    private readonly AttackData attackData;
-    private float previousTime = 0f;
-    private bool alreadyApplyForce;
+    private readonly AttackData _attackData;
+    private float _previousTime;
+    private bool _alreadyApplyForce;
     public PlayerCloneAttackState(PlayerCloneStateMachine cloneStateMachine, int attackDataIndex) : base(cloneStateMachine)
     {
-        attackData = cloneStateMachine.AttackData[attackDataIndex];
+        _attackData = cloneStateMachine.AttackData[attackDataIndex];
     }
     
      public override void Enter()
         {
-            IsFinished = false;
-            cloneStateMachine.Animator.CrossFadeInFixedTime(attackData.AnimationName, attackData.AnimationTransition);
-            cloneStateMachine.WeaponDealDamage.SetDamage(attackData.AttackDamage);
+            // IsFinished = false;
+            cloneStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
+            cloneStateMachine.WeaponDealDamage.SetDamage(_attackData.AttackDamage);
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(cloneStateMachine.Animator, attackData.AnimationTag, 0);
-            if (normalizeTime >= previousTime && normalizeTime <= 1f)
+            var normalizeTime = GetNormalizeTime(cloneStateMachine.Animator, _attackData.AnimationTag, 0);
+            if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
-                if (normalizeTime >= attackData.ForceTime)
+                if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
                 }
 
-                if (cloneStateMachine.IsAttack)
+                if (IsAttackRange())
                 {
                     TryCombo(normalizeTime);
                 }
             }
             else
             {
-                IsFinished = true;
-                cloneStateMachine.IsAttack = false;
+                cloneStateMachine.SwitchState(new PlayerCloneIdleState(cloneStateMachine));
             }
 
-            previousTime = normalizeTime;
+            _previousTime = normalizeTime;
             FaceTarget();
             Move(deltaTime);
         }
@@ -50,36 +48,36 @@ public class PlayerCloneAttackState : PlayerCloneBaseState
 
         public override void Exit()
         {
-            IsFinished = false;
+            // IsFinished = false;
         }
 
         private void TryCombo(float normalizeTime)
         {
-            if (attackData.NextAttackDataIndex == -1)
+            if (_attackData.NextAttackDataIndex == -1)
             {
                 return;
             }
 
-            if (normalizeTime < attackData.AttackAnimationTime)
+            if (normalizeTime < _attackData.AttackAnimationTime)
             {
                 return;
             }
 
             cloneStateMachine.SwitchState(new PlayerCloneAttackState(
                 cloneStateMachine,
-                attackData.NextAttackDataIndex
+                _attackData.NextAttackDataIndex
             ));
         }
 
         private void TryApplyForce()
         {
-            if (alreadyApplyForce)
+            if (_alreadyApplyForce)
             {
                 return;
             }
 
-            cloneStateMachine.ForceReceiver.AddForce(cloneStateMachine.transform.forward * attackData.Force);
-            alreadyApplyForce = true;
+            cloneStateMachine.ForceReceiver.AddForce(cloneStateMachine.transform.forward * _attackData.Force);
+            _alreadyApplyForce = true;
         }
 }
 

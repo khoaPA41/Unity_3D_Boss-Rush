@@ -11,6 +11,8 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
     {
         private FinalBossStateMachine bossSystem;
         private BehaviorNode topNode { get; set; }
+        
+        
 
         private void Start()
         {

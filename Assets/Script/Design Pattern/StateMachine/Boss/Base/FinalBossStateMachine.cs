@@ -112,7 +112,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public bool IsCanMove { get; set; } = false;
 
         public Transform Target { get; set; }
-
+        
         private void Awake()
         {
             _locomotionState = new FinalBossLocomotionState(this);
@@ -239,15 +239,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                      transform.position)
                        .sqrMagnitude <= AttackRange *
                        AttackRange) &&
-                   !PlayerStateMachine.Invisible;
-        }
-
-        public bool IsAttackFurtherRange()
-        {
-            return ((Player.transform.position -
-                     transform.position)
-                       .sqrMagnitude <= AttackFurtherRange *
-                       AttackFurtherRange) &&
                    !PlayerStateMachine.Invisible;
         }
 

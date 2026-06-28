@@ -232,7 +232,7 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8475394231156383638}
-    m_Position: {x: 240, y: 140, z: 0}
+    m_Position: {x: 240, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -162477683267724765}
     m_Position: {x: 560, y: -120, z: 0}
@@ -265,7 +265,7 @@ AnimatorStateMachine:
     m_Position: {x: 240, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3057979209843018784}
-    m_Position: {x: 240, y: 190, z: 0}
+    m_Position: {x: 240, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 591802094334409839}
     m_Position: {x: 560, y: 200, z: 0}
@@ -307,10 +307,13 @@ AnimatorStateMachine:
     m_Position: {x: 780, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1839865355499970743}
-    m_Position: {x: -10, y: 190, z: 0}
+    m_Position: {x: -30, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6074986737571327178}
-    m_Position: {x: -10, y: 250, z: 0}
+    m_Position: {x: -30, y: 340, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 452432097513769823}
+    m_Position: {x: -30, y: 220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -550,6 +553,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &452432097513769823
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Interact
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 61c0ca8cd3fc1614db5bf6f6a4328591, type: 2}
+  m_Tag: Interact
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &591802094334409839
 AnimatorState:
   serializedVersion: 6

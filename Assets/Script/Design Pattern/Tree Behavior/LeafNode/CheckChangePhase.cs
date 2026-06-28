@@ -21,9 +21,9 @@ public class CheckChangePhase : BehaviorNode
                 return NodeState.Failure;
             }
 
-            if ((float)bossSystem.Health.currentHealth / bossSystem.Health.maxHealth <= bossSystem.UltimateCombo[bossSystem.NextPhase].HealthThreshold)
+            if (bossSystem.Health.currentHealth / bossSystem.Health.maxHealth <= bossSystem.UltimateCombo[bossSystem.NextPhase].HealthThreshold)
             {
-                return NodeState.Success;
+                    return NodeState.Success;
             }
         }
 

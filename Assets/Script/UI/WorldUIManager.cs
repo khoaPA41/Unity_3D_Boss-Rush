@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +11,9 @@ public class WorldUIManager : MonoBehaviour
     [SerializeField] private GameObject systemUI;
 
     [Header("Tab UI")] [SerializeField] private List<GameObject> tabUIList;
-
+    
+    public event Action ActiveSystemUIEvent;
+    
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +37,13 @@ public class WorldUIManager : MonoBehaviour
 
     public void ActiveSystemUI()
     {
+        StartCoroutine(WaitToActiveCheckPoint());
+    }
+
+    IEnumerator WaitToActiveCheckPoint()
+    {
+        ActiveSystemUIEvent?.Invoke();
+        yield return new WaitForSeconds(4f);
         systemUI.SetActive(!systemUI.activeInHierarchy);
     }
 }

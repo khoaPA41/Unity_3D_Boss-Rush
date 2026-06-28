@@ -5,9 +5,9 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 {
     public class PlayerCloneChasingState : PlayerCloneBaseState
     {
-        private static readonly int Movement = Animator.StringToHash("Movement");
+        private static readonly int _movementAnimation = Animator.StringToHash("Movement");
         
-        private Vector3 movement;
+        private Vector3 _movement;
 
         public PlayerCloneChasingState(PlayerCloneStateMachine cloneStateMachine) : base(cloneStateMachine)
         {
@@ -15,19 +15,17 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Enter()
         {
-            IsFinished = false;
-            cloneStateMachine.Animator.CrossFadeInFixedTime(Movement, cloneStateMachine.AnimationCrossFade, 0);
+            // IsFinished = false;
+            cloneStateMachine.Animator.CrossFadeInFixedTime(_movementAnimation, cloneStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)
         {
-            // if (cloneStateMachine.IsAttack)
-            // {
-            //     IsFinished = true;
-            // }
-            
             Move(DirToTarget() * cloneStateMachine.MovementSpeed, deltaTime);
-            IsAttackRange();
+            if (IsAttackRange())
+            {
+                cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
+            }
             FaceTarget();
         }
 
@@ -37,7 +35,7 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
 
         public override void Exit()
         {
-            cloneStateMachine.IsChasing = false;
+            // cloneStateMachine.IsChasing = false;
         }
     }
 }

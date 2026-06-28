@@ -139,7 +139,6 @@ public class ChangeState : StateMachineBehaviour
             {
                 EditorGUI.indentLevel++;
                 script.triggerNextAction = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerNextAction);
-                script.triggerNextAction = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerNextAction);
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(3);

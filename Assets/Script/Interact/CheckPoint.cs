@@ -1,29 +1,26 @@
-using System;
+using System.Collections;
 using Script.Design_Pattern.StateMachine.Player.Base;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
     private InputReader _inputReader;
-    private UIPlayerManagers _uiPlayerManagers;
     private PlayerStateMachine _playerStateMachine;
+    
+    public bool isAlreadyActive = false;
+    public bool CanInteractCheckPoint { get; private set; }
+    
     private void Start()
     {
         _playerStateMachine = GetComponent<PlayerStateMachine>();
-        _uiPlayerManagers = GetComponent<UIPlayerManagers>();
         _inputReader = GetComponent<InputReader>();
     }
 
     private void ActiveCheckPointUI()
     {
-        WorldUIManager.instance.ActiveSystemUI();
-        _inputReader.SetCursor(!_uiPlayerManagers.systemUI.activeInHierarchy);
-
-        if (_uiPlayerManagers.systemUI.activeInHierarchy)
-        {
-            _playerStateMachine.SwitchState(new PlayerEmptyState(_playerStateMachine));
-        }
+        if (isAlreadyActive) return;
+        isAlreadyActive = true;
+        _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine));
     }
     
     private void OnTriggerEnter(Collider other)
@@ -32,13 +29,13 @@ public class CheckPoint : MonoBehaviour
         {
             _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("CheckPoint"))
         {
+            isAlreadyActive = false;
             _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
         }
     }

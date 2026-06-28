@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlayerCloneHitState : PlayerCloneBaseState
 {
-    private readonly int HitAnimationHash =  Animator.StringToHash("Hit");
-    private readonly string HitAnimationTag = "Hit";
-    
-    float previousTime = 0;
+    private readonly int _hitAnimationHash =  Animator.StringToHash("Hit");
+    private const string HitAnimationTag = "Hit";
+
+    private float _previousTime;
     
     public PlayerCloneHitState(PlayerCloneStateMachine cloneStateMachine) : base(cloneStateMachine)
     {
@@ -14,19 +14,19 @@ public class PlayerCloneHitState : PlayerCloneBaseState
 
     public override void Enter()
     {
-        IsFinished = false;
-        cloneStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, cloneStateMachine.AnimationCrossFade);
+        // IsFinished = false;
+        cloneStateMachine.Animator.CrossFadeInFixedTime(_hitAnimationHash, cloneStateMachine.AnimationCrossFade);
     }
 
     public override void Tick(float deltaTime)
     {
-        float normalizedTime = GetNormalizeTime(cloneStateMachine.Animator, HitAnimationTag, 0);
-        if (normalizedTime > previousTime && normalizedTime > .8f)
+        var normalizedTime = GetNormalizeTime(cloneStateMachine.Animator, HitAnimationTag, 0);
+        if (normalizedTime > _previousTime && normalizedTime > .8f)
         {
-            IsFinished = true;
+            // IsFinished = true;
         }
         
-        previousTime = normalizedTime;
+        _previousTime = normalizedTime;
     }
 
     public override void PhysicTick(float fixedDeltaTime)

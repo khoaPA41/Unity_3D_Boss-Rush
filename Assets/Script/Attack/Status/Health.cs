@@ -28,11 +28,24 @@ namespace Script.Attack
         public event Action DodgeAwardAction;
         public event Action<float> OnChangeHealth = delegate { };
 
+        public event Action FinalPhaseAction;
+
         private void Awake()
         {
             _playerStateMachine = GetComponent<PlayerStateMachine>();
             currentHealth = maxHealth;
             noDamage = false;
+        }
+
+
+        private void Update()
+        {
+            if (gameObject.tag != "Boss") return;
+            if (currentHealth / maxHealth <= .5f)
+            {
+                FinalPhaseAction?.Invoke();
+            }
+
         }
         
         public void DealDamage(float damage)

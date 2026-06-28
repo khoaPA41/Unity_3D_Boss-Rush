@@ -39,7 +39,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            IsFinished = true;
+            // IsFinished = true;
         }
     }
 }

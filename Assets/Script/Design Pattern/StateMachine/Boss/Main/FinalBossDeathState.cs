@@ -18,6 +18,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(
                 randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
                 FinalBossStateMachine.AnimationCrossFade);
+            FinalBossStateMachine.GetComponent<FinalBossStateMachine>().enabled = false;
         }
         
         public override void Tick(float deltaTime)

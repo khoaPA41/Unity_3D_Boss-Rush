@@ -35,12 +35,10 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
             cloneStateMachine.transform.rotation = Quaternion.LookRotation(DirToTarget());
         }
 
-        protected void IsAttackRange()
+        protected bool IsAttackRange()
         {
-            cloneStateMachine.IsAttack = (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
+            return (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
                                          cloneStateMachine.AttackRange * cloneStateMachine.AttackRange;
-            // return (cloneStateMachine.Target.transform.position - cloneStateMachine.transform.position).sqrMagnitude <=
-            //        cloneStateMachine.AttackRange * cloneStateMachine.AttackRange;
         }
     }
 }
