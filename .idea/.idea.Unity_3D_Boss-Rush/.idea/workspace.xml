@@ -12,46 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Cutscene/CutsceneManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Cutscene/CutsceneManagers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossHitState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/FreeLookState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/FreeLookState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHitState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Terrain/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Terrain/New Terrain.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/Jump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/Jump.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/NinjaJump_Land.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/NinjaJump_Land.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/NinjaJump_Start.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Jump/NinjaJump_Start.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/BackFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/BackFlip.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Left.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Right.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Right.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Roll.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Roll.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_L_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_L_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_R_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Bwd_R_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_L_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_L_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop 1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop 1.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop 1.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_R_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Fwd_R_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Left_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Left_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Right_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Jog/Jog_Right_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Sprint_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Sprint_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Walk_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Walk_Loop.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack 1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack 1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C Player.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C Player.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash_Boss.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash_Boss.anim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,61 +76,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7085560929176937E-17" />
-      <entry key="MS500" value="4.431245875572071E-4" />
-      <entry key="S2" value="0.1450879893622364" />
-      <entry key="S5" value="0.4623492913130821" />
-      <entry key="S10" value="0.7663487609452733" />
-      <entry key="S30" value="6.8568720024056224" />
-      <entry key="S60" value="19.849644993961192" />
-      <entry key="M2" value="35.247206857729545" />
-      <entry key="M5" value="51.97668173906288" />
-      <entry key="M10" value="61.85186140607296" />
-      <entry key="M15" value="66.91929502659634" />
-      <entry key="M30" value="77.39996875794179" />
-      <entry key="H1" value="120.95913055833218" />
-      <entry key="H2" value="276.2700644024098" />
-      <entry key="H4" value="656.8318629118345" />
-      <entry key="D1" value="4885.838514322935" />
-      <entry key="W1" value="11812.910144988586" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.000000005272544" />
+      <entry key="S60" value="1.0002291243015577" />
+      <entry key="M2" value="1.0492415590107649" />
+      <entry key="M5" value="2.5335291002022275" />
+      <entry key="M10" value="7.178777144151813" />
+      <entry key="M15" value="13.760972522999989" />
+      <entry key="M30" value="46.59456013671668" />
+      <entry key="H1" value="123.69078139386114" />
+      <entry key="H2" value="287.345286901252" />
+      <entry key="H4" value="657.0951217945955" />
+      <entry key="D1" value="4854.045008546966" />
+      <entry key="W1" value="11946.466643906944" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000511744878" />
-      <entry key="MS500" value="1.0348241914706149" />
-      <entry key="S2" value="1.5248645462883124" />
-      <entry key="S5" value="2.450274088114817" />
-      <entry key="S10" value="3.386356455352487" />
-      <entry key="S30" value="5.45567405530647" />
-      <entry key="S60" value="7.3208668202346425" />
-      <entry key="M2" value="9.121594106349633" />
-      <entry key="M5" value="11.189216291357212" />
-      <entry key="M10" value="13.037875001360886" />
-      <entry key="M15" value="14.369716276215822" />
-      <entry key="M30" value="17.04059758327975" />
-      <entry key="H1" value="23.805351849638978" />
-      <entry key="H2" value="48.57476173717048" />
-      <entry key="H4" value="119.36188551246187" />
-      <entry key="D1" value="974.5968961982301" />
-      <entry key="W1" value="2465.68073035246" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.40448296317186E-228" />
+      <entry key="S5" value="1.077549423490369E-91" />
+      <entry key="S10" value="4.362189657820195E-46" />
+      <entry key="S30" value="1.9663419087175677E-15" />
+      <entry key="S60" value="1.049575307509047E-7" />
+      <entry key="M2" value="7.870170043947011E-4" />
+      <entry key="M5" value="0.1705416032894828" />
+      <entry key="M10" value="1.1204279385943905" />
+      <entry key="M15" value="2.3459453455537864" />
+      <entry key="M30" value="6.519806280262109" />
+      <entry key="H1" value="15.124935503161023" />
+      <entry key="H2" value="36.86716488873602" />
+      <entry key="H4" value="99.92304798117655" />
+      <entry key="D1" value="939.5733995189335" />
+      <entry key="W1" value="2461.6449002275267" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.1166291380394584" />
-      <entry key="MS500" value="0.6776290663057959" />
-      <entry key="S2" value="1.4487565123905164" />
-      <entry key="S5" value="2.644642507308494" />
-      <entry key="S10" value="3.9207655916489164" />
-      <entry key="S30" value="12.168875145614697" />
-      <entry key="S60" value="27.069701024181985" />
-      <entry key="M2" value="44.303934924929365" />
-      <entry key="M5" value="63.130720697002666" />
-      <entry key="M10" value="74.86629081064274" />
-      <entry key="M15" value="81.27051056520372" />
-      <entry key="M30" value="94.42841991261353" />
-      <entry key="H1" value="144.75405199827344" />
-      <entry key="H2" value="324.8315445075522" />
-      <entry key="H4" value="776.1765575013385" />
-      <entry key="D1" value="5860.412237524786" />
-      <entry key="W1" value="14278.582503810674" />
+      <entry key="MS100" value="3.405135904175792E-4" />
+      <entry key="MS500" value="0.20250086840801146" />
+      <entry key="S2" value="0.6708211124411306" />
+      <entry key="S5" value="0.852398523948498" />
+      <entry key="S10" value="0.9232543116327689" />
+      <entry key="S30" value="0.9737342598353989" />
+      <entry key="S60" value="0.9870070438261294" />
+      <entry key="M2" value="1.043186670175372" />
+      <entry key="M5" value="2.6985639166538733" />
+      <entry key="M10" value="8.292091544002238" />
+      <entry key="M15" value="16.099247133449897" />
+      <entry key="M30" value="53.10638465797591" />
+      <entry key="H1" value="138.80748096681387" />
+      <entry key="H2" value="324.20199240820233" />
+      <entry key="H4" value="757.0036686934594" />
+      <entry key="D1" value="5793.596046328056" />
+      <entry key="W1" value="14408.103183196801" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -382,7 +346,7 @@
       <workItem from="1782573251774" duration="2300000" />
       <workItem from="1782623005738" duration="16603000" />
       <workItem from="1782662667748" duration="6590000" />
-      <workItem from="1782710396702" duration="9623000" />
+      <workItem from="1782710396702" duration="17172000" />
     </task>
     <servers />
   </component>

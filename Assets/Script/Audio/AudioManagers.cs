@@ -6,12 +6,28 @@ public class AudioManagers : MonoBehaviour
 {
     public static AudioManagers Instance;
 
+    [Header("Object Pooling")]
     [SerializeField] private ObjectPooling _objectPooling;
     
     [Header("Background Music")]
     [SerializeField] private AudioSource bossFight_I;
     [SerializeField] private AudioSource bossFight_II;
 
+    [Header("SFX For Boss Skill")]
+    [field:SerializeField] public AudioResource throwSwordResource;
+    [field:SerializeField] public AudioResource firstAOEResource;
+    [field:SerializeField] public AudioResource transformToTwoSwordResource;
+    [field:SerializeField] public AudioResource transformToBladeResource;
+
+    [Header("SFX For Player Skill")]
+    [field:SerializeField] public AudioResource inescapableResource;
+    [field:SerializeField] public AudioResource indestructibleResource;
+    [field:SerializeField] public AudioResource invisibleResource;
+    [field:SerializeField] public AudioResource worldBreakerResource;
+    [field:SerializeField] public AudioResource phantomRetreatResource;
+    [field:SerializeField] public AudioResource phantomMirageResource;
+    
+    
     private void Awake()
     {
         if (Instance is not null)
