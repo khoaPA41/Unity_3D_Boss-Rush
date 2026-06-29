@@ -1,7 +1,15 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class WeaponHandler : MonoBehaviour
 {
+    // [Header("Audio")]
+    // [SerializeField] private new AudioResource audio;
+    // [SerializeField] private Transform audioTransform;
+    
+    
+    [Header("Collider")]
+
     [SerializeField] private GameObject weaponRightLogic;
     [SerializeField] private GameObject weaponLeftLogic;
     [SerializeField] private GameObject otherDamageLogic;
@@ -38,6 +46,7 @@ public class WeaponHandler : MonoBehaviour
     public void OnActiveWeaponRightCollider()
     {
         weaponRightLogic?.SetActive(true);
+        // AudioManagers.Instance.PlaySound(audioTransform, audio);
     }
 
     public void OnUnActiveWeaponRightCollider()

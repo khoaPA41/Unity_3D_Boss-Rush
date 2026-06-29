@@ -8,19 +8,23 @@ namespace Script.Attack
 {
     public class Health : MonoBehaviour
     {
+        [Header("Health Value")]
         [field: SerializeField] public float maxHealth { get; set; }
         [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
         [field: SerializeField] public float reduceHealPrevDuration { get; set; }
 
+        [Header("Health Special Value")]
         [SerializeField] private float reduceHealth;
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
+        
         
         public float currentHealth;
         public bool isPerfectDodge;
         public bool isReduceDame;
         private PlayerStateMachine _playerStateMachine;
+        private PlayerSFX _playerSFX;
         public bool noDamage { get; set; }
 
         public event Action DeathAction;
@@ -32,7 +36,12 @@ namespace Script.Attack
 
         private void Awake()
         {
-            _playerStateMachine = GetComponent<PlayerStateMachine>();
+            if (gameObject.tag != "Boss")
+            {
+                _playerStateMachine = GetComponent<PlayerStateMachine>();
+                _playerSFX = GetComponent<PlayerSFX>();
+            }
+
             currentHealth = maxHealth;
             noDamage = false;
         }
@@ -71,6 +80,7 @@ namespace Script.Attack
         private IEnumerator TimeFreeHit()
         {
             Time.timeScale = timeFreeze;
+            
             yield return new WaitForSecondsRealtime(timeToBackNormal);
             Time.timeScale = 1f;
         }
@@ -79,6 +89,7 @@ namespace Script.Attack
         {
             noDamage = true;
             Time.timeScale = .5f;
+            _playerSFX.PlayPerfectDodgeSound();
             yield return new WaitForSecondsRealtime(.8f);
             Time.timeScale = 1f;
         }

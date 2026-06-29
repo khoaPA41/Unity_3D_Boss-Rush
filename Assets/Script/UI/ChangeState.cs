@@ -64,6 +64,7 @@ public class ChangeState : StateMachineBehaviour
          animationEvent.SendSituationEvent();
          _hasTriggeredSkillSituation = true;
      }
+     
      private void ReleaseObject(Animator animator, AnimatorStateInfo stateInfo)
      {
          if (_hasTriggeredRelease || stateInfo.normalizedTime < triggerReleaseObject) return;

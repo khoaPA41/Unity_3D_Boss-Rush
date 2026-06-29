@@ -13,6 +13,7 @@ public class FinalBossHitState : FinalBossBaseState
     public override void Enter()
     {
        FinalBossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationOneHash, FinalBossStateMachine.AnimationCrossFade);
+       FinalBossStateMachine.PlayerSFX.PlayHitSound();
     }
 
     public override void Tick(float deltaTime)

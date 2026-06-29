@@ -49,6 +49,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public GameObject WeaponRight { get; private set; }
         [field: SerializeField] public GameObject WeaponLeft { get; private set; }
         [field: SerializeField] public GameObject Weapon { get; private set; }
+        [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
 
         public Material WeaponRightMaterial { get; set; }
         public Material WeaponLeftMaterial { get; set; }

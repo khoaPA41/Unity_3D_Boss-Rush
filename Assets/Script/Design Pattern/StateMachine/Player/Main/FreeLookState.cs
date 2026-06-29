@@ -71,9 +71,17 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void UpdateAnimation(float deltaTime)
         {
+            var currentMovement = playerStateMachine.Animator.GetFloat(Movement);
             if (playerStateMachine.InputReader.InputMovement == Vector2.zero)
             {
-                playerStateMachine.Animator.SetFloat(Movement, 0f, playerStateMachine.AnimationCrossFade, deltaTime);
+                if (currentMovement is < 0.05f and > -0.05f)
+                {
+                    playerStateMachine.Animator.SetFloat(Movement, 0f);
+                }
+                else
+                {
+                    playerStateMachine.Animator.SetFloat(Movement, 0f, playerStateMachine.AnimationCrossFade, deltaTime);
+                }
                 return;
             }
 

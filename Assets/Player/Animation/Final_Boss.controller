@@ -92,7 +92,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 393fa25e640779246a9aa77f69ed5601, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5e0338ffa977d7e4b84659ed177464ed, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -173,7 +173,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cd1462bcf65ea3e4b8937fff971f59ef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 664e5b6d57e61bb4bbb3d25ddb89ea3f, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -314,7 +314,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a66765cac553b534895de389655630d0, type: 2}
+  m_Motion: {fileID: 7400000, guid: d5bc08d59f42d184894bf25aee3262e2, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -917,7 +917,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 393fa25e640779246a9aa77f69ed5601, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6823fe906412def4db77395c6cfc6e90, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1183,7 +1183,7 @@ BlendTree:
     m_DirectBlendParameter: Movement
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 90fd0478ab4fc9649935967fc8355c1e, type: 2}
+    m_Motion: {fileID: 7400000, guid: 5c3ebf4103dcc0c4ab759356be903661, type: 2}
     m_Threshold: 2
     m_Position: {x: 0, y: 2}
     m_TimeScale: 1
@@ -2232,7 +2232,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c10b08e0a0931634d99dea0e2cdcbbc0, type: 2}
+  m_Motion: {fileID: 7400000, guid: e0d7e7e5d3bcc5042aed4068ce30140f, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 

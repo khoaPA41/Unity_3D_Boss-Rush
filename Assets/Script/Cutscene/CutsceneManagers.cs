@@ -10,13 +10,10 @@ public class CutsceneManagers : MonoBehaviour
     [SerializeField] private GameObject cutsceneObject;
     [SerializeField] private GameObject Boss;
     [SerializeField] private Health Health;
-
     [SerializeField] private bool isTriggerCutScene;
 
     private PlayableDirector _playableDirector;
     private bool _isActiveCutscene;
-    
-    
     
     private void Awake()
     {
@@ -52,11 +49,13 @@ public class CutsceneManagers : MonoBehaviour
         }
     }
 
-    public void ActiveCutscene()
+    private void ActiveCutscene()
     {
         Time.timeScale = 1;
         Boss.SetActive(false);
         _playableDirector.Play();
+        AudioManagers.Instance.PlayerBackgroundMusic(false);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -66,5 +65,6 @@ public class CutsceneManagers : MonoBehaviour
         
         _playableDirector.Play();
         _isActiveCutscene = true;
+        AudioManagers.Instance.PlayerBackgroundMusic(true);
     }
 }

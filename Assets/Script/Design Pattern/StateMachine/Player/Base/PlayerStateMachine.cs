@@ -8,6 +8,7 @@ using Script.Design_Pattern.StateMachine.Player.Main;
 using Script.Physics;
 using Script.Target;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Script.Design_Pattern.StateMachine.Player.Base
 {
@@ -42,7 +43,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Stamina Stamina { get; private set; }
         [field: SerializeField] public int TimeToGetKnockBackHit { get; private set; } = 3;
         [field: SerializeField] public DodgeAward DodgeAward { get; private set; }
-        
+        [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
+
         [Header("Potion")]
         [field: SerializeField]
         public HealthPotion HealthPotion { get; private set; }
@@ -78,6 +80,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         [Header("Coins")]
         [field: SerializeField] public int PlayerSpiritualPower { get; private set; }
+        
+                
+        [Header("Audio")]
+        [field: SerializeField] public AudioResource SwordSwingAudioResource { get; private set; }
         public event Action<int> UpdateSpiritualPower;
         public Transform MainCameraTransform { get; private set; }
         public bool Invincible;
