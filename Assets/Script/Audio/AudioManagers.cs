@@ -18,6 +18,10 @@ public class AudioManagers : MonoBehaviour
     [field:SerializeField] public AudioResource firstAOEResource;
     [field:SerializeField] public AudioResource transformToTwoSwordResource;
     [field:SerializeField] public AudioResource transformToBladeResource;
+    [field:SerializeField] public AudioResource fireBulletResource;
+    [field:SerializeField] public AudioResource fireExplosionResource;
+    [field:SerializeField] public AudioResource waveResource;
+    [field:SerializeField] public AudioResource attractiveResource;
 
     [Header("SFX For Player Skill")]
     [field:SerializeField] public AudioResource inescapableResource;

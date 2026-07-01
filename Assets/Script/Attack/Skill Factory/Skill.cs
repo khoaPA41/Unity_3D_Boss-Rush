@@ -266,6 +266,7 @@ namespace Script.Attack.Skill_Factory
                 getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
                 getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
 
+                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.waveResource);
                 bossStateMachine.ManageAnimationSkillEvent.SituationEvent -= situationAction;
             };
             bossStateMachine.ManageAnimationSkillEvent.SituationEvent += situationAction;
@@ -342,7 +343,8 @@ namespace Script.Attack.Skill_Factory
                 var skill = getSkill.Skill.GetComponent<SwordSkill>();
                 skill.TargetPosition = caster.TargetCaster().transform.position;
                 var weaponTrail = skill.GetComponent<WeaponTrail>();
-                weaponTrail.SetDamage(100);
+                weaponTrail.SetDamage(500);
+                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.fireBulletResource);
                 manageEvent.SituationEvent -= situationAction;
             };
             manageEvent.SituationEvent += situationAction;

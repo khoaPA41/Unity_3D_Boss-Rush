@@ -14,6 +14,8 @@ public class PlayerAffectedState : PlayerBaseState
     private Transform caster;
     private SkillEffect playerEffected;
 
+    private bool isPlaySound;
+
     public PlayerAffectedState(PlayerStateMachine playerStateMachine, ICaster caster, SkillEffect skillEffect) : base(
         playerStateMachine)
     {
@@ -103,7 +105,12 @@ public class PlayerAffectedState : PlayerBaseState
 
     private void HandleAttractiveForce(float deltaTime)
     {
+        if (!isPlaySound)
+        {
+            AudioManagers.Instance.PlaySound(playerStateMachine.transform, AudioManagers.Instance.attractiveResource);
+        }
         var dir = (playerStateMachine.Boss.transform.position - playerStateMachine.transform.position).normalized;
         Move(dir * 20f, deltaTime);
+        isPlaySound = true;
     }
 }

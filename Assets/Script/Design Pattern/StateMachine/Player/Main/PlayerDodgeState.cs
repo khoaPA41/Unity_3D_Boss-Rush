@@ -57,6 +57,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             {
                 playerStateMachine.ReturnLocomotion();
             }
+
+            if (remainingTime < playerStateMachine.DodgeDuration * 0.2f)
+            {
+                            
+                if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
+                {
+                    playerStateMachine.SwitchState(new PlayerAttackState(playerStateMachine, 0));
+                }
+            }
         }
 
         public override void PhysicTick(float fixedDeltaTime)

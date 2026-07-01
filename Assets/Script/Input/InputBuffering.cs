@@ -38,14 +38,13 @@ public class InputBuffering : MonoBehaviour
     }
     
     /*register player input and assign Time.time to _lastInputTimeDictionary*/
+    /*Use in Input Reader*/
     public void Register(ActionType actionType)
     {
         if (_lastInputTimeDictionary.ContainsKey(actionType))
         {
             _lastInputTimeDictionary[actionType] = Time.time;
         }
-
-        // Debug.Log($"[InputBuffer] {actionType} at {Time.time}");
     }
     
     /*Try to consume the last valid input*/
@@ -55,13 +54,10 @@ public class InputBuffering : MonoBehaviour
         
         var lastTime = _lastInputTimeDictionary[actionType];
         var bufferWindow = _bufferWindowDictionary[actionType];
-        // Debug.Log($"[lastTime] {lastTime}");
-        // Debug.Log($"[Time.time] {Time.time}");
-        // Debug.Log($"[final] {Time.time -  lastTime}");
+
         if (Time.time - lastTime <= bufferWindow)
         {
             _lastInputTimeDictionary[actionType] = -1000f;
-            // Debug.Log("true");
             return true;
         }
         return false;

@@ -62,6 +62,7 @@ public class SwordSkill : MonoBehaviour
             {
                 var getSkill = boss.GetComponent<GetSkill>();
                 getSkill.SpawnSkill(skillNameContinue, transform.position);
+                AudioManagers.Instance.PlaySound(transform, AudioManagers.Instance.fireExplosionResource);
                 isPlayedAnotherSkill = true;
             }
             
