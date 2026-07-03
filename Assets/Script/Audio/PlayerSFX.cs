@@ -11,6 +11,7 @@ public class PlayerSFX : MonoBehaviour
 
     [Header("Attack Audio Source")]
     [SerializeField] private AudioSource attackSource;
+    [SerializeField] private AudioSource kickSource;
     [SerializeField] private AudioSource normalDodgeSource;
     [SerializeField] private AudioSource perfectDodgeSource;
 
@@ -45,6 +46,12 @@ public class PlayerSFX : MonoBehaviour
     {
         if(attackSource.isPlaying) attackSource.Stop();
         attackSource.Play();
+    }
+    
+    public void PlayKickSound()
+    {
+        if(kickSource.isPlaying) kickSource.Stop();
+        kickSource.Play();
     }
     
     public void PlayHitSound()

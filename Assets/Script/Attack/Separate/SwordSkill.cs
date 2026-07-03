@@ -10,9 +10,9 @@ public class SwordSkill : MonoBehaviour
     [SerializeField] private float homingSensitivity;
     [SerializeField] private float hitDistance;
     [SerializeField] private float timeToReturn;
-    [SerializeField] private bool isRelease = false;
-    [SerializeField] private bool isActiveAnotherSkill = false; // if this skill have effect after touch player
-    private bool isPlayedAnotherSkill = false; // if added skill has played
+    [SerializeField] private bool isRelease;
+    [SerializeField] private bool isActiveAnotherSkill; // if this skill have effect after touch player
+    private bool isPlayedAnotherSkill; // if added skill has played
     [SerializeField] private string skillNameContinue;
     public Vector3 TargetPosition { get; set; }
 
@@ -34,16 +34,13 @@ public class SwordSkill : MonoBehaviour
     
     private void OnEnable()
     {
-        boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent += Release;
-        isPlayedAnotherSkill = false;
-        _countTime = timeToReturn;
-        var direction = (TargetPosition - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
+
+        // Debug.Log($"[Bullet {GetInstanceID()}] ENABLED @ {Time.time:F3}");
     }
     
     private void OnDisable()
     {
-        boss.ManageAnimationSkillEvent.ReleasePoolObjectEvent -= Release;
+        // Debug.Log($"[Bullet {GetInstanceID()}] RELEASED @ {Time.time:F3}");
     }
 
     private void Release()
@@ -66,9 +63,7 @@ public class SwordSkill : MonoBehaviour
                 isPlayedAnotherSkill = true;
             }
             
-            if (_alreadySendEvent) return;
-            boss.ManageAnimationSkillEvent.SendNextActionEvent();
-            _alreadySendEvent = true;
+            Release();
             return;
         }
 
@@ -85,12 +80,24 @@ public class SwordSkill : MonoBehaviour
         transform.position += _currentVelocity * Time.deltaTime;
     }
 
+    public void InitializeBullet()
+    {
+        _currentVelocity = Vector3.zero;
+        isPlayedAnotherSkill = false;
+        _alreadySendEvent = false;
+        var direction = (TargetPosition - transform.position).normalized;
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {        
-            // var caster = GameObject.Find("Enemy");
             boss.TryGetComponent(out ICaster casterObj);
             GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
         }
@@ -98,11 +105,10 @@ public class SwordSkill : MonoBehaviour
         if (isRelease) return;
         if (other.CompareTag("Boss"))
         {
-            // var boss = other.GetComponent<FinalBossStateMachine>();
             var weaponTouch = other.GetComponent<WeaponHandler>();
             weaponTouch.OnGetWeapon();
             boss.SendActionEvent();
-            boss.SendReleasePoolObjectEvent();
+            Release();
         }
     }
 }

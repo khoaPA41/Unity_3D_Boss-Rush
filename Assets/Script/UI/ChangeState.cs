@@ -12,11 +12,6 @@ public class ChangeState : StateMachineBehaviour
     [SerializeField] private bool usingSkillSituation;
     [SerializeField] private float triggerSkillSituation;
     
-    [Header("Release Object Event")]
-    [Tooltip("This event can release all off Pooled Object")]
-    [SerializeField] private bool usingReleaseObject;
-    [SerializeField] private float triggerReleaseObject;
-    
     [Header("Next Action Event")]
     [Tooltip("This event can change to next animation")]
     [SerializeField] private bool usingNextAction;
@@ -30,7 +25,6 @@ public class ChangeState : StateMachineBehaviour
     [Header("Event Flag")] 
     private bool _hasTriggeredSkillSituation;
     private bool _hasTriggeredNextAction;
-    private bool _hasTriggeredRelease;
     private bool _hasTriggeredWeaponVFX;
     
     [Header("Params for weapon VFX")]
@@ -40,18 +34,14 @@ public class ChangeState : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // var bossSystem = animator.GetComponent<FinalBossStateMachine>();
-        // bossSystem.IsFinishedAttack = false;
         _hasTriggeredSkillSituation = false;
         _hasTriggeredNextAction = false;
-        _hasTriggeredRelease =  false;
         _hasTriggeredWeaponVFX = false;
     }
 
      public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
      {
          if(usingSkillSituation) SkillSituation(animator, stateInfo);
-         if(usingReleaseObject) ReleaseObject(animator, stateInfo);
          if(usingNextAction) NextAction(animator, stateInfo);
          if(usingWeaponVFX)WeaponVFX(animator, stateInfo);
      }
@@ -65,14 +55,6 @@ public class ChangeState : StateMachineBehaviour
          _hasTriggeredSkillSituation = true;
      }
      
-     private void ReleaseObject(Animator animator, AnimatorStateInfo stateInfo)
-     {
-         if (_hasTriggeredRelease || stateInfo.normalizedTime < triggerReleaseObject) return;
-         var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
-         animationEvent.SendReleasePoolObjectEvent();
-         _hasTriggeredRelease = true;
-     }
-    
      private void NextAction(Animator animator, AnimatorStateInfo stateInfo)
      {
          if (_hasTriggeredNextAction || stateInfo.normalizedTime < triggerNextAction) return;
@@ -100,8 +82,18 @@ public class ChangeState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
      public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
      {
-         // var bossSystem = animator.GetComponent<FinalBossStateMachine>();
-         // bossSystem.IsFinishedAttack = true;
+         var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
+         // if (usingSkillSituation && !_hasTriggeredSkillSituation)
+         // {
+         //     animationEvent.SendSituationEvent();
+         //     _hasTriggeredSkillSituation = true;
+         // }
+         
+         if (usingNextAction && !_hasTriggeredNextAction)
+         {
+             animationEvent.SendNextActionEvent();
+             _hasTriggeredNextAction = true;
+         }
      }
      
 #if UNITY_EDITOR
@@ -120,16 +112,6 @@ public class ChangeState : StateMachineBehaviour
             {
                 EditorGUI.indentLevel++;
                 script.triggerSkillSituation = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerSkillSituation);
-                EditorGUI.indentLevel--;
-            }
-            EditorGUILayout.Space(3);
-            
-            /*Release*/
-            script.usingReleaseObject = EditorGUILayout.ToggleLeft("Release Object Event", script.usingReleaseObject, EditorStyles.boldLabel);
-            if (script.usingReleaseObject)
-            {
-                EditorGUI.indentLevel++;
-                script.triggerReleaseObject = EditorGUILayout.FloatField("Time: 0 - 1", script.triggerReleaseObject);
                 EditorGUI.indentLevel--;
             }
             EditorGUILayout.Space(3);
@@ -157,24 +139,10 @@ public class ChangeState : StateMachineBehaviour
             }
             EditorGUILayout.Space(3);
 
-            if (GUI.changed)
-            {
-                EditorUtility.SetDirty(script);
-                serializedObject.ApplyModifiedProperties();
-            }
+            if (!GUI.changed) return;
+            EditorUtility.SetDirty(script);
+            serializedObject.ApplyModifiedProperties();
         }
     }
 #endif
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

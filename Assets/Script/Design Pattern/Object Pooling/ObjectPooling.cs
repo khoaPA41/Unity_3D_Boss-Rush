@@ -97,6 +97,7 @@ namespace Script.Design_Pattern.Object_Pooling
                 return;
             }
 
+            // if (pooledObjectDict[objectName].Contains(pooledObject)) return;
             pooledObject.gameObject.SetActive(false);
             pooledObjectDict[objectName].Push(pooledObject);
         }

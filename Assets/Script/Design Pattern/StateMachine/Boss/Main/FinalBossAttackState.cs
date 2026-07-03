@@ -19,6 +19,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         private bool isGlowing;
         private bool isSlowAnimation;
+        private bool isPlaySlowAnimationSound;
 
         public FinalBossAttackState(FinalBossStateMachine finalBossStateMachine, int normalComboIndex, int indexCombo, int index) : base(finalBossStateMachine)
         {
@@ -29,6 +30,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
+            FinalBossStateMachine.IsFinishedAttack = false;
             enterStateTime = Time.time;
             FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent += TryCombo;
             FinalBossStateMachine.ManageAnimationSkillEvent.SlashWeaponEvent += ActiveEasyEffect;
@@ -53,9 +55,10 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             {
                 Move(deltaTime);
             }
+            
             var normalizeTime = GetNormalizeTime(FinalBossStateMachine.Animator, "Attack", 0);
 
-            if (normalizeTime >= _previousTime && normalizeTime < 1f)
+            if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
                 glowCountTime += deltaTime;
                 var t = Mathf.Clamp01(glowCountTime / _attackData.AttackAnimationTime);
@@ -75,10 +78,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
                     TryApplyForce();
                 }
             }
-            else
-            {
-                FinalBossStateMachine.ReturnLocomotion();
-            }
             
             _previousTime = normalizeTime;
             Move(deltaTime);
@@ -96,7 +95,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             FinalBossStateMachine.IsAttack = false;
             FinalBossStateMachine.IsCanMove = false;
             FinalBossStateMachine.Animator.speed = 1;
-
+            FinalBossStateMachine.ManageAnimationSkillEvent.ClearSituationEvent();
             if (!FinalBossStateMachine.isBothWeaponVFX)
             {
                 if (FinalBossStateMachine.isRightWeaponVFX)
@@ -131,6 +130,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             if (time < _attackData.AttackAnimationTime)
             {
                 FinalBossStateMachine.Animator.speed = time < _attackData.AnimationStartSlowThreshold ? 1f : 0f;
+                if (isPlaySlowAnimationSound) return;
+                isPlaySlowAnimationSound = true;
                 return;
             }
         
@@ -189,6 +190,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
             {
                 FinalBossStateMachine.IsFinishedAttack = true;
                 FinalBossStateMachine.NextAttackIndex = -1;
+                FinalBossStateMachine.ReturnLocomotion();
                 return;
             }
             

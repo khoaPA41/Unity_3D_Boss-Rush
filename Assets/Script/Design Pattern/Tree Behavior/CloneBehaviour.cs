@@ -18,19 +18,15 @@ namespace Script.Design_Pattern.Tree_Behavious
         private void OnEnable()
         {
             _countTime = timeToRelease;
-            Debug.Log(_countTime);
         }
 
         private void Update()
         {
             _countTime -= Time.deltaTime;
-            Debug.Log(_countTime);
             if (_countTime <= 0)
             {
                 pooledObject.Release(gameObject.name);
             }
         }
-
-
     }
 }

@@ -194,8 +194,10 @@ namespace Script.Attack.Skill_Factory
             situationAction = () =>
             {
                 getSkill.SpawnSkill(SkillName, spawnPos);
+                
                 var throwSword = getSkill.Skill.GetComponent<SwordSkill>();
                 throwSword.TargetPosition = bossStateMachine.PlayerStateMachine.transform.position;
+                throwSword.InitializeBullet();
                 bossStateMachine.Target = throwSword.transform;
                 AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.throwSwordResource);
 
@@ -218,6 +220,7 @@ namespace Script.Attack.Skill_Factory
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             bossStateMachine.IsCanMove = true;
+            manageEvent.ClearSituationEvent();
 
             Action situationAction = null;
             situationAction = () =>
@@ -336,12 +339,16 @@ namespace Script.Attack.Skill_Factory
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var spawnPosition = caster.GetTransform().transform.position + new Vector3(2f, 3f, 0f);
 
+            manageEvent.ClearSituationEvent();
+            
             Action situationAction = null;
             situationAction = () =>
             {
                 getSkill.SpawnSkill(SkillName, spawnPosition);
+                Debug.Log(getSkill.Skill);
                 var skill = getSkill.Skill.GetComponent<SwordSkill>();
                 skill.TargetPosition = caster.TargetCaster().transform.position;
+                skill.InitializeBullet();
                 var weaponTrail = skill.GetComponent<WeaponTrail>();
                 weaponTrail.SetDamage(500);
                 AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.fireBulletResource);

@@ -17,6 +17,7 @@ public class PlayerActiveCheckPointState : PlayerBaseState
     public override void Enter()
     {
         playerStateMachine.InputReader.ActiveCheckPointAction += ExitSystemUI;
+        WorldUIManager.instance.ActiveFadeOnSystemUI();
         playerStateMachine.Animator.CrossFadeInFixedTime(_interactAnimation, playerStateMachine.AnimationCrossFade);
         playerStateMachine.InputReader.SetCursor(false);
     }
@@ -28,7 +29,8 @@ public class PlayerActiveCheckPointState : PlayerBaseState
         var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, InteractAnimationTag, 0);
         if (normalizeTime > _previousTime && normalizeTime >= .9f)
         {
-            WorldUIManager.instance.ActiveSystemUI();
+            WorldUIManager.instance.HandleActiveSystemUI();
+            WorldUIManager.instance.ActiveFadeOutSystemUI();
             isActive = true;
         }
 
@@ -49,6 +51,9 @@ public class PlayerActiveCheckPointState : PlayerBaseState
 
     private void ExitSystemUI()
     {
+        WorldUIManager.instance.ActiveFadeOnSystemUI();
+        WorldUIManager.instance.HandleActiveSystemUI();
+        WorldUIManager.instance.ActiveFadeOutSystemUI();
         if (isActive)
         {
             playerStateMachine.ReturnLocomotion();

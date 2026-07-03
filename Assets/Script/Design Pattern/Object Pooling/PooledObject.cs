@@ -6,6 +6,8 @@ namespace Script.Design_Pattern.Object_Pooling
     {
         ObjectPooling instance { get; set; }
 
+        private bool isReleased;
+        private void OnEnable() => isReleased = false;
         public ObjectPooling Instance
         {
             get => instance;
@@ -15,7 +17,9 @@ namespace Script.Design_Pattern.Object_Pooling
 
         public void Release(string name)
         {
+            if (isReleased) return;
             instance?.ReturnToPool(name, this);
+            isReleased = true;
         }
     }
 }

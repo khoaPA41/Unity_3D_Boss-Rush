@@ -22,6 +22,7 @@ public class AudioManagers : MonoBehaviour
     [field:SerializeField] public AudioResource fireExplosionResource;
     [field:SerializeField] public AudioResource waveResource;
     [field:SerializeField] public AudioResource attractiveResource;
+    [field:SerializeField] public AudioResource slowMotionAttackResource;
 
     [Header("SFX For Player Skill")]
     [field:SerializeField] public AudioResource inescapableResource;

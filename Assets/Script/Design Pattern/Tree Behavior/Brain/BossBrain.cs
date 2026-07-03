@@ -14,7 +14,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
         
         
 
-        private void Start()
+        private void Awake()
         {
             bossSystem = GetComponent<FinalBossStateMachine>();
             bossSystem.ReturnLocomotion();
@@ -23,7 +23,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
 
         private void OnEnable()
         {
-            // bossSystem.ReturnLocomotion();
+            bossSystem.ReturnLocomotion();
             // ConstructBehaviorTree();
         }
 
@@ -56,7 +56,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
             {
                 changePhaseSequence,
                 atkSequence,
-                phaseTwo,
+                // phaseTwo,
                 tacticalChasing
             });
         }

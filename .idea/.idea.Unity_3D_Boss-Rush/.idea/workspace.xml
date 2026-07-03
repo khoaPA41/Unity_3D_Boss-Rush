@@ -12,583 +12,49 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Boss/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Boss/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FireBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FireBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FireExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FireExplosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Katana/Katana In Saya.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Katana/Katana In Saya.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Katana/Saya_KatanaMokko (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Katana/Saya_KatanaMokko (1).prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/SwordSkill.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/Skill.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAffectedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerAffectedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDodgeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDodgeState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Input/InputBuffering.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Input/InputBuffering.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Crate - Surface Shader Scene.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Crate - Surface Shader Scene.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Logo Scene.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Logo Scene.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Surface Shader Scene.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Surface Shader Scene.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Small Crate_diffuse.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Small Crate_diffuse.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Demo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Demo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground2.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground2.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Bone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Bone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Brown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Brown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Dark.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Dark.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Blood.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Blood.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Bone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Bone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Dark.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Dark.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Purple.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Purple.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Cyan.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Cyan.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Orange.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Orange.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Yellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Yellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Earth.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Earth.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Frost.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Frost.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Iron.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Iron.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Lava.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Lava.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Bronze.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Bronze.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Gold.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Gold.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Silver.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Silver.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Yellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Yellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Yellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Yellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Gold.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Gold.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Yellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Yellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Yellow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Yellow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_Corrupted.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_Corrupted.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_Gold.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_Gold.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_White.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword8_White.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Purple.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Purple.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_White.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_White.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Bronze.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Bronze.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Gold.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Gold.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Silver.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Silver.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Bronze.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Bronze.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Silver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Albedo_Silver.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Textures/Sword1_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Bone.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Bone.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Sword10_Material_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Brown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Brown.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Albedo_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Brown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Brown.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Metallic_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Brown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Brown.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword10/Textures/Sword10_Normal_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Blood.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Blood.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Bone.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Bone.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Dark.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Sword11_Material_Dark.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Blood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Blood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Albedo_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Emission_Blood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Emission_Blood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Blood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Blood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Metallic_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Blood.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Blood.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Bone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Bone.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword11/Textures/Sword11_Normal_Dark.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Sword12_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword12/Textures/Sword12_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Cyan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Cyan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Orange.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Orange.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Sword13_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Cyan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Cyan.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Orange.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword13/Textures/Sword13_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Sword14_Material_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Albedo_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword14/Textures/Sword14_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Earth.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Earth.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Frost.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Frost.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Iron.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Iron.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Lava.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Sword15_Material_Lava.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Earth.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Frost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Frost.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Iron.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Iron.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Lava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Albedo_Lava.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Earth.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Frost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Frost.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Iron.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Iron.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Lava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Emission_Lava.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Earth.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Frost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Frost.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Iron.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Iron.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Lava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Metallic_Lava.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Earth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Earth.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Frost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Frost.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Iron.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Iron.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Lava.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword15/Textures/Sword15_Normal_Lava.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword2_Material_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword3_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Sword3_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Albedo_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword2/Textures/Sword2_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Textures/Sword3_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Sword4_Material_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Albedo_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword4/Textures/Sword4_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Gold.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Gold.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Sword5_Material_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Albedo_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword5/Textures/Sword5_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue 1.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue 1.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Sword6_Material_Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Yellow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Albedo_Yellow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword6/Textures/Sword6_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Textures/Sword7_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Corrupted.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Corrupted.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Gold.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_Gold.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_White.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Sword8_Material_White.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_Corrupted.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_Corrupted.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_White.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Albedo_White.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_Corrupted.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_Corrupted.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_White.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Metallic_White.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_Corrupted.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_Corrupted.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_Gold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_Gold.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_White.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword8/Textures/Sword8_Normal_White.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_FBX.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_FBX.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Purple.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Purple.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_White.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Sword9_Material_White.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Blue.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Green.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Purple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Purple.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Red.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_Red.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_White.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Albedo_White.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Emission.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Metallic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Metallic.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Blink/Art/Weapons/LowPoly/FreeSwords/Sword9/Textures/Sword9_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Easy Shockwaves VFX URP/Audio/WAV/SFX_Vefects_Shockwave_02_2s.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Easy Shockwaves VFX URP/Audio/WAV/SFX_Vefects_Shockwave_02_2s.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Materials/M_Grid.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Materials/M_Grid.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Materials/M_Grid.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Materials/M_Grid.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Meshes/SM_VFX_Background_Plate_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Meshes/SM_VFX_Background_Plate_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Meshes/SM_VFX_Background_Plate_01.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/Demo/Scene/Meshes/SM_VFX_Background_Plate_01.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_01.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_01.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_02.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_02.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_02.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_03.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_03.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_03.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_04.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_04.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_04.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_04.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_05.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_05.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_05.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_05.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_06.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_06.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_06.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_06.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_07.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_07.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_07.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_07.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_08.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_08.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_08.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_08.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_09.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_09.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_09.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_09.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_10.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_10.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_10.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_10.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_11.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_11.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_11.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_11.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_12.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_12.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_12.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_12.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_13.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_13.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_13.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_13.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_14.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_14.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_14.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Billboard_14.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Grid_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Grid_01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Grid_01.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Materials/M_Vefects_Extra_Grid_01.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Meshes/SM_Extra_Billboard_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Meshes/SM_Extra_Billboard_01.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Meshes/SM_Extra_Billboard_Base_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Meshes/SM_Extra_Billboard_Base_01.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Scenes/Vefects Secret Extra Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Scenes/Vefects Secret Extra Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Scenes/Vefects Secret Extra Scene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Scenes/Vefects Secret Extra Scene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Shaders/SH_Vefects_Extra_Billboard_01.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Shaders/SH_Vefects_Extra_Billboard_01.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Shaders/SH_Vefects_Extra_Billboard_01.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Shaders/SH_Vefects_Extra_Billboard_01.shader.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Anime_Stylized_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Anime_Stylized_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Anime_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Anime_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Essential_Trails_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Essential_Trails_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Explosions_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Explosions_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Flipbook_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Flipbook_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Item_Pickup_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Item_Pickup_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Level_Up_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Level_Up_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Loot_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Loot_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Shots_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Shots_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Slime_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Slime_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Smoke_Bombs_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Smoke_Bombs_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Space_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Space_VFX_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_VFX_Mega_Bundle_Pack_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_VFX_Mega_Bundle_Pack_Extra_01.tga.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Vignette_VFX_Extra_01.tga.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Effect/Vefects/Free Blood VFX/_ Extra/Textures/Vefects_Vignette_VFX_Extra_01.tga.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audio/PlayerSFX.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audio/PlayerSFX.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/ManageAnimationSkillEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/EventBus/ManageAnimationSkillEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/ObjectPooling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/ObjectPooling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/PooledObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Object Pooling/PooledObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossEnterPhaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerActiveCheckPointState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerActiveCheckPointState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/CloneBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/CloneBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Kick.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Kick.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack01_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack01_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack02_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack02_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack01_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack01_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack02_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack02_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack_Boss.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Attack_Boss.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Dash 1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A 1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A 2.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_A 2.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_B 1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C 1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C 2.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C 2.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Sword/Sword_Regular_C.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash6.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash6.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash7.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash7.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash9.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Character/EEJANAI_Team/FreeSwordAnimations/Animations/slash9.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Effect Graph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Effect Graph/New VFX.vfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visual Effect Graph/New VFX.vfx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TimeLine/PhaseTwoCutSceneTimeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/PhaseTwoCutSceneTimeline.playable" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,60 +117,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000281224808" />
-      <entry key="S10" value="1.000186996601154" />
-      <entry key="S30" value="1.1461001744872394" />
-      <entry key="S60" value="2.423802046957972" />
-      <entry key="M2" value="6.78682504252677" />
-      <entry key="M5" value="25.507536566524866" />
-      <entry key="M10" value="72.01902988716196" />
-      <entry key="M15" value="117.83193810100099" />
-      <entry key="M30" value="220.1750124091017" />
-      <entry key="H1" value="348.073085919769" />
-      <entry key="H2" value="537.5407465983517" />
-      <entry key="H4" value="908.3532206410779" />
-      <entry key="D1" value="5077.09470068885" />
-      <entry key="W1" value="12335.397701887166" />
+      <entry key="MS500" value="1.0000000014227561" />
+      <entry key="S2" value="1.0292606299178233" />
+      <entry key="S5" value="2.1477531018561526" />
+      <entry key="S10" value="5.291181525485021" />
+      <entry key="S30" value="12.299754546307195" />
+      <entry key="S60" value="17.586959468862467" />
+      <entry key="M2" value="25.307557954191843" />
+      <entry key="M5" value="39.49569078979576" />
+      <entry key="M10" value="65.1442671212305" />
+      <entry key="M15" value="90.22666789955133" />
+      <entry key="M30" value="141.07288198068673" />
+      <entry key="H1" value="192.5421702969087" />
+      <entry key="H2" value="285.32951332260257" />
+      <entry key="H4" value="558.6237276108492" />
+      <entry key="D1" value="4519.765312007094" />
+      <entry key="W1" value="12434.94370308797" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.0783180788116568E-156" />
-      <entry key="S2" value="1.0190294561154646E-39" />
-      <entry key="S5" value="2.5349108063318054E-16" />
-      <entry key="S10" value="1.680100210222488E-8" />
-      <entry key="S30" value="0.004042267044064368" />
-      <entry key="S60" value="0.10635879315662781" />
-      <entry key="M2" value="0.6098792871785356" />
-      <entry key="M5" value="2.6891972009547276" />
-      <entry key="M10" value="7.87691817222468" />
-      <entry key="M15" value="13.6214292530832" />
-      <entry key="M30" value="27.749144905589176" />
-      <entry key="H1" value="45.58298353520894" />
-      <entry key="H2" value="71.52833383710077" />
-      <entry key="H4" value="131.43300448140636" />
-      <entry key="D1" value="956.4306287003237" />
-      <entry key="W1" value="2509.159748830145" />
+      <entry key="MS100" value="7.908467039194575E-64" />
+      <entry key="MS500" value="2.396726411668024E-13" />
+      <entry key="S2" value="6.996905793715725E-4" />
+      <entry key="S5" value="0.05521736792387649" />
+      <entry key="S10" value="0.26734971642690986" />
+      <entry key="S30" value="1.2816920777106982" />
+      <entry key="S60" value="2.5131034032618165" />
+      <entry key="M2" value="4.0483425867016924" />
+      <entry key="M5" value="6.512913243870843" />
+      <entry key="M10" value="9.849253258282326" />
+      <entry key="M15" value="12.825129604585547" />
+      <entry key="M30" value="19.38356444984972" />
+      <entry key="H1" value="28.33409942858912" />
+      <entry key="H2" value="45.693536274161254" />
+      <entry key="H4" value="90.37483287819275" />
+      <entry key="D1" value="847.100193715405" />
+      <entry key="W1" value="2517.344646173281" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.24655817612333977" />
-      <entry key="MS500" value="0.7557599641581133" />
-      <entry key="S2" value="0.9323864864368325" />
-      <entry key="S5" value="0.9723853356198997" />
-      <entry key="S10" value="0.9862811820572357" />
-      <entry key="S30" value="1.143235424111129" />
-      <entry key="S60" value="2.5157738206695734" />
-      <entry key="M2" value="7.371585859573368" />
-      <entry key="M5" value="28.160289164763707" />
-      <entry key="M10" value="79.85153738735524" />
-      <entry key="M15" value="131.40788215733872" />
-      <entry key="M30" value="247.88474413312315" />
-      <entry key="H1" value="393.62697777324234" />
-      <entry key="H2" value="609.0475126713035" />
-      <entry key="H4" value="1039.766848080912" />
-      <entry key="D1" value="6033.502519266618" />
-      <entry key="W1" value="14844.548922137395" />
+      <entry key="MS100" value="0.8179020585577811" />
+      <entry key="MS500" value="0.9605948653435217" />
+      <entry key="S2" value="1.019388362931624" />
+      <entry key="S5" value="2.1866132760434804" />
+      <entry key="S10" value="5.528369486445731" />
+      <entry key="S30" value="13.52352285475397" />
+      <entry key="S60" value="20.03660232885705" />
+      <entry key="M2" value="29.302876058180566" />
+      <entry key="M5" value="45.97430630809276" />
+      <entry key="M10" value="74.96554437716625" />
+      <entry key="M15" value="103.02570939994754" />
+      <entry key="M30" value="160.4350105485134" />
+      <entry key="H1" value="220.86030484322114" />
+      <entry key="H2" value="331.0101958340931" />
+      <entry key="H4" value="648.9857116860923" />
+      <entry key="D1" value="5366.845349623465" />
+      <entry key="W1" value="14952.27979870939" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -923,7 +389,12 @@
       <workItem from="1782710396702" duration="17265000" />
       <workItem from="1782839807139" duration="1046000" />
       <workItem from="1782892463554" duration="4278000" />
-      <workItem from="1782924778714" duration="4028000" />
+      <workItem from="1782924778714" duration="4856000" />
+      <workItem from="1782996460744" duration="9061000" />
+      <workItem from="1783009618656" duration="659000" />
+      <workItem from="1783057848850" duration="6396000" />
+      <workItem from="1783077567574" duration="539000" />
+      <workItem from="1783089322780" duration="11240000" />
     </task>
     <servers />
   </component>

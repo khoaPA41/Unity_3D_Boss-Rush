@@ -19,6 +19,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Main
         
         public override void Enter()
         {
+            if (!FinalBossStateMachine.gameObject.activeInHierarchy) return;
             FinalBossStateMachine.ManageAnimationSkillEvent.NextActionEvent += TryCombo;
             FinalBossStateMachine.Health.noDamage = true;
             FinalBossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);

@@ -41,6 +41,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
                     return;
                 }
             }
+
+            if (dir == Vector3.zero) return;
             FinalBossStateMachine.transform.rotation = Quaternion.LookRotation(dir);
         }
 

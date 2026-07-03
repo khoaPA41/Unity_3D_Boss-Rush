@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldUIManager : MonoBehaviour
 {
@@ -12,8 +13,13 @@ public class WorldUIManager : MonoBehaviour
 
     [Header("Tab UI")] [SerializeField] private List<GameObject> tabUIList;
     
+
     public event Action ActiveSystemUIEvent;
     
+    public event Action ActiveFadeOnEvent;
+
+    public event Action ActiveFadeOutEvent;
+
     private void Awake()
     {
         if (instance == null)
@@ -37,13 +43,28 @@ public class WorldUIManager : MonoBehaviour
 
     public void ActiveSystemUI()
     {
-        StartCoroutine(WaitToActiveCheckPoint());
+        ActiveSystemUIEvent?.Invoke();
+    }
+    
+    public void ActiveFadeOnSystemUI()
+    {
+        ActiveFadeOnEvent?.Invoke();
+    }
+    
+    public void ActiveFadeOutSystemUI()
+    {
+        ActiveFadeOutEvent?.Invoke();
+    }
+    
+    public void HandleActiveSystemUI()
+    {
+        systemUI.SetActive(!systemUI.activeInHierarchy);
     }
 
     IEnumerator WaitToActiveCheckPoint()
     {
         ActiveSystemUIEvent?.Invoke();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         systemUI.SetActive(!systemUI.activeInHierarchy);
     }
 }

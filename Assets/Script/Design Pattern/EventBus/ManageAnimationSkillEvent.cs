@@ -9,6 +9,7 @@ public class ManageAnimationSkillEvent : MonoBehaviour
     public event Action SlashWeaponEvent;
     
     public void SendSituationEvent() => SituationEvent?.Invoke();
+    public void ClearSituationEvent() => SituationEvent = null;
     public void SendNextActionEvent() => NextActionEvent?.Invoke();
     public void SendReleasePoolObjectEvent() => ReleasePoolObjectEvent?.Invoke();
     public void SendSlashWeaponEventEvent() => SlashWeaponEvent?.Invoke();
