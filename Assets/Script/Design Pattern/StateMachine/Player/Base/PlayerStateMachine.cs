@@ -9,6 +9,7 @@ using Script.Physics;
 using Script.Target;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace Script.Design_Pattern.StateMachine.Player.Base
 {
@@ -77,7 +78,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         
         [Header("Effect")] [field: SerializeField]
         public CheckPoint CheckPoint { get; private set; }
-        
+        [field: SerializeField] public GameObject TargetPoint { get; set; }
+
         [Header("Coins")]
         [field: SerializeField] public int PlayerSpiritualPower { get; private set; }
         

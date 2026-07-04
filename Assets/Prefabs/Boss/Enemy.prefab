@@ -3260,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8476239609434429445
 Transform:
   m_ObjectHideFlags: 0
@@ -3985,6 +3985,7 @@ MonoBehaviour:
   jumpSource: {fileID: 2166180904551990705}
   landingSource: {fileID: 2948839741884165834}
   attackSource: {fileID: 7402185688735260419}
+  kickSource: {fileID: 0}
   normalDodgeSource: {fileID: 0}
   perfectDodgeSource: {fileID: 0}
   hitSource: {fileID: 5397536674157754388}

@@ -30,8 +30,6 @@ public class ActiveCheckPoint : MonoBehaviour
     private void Start()
     {
         WorldUIManager.instance.ActiveSystemUIEvent += HandleCheckPoint;
-        WorldUIManager.instance.ActiveFadeOnEvent += ActiveFadeOnEvent;
-        WorldUIManager.instance.ActiveFadeOutEvent += ActiveFadeOutEvent;
         treeMeshMaterial =  treeMeshRenderer.material;
         treeEmissionColor = treeMeshMaterial.GetColor("_EmissionColor");
        
@@ -39,50 +37,48 @@ public class ActiveCheckPoint : MonoBehaviour
     private void OnDisable()
     {
         WorldUIManager.instance.ActiveSystemUIEvent -= HandleCheckPoint;
-        WorldUIManager.instance.ActiveFadeOnEvent -= ActiveFadeOnEvent;
-        WorldUIManager.instance.ActiveFadeOutEvent -= ActiveFadeOutEvent;
     }
 
     private void HandleCheckPoint()
     {
-        // if (_isFirstTime)
-        // {
-        //     ActiveCheckPointFirstTime();
-        //     // return;
-        // }
-        
-        // ActiveCheckPointNextTime();
-    }
+        if (!_isFirstTime)
+        {
+            ActiveCheckPointAnotherTime();
+            return;
+        }
 
-    private void ActiveCheckPointNextTime()
-    {
-        StartCoroutine(FadeBackground(1f, 1f));
-        // WorldUIManager.instance.HandleActiveSystemUI();
-        // StartCoroutine(FadeBackground(1f, 0f));
-        
-    }
-    
-    private void ActiveFadeOnEvent()
-    {
-        StartCoroutine(FadeBackground(1f, 1f));
-
-    }
-
-    private void ActiveFadeOutEvent()
-    {
-        StartCoroutine(FadeBackground(1f, 0f));
-
+        ActiveCheckPointFirstTime();
     }
     
     private void ActiveCheckPointFirstTime()
     {
         if (!_isFirstTime) return;
-        _isFirstTime = false;
-        _checkPointVFX.Play();
-        StartCoroutine(ChangeMaterialsCoroutine());
-        leafMeshRenderer1.material = _leafMaterial1;
-        leafMeshRenderer2.material = _leafMaterial2;
-        WorldUIManager.instance.HandleActiveSystemUI();
+        StartCoroutine(FadeBackgroundSystemUI(() =>
+            {
+                _isFirstTime = false;
+                _checkPointVFX.Play();
+                StartCoroutine(ChangeMaterialsCoroutine());
+                leafMeshRenderer1.material = _leafMaterial1;
+                leafMeshRenderer2.material = _leafMaterial2;
+            },
+            ActiveCheckPointAnotherTime,
+            4f
+            ));
+        // WorldUIManager.instance.HandleActiveSystemUI();
+    }
+    
+    private void ActiveCheckPointAnotherTime()
+    {
+        StartCoroutine(FadeBackgroundSystemUI(
+            () => StartCoroutine(FadeBackground(1f, 1f)),
+            () =>
+            {
+                StartCoroutine(FadeBackground(1f, 0f));
+                WorldUIManager.instance.HandleActiveSystemUI();
+            },
+            1f
+        ));
+        
     }
     
     private IEnumerator ChangeMaterialsCoroutine(){
@@ -125,5 +121,11 @@ public class ActiveCheckPoint : MonoBehaviour
         fadeBackground.color = currentColor;
     }
 
-
+    private IEnumerator FadeBackgroundSystemUI(Action action_1, Action action_2, float time)
+    {
+        action_1?.Invoke();
+        yield return new WaitForSeconds(time);
+        action_2?.Invoke();
+        // WorldUIManager.instance.HandleActiveSystemUI();
+    }
 }

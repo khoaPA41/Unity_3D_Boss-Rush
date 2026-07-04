@@ -15,10 +15,6 @@ public class WorldUIManager : MonoBehaviour
     
 
     public event Action ActiveSystemUIEvent;
-    
-    public event Action ActiveFadeOnEvent;
-
-    public event Action ActiveFadeOutEvent;
 
     private void Awake()
     {
@@ -46,18 +42,9 @@ public class WorldUIManager : MonoBehaviour
         ActiveSystemUIEvent?.Invoke();
     }
     
-    public void ActiveFadeOnSystemUI()
-    {
-        ActiveFadeOnEvent?.Invoke();
-    }
-    
-    public void ActiveFadeOutSystemUI()
-    {
-        ActiveFadeOutEvent?.Invoke();
-    }
-    
     public void HandleActiveSystemUI()
     {
+        Debug.Log("HandleActiveSystemUI");
         systemUI.SetActive(!systemUI.activeInHierarchy);
     }
 
