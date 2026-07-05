@@ -10,7 +10,9 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public bool IsSprint { get; private set; }
     public bool IsAttack { get; set; }
     public bool IsHeavyAttack { get; set; }
-
+    public bool isCharging { get; set; }
+    
+    
     public event Action JumpAction;
     public event Action DodgeAction;
     public event Action TargetAction;
@@ -107,8 +109,16 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnHeavyAttack(InputAction.CallbackContext context)
     {
-        if (context.canceled) { IsHeavyAttack = false; }
-        else if (context.performed) { IsHeavyAttack = true; }
+        if (context.started)
+        {
+            isCharging = true;
+            IsHeavyAttack = true;
+        }
+        
+        if (context.canceled)
+        {
+            isCharging = false;
+        }
     }
 
     public void OnUsePotion(InputAction.CallbackContext context)

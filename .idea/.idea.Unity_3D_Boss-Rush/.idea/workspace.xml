@@ -12,18 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Final_Boss.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Boss/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Boss/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Base/PlayerStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerActiveCheckPointState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerActiveCheckPointState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerTargetState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerTargetState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/ChangeState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/Demo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/Demo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerCounterAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerCounterAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/New Material 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/New Material 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/UI/GUI_Parts/New Material.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,61 +80,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="5.606590868823828E-40" />
-      <entry key="MS500" value="1.4116914132226524E-8" />
-      <entry key="S2" value="0.010900211964403517" />
-      <entry key="S5" value="0.16404914728849307" />
-      <entry key="S10" value="0.4050298103779257" />
-      <entry key="S30" value="0.7417903724826389" />
-      <entry key="S60" value="1.2079455388108444" />
-      <entry key="M2" value="5.884247674528667" />
-      <entry key="M5" value="25.833953533176814" />
-      <entry key="M10" value="44.98277423200341" />
-      <entry key="M15" value="57.94624140244007" />
-      <entry key="M30" value="102.29111497523726" />
-      <entry key="H1" value="197.74423008550193" />
-      <entry key="H2" value="347.25997053438664" />
-      <entry key="H4" value="641.1534393486999" />
-      <entry key="D1" value="4563.558133511839" />
-      <entry key="W1" value="12622.361921733893" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
       <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0000000000147091" />
-      <entry key="S30" value="1.0008465205714745" />
-      <entry key="S60" value="1.0944786475773254" />
-      <entry key="M2" value="2.0732326278926942" />
-      <entry key="M5" value="5.793622925061785" />
-      <entry key="M10" value="9.65856040707149" />
-      <entry key="M15" value="12.721003168050572" />
-      <entry key="M30" value="21.149217537155746" />
-      <entry key="H1" value="35.5226577325976" />
-      <entry key="H2" value="58.311290718169104" />
-      <entry key="H4" value="104.22880227354457" />
-      <entry key="D1" value="846.6063558279388" />
-      <entry key="W1" value="2541.7357244855975" />
+      <entry key="S5" value="1.0000000000726623" />
+      <entry key="S10" value="1.0000120563500616" />
+      <entry key="S30" value="1.0377552335873583" />
+      <entry key="S60" value="1.3204846152480094" />
+      <entry key="M2" value="2.374079370624046" />
+      <entry key="M5" value="15.556236476157737" />
+      <entry key="M10" value="58.243041173712136" />
+      <entry key="M15" value="98.8599366723099" />
+      <entry key="M30" value="189.5240169250235" />
+      <entry key="H1" value="318.350756875597" />
+      <entry key="H2" value="495.6674281706196" />
+      <entry key="H4" value="805.6167248920217" />
+      <entry key="D1" value="4727.122195906656" />
+      <entry key="W1" value="12830.808328959449" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.2782869633977264E-105" />
+      <entry key="S2" value="9.722463274400597E-27" />
+      <entry key="S5" value="5.94930319896546E-11" />
+      <entry key="S10" value="1.0903008708921587E-5" />
+      <entry key="S30" value="0.036190747136527084" />
+      <entry key="S60" value="0.3113418784401853" />
+      <entry key="M2" value="1.155852839391202" />
+      <entry key="M5" value="5.877746114788257" />
+      <entry key="M10" value="16.517555386987414" />
+      <entry key="M15" value="25.592034381010894" />
+      <entry key="M30" value="44.283594888084274" />
+      <entry key="H1" value="66.91302970492673" />
+      <entry key="H2" value="95.76100433366466" />
+      <entry key="H4" value="145.0186019010301" />
+      <entry key="D1" value="885.9721870388498" />
+      <entry key="W1" value="2588.9903448897953" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.01089643489336254" />
-      <entry key="MS500" value="0.4050017402678324" />
-      <entry key="S2" value="0.8054102318012072" />
-      <entry key="S5" value="1.0560747765597898" />
-      <entry key="S10" value="1.3333001012295889" />
-      <entry key="S30" value="1.710479376460441" />
-      <entry key="S60" value="2.282517161509073" />
-      <entry key="M2" value="7.934574926009437" />
-      <entry key="M5" value="31.599060609312435" />
-      <entry key="M10" value="54.61675675040417" />
-      <entry key="M15" value="70.64512108392752" />
-      <entry key="M30" value="123.4205798956384" />
-      <entry key="H1" value="233.2489400883614" />
-      <entry key="H2" value="405.55578021138706" />
-      <entry key="H4" value="745.367887259704" />
-      <entry key="D1" value="5410.144416157645" />
-      <entry key="W1" value="15164.089022577027" />
+      <entry key="MS100" value="0.3560125488992679" />
+      <entry key="MS500" value="0.8133791981321259" />
+      <entry key="S2" value="0.9496711948786536" />
+      <entry key="S5" value="0.979556083609391" />
+      <entry key="S10" value="0.9897477474251041" />
+      <entry key="S30" value="1.0699728059602316" />
+      <entry key="S60" value="1.627617647897027" />
+      <entry key="M2" value="3.5231776195681483" />
+      <entry key="M5" value="21.411785574137298" />
+      <entry key="M10" value="74.72330431947485" />
+      <entry key="M15" value="124.41140866300451" />
+      <entry key="M30" value="233.77023352155948" />
+      <entry key="H1" value="385.2337086456526" />
+      <entry key="H2" value="591.405599140836" />
+      <entry key="H4" value="950.6169464507163" />
+      <entry key="D1" value="5613.0736901308555" />
+      <entry key="W1" value="15419.78993526292" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -366,7 +360,8 @@
       <workItem from="1783077567574" duration="539000" />
       <workItem from="1783089322780" duration="11478000" />
       <workItem from="1783144710378" duration="3243000" />
-      <workItem from="1783178482959" duration="2519000" />
+      <workItem from="1783178482959" duration="2563000" />
+      <workItem from="1783237224236" duration="2109000" />
     </task>
     <servers />
   </component>

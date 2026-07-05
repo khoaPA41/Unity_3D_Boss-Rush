@@ -13,7 +13,7 @@ public class PlayerCounterAttackState : PlayerBaseState
     {
         playerStateMachine.Animator.speed = 2f;
         playerStateMachine.Animator.CrossFadeInFixedTime(_counterattackAnimation, playerStateMachine.AnimationCrossFade);
-        playerStateMachine.DealDamage.SetDamage(50f);
+        playerStateMachine.DealDamage.SetDamage(playerStateMachine.AttackData[0].AttackDamage * 3);
     }
 
     public override void Tick(float deltaTime)
