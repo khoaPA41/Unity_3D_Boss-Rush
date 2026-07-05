@@ -542889,6 +542889,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.00012400748
       objectReference: {fileID: 0}
+    - target: {fileID: 1017035624682949722, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09437512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017035624682949722, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: m_Color.g
+      value: 0.70927817
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017035624682949722, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: m_Color.r
+      value: 0.90943396
+      objectReference: {fileID: 0}
     - target: {fileID: 1134678640070917731, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9985835
@@ -543297,6 +543309,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.05304286
       objectReference: {fileID: 0}
+    - target: {fileID: 3432282309925997200, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3459800259846356945, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.7819477
@@ -543408,6 +543424,58 @@ PrefabInstance:
     - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: subPotionList.Array.data[2].potionName
       value: BloodPomegranate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[0].hexColor
+      value: '#0CE400'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[0].quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[1].hexColor
+      value: '#E47A00'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[1].quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[2].hexColor
+      value: '#E4009F'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[2].quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[0].potionName
+      value: EmeraldGuava
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[0].timeToDone
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[1].potionName
+      value: GoldenPear
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[1].timeToDone
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[2].potionName
+      value: BloodPomegranate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
+      propertyPath: <subPotionList>k__BackingField.Array.data[2].timeToDone
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4807034959476877427, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: m_LocalRotation.w
@@ -543583,7 +543651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5740855106322436881, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: <maxHealth>k__BackingField
-      value: 10000000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5740855106322436881, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
       propertyPath: <resistance>k__BackingField

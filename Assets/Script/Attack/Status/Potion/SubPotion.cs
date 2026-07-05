@@ -18,7 +18,7 @@ public class SubPotionValue
 
 public class SubPotion : MonoBehaviour
 {
-    [SerializeField] private List<SubPotionValue> subPotionList;
+    [field:SerializeField] public List<SubPotionValue> subPotionList { get; set; }
     private Health health;
     private Stamina stamina;
 

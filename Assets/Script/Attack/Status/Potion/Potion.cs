@@ -76,4 +76,10 @@ public class Potion : MonoBehaviour
         }
         potionUsage -= usageAdded;
     }
+
+    public void Reset()
+    {
+        CurrentPotion = maxPotion;
+        OnChangePotion?.Invoke(CurrentPotion / maxPotion);
+    }
 }

@@ -54,7 +54,6 @@ namespace Script.Attack
             {
                 FinalPhaseAction?.Invoke();
             }
-
         }
         
         public void DealDamage(float damage)
@@ -149,6 +148,12 @@ namespace Script.Attack
                 return;
             }
             resistance = Mathf.Max(0, resistance - 1);
+        }
+
+        public void Reset()
+        {
+            currentHealth = maxHealth;
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
         }
     }
 }

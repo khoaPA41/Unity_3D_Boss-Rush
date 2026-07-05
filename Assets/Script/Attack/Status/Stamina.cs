@@ -72,4 +72,10 @@ public class Stamina : MonoBehaviour
         currentStamina = maxStamina;
         OnChangeStamina?.Invoke(currentStamina / maxStamina);
     }
+
+    public void Reset()
+    {
+        currentStamina = maxStamina;
+        OnChangeStamina?.Invoke(currentStamina / maxStamina);
+    }
 }

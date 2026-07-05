@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
+    public string checkpointID;
     private InputReader _inputReader;
     private PlayerStateMachine _playerStateMachine;
     
@@ -28,6 +29,8 @@ public class CheckPoint : MonoBehaviour
         if (other.CompareTag("CheckPoint"))
         {
             _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
+            GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
+            GameManagers.Instance.AutoSave();
         }
     }
 
@@ -37,6 +40,7 @@ public class CheckPoint : MonoBehaviour
         {
             isAlreadyActive = false;
             _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
+            GameManagers.Instance.AutoSave();
         }
     }
 }

@@ -51,4 +51,10 @@ public class Mana : MonoBehaviour
         currentMana = maxMana;
         OnChangeMana?.Invoke(currentMana / maxMana);
     }
+
+    public void Reset()
+    {
+        currentMana = maxMana;
+        OnChangeMana?.Invoke(currentMana / maxMana);
+    }
 }
