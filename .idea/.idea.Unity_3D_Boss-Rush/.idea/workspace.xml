@@ -12,17 +12,22 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animation/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Start.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Mana.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Mana.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Potion/Potion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Potion/Potion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Potion/SubPotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Potion/SubPotion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Stamina.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Stamina.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerDeathState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Interact/CheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Interact/CheckPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillActive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillActive.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Award/DodgeAward.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Award/DodgeAward.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/PlayerUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/PlayerUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,61 +91,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000010275663" />
-      <entry key="S10" value="1.0000333387829634" />
-      <entry key="S30" value="1.0877989871091027" />
-      <entry key="S60" value="2.4202392280300886" />
-      <entry key="M2" value="8.238944073841772" />
-      <entry key="M5" value="25.039301124705272" />
-      <entry key="M10" value="58.17829313601631" />
-      <entry key="M15" value="102.6690808303978" />
-      <entry key="M30" value="244.3072502174399" />
-      <entry key="H1" value="450.325228655575" />
-      <entry key="H2" value="722.9794483756217" />
-      <entry key="H4" value="1125.9921240130666" />
-      <entry key="D1" value="5064.562117845303" />
-      <entry key="W1" value="13540.378992159332" />
+      <entry key="MS100" value="3.949222274175174E-6" />
+      <entry key="MS500" value="0.08304286338103196" />
+      <entry key="S2" value="0.5368161572640265" />
+      <entry key="S5" value="0.7797048426113233" />
+      <entry key="S10" value="0.8830089708555193" />
+      <entry key="S30" value="0.9593749442632612" />
+      <entry key="S60" value="0.979476891361605" />
+      <entry key="M2" value="0.9899350211645555" />
+      <entry key="M5" value="1.1043788812550779" />
+      <entry key="M10" value="2.646951059215842" />
+      <entry key="M15" value="6.693619519946343" />
+      <entry key="M30" value="32.16136706800408" />
+      <entry key="H1" value="132.13638791709252" />
+      <entry key="H2" value="393.44112201550996" />
+      <entry key="H4" value="863.964227723925" />
+      <entry key="D1" value="4909.219535275297" />
+      <entry key="W1" value="13670.664526191953" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.5078480934268455E-105" />
-      <entry key="S2" value="7.076610731005985E-27" />
-      <entry key="S5" value="3.466825427996111E-11" />
-      <entry key="S10" value="5.902815200242022E-6" />
-      <entry key="S30" value="0.023620453441391534" />
-      <entry key="S60" value="0.33290080172104136" />
-      <entry key="M2" value="1.7447355672120637" />
-      <entry key="M5" value="6.702923986600211" />
-      <entry key="M10" value="16.516871569468695" />
-      <entry key="M15" value="28.057671198381307" />
-      <entry key="M30" value="61.459080097658045" />
-      <entry key="H1" value="105.9662884187184" />
-      <entry key="H2" value="158.33084098654268" />
-      <entry key="H4" value="228.03319614543327" />
-      <entry key="D1" value="962.8980254190385" />
-      <entry key="W1" value="2730.647533250958" />
+      <entry key="MS100" value="1.0000000038834875" />
+      <entry key="MS500" value="1.0207895162668856" />
+      <entry key="S2" value="1.3797179224536325" />
+      <entry key="S5" value="1.6788665943101992" />
+      <entry key="S10" value="1.8239336105400366" />
+      <entry key="S30" value="1.9383493986709797" />
+      <entry key="S60" value="2.0098249162857673" />
+      <entry key="M2" value="2.2727217181987758" />
+      <entry key="M5" value="3.105637032356169" />
+      <entry key="M10" value="5.768902834675305" />
+      <entry key="M15" value="9.887984511726971" />
+      <entry key="M30" value="24.02389206235601" />
+      <entry key="H1" value="56.087681915430366" />
+      <entry key="H2" value="120.32765147368015" />
+      <entry key="H4" value="217.95840410471385" />
+      <entry key="D1" value="986.5228547742031" />
+      <entry key="W1" value="2807.9846751867294" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8235910172675731" />
-      <entry key="MS500" value="0.9619274546647747" />
-      <entry key="S2" value="0.9903428719330246" />
-      <entry key="S5" value="0.9961259004561437" />
-      <entry key="S10" value="0.9980963235851052" />
-      <entry key="S30" value="1.1055792184358697" />
-      <entry key="S60" value="2.723510192785297" />
-      <entry key="M2" value="9.925292550966386" />
-      <entry key="M5" value="31.676865984752663" />
-      <entry key="M10" value="74.63120948649707" />
-      <entry key="M15" value="130.66025411715225" />
-      <entry key="M30" value="305.698154159457" />
-      <entry key="H1" value="556.2342120628997" />
-      <entry key="H2" value="881.2682327731044" />
-      <entry key="H4" value="1353.995196568335" />
-      <entry key="D1" value="6027.437846036429" />
-      <entry key="W1" value="16271.017344471511" />
+      <entry key="MS100" value="2.4807050436370295E-5" />
+      <entry key="MS500" value="0.18532901228163062" />
+      <entry key="S2" value="1.392409513752298" />
+      <entry key="S5" value="2.190754817772559" />
+      <entry key="S10" value="2.560384971244584" />
+      <entry key="S30" value="2.8456938457829697" />
+      <entry key="S60" value="2.9625545843683083" />
+      <entry key="M2" value="3.2482243895180383" />
+      <entry key="M5" value="4.202661511533144" />
+      <entry key="M10" value="8.408286525918315" />
+      <entry key="M15" value="16.5719488114495" />
+      <entry key="M30" value="56.171068602445615" />
+      <entry key="H1" value="188.20360848455283" />
+      <entry key="H2" value="513.7434345255776" />
+      <entry key="H4" value="1081.8978242055293" />
+      <entry key="D1" value="5895.720469424396" />
+      <entry key="W1" value="16478.639903132458" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -155,38 +160,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Unity Player.Custom Player.executor&quot;: &quot;Debug&quot;,
-    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to&quot;: &quot;Unity Editor&quot;,
-    &quot;DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider&quot;: &quot;Unity Editor&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Unity Attach To.Attach to.executor&quot;: &quot;Debug&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5582418&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "Attach to Unity Player.Custom Player.executor": "Debug",
+    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
+    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity Editor",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Unity Attach To.Attach to.executor": "Debug",
+    "XThreadsFramesViewSplitterKey": "0.5582418",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CodeLensConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Unity Attach To.Attach to">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../New folder\Boss_Rush.exe" />
@@ -368,7 +373,8 @@
       <workItem from="1783144710378" duration="3243000" />
       <workItem from="1783178482959" duration="2563000" />
       <workItem from="1783237224236" duration="9635000" />
-      <workItem from="1783259348743" duration="1751000" />
+      <workItem from="1783259348743" duration="1883000" />
+      <workItem from="1783323427539" duration="10913000" />
     </task>
     <servers />
   </component>

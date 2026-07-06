@@ -12,12 +12,14 @@ public class DodgeAward : MonoBehaviour
     private PlayerStateMachine _playerStateMachine;
     private Stamina _stamina;
     
+    public event Action<int> UpdateDodgeAwardUIAction;
+    
     private void Start()
     {
         _playerStateMachine = GetComponent<PlayerStateMachine>();
         _stamina = GetComponent<Stamina>();
     }
-
+    
     private void SetFalseAllAward()
     {
         IsRecoveryStamina = false;
@@ -32,12 +34,15 @@ public class DodgeAward : MonoBehaviour
         {
             case 1:
                 IsMovementPush = true;
+                UpdateDodgeAwardUIAction?.Invoke(1);
                 break;
             case 2:
                 IsRecoveryStamina = true;
+                UpdateDodgeAwardUIAction?.Invoke(2);
                 break;
             case 3:
                 IsCounterAttack = true;
+                UpdateDodgeAwardUIAction?.Invoke(3);
                 break;
         }
     }
@@ -78,4 +83,25 @@ public class DodgeAward : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);
         callback2?.Invoke();
     }
+
+    // This method will check exists dodge award and update UI
+    public void CallUIEvent()
+    {
+        var dodgeAwardValue = 0;
+        
+        if (IsMovementPush)
+        {
+            dodgeAwardValue = 1;
+        }
+        if ( IsRecoveryStamina)
+        {
+            dodgeAwardValue = 2;
+        }
+        if (IsCounterAttack)
+        {
+            dodgeAwardValue = 3;
+        }
+        UpdateDodgeAwardUIAction?.Invoke(dodgeAwardValue);
+    }
 }
+

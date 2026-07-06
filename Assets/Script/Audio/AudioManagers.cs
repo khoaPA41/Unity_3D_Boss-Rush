@@ -43,6 +43,7 @@ public class AudioManagers : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlayerBackgroundMusic(bool isPhaseI)

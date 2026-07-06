@@ -23,9 +23,8 @@ public class GameManagers : MonoBehaviour
         Continue,
         Respawn
     };
-    
+
     private ReasonLoadScene loadReason = ReasonLoadScene.New;
-    // private bool isLoadingGameFromSave = false;
 
     private void Awake()
     {
@@ -43,7 +42,6 @@ public class GameManagers : MonoBehaviour
 
 
     private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
-
 
 
     // ----- New Game / Continue -----
@@ -65,6 +63,7 @@ public class GameManagers : MonoBehaviour
             StartNewGame("Main");
             return;
         }
+
         loadReason = ReasonLoadScene.Continue;
 
         // isLoadingGameFromSave = true;
@@ -82,8 +81,8 @@ public class GameManagers : MonoBehaviour
         switch (loadReason)
         {
             case ReasonLoadScene.New:
-            checkpointPosition = player.transform.position;
-            break;
+                checkpointPosition = player.transform.position;
+                break;
             case ReasonLoadScene.Continue:
                 ApplySaveData(player);
                 ResetStatus();
@@ -132,8 +131,14 @@ public class GameManagers : MonoBehaviour
         subPotion.subPotionList[2].quantity = data.bloodPomegranateQuantity;
 
         // Dodge Award
-
+        stateMachine.DodgeAward.IsMovementPush = data.isMovementPush;
+        stateMachine.DodgeAward.IsRecoveryStamina = data.isRecoveryStamina;
+        stateMachine.DodgeAward.IsCounterAttack = data.isCounterAttack;
+        
         // Skill
+        stateMachine.SkillActive.changingTheGameSkill = data.changingTheGameSkill;
+        stateMachine.SkillActive.escapeSkill = data.escapeSkill;
+        stateMachine.SkillActive.responseSkill = data.responseSkill;
     }
 
     // ----- Checkpoint / Respawn / Auto save -----
@@ -177,11 +182,19 @@ public class GameManagers : MonoBehaviour
             currentHealth = health.maxHealth,
             currentMana = mana.maxMana,
             currentStamina = stamina.maxStamina,
+            currentResistance = health.resistance,
+            currentDamage = stateMachine.AttackData[0].AttackDamage,
             currentHealthPotion = healthPotion.maxPotion,
             currentManaPotion = manaPotion.maxPotion,
+            isRecoveryStamina = stateMachine.DodgeAward.IsRecoveryStamina,
+            isCounterAttack = stateMachine.DodgeAward.IsCounterAttack,
+            isMovementPush = stateMachine.DodgeAward.IsMovementPush,
             emeraldGuavaQuantity = subPotion.subPotionList[0].quantity,
             goldenPearQuantity = subPotion.subPotionList[1].quantity,
             bloodPomegranateQuantity = subPotion.subPotionList[2].quantity,
+            changingTheGameSkill = stateMachine.SkillActive.changingTheGameSkill,
+            escapeSkill = stateMachine.SkillActive.escapeSkill,
+            responseSkill = stateMachine.SkillActive.responseSkill,
         };
         SaveManagers.Instance.SaveGame(saveData);
     }
@@ -194,20 +207,26 @@ public class GameManagers : MonoBehaviour
         var mana = player.GetComponent<Mana>();
         var stamina = player.GetComponent<Stamina>();
         var stateMachine = player.GetComponent<PlayerStateMachine>();
-        
+
         // Potion
         var healthPotion = player.GetComponent<HealthPotion>();
         var manaPotion = player.GetComponent<ManaPotion>();
         // var subPotion = player.GetComponent<SubPotion>();
         
-        
         // Reset Stats
         health.Reset();
         mana.Reset();
         stamina.Reset();
-        
+
         // Reset potion
         healthPotion.Reset();
         manaPotion.Reset();
+        
+        
+        // Update Dodge Award
+        stateMachine.DodgeAward.CallUIEvent();
+        
+        // Update Skill
+        stateMachine.SkillActive.UpdateSkillUIByType();
     }
 }

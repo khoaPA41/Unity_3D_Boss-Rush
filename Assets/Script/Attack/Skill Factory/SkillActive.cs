@@ -29,7 +29,7 @@ public class SkillActive : MonoBehaviour
     public SkillActiveType responseSkill;
 
     private InputReader _inputReader;
-
+    public event Action<string> UpdateSkillUIEvent;
     public event Action<int, SkillActiveType> OnUseSkill;
 
     private void Awake()
@@ -45,7 +45,6 @@ public class SkillActive : MonoBehaviour
     private void OnDisable()
     {
         _inputReader.SkillAction -= CountCoolDown;
-
     }
     
     private void CountCoolDown(int skillNumber)
@@ -93,15 +92,34 @@ public class SkillActive : MonoBehaviour
     public void UpdateChangingTheGameSkill(string name)
     {
         changingTheGameSkill = changingTheGameList.Find(skill => skill.skillName == name);
+        UpdateSkillUIEvent?.Invoke("ChangingTheGame");
     }
 
     public void UpdateEscapeSkill(string name)
     {
         escapeSkill = escapeList.Find(skill => skill.skillName == name);
+        UpdateSkillUIEvent?.Invoke("Escape");
     }
 
     public void UpdateResponseSkill(string name)
     {
         responseSkill = responseList.Find(skill => skill.skillName == name);
+        UpdateSkillUIEvent?.Invoke("Response");
+    }
+
+    public void UpdateSkillUIByType()
+    {
+        if (changingTheGameSkill != null)
+        {
+            UpdateChangingTheGameSkill(changingTheGameSkill.skillName);
+        }
+        if (escapeSkill != null)
+        {
+            UpdateEscapeSkill(escapeSkill.skillName);
+        }
+        if (responseSkill != null)
+        {
+            UpdateResponseSkill(responseSkill.skillName);
+        }
     }
 }

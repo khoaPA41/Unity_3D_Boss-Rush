@@ -27,12 +27,26 @@ public class ActiveCheckPoint : MonoBehaviour
     private float currentTime;
     private Color treeEmissionColor;
     private Material treeMeshMaterial;
+
+
+    private void Awake()
+    {
+        // if (Instance is not null && Instance != this)
+        // {
+        //     Destroy(gameObject);
+        //     return;
+        // }
+        //
+        // Instance = this;
+        // DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         WorldUIManager.instance.ActiveSystemUIEvent += HandleCheckPoint;
         treeMeshMaterial =  treeMeshRenderer.material;
         treeEmissionColor = treeMeshMaterial.GetColor("_EmissionColor");
-       
+        // DontDestroyOnLoad(gameObject);
     }
     private void OnDisable()
     {
@@ -126,6 +140,5 @@ public class ActiveCheckPoint : MonoBehaviour
         action_1?.Invoke();
         yield return new WaitForSeconds(time);
         action_2?.Invoke();
-        // WorldUIManager.instance.HandleActiveSystemUI();
     }
 }

@@ -96,6 +96,7 @@ public class UIPlayerManagers : MonoBehaviour
         _skillActive = GetComponent<SkillActive>();
         _dodgeAward = GetComponent<DodgeAward>();
         _playerStateMachine = GetComponent<PlayerStateMachine>();
+
     }
 
     private void Start()
@@ -105,8 +106,7 @@ public class UIPlayerManagers : MonoBehaviour
         SetupStaminaSlider(_stamina.currentStamina / _stamina.maxStamina);
         SetupHealthPotionSlider(_healthPotion.CurrentPotion / _healthPotion.maxPotion);
         SetupManaPotionSlider(_manaPotion.CurrentPotion / _manaPotion.maxPotion);
-        ChangeOpacityImageSkill();
-        ChangOpacityDodgeIcon();
+        // ChangeOpacityImageSkill();
 
         foreach (var text in statusTextList)
         {
@@ -126,10 +126,12 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction += UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction += NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction += PrevSubPotionAnimation;
-        // _inputReader.SystemUIAction += ActiveSystemUI;
         _inputReader.SkillAction += UpdateSkillFilled;
+        _skillActive.UpdateSkillUIEvent += UpdateSkillUIByType;
         _skillActive.OnUseSkill += OnUpdateByCoolDown;
         _playerStateMachine.UpdateSpiritualPower += UpdateSpiritualPower;
+        _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction += ActiveDodgeAward;
+        
     }
 
     private void OnDisable()
@@ -144,10 +146,12 @@ public class UIPlayerManagers : MonoBehaviour
         _inputReader.ChangeManaPotionAction -= UpdateMainManaPotion;
         _inputReader.ChangeNextSubPotionAction -= NextSubPotionAnimation;
         _inputReader.ChangePrevSubPotionAction -= PrevSubPotionAnimation;
-        // _inputReader.SystemUIAction -= ActiveSystemUI;
         _inputReader.SkillAction -= UpdateSkillFilled;
+        _skillActive.UpdateSkillUIEvent -= UpdateSkillUIByType;
         _skillActive.OnUseSkill -= OnUpdateByCoolDown;
         _playerStateMachine.UpdateSpiritualPower -= UpdateSpiritualPower;
+        _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction -= ActiveDodgeAward;
+
     }
 
     /********************************************Setup*********************************************/
@@ -321,6 +325,25 @@ public class UIPlayerManagers : MonoBehaviour
         }
     }
 
+    private void UpdateSkillUIByType(string skillTypeName)
+    {
+        switch (skillTypeName)
+        {
+            case "ChangingTheGame":
+                UpdateChangeTheGameSkillUI();
+                break;
+            case "Escape":
+                UpdateEscapeSkillUI();
+                break;
+            case "Response":
+                UpdateResponseSkillUI();
+                break;
+            default:
+                ChangeOpacityImageSkill();
+                break;
+        }
+    }
+
     private void ChangOpacityImageUnActive()
     {
         foreach (var skillImage in skillSystemList)
@@ -333,7 +356,7 @@ public class UIPlayerManagers : MonoBehaviour
         }
     }
 
-    public void UpdateChangeTheGameSkillUI()
+    private void UpdateChangeTheGameSkillUI()
     {
         ChangOpacityImageUnActive();
         icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
@@ -341,7 +364,7 @@ public class UIPlayerManagers : MonoBehaviour
         ChangeOpacity(skillImage, 1f);
     }
 
-    public void UpdateEscapeSkillUI()
+    private void UpdateEscapeSkillUI()
     {
         ChangOpacityImageUnActive();
         icon_Escape.sprite = _skillActive.escapeSkill.skillIcon;
@@ -349,7 +372,7 @@ public class UIPlayerManagers : MonoBehaviour
         ChangeOpacity(skillImage, 1f);
     }
 
-    public void UpdateResponseSkillUI()
+    private void UpdateResponseSkillUI()
     {
         ChangOpacityImageUnActive();
         icon_Response.sprite = _skillActive.responseSkill.skillIcon;
@@ -418,8 +441,8 @@ public class UIPlayerManagers : MonoBehaviour
         ChangeOpacity(dodgeAwardImage2, .3f);
         ChangeOpacity(dodgeAwardImage3, .3f);
     }
-    
-    public void ActiveDodgeAward(int buttonNumber)
+
+    private void ActiveDodgeAward(int buttonNumber)
     {
         ChangOpacityDodgeIcon();
         switch (buttonNumber)
@@ -433,11 +456,15 @@ public class UIPlayerManagers : MonoBehaviour
             case 3: 
                 ChangeOpacity(dodgeAwardImage3, 1f);
                 break;
+            default:
+                Debug.Log("Not skill");
+                break;
         }
     }
 
     private void ChangeOpacity(Image image, float opacity)
     {
+        Debug.Log("Opacity: " + opacity);
         var tempColor = image.color;
         tempColor.a = opacity;
         image.color = tempColor;
@@ -471,6 +498,7 @@ public class UIPlayerManagers : MonoBehaviour
     {
         return statusTextList.Find(text => text.gameObject.name == name);
     }
+    
     private void UpdateStatus(float value, TextMeshProUGUI statusText)
     {
         statusText.text = value.ToString();

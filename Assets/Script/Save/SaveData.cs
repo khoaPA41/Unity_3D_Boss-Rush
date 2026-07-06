@@ -35,7 +35,10 @@ public class SaveData
     public bool isRecoveryStamina;
     public bool isCounterAttack;
     public bool isMovementPush;
-
+    public SkillActiveType changingTheGameSkill;
+    public SkillActiveType escapeSkill;
+    public SkillActiveType responseSkill;
+    
     // --------- Sub Information ---------
     public string saveDateTime;
     public bool hasSaveData;
