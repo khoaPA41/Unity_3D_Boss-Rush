@@ -49,14 +49,16 @@ namespace Script.Design_Pattern.Tree_Behavior.Brain
             
             /*Duoi theo*/
             var tacticalChasing = new TaskChasePlayerNode(bossSystem);
-            var phaseTwo = new CheckChangePhase(bossSystem);
+            
+            /*Kiem tra mau player*/
+            var finishedCombat = new CheckPlayerHealth(bossSystem); 
 
             /*Nhanh 3: uu tien tan cong truoc*/
             topNode = new BehaviorSelector(new List<BehaviorNode>
             {
+                finishedCombat,
                 changePhaseSequence,
                 atkSequence,
-                // phaseTwo,
                 tacticalChasing
             });
         }

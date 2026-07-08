@@ -64,7 +64,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
         // public AttackData[] CurrentAttackData { get; set; }
-        [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
+        // [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public WeaponTrail[] DealsDamage { get; private set; }
         [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
@@ -105,7 +105,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         public bool IsActiveUltimate { get; set; }
 
-        [field: Header("Event")] private Health Player { get; set; }
+        [field: Header("Event")] public Health Player { get; private set; }
         public PlayerStateMachine PlayerStateMachine { get; private set; }
         public bool IsWalking { get; set; }
         private State _locomotionState;
@@ -137,6 +137,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void OnEnable()
         {
+            // Player.DeathAction += FinishedCombat;
             Health.HitAction += EnterHitState;
             Health.DeathAction += EnterDeathState;
             GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
@@ -144,15 +145,16 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
 
         private void OnDisable()
         {
+            // Player.DeathAction -= FinishedCombat;
             Health.HitAction -= EnterHitState;
             Health.DeathAction -= EnterDeathState;
             GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
         }
 
-        public void ResetObjectHitList()
-        {
-            DealDamage.ResetObjectHitList();
-        }
+        // public void FinishedCombat()
+        // {
+        //      ReturnLocomotion();
+        // }
 
         public void SendEvent()
         {

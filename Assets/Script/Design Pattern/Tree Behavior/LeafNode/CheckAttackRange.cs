@@ -18,7 +18,7 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
         {
             if (!bossSystem.IsChasingState) return NodeState.Failure;
             
-            if (bossSystem.IsAttackRange() && !bossSystem.IsChangePhase)
+            if (bossSystem.IsAttackRange() && !bossSystem.IsChangePhase && bossSystem.Player.currentHealth > 0)
             {
                 return NodeState.Success;
             }

@@ -29,6 +29,23 @@ public class WorldUIManager : MonoBehaviour
         tabUIList[0].SetActive(true);
     }
 
+    /******************* Exit *******************/
+    public void ExitGame()
+    {
+        GameManagers.Instance.ExitGame();
+    }
+
+    public void ExitToTitle()
+    {
+        GameManagers.Instance.ExitToTitle();
+    }
+    
+    /******************* Sound *******************/
+
+
+    /******************* Graphics *******************/
+
+    /******************* Checkpoint *******************/
     public void ActiveTabUI(string tabName)
     {
         foreach (var tab in tabUIList)
@@ -44,14 +61,6 @@ public class WorldUIManager : MonoBehaviour
     
     public void HandleActiveSystemUI()
     {
-        Debug.Log("HandleActiveSystemUI");
-        systemUI.SetActive(!systemUI.activeInHierarchy);
-    }
-
-    IEnumerator WaitToActiveCheckPoint()
-    {
-        ActiveSystemUIEvent?.Invoke();
-        yield return new WaitForSeconds(3f);
         systemUI.SetActive(!systemUI.activeInHierarchy);
     }
 }

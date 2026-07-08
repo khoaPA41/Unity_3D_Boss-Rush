@@ -12,9 +12,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private float previousTime;
 
-        private readonly bool isKnockBack = false;
+        private readonly bool isKnockBack;
 
-        private bool alreadyApplyForce = false;
+        private bool alreadyApplyForce;
         private float force;
 
         public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
@@ -24,6 +24,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
+            previousTime = 0;
+            alreadyApplyForce = false;
             if (isKnockBack)
             {
                 force = playerStateMachine.HitKnockback;

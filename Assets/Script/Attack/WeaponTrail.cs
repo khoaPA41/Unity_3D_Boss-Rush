@@ -19,11 +19,6 @@ public class WeaponTrail : MonoBehaviour
         damage = baseDamage;
     }
 
-    private void Start()
-    {
-        _collider = GetComponent<BoxCollider>();
-    }
-
     private void OnEnable()
     {
         alreadyObjectHit.Clear();
@@ -80,6 +75,7 @@ public class WeaponTrail : MonoBehaviour
 
         if (health.noDamage) return;
         
+        Debug.Log(damage);
         health.DealDamage(damage);
         health.HitStop();
     }

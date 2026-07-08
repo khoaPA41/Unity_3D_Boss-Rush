@@ -12,22 +12,48 @@
   <component name="ChangeListManager">
     <list default="true" id="d46d1124-3124-4b92-9bdd-f517e27d3d77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_3D_Boss-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JTS_TheSamuraiSword.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JTS_TheSamuraiSword/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Audio/Audio.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Audio/Audio.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Boss/Phase_II_AOE.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Boss/Phase_II_AOE.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Boss/PullBack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Boss/PullBack.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillActive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Skill Factory/SkillActive.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Status/Award/DodgeAward.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Status/Award/DodgeAward.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Audio/AudioManagers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/Separate/TriggerSkillForBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/Separate/TriggerSkillForBoss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponHanldler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Attack/WeaponTrail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Attack/WeaponTrail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Base/FinalBossStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Boss/Main/FinalBossLocomotionState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHeavyAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/Player/Main/PlayerHitState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/Brain/BossBrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/PlayerUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/PlayerUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Save/SaveManagers.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/UIPlayerManagers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/UI/WorldUIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Hit/Hit_Chest.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Hit/Hit_Chest.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack01_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack01_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack02_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Blade/Blades2Sword_Transform_Attack02_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack01_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack01_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack02_Inplace.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Melee/Phase_3/Sword/Sword2Blades_Transform_Attack02_Inplace.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/BackFlip.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/BackFlip.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Left.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Right.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Dodge_Right.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Roll.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Dodge/Roll.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Idle/Idle_Loop.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Animation/Movement/Idle/Idle_Loop.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Character/Unity_2/Armature_Idle_Shield_Break.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Character/Unity_2/Armature_Idle_Shield_Break.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Third_Assets/Font/TheWildBreathOfZelda-15Lv SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/BeforeCombat.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TimeLine/PhaseTwoCutSceneTimeline.playable" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TimeLine/PhaseTwoCutSceneTimeline.playable" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +67,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2bbf556aa78d4253960ff7c1caa638a41e3fa8/b7/1afaa901/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5e/cf8ae6f0/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/67/ef3454fc/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a469c5cf96a43eab23a293167261e20212400/84/91d5d8a3/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,13 +100,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/StateMachine/PlayerClone/Main/PlayerCloneIdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckAttackRange.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckChangePhase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/CheckPlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskChasePlayerNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Design Pattern/Tree Behavior/LeafNode/TaskUltimateNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Environment/ActiveCheckPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Input/InputController.inputactions" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Input/InputReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Interact/CheckPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Save/GameManagers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Managers/AudioSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/UI/Billboard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/UI/StartMenuFeatures.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@a6e30d1f59f5/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
@@ -91,61 +119,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="3.949222274175174E-6" />
-      <entry key="MS500" value="0.08304286338103196" />
-      <entry key="S2" value="0.5368161572640265" />
-      <entry key="S5" value="0.7797048426113233" />
-      <entry key="S10" value="0.8830089708555193" />
-      <entry key="S30" value="0.9593749442632612" />
-      <entry key="S60" value="0.979476891361605" />
-      <entry key="M2" value="0.9899350211645555" />
-      <entry key="M5" value="1.1043788812550779" />
-      <entry key="M10" value="2.646951059215842" />
-      <entry key="M15" value="6.693619519946343" />
-      <entry key="M30" value="32.16136706800408" />
-      <entry key="H1" value="132.13638791709252" />
-      <entry key="H2" value="393.44112201550996" />
-      <entry key="H4" value="863.964227723925" />
-      <entry key="D1" value="4909.219535275297" />
-      <entry key="W1" value="13670.664526191953" />
+      <entry key="MS100" value="4.9775118793762203E-8" />
+      <entry key="MS500" value="0.03473331550467929" />
+      <entry key="S2" value="0.5331488379247796" />
+      <entry key="S5" value="1.1153663995256304" />
+      <entry key="S10" value="1.4887135673788932" />
+      <entry key="S30" value="2.442311291015284" />
+      <entry key="S60" value="4.422999786553792" />
+      <entry key="M2" value="8.261739812998641" />
+      <entry key="M5" value="14.59654871978348" />
+      <entry key="M10" value="22.458725821459687" />
+      <entry key="M15" value="34.85412245064844" />
+      <entry key="M30" value="81.36112011335791" />
+      <entry key="H1" value="166.36549668637116" />
+      <entry key="H2" value="349.99611809637867" />
+      <entry key="H4" value="766.0641008654204" />
+      <entry key="D1" value="4804.085809083752" />
+      <entry key="W1" value="13861.502258686614" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000038834875" />
-      <entry key="MS500" value="1.0207895162668856" />
-      <entry key="S2" value="1.3797179224536325" />
-      <entry key="S5" value="1.6788665943101992" />
-      <entry key="S10" value="1.8239336105400366" />
-      <entry key="S30" value="1.9383493986709797" />
-      <entry key="S60" value="2.0098249162857673" />
-      <entry key="M2" value="2.2727217181987758" />
-      <entry key="M5" value="3.105637032356169" />
-      <entry key="M10" value="5.768902834675305" />
-      <entry key="M15" value="9.887984511726971" />
-      <entry key="M30" value="24.02389206235601" />
-      <entry key="H1" value="56.087681915430366" />
-      <entry key="H2" value="120.32765147368015" />
-      <entry key="H4" value="217.95840410471385" />
-      <entry key="D1" value="986.5228547742031" />
-      <entry key="W1" value="2807.9846751867294" />
+      <entry key="MS100" value="1.0000000000009157" />
+      <entry key="MS500" value="1.0039134173785882" />
+      <entry key="S2" value="1.2913467675927723" />
+      <entry key="S5" value="1.9592445724170835" />
+      <entry key="S10" value="2.640592551334949" />
+      <entry key="S30" value="4.959286368754517" />
+      <entry key="S60" value="8.921761203150627" />
+      <entry key="M2" value="14.74454498719716" />
+      <entry key="M5" value="22.497700826101262" />
+      <entry key="M10" value="27.256457913868193" />
+      <entry key="M15" value="30.552955363799366" />
+      <entry key="M30" value="40.111711941924405" />
+      <entry key="H1" value="59.739218673670564" />
+      <entry key="H2" value="106.37035773599165" />
+      <entry key="H4" value="201.74298687738275" />
+      <entry key="D1" value="988.6474920712809" />
+      <entry key="W1" value="2868.5068380579737" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.4807050436370295E-5" />
-      <entry key="MS500" value="0.18532901228163062" />
-      <entry key="S2" value="1.392409513752298" />
-      <entry key="S5" value="2.190754817772559" />
-      <entry key="S10" value="2.560384971244584" />
-      <entry key="S30" value="2.8456938457829697" />
-      <entry key="S60" value="2.9625545843683083" />
-      <entry key="M2" value="3.2482243895180383" />
-      <entry key="M5" value="4.202661511533144" />
-      <entry key="M10" value="8.408286525918315" />
-      <entry key="M15" value="16.5719488114495" />
-      <entry key="M30" value="56.171068602445615" />
-      <entry key="H1" value="188.20360848455283" />
-      <entry key="H2" value="513.7434345255776" />
-      <entry key="H4" value="1081.8978242055293" />
-      <entry key="D1" value="5895.720469424396" />
-      <entry key="W1" value="16478.639903132458" />
+      <entry key="MS100" value="0.01468004322207426" />
+      <entry key="MS500" value="0.4429549823441875" />
+      <entry key="S2" value="1.4146637552766843" />
+      <entry key="S5" value="2.746954400536347" />
+      <entry key="S10" value="3.8965080798471394" />
+      <entry key="S30" value="7.208151437230635" />
+      <entry key="S60" value="13.122380593885554" />
+      <entry key="M2" value="22.802213260106207" />
+      <entry key="M5" value="36.96582486834195" />
+      <entry key="M10" value="49.637032495327205" />
+      <entry key="M15" value="65.34813883999914" />
+      <entry key="M30" value="121.43267773367135" />
+      <entry key="H1" value="226.07435372095196" />
+      <entry key="H2" value="456.34023130550474" />
+      <entry key="H4" value="967.7825289795707" />
+      <entry key="D1" value="5792.71134078899" />
+      <entry key="W1" value="16729.999613161275" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -160,38 +188,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "Attach to Unity Player.Custom Player.executor": "Debug",
-    "Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to": "Unity Editor",
-    "DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider": "Unity Editor",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Unity Attach To.Attach to.executor": "Debug",
-    "XThreadsFramesViewSplitterKey": "0.5582418",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CodeLensConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Unity Player.Custom Player.executor&quot;: &quot;Debug&quot;,
+    &quot;Device#class com.jetbrains.rider.plugins.unity.run.devices.UnityEditorDeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider#Unity Attach To: Attach to&quot;: &quot;Unity Editor&quot;,
+    &quot;DeviceKind#com.jetbrains.rider.plugins.unity.run.devices.UnityDevicesProvider&quot;: &quot;Unity Editor&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Unity Attach To.Attach to.executor&quot;: &quot;Debug&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5582418&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity Attach To.Attach to">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../New folder\Boss_Rush.exe" />
@@ -374,7 +402,10 @@
       <workItem from="1783178482959" duration="2563000" />
       <workItem from="1783237224236" duration="9635000" />
       <workItem from="1783259348743" duration="1883000" />
-      <workItem from="1783323427539" duration="10913000" />
+      <workItem from="1783323427539" duration="11195000" />
+      <workItem from="1783414871448" duration="6422000" />
+      <workItem from="1783428982539" duration="6480000" />
+      <workItem from="1783504271423" duration="4995000" />
     </task>
     <servers />
   </component>

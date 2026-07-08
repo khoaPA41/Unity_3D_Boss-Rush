@@ -3,11 +3,6 @@ using UnityEngine.Audio;
 
 public class WeaponHandler : MonoBehaviour
 {
-    // [Header("Audio")]
-    // [SerializeField] private new AudioResource audio;
-    // [SerializeField] private Transform audioTransform;
-    
-    
     [Header("Collider")]
 
     [SerializeField] private GameObject weaponRightLogic;
@@ -30,6 +25,7 @@ public class WeaponHandler : MonoBehaviour
 
     public void OnUnActiveWeaponCollider()
     {
+        if (specialDamageLogic == null) return;
         specialDamageLogic?.SetActive(false);
     }
     
@@ -40,13 +36,13 @@ public class WeaponHandler : MonoBehaviour
 
     public void OnUnActiveWeaponLeftCollider()
     {
+        if (weaponLeftLogic == null) return;
         weaponLeftLogic?.SetActive(false);
     }
     
     public void OnActiveWeaponRightCollider()
     {
         weaponRightLogic?.SetActive(true);
-        // AudioManagers.Instance.PlaySound(audioTransform, audio);
     }
 
     public void OnUnActiveWeaponRightCollider()

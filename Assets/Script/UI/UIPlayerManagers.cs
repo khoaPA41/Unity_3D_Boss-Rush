@@ -65,6 +65,11 @@ public class UIPlayerManagers : MonoBehaviour
     [SerializeField] private Image dodgeAwardImage1;
     [SerializeField] private Image dodgeAwardImage2;
     [SerializeField] private Image dodgeAwardImage3;
+
+    [Header("Settings UI")] [SerializeField]
+    private GameObject soundSettings;
+    [SerializeField ] private GameObject graphicSettings;
+    [SerializeField ] private GameObject exit;
     
     [Header("Spiritual Power UI")] 
     [SerializeField] private TextMeshProUGUI spiritualPowerText;
@@ -471,7 +476,6 @@ public class UIPlayerManagers : MonoBehaviour
     }
     
     /*********************************************Status UI*********************************************/
-
     private void ReviewStatusTextList(string name)
     {
         switch (name)
@@ -556,6 +560,28 @@ public class UIPlayerManagers : MonoBehaviour
                 UpdateStatus(_playerStateMachine.AttackData[0].AttackDamage, FindStatusText(name));
                 break;
         }
+    }
+    
+    /*********************************************Settings UI*********************************************/
+    public void ActiveSoundSettingUI()
+    {
+        graphicSettings.SetActive(false);
+        exit.SetActive(false);
+        soundSettings.SetActive(true);
+    }
+    
+    public void ActiveGraphicSettingUI()
+    {
+        soundSettings.SetActive(false);
+        exit.SetActive(false);
+        graphicSettings.SetActive(true);
+    }
+    
+    public void ActiveExitUI()
+    {
+        soundSettings.SetActive(false);
+        graphicSettings.SetActive(false);
+        exit.SetActive(true);
     }
     
     /*********************************************Spiritual Powe*********************************************/
