@@ -335,12 +335,15 @@ public class UIPlayerManagers : MonoBehaviour
         switch (skillTypeName)
         {
             case "ChangingTheGame":
+                if (_skillActive.changingTheGameSkill == null) break;
                 UpdateChangeTheGameSkillUI();
                 break;
             case "Escape":
+                if (_skillActive.escapeSkill == null) break;
                 UpdateEscapeSkillUI();
                 break;
             case "Response":
+                if (_skillActive.responseSkill == null) break;
                 UpdateResponseSkillUI();
                 break;
             default:
@@ -353,9 +356,9 @@ public class UIPlayerManagers : MonoBehaviour
     {
         foreach (var skillImage in skillSystemList)
         {
-            if (_skillActive.changingTheGameSkill.skillIcon == skillImage.sprite) continue;
-            if (_skillActive.escapeSkill.skillIcon == skillImage.sprite) continue;
-            if (_skillActive.responseSkill.skillIcon == skillImage.sprite) continue;
+            if (_skillActive.changingTheGameSkill != null && _skillActive.changingTheGameSkill.skillIcon == skillImage.sprite) continue;
+            if (_skillActive.escapeSkill != null && _skillActive.escapeSkill.skillIcon == skillImage.sprite) continue;
+            if (_skillActive.responseSkill != null && _skillActive.responseSkill.skillIcon == skillImage.sprite) continue;
 
             ChangeOpacity(skillImage, .3f);
         }
@@ -364,9 +367,11 @@ public class UIPlayerManagers : MonoBehaviour
     private void UpdateChangeTheGameSkillUI()
     {
         ChangOpacityImageUnActive();
-        icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
-        var skillImage = FindImage(icon_ChangingTheGame.sprite);
-        ChangeOpacity(skillImage, 1f);
+ 
+            icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
+            var skillImage = FindImage(icon_ChangingTheGame.sprite);
+            ChangeOpacity(skillImage, 1f);
+        
     }
 
     private void UpdateEscapeSkillUI()
@@ -585,9 +590,9 @@ public class UIPlayerManagers : MonoBehaviour
     }
     
     /*********************************************Spiritual Powe*********************************************/
-
     private void UpdateSpiritualPower(int value)
     {
         spiritualPowerText.SetText(": " +  value.ToString());
     }
+    
 }

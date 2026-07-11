@@ -26,6 +26,8 @@ public class PlayerDeathState : PlayerBaseState
         var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, DeathAnimationTag, 0);
         if (normalizeTime is > .9f and <= 1f)
         {
+            WorldUIManager.instance.TitleFade(0 ,1, 1f);
+            WorldUIManager.instance.BackgroundFade(0 ,1, 1f);
             GameManagers.Instance.ReturnCheckpoint();
         }
     }

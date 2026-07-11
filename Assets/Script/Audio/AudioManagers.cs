@@ -47,25 +47,13 @@ public class AudioManagers : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance is not null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Instance = this;
-        }
-        DontDestroyOnLoad(gameObject);
+        Instance = this;
     }
-
-    // private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-    // private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
-    //
-    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    // {
-    //     if(scene.name == "Main") _objectPooling = GameObject.FindWithTag("ObjectPooling").GetComponent<ObjectPooling>();
-    // }
-    
     
     public void PlayerBackgroundMusic(bool isPhaseI)
     {

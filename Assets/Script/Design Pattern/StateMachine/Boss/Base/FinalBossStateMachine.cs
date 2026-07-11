@@ -63,8 +63,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public AnimationCurve AnimationWeaponEmissionCurve { get; private set; }
         [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
-        // public AttackData[] CurrentAttackData { get; set; }
-        // [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public WeaponTrail[] DealsDamage { get; private set; }
         [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
@@ -85,12 +83,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public GameObject Neck { get; private set; }
         
-        [field: Header("TimeLine For Choke Neck")]
-        [field: SerializeField]
-        public PlayableDirector PlayableDirector { get; private set; }
-        [field: SerializeField] public int PlayerIndexInTimeLine { get; private set; }
-        [field: SerializeField] public Transform BossHand { get; private set; }
-
         [field: Header("State")]
         [field: SerializeField]
         public float ChaseDuration { get; private set; } = 4f;

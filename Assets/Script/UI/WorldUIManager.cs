@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,7 +14,9 @@ public class WorldUIManager : MonoBehaviour
 
     [Header("Tab UI")] [SerializeField] private List<GameObject> tabUIList;
 
-
+    [Header("Defeat Title UI")] 
+    [SerializeField] private Image defeatBackground;
+    [SerializeField] private TextMeshProUGUI defeatText;
     public event Action ActiveSystemUIEvent;
 
     private void Awake()
@@ -100,5 +103,42 @@ public class WorldUIManager : MonoBehaviour
     public void HandleActiveSystemUI()
     {
         systemUI.SetActive(!systemUI.activeInHierarchy);
+    }
+    
+    /********************************************Fade Defeat*********************************************/
+    public IEnumerator TitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
+    {
+        var timeElapsed = 0f;
+        var current = defeatText.color;
+        while (timeElapsed < fadeDuration)
+        {
+            var timePercentage = timeElapsed / fadeDuration;
+            var newColor = Mathf.Lerp(currentOpacity, targetOpacity, timePercentage);
+            current.a = newColor;
+            defeatText.color = current;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        current.a = targetOpacity;
+        defeatText.color = current;
+    }
+
+    public IEnumerator BackgroundFade(float currentOpacity, float targetOpacity, float fadeDuration)
+    {
+        var timeElapsed = 0f;
+        var backgroundColor = defeatBackground.color;
+
+        while (timeElapsed < fadeDuration)
+        {
+            var TimePercentage = timeElapsed / fadeDuration;
+            var newColor = Mathf.Lerp(currentOpacity, targetOpacity, TimePercentage);
+            backgroundColor.a =  newColor;
+            defeatBackground.color = backgroundColor;
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        backgroundColor.a =  targetOpacity;
+        defeatBackground.color = backgroundColor;
     }
 }
