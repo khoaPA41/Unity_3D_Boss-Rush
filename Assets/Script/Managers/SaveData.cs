@@ -50,5 +50,15 @@ public class SaveData
     public float UIVolume;
 
     // --------- Graphic Settings ---------
-
+    public int resolutionIndex;
+    public int displayModeIndex;
+    public bool vsync;
+    public int fps;
+    public int qualityPresentIndex;
+    public bool shadow;
+    public int antiAliasingIndex;
+    public int textureQualityIndex;
+    public bool bloom;
+    public bool motionBlur;
+    public bool ambientOcclusion;
 }

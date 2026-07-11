@@ -15,12 +15,13 @@ namespace Script.Design_Pattern.Object_Pooling
 
     public class ObjectPooling : MonoBehaviour
     {
+        public static ObjectPooling Instance;
         [SerializeField] private List<PoolItem> poolItemList;
 
         private Dictionary<string, Stack<PooledObject>> pooledObjectDict;
 
         private List<GameObject> parentObjectList;
-
+        
         private void Start()
         {
             parentObjectList = new List<GameObject>();

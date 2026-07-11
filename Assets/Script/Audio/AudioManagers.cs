@@ -2,6 +2,8 @@ using System.Collections;
 using Script.Design_Pattern.Object_Pooling;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 public class AudioManagers : MonoBehaviour
 {
     public static AudioManagers Instance;
@@ -32,6 +34,16 @@ public class AudioManagers : MonoBehaviour
     [field:SerializeField] public AudioResource phantomRetreatResource;
     [field:SerializeField] public AudioResource phantomMirageResource;
     
+    [Header("UI Sound")]
+    [SerializeField] private AudioSource uiAudioSource;
+    [field:SerializeField] public AudioResource buttonSoundClick_1;
+    [field:SerializeField] public AudioResource buttonSoundClick_2;
+    [field:SerializeField] public AudioResource buttonSoundClick_3;
+    [field:SerializeField] public AudioResource buttonSoundClick_4;
+    [field:SerializeField] public AudioResource buttonSoundHold_1;
+    [field:SerializeField] public AudioResource buttonSoundHold_2;
+    [field:SerializeField] public AudioResource buttonSoundHold_3;
+    [field:SerializeField] public AudioResource buttonSoundHold_4;
     
     private void Awake()
     {
@@ -46,6 +58,15 @@ public class AudioManagers : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    // private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
+    //
+    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     if(scene.name == "Main") _objectPooling = GameObject.FindWithTag("ObjectPooling").GetComponent<ObjectPooling>();
+    // }
+    
+    
     public void PlayerBackgroundMusic(bool isPhaseI)
     {
         if (isPhaseI)
@@ -71,4 +92,19 @@ public class AudioManagers : MonoBehaviour
         yield return new WaitWhile(() => audioSource.isPlaying);
         _objectPooling.ReturnToPool("Audio", pooledObject);
     }
+
+    public void PlayUISound(AudioResource resource)
+    {
+        uiAudioSource.Stop();
+        uiAudioSource.resource = resource;
+        uiAudioSource.Play();
+    }
+    
+    public void PlayUIHoldSound(AudioResource resource)
+    {
+        uiAudioSource.Stop();
+        uiAudioSource.resource = resource;
+        uiAudioSource.Play();
+    }
+
 }

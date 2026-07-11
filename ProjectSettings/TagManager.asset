@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - PlayerUI
   - AudioManager
+  - ObjectPooling
   layers:
   - Default
   - TransparentFX

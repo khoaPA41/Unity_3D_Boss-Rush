@@ -21,7 +21,8 @@ public class GameManagers : MonoBehaviour
     {
         New,
         Continue,
-        Respawn
+        Respawn,
+        Exit
     };
 
     private ReasonLoadScene loadReason = ReasonLoadScene.New;
@@ -40,9 +41,7 @@ public class GameManagers : MonoBehaviour
 
     private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
 
-
     private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
-
 
     // ----- New Game / Continue / Exit -----
     public void StartNewGame(string sceneName)
@@ -83,12 +82,14 @@ public class GameManagers : MonoBehaviour
 
     public void ExitToTitle()
     {
-        AutoSave();
+        // AutoSave();
+        loadReason = ReasonLoadScene.Exit;
         SceneManager.LoadScene("Start");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "Start") return;
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player is null) return;
 
@@ -105,9 +106,11 @@ public class GameManagers : MonoBehaviour
                 ApplySaveData(player);
                 ResetStatus();
                 break;
+            case ReasonLoadScene.Exit:
+                break;
         }
     }
-    
+
     private void ApplySaveData(GameObject player)
     {
         var data = SaveManagers.Instance.CurrentSaveData;
@@ -153,12 +156,15 @@ public class GameManagers : MonoBehaviour
         stateMachine.SkillActive.changingTheGameSkill = data.changingTheGameSkill;
         stateMachine.SkillActive.escapeSkill = data.escapeSkill;
         stateMachine.SkillActive.responseSkill = data.responseSkill;
-        
+
         // Audio
         audio._masterVolume = data.masterVolume;
         audio._bgmVolume = data.BGMVolume;
         audio._sfxVolume = data.SFXVolume;
         audio._uiVolume = data.UIVolume;
+        
+        // Graphics
+        
     }
 
     // ----- Checkpoint / Respawn / Auto save -----
@@ -217,10 +223,23 @@ public class GameManagers : MonoBehaviour
             changingTheGameSkill = stateMachine.SkillActive.changingTheGameSkill,
             escapeSkill = stateMachine.SkillActive.escapeSkill,
             responseSkill = stateMachine.SkillActive.responseSkill,
-            masterVolume =  audio._masterVolume,
+            
+            masterVolume = audio._masterVolume,
             BGMVolume = audio._bgmVolume,
             SFXVolume = audio._sfxVolume,
             UIVolume = audio._uiVolume,
+            
+            resolutionIndex = GraphicManager.Instance.resolutionIndex,
+            displayModeIndex = GraphicManager.Instance.displayModeIndex,
+            fps = GraphicManager.Instance.fps,
+            vsync = GraphicManager.Instance.vsync,
+            qualityPresentIndex = GraphicManager.Instance.qualityPresentIndex,
+            shadow = GraphicManager.Instance.shadow,
+            antiAliasingIndex = GraphicManager.Instance.antiAliasingIndex,
+            textureQualityIndex = GraphicManager.Instance.textureQualityIndex,
+            bloom = GraphicManager.Instance.bloomData,
+            motionBlur = GraphicManager.Instance.motionBlurData,
+            ambientOcclusion = GraphicManager.Instance.ambientOcclusion,
         };
         SaveManagers.Instance.SaveGame(saveData);
     }
@@ -255,6 +274,4 @@ public class GameManagers : MonoBehaviour
         // Update Skill
         stateMachine.SkillActive.UpdateSkillUIByType();
     }
-    
-    // ----- Sound Settings -----
 }

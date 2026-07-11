@@ -26,15 +26,16 @@ public class SwordSkill : MonoBehaviour
     
     private void Awake()
     {
-        var container =  GameObject.FindWithTag("Boss");
-        boss = container.GetComponentInChildren<FinalBossStateMachine>(true);
-        GetComponent<Rigidbody>();
-        _pooledObject = GetComponent<PooledObject>();
+
     }
     
     private void OnEnable()
     {
-
+        var container =  GameObject.FindWithTag("Boss");
+        if(container == null) return;
+        boss = container.GetComponentInChildren<FinalBossStateMachine>(true);
+        GetComponent<Rigidbody>();
+        _pooledObject = GetComponent<PooledObject>();
         // Debug.Log($"[Bullet {GetInstanceID()}] ENABLED @ {Time.time:F3}");
     }
     
