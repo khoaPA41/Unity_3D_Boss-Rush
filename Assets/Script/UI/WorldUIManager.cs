@@ -106,7 +106,20 @@ public class WorldUIManager : MonoBehaviour
     }
     
     /********************************************Fade Defeat*********************************************/
-    public IEnumerator TitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
+
+    public void StartCoroutineTitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
+    {
+        StartCoroutine(TitleFade(currentOpacity, targetOpacity, fadeDuration));
+        
+    }
+    
+    public void StartCoroutineBackgroundFade(float currentOpacity, float targetOpacity, float fadeDuration)
+    {
+        StartCoroutine(BackgroundFade(currentOpacity, targetOpacity, fadeDuration));
+        
+    }
+    
+    private IEnumerator TitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
         var timeElapsed = 0f;
         var current = defeatText.color;
@@ -124,7 +137,7 @@ public class WorldUIManager : MonoBehaviour
         defeatText.color = current;
     }
 
-    public IEnumerator BackgroundFade(float currentOpacity, float targetOpacity, float fadeDuration)
+    private IEnumerator BackgroundFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
         var timeElapsed = 0f;
         var backgroundColor = defeatBackground.color;

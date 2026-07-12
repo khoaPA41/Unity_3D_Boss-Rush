@@ -11,7 +11,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public bool IsAttack { get; set; }
     public bool IsHeavyAttack { get; set; }
     public bool isCharging { get; set; }
-    
+    public bool IsSetting { get; set; }
     
     public event Action JumpAction;
     public event Action DodgeAction;
@@ -25,8 +25,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action<int> SkillAction;
     public event Action SystemUIAction;
     public event Action ActiveCheckPointAction;
-
-
+    
     private InputController inputActions;
     private bool cursorInputForLook = true;
     private bool cursorLocked = true;
@@ -178,7 +177,29 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnSystem(InputAction.CallbackContext context)
     {
-        if (context.performed) SystemUIAction?.Invoke();
+        // if (context.performed) SystemUIAction?.Invoke();
+        if (context.started)
+        {
+            IsSetting = true;
+        }
+        
+        if (context.canceled)
+        {
+            IsSetting = false;
+        }
+    }
+
+    public void OnSetting(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            IsSetting = true;
+        }
+        
+        if (context.canceled)
+        {
+            IsSetting = false;
+        }
     }
 
 

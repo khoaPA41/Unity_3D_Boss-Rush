@@ -168,7 +168,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -231,6 +231,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""name"": ""System"",
                     ""type"": ""Button"",
                     ""id"": ""65843019-0b21-4634-b1ab-a2c784e4fbc1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Setting"",
+                    ""type"": ""Button"",
+                    ""id"": ""9197241d-2b35-4a4a-947b-c87b82196ca2"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -695,7 +704,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Heavy Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -730,6 +739,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""System"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""991a958d-3551-46b6-a05b-2a42935bd43b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Setting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1333,6 +1353,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_Player_UsePotion = m_Player.FindAction("Use Potion", throwIfNotFound: true);
         m_Player_ChangeMainPotion = m_Player.FindAction("Change Main Potion", throwIfNotFound: true);
         m_Player_System = m_Player.FindAction("System", throwIfNotFound: true);
+        m_Player_Setting = m_Player.FindAction("Setting", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1442,6 +1463,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UsePotion;
     private readonly InputAction m_Player_ChangeMainPotion;
     private readonly InputAction m_Player_System;
+    private readonly InputAction m_Player_Setting;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1518,6 +1540,10 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @System => m_Wrapper.m_Player_System;
         /// <summary>
+        /// Provides access to the underlying input action "Player/Setting".
+        /// </summary>
+        public InputAction @Setting => m_Wrapper.m_Player_Setting;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -1591,6 +1617,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @System.started += instance.OnSystem;
             @System.performed += instance.OnSystem;
             @System.canceled += instance.OnSystem;
+            @Setting.started += instance.OnSetting;
+            @Setting.performed += instance.OnSetting;
+            @Setting.canceled += instance.OnSetting;
         }
 
         /// <summary>
@@ -1650,6 +1679,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @System.started -= instance.OnSystem;
             @System.performed -= instance.OnSystem;
             @System.canceled -= instance.OnSystem;
+            @Setting.started -= instance.OnSetting;
+            @Setting.performed -= instance.OnSetting;
+            @Setting.canceled -= instance.OnSetting;
         }
 
         /// <summary>
@@ -2062,6 +2094,13 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSystem(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Setting" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSetting(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
