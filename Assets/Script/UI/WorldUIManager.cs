@@ -121,6 +121,7 @@ public class WorldUIManager : MonoBehaviour
     
     private IEnumerator TitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
+        defeatText.gameObject.SetActive(true);
         var timeElapsed = 0f;
         var current = defeatText.color;
         while (timeElapsed < fadeDuration)

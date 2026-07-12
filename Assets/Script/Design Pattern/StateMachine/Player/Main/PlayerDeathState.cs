@@ -24,10 +24,14 @@ public class PlayerDeathState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, DeathAnimationTag, 0);
-        if (normalizeTime is > .9f and <= 1f)
+        if (normalizeTime is > .5f and <= 1f)
         {
             WorldUIManager.instance.StartCoroutineTitleFade(0 ,1, 1f);
             WorldUIManager.instance.StartCoroutineBackgroundFade(0 ,1, 1f);
+        }
+
+        if (normalizeTime is > .99f and <= 1f)
+        {
             GameManagers.Instance.ReturnCheckpoint();
         }
     }
