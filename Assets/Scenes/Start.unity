@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1205343490}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &230244735
@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHADOW RUSH
+  m_text: RE - END
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4fbfb287d6b8d584fa89cbb0e2c989ec, type: 2}
   m_sharedMaterial: {fileID: -6073343508642961129, guid: 4fbfb287d6b8d584fa89cbb0e2c989ec, type: 2}

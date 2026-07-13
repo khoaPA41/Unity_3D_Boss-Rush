@@ -33,6 +33,12 @@ namespace Script.Attack
         public event Action<float> OnChangeHealth = delegate { };
 
         public event Action FinalPhaseAction;
+        
+        public event Action EndGameAction;
+
+        private bool isPhaseII;
+        private bool isEndGame;
+
 
         private void Awake()
         {
@@ -50,9 +56,18 @@ namespace Script.Attack
         private void Update()
         {
             if (gameObject.tag != "Boss") return;
-            if (currentHealth / maxHealth <= .5f)
+            if (currentHealth / maxHealth <= .5f && !isPhaseII)
             {
+                // Debug.Log("Phase II");
                 FinalPhaseAction?.Invoke();
+                isPhaseII = true;
+            }
+
+            if (currentHealth / maxHealth <= 0f  && !isEndGame)
+            {
+                // Debug.Log("End Game");
+                EndGameAction?.Invoke();
+                isEndGame = true;
             }
         }
         

@@ -94,9 +94,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.Animator.SetFloat(Movement, .5f, playerStateMachine.AnimationCrossFade, deltaTime);
         }
 
-        private void ActiveSysUIScene()
-        {
-            playerStateMachine.SwitchState(new PlayerActiveCheckPointState(playerStateMachine));
-        }
+        // private void ActiveSysUIScene()
+        // {
+        //     playerStateMachine.SwitchState(new PlayerActiveCheckPointState(playerStateMachine, true));
+        // }
     }
 }

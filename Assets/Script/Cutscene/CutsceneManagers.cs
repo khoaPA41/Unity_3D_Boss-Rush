@@ -2,6 +2,7 @@ using System;
 using Script.Attack;
 using Script.Design_Pattern.StateMachine.Boss.Base;
 using Script.Design_Pattern.StateMachine.Boss.Main;
+using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -12,16 +13,20 @@ public class CutsceneManagers : MonoBehaviour
     [SerializeField] private GameObject Boss;
     [SerializeField] private Health Health;
     [SerializeField] private bool isTriggerCutScene;
+    [SerializeField] private bool isEndGame;
+
     [SerializeField] private float holdTimeLimit;
     [SerializeField] private float timeToSkip;
     [SerializeField] private InputActionReference skipAction;
     private PlayableDirector _playableDirector;
-    public bool _isActiveCutscene;
-    public bool _isSkip;
-    public float _holdTime;
+    private PlayerStateMachine _playerStateMachine;
+    private bool _isActiveCutscene;
+    private bool _isSkip;
+    private float _holdTime;
     private void Awake()
     {
         _playableDirector = GetComponent<PlayableDirector>();
+        _playerStateMachine = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>();
     }
 
     private void OnEnable()
@@ -29,7 +34,15 @@ public class CutsceneManagers : MonoBehaviour
         _playableDirector.stopped += UnActiveCutscene;
         if(!isTriggerCutScene)
         {
-            Health.FinalPhaseAction += ActiveCutscene;
+            if (isEndGame)
+            {
+                Health.EndGameAction += ActiveEndGameScene;
+            }
+            else
+            {
+                Health.FinalPhaseAction += ActiveCutscene;
+            }
+            
         }
 
         if (skipAction != null && skipAction.action != null)
@@ -45,14 +58,20 @@ public class CutsceneManagers : MonoBehaviour
         _playableDirector.stopped -= UnActiveCutscene;
         if(!isTriggerCutScene)
         {
-            Health.FinalPhaseAction -= ActiveCutscene;
+            if (isEndGame)
+            {
+                Health.EndGameAction -= ActiveEndGameScene;
+            }
+            else
+            {
+                Health.FinalPhaseAction -= ActiveCutscene;
+            }
         }
         
         if (skipAction != null && skipAction.action != null)
         {
             skipAction.action.performed -= OnSkipActionPerformed;
             skipAction.action.canceled -= OnCancelSkipActionPerformed;
-            // skipAction.action.Disable();
         }
     }
 
@@ -73,11 +92,17 @@ public class CutsceneManagers : MonoBehaviour
     {
         if(!_isActiveCutscene) return;
         _isSkip = false;
-        
     }
 
     private void UnActiveCutscene(PlayableDirector director)
     {
+        if (isEndGame)
+        {
+            _playerStateMachine.InputReader.SetCursor(false);
+            GameManagers.Instance.ReturnTitle();
+            return;
+        }
+        
         cutsceneObject.SetActive(false);
         Boss.SetActive(true);
         if (!isTriggerCutScene)
@@ -97,6 +122,15 @@ public class CutsceneManagers : MonoBehaviour
         AudioManagers.Instance.PlayerBackgroundMusic(false);
     }
 
+    private void ActiveEndGameScene()
+    {
+        if(isTriggerCutScene) return;
+        
+        Time.timeScale = 1;
+        _playableDirector.Play();
+        _isActiveCutscene = true;
+        GameManagers.Instance.AutoSave();
+    }
 
     private void HoldToSkip()
     {

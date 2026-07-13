@@ -65,7 +65,6 @@ public class ActiveCheckPoint : MonoBehaviour
             ActiveCheckPointAnotherTime,
             4f
             ));
-        // WorldUIManager.instance.HandleActiveSystemUI();
     }
     
     private void ActiveCheckPointAnotherTime()

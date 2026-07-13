@@ -70,6 +70,12 @@ public class UIPlayerManagers : MonoBehaviour
     private GameObject soundSettings;
     [SerializeField ] private GameObject graphicSettings;
     [SerializeField ] private GameObject exit;
+
+    [Header("Settings Non Checkpoint UI")] [SerializeField]
+    private GameObject settingsNonCheckpoint;
+    [SerializeField] private GameObject soundNonCheckpointSettings;
+    [SerializeField ] private GameObject graphicNonCheckpointSettings;
+    [SerializeField ] private GameObject exitNonCheckpoint;
     
     [Header("Spiritual Power UI")] 
     [SerializeField] private TextMeshProUGUI spiritualPowerText;
@@ -85,7 +91,6 @@ public class UIPlayerManagers : MonoBehaviour
     private SkillActive _skillActive;
     private DodgeAward _dodgeAward;
     private PlayerStateMachine _playerStateMachine;
-
     public event Action DodgeAwardAction;
     // private bool _isPrevHealthChanged;
 
@@ -136,7 +141,7 @@ public class UIPlayerManagers : MonoBehaviour
         _skillActive.OnUseSkill += OnUpdateByCoolDown;
         _playerStateMachine.UpdateSpiritualPower += UpdateSpiritualPower;
         _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction += ActiveDodgeAward;
-        
+        _inputReader.SettingsUIAction += ActiveNonCheckpointSettingsUI;
     }
 
     private void OnDisable()
@@ -156,7 +161,7 @@ public class UIPlayerManagers : MonoBehaviour
         _skillActive.OnUseSkill -= OnUpdateByCoolDown;
         _playerStateMachine.UpdateSpiritualPower -= UpdateSpiritualPower;
         _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction -= ActiveDodgeAward;
-
+        _inputReader.SettingsUIAction -= ActiveNonCheckpointSettingsUI;
     }
 
     /********************************************Setup*********************************************/
@@ -308,15 +313,12 @@ public class UIPlayerManagers : MonoBehaviour
         slider.value = value;
     }
 
-    /*********************************************System UI*********************************************/
-    private void ActiveSystemUI()
+    /*********************************************Settings UI*********************************************/
+    private void ActiveNonCheckpointSettingsUI()
     {
-        systemUI.SetActive(!systemUI.activeInHierarchy);
-        _inputReader.SetCursor(!systemUI.activeInHierarchy);
-        if (systemUI.activeInHierarchy)
-        {
-            _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine));
-        }
+        if (WorldUIManager.instance.isActiveSettingsUI) return;
+
+        _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, false));
     }
 
     /*********************************************Skill UI*********************************************/
@@ -589,10 +591,30 @@ public class UIPlayerManagers : MonoBehaviour
         exit.SetActive(true);
     }
     
-    /*********************************************Spiritual Powe*********************************************/
+    public void ActiveSoundSettingNonCheckpointUI()
+    {
+        graphicNonCheckpointSettings.SetActive(false);
+        exitNonCheckpoint.SetActive(false);
+        soundNonCheckpointSettings.SetActive(true);
+    }
+    
+    public void ActiveGraphicSettingNonCheckpointUI()
+    {
+        soundNonCheckpointSettings.SetActive(false);
+        exitNonCheckpoint.SetActive(false);
+        graphicNonCheckpointSettings.SetActive(true);
+    }
+    
+    public void ActiveExitNonCheckpointUI()
+    {
+        soundNonCheckpointSettings.SetActive(false);
+        graphicNonCheckpointSettings.SetActive(false);
+        exitNonCheckpoint.SetActive(true);
+    }
+    
+    /*********************************************Spiritual Power*********************************************/
     private void UpdateSpiritualPower(int value)
     {
         spiritualPowerText.SetText(": " +  value.ToString());
     }
-    
 }

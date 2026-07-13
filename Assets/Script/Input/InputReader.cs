@@ -23,13 +23,14 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action ChangeNextSubPotionAction;
     public event Action ChangePrevSubPotionAction;
     public event Action<int> SkillAction;
-    public event Action SystemUIAction;
+    public event Action SettingsUIAction;
     public event Action ActiveCheckPointAction;
     
     private InputController inputActions;
     private bool cursorInputForLook = true;
     private bool cursorLocked = true;
     private InputBuffering _inputBuffering;
+    
     private void Awake()
     {
         _inputBuffering = GetComponent<InputBuffering>();
@@ -131,11 +132,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             UseSubPotionAction?.Invoke();
             return;
         }
-        
-        // if (context.started)
-        // {
-            UsePotionAction?.Invoke();
-        // }
+        UsePotionAction?.Invoke();
     }
     
     public void OnChangeMainPotion(InputAction.CallbackContext context)
@@ -177,16 +174,8 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnSystem(InputAction.CallbackContext context)
     {
-        // if (context.performed) SystemUIAction?.Invoke();
-        if (context.started)
-        {
-            IsSetting = true;
-        }
-        
-        if (context.canceled)
-        {
-            IsSetting = false;
-        }
+        if (!context.canceled) return;
+        SettingsUIAction?.Invoke();
     }
 
     public void OnSetting(InputAction.CallbackContext context)
@@ -200,12 +189,6 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         {
             IsSetting = false;
         }
-    }
-
-
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-
     }
 
     public void OnInteract(InputAction.CallbackContext context)

@@ -17,6 +17,19 @@ public class GraphicsUI : MonoBehaviour
     public Toggle bloomToggle;
     public Toggle motionBlurToggle;
     public Toggle ambientOcclusionToggle;
+    
+    [Header("Left Column Non Checkpoint")] public TMP_Dropdown resolutionDropdownNonCheckpoint;
+    public TMP_Dropdown displayModeDropdownNonCheckpoint;
+    public Toggle vsyncToggleNonCheckpoint;
+    public TMP_InputField fpsLimitInputNonCheckpoint;
+    public TMP_Dropdown qualityPresetDropdownNonCheckpoint;
+    public Toggle shadowsToggleNonCheckpoint;
+    
+    [Header("Right Column Non Checkpoint")] public TMP_Dropdown antiAliasingDropdownNonCheckpoint;
+    public TMP_Dropdown textureQualityDropdownNonCheckpoint;
+    public Toggle bloomToggleNonCheckpoint;
+    public Toggle motionBlurToggleNonCheckpoint;
+    public Toggle ambientOcclusionToggleNonCheckpoint;
 
     private bool isInitializing;
 
@@ -91,57 +104,69 @@ public class GraphicsUI : MonoBehaviour
         resolutionDropdown.onValueChanged.AddListener(i =>
         {
             if(!isInitializing) GraphicManager.Instance.SetResolution(i);
+            resolutionDropdownNonCheckpoint.SetValueWithoutNotify(i);
         });
         
         displayModeDropdown.onValueChanged.AddListener(i =>
         {
             if(!isInitializing) GraphicManager.Instance.SetDisplayMode(i);
+            displayModeDropdownNonCheckpoint.SetValueWithoutNotify(i);
         });
         
         vsyncToggle.onValueChanged.AddListener(i =>
         {
             if(!isInitializing) GraphicManager.Instance.SetVsync(i);
+            vsyncToggleNonCheckpoint.SetIsOnWithoutNotify(i);
         });
         
         shadowsToggle.onValueChanged.AddListener(i =>
         {
             if (!isInitializing) GraphicManager.Instance.SetShadow(i);
+            shadowsToggleNonCheckpoint.SetIsOnWithoutNotify(i);
         });
         
         fpsLimitInput.onValueChanged.AddListener(i =>
         {
             if(!isInitializing) GraphicManager.Instance.SetFPSLimit(int.Parse(i));
+            fpsLimitInputNonCheckpoint.SetTextWithoutNotify(i);
         });
         
         qualityPresetDropdown.onValueChanged.AddListener(i =>
         {
             if(!isInitializing) GraphicManager.Instance.SetQualityPresent(i);
+            qualityPresetDropdownNonCheckpoint.SetValueWithoutNotify(i);
         });
         
         antiAliasingDropdown.onValueChanged.AddListener(i =>
         {
             if (!isInitializing) GraphicManager.Instance.SetAntiAliasing(i);
+            antiAliasingDropdownNonCheckpoint.SetValueWithoutNotify(i);
+
         });
         
         textureQualityDropdown.onValueChanged.AddListener(i =>
         {
             if (!isInitializing) GraphicManager.Instance.SetTextureQuality(i);
+            textureQualityDropdownNonCheckpoint.SetValueWithoutNotify(i);
         });
  
         bloomToggle.onValueChanged.AddListener(i =>
         {
             if (!isInitializing) GraphicManager.Instance.SetBloom(i);
+            bloomToggleNonCheckpoint.SetIsOnWithoutNotify(i);
         });
  
         motionBlurToggle.onValueChanged.AddListener(i =>
         {
             Debug.Log(i);
             if (!isInitializing) GraphicManager.Instance.SetMotionBlur(i);
+            motionBlurToggleNonCheckpoint.SetIsOnWithoutNotify(i);
         });
  
         ambientOcclusionToggle.onValueChanged.AddListener(i =>
         {
             if (!isInitializing) GraphicManager.Instance.SetAmbientOcclusion(i);
+            ambientOcclusionToggleNonCheckpoint.SetIsOnWithoutNotify(i);
         });
     }
 }

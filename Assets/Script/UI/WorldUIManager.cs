@@ -11,6 +11,7 @@ public class WorldUIManager : MonoBehaviour
     public static WorldUIManager instance;
 
     [Header("System UI")] [SerializeField] private GameObject systemUI;
+    [Header("System UI")] [SerializeField] private GameObject settingsUI;
 
     [Header("Tab UI")] [SerializeField] private List<GameObject> tabUIList;
 
@@ -18,6 +19,7 @@ public class WorldUIManager : MonoBehaviour
     [SerializeField] private Image defeatBackground;
     [SerializeField] private TextMeshProUGUI defeatText;
     public event Action ActiveSystemUIEvent;
+    public bool isActiveSettingsUI;
 
     private void Awake()
     {
@@ -53,7 +55,6 @@ public class WorldUIManager : MonoBehaviour
     }
 
     /******************* UI Sound *******************/
-
     public void PlayClickSound1()
     {
         AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundClick_1);
@@ -94,7 +95,7 @@ public class WorldUIManager : MonoBehaviour
         AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundHold_4);
     }
 
-/****************************************************************************************/
+    /****************************************************************************************/
     public void ActiveSystemUI()
     {
         ActiveSystemUIEvent?.Invoke();
@@ -103,6 +104,16 @@ public class WorldUIManager : MonoBehaviour
     public void HandleActiveSystemUI()
     {
         systemUI.SetActive(!systemUI.activeInHierarchy);
+    }
+    
+    public void HandleActiveSettingsUI()
+    {
+        isActiveSettingsUI = true;
+        settingsUI.SetActive(!settingsUI.activeInHierarchy);
+        if (!settingsUI.activeInHierarchy)
+        {
+            isActiveSettingsUI = false;
+        }
     }
     
     /********************************************Fade Defeat*********************************************/

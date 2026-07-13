@@ -21,7 +21,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (isAlreadyActive) return;
         isAlreadyActive = true;
-        _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine));
+        _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, true));
     }
     
     private void OnTriggerEnter(Collider other)
@@ -30,7 +30,7 @@ public class CheckPoint : MonoBehaviour
         {
             _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
             GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
-            GameManagers.Instance.AutoSave();
+            // GameManagers.Instance.AutoSave();
         }
     }
 
@@ -40,7 +40,7 @@ public class CheckPoint : MonoBehaviour
         {
             isAlreadyActive = false;
             _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
-            GameManagers.Instance.AutoSave();
+            // GameManagers.Instance.AutoSave();
         }
     }
 }

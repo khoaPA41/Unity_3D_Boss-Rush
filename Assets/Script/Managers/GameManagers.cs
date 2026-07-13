@@ -19,6 +19,7 @@ public class GameManagers : MonoBehaviour
 
     private enum ReasonLoadScene
     {
+        Start,
         New,
         Continue,
         Respawn,
@@ -162,9 +163,6 @@ public class GameManagers : MonoBehaviour
         audio._bgmVolume = data.BGMVolume;
         audio._sfxVolume = data.SFXVolume;
         audio._uiVolume = data.UIVolume;
-        
-        // Graphics
-        
     }
 
     // ----- Checkpoint / Respawn / Auto save -----
@@ -183,6 +181,14 @@ public class GameManagers : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void ReturnTitle()
+    {
+        // var player = GameObject.FindGameObjectWithTag("Player");
+        // if (player is null) return;
+        loadReason = ReasonLoadScene.Start;
+        SceneManager.LoadScene("Start");
+    }
+    
     public void AutoSave()
     {
         var player = GameObject.FindGameObjectWithTag("Player");

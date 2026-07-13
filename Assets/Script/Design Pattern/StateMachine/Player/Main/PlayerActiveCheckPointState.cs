@@ -8,28 +8,44 @@ public class PlayerActiveCheckPointState : PlayerBaseState
 
     private float _previousTime;
 
-    private bool isActive;
+    private bool _isActive;
+    private bool _isCheckpoint;
     
-    public PlayerActiveCheckPointState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    public PlayerActiveCheckPointState(PlayerStateMachine playerStateMachine, bool isCheckpoint) : base(playerStateMachine)
     {
+        _isCheckpoint =  isCheckpoint;
     }
 
     public override void Enter()
     {
-        playerStateMachine.InputReader.ActiveCheckPointAction += ExitSystemUI;
+        if (_isCheckpoint)
+        {
+            playerStateMachine.InputReader.ActiveCheckPointAction += ExitSystemUI;
+        }
+        else
+        {
+            playerStateMachine.InputReader.SettingsUIAction += ExitSettingsUI;
+        }
+        
         playerStateMachine.Animator.CrossFadeInFixedTime(_interactAnimation, playerStateMachine.AnimationCrossFade);
         playerStateMachine.InputReader.SetCursor(false);
+        GameManagers.Instance.AutoSave();
     }
 
     public override void Tick(float deltaTime)
     {
-        if (isActive) return;
-
+        if (_isActive) return;
+        
+        if (!_isCheckpoint)
+        {
+            ActiveNonCheckpoint();
+            return;
+        }
+        
         var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, InteractAnimationTag, 0);
         if (normalizeTime > _previousTime && normalizeTime >= .9f)
         {
-            WorldUIManager.instance.ActiveSystemUI();
-            isActive = true;
+                ActiveOnCheckpoint();
         }
         _previousTime = normalizeTime;
     }
@@ -41,15 +57,42 @@ public class PlayerActiveCheckPointState : PlayerBaseState
     public override void Exit()
     {
         playerStateMachine.InputReader.ActiveCheckPointAction -= ExitSystemUI;
+        playerStateMachine.InputReader.SettingsUIAction -= ExitSettingsUI;
+
         playerStateMachine.InputReader.SetCursor(true);
-        WorldUIManager.instance.ActiveSystemUI();
         playerStateMachine.CheckPoint.isAlreadyActive = false;
+        GameManagers.Instance.AutoSave();
+        if (_isCheckpoint)
+        {
+            WorldUIManager.instance.ActiveSystemUI();
+        }
+    }
+
+    private void ActiveOnCheckpoint()
+    {
+        WorldUIManager.instance.ActiveSystemUI();
+        _isActive = true;
+    }
+    
+    private void ActiveNonCheckpoint()
+    {
+        WorldUIManager.instance.HandleActiveSettingsUI();
+        _isActive = true;
     }
 
     private void ExitSystemUI()
     {
-        if (isActive)
+        if (_isActive)
         {
+            playerStateMachine.ReturnLocomotion();
+        }
+    }
+    
+    private void ExitSettingsUI()
+    {
+        if (_isActive)
+        {
+            WorldUIManager.instance.HandleActiveSettingsUI();
             playerStateMachine.ReturnLocomotion();
         }
     }
