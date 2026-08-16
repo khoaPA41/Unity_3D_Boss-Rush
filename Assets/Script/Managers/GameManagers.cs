@@ -66,10 +66,10 @@ public class GameManagers : MonoBehaviour
 
         loadReason = ReasonLoadScene.Continue;
 
-        // isLoadingGameFromSave = true;
         currentCheckpointID = saveData.currentCheckpointID;
         checkpointPosition = new Vector3(saveData.posX, saveData.posY, saveData.posZ);
-        SceneManager.LoadScene(saveData.sceneName);
+        // SceneManager.LoadScene(saveData.sceneName);
+        SceneManager.LoadScene("LoadScene");
     }
 
     public void ExitGame()
@@ -188,7 +188,7 @@ public class GameManagers : MonoBehaviour
         loadReason = ReasonLoadScene.Start;
         SceneManager.LoadScene("Start");
     }
-    
+
     public void AutoSave()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
@@ -229,12 +229,12 @@ public class GameManagers : MonoBehaviour
             changingTheGameSkill = stateMachine.SkillActive.changingTheGameSkill,
             escapeSkill = stateMachine.SkillActive.escapeSkill,
             responseSkill = stateMachine.SkillActive.responseSkill,
-            
+
             masterVolume = audio._masterVolume,
             BGMVolume = audio._bgmVolume,
             SFXVolume = audio._sfxVolume,
             UIVolume = audio._uiVolume,
-            
+
             resolutionIndex = GraphicManager.Instance.resolutionIndex,
             displayModeIndex = GraphicManager.Instance.displayModeIndex,
             fps = GraphicManager.Instance.fps,
