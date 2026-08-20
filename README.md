@@ -13,30 +13,30 @@
 - This project was created as a portfolio piece to demonstrate my Unity development and C# programming skills.
 
 ## ✨ Features
-- Soulslike-style combat with precise timing, i-frames, light/heavy attacks, and skill system
-- Character progression: upgrade stats and skills after each death
-- Boss fights with multiple phases
-- Checkpoint system
-- Multiple skill and stat build options
+- Soulslike-style combat with precise timing, i-frames, light/heavy attacks, and skill system.
+- Character progression: upgrade stats and skills after each death.
+- Boss fights with multiple phases.
+- Checkpoint system.
+- Multiple skill and stat build options.
 
 ## 🛠️ Technical Highlights
 ### Engine & Tools
-- Unity 6.3 (6000.3.8f1)
-- C#
-- Unity Input System
-- Universal Render Pipeline (URP)
-- Animator
-- Timeline
-- Unity UI (Canvas)
+- Unity 6.3 (6000.3.8f1).
+- C#.
+- Unity Input System.
+- Universal Render Pipeline (URP).
+- Animator.
+- Timeline.
+- Unity UI (Canvas).
   
 ### Gameplay & Architecture
-- **Combat System**: Timing-based combat using OverlapBox / BoxCastAll for hit detection, Dodge i-frames, light & heavy attacks, and skill execution
-- **Progression System**: Allow players to upgrade stats and change skills after each failure
-- **State Machine**: Manage Player and Boss states for cleaner and more maintainable logic
-- **Object Pooling**: Optimize performance by reusing VFX and frequently spawned objects
-- **Tree Behavior**: 
-- **Timeline**: Control cutscenes and boss phase transitions
-- **Trigger-based Events**: Handle gameplay transitions between sections
+- **Combat System**: Timing-based combat using OverlapBox / BoxCastAll for hit detection, Dodge i-frames, light & heavy attacks, and skill execution.
+- **Progression System**: Allow players to upgrade stats and change skills after each failure.
+- **State Machine**: Manage Player and Boss states for cleaner and more maintainable logic.
+- **Object Pooling**: Optimize performance by reusing VFX and frequently spawned objects.
+- **Tree Behavior**: Controlling the boss's behavior.
+- **Timeline**: Control cutscenes and boss phase transitions.
+- **Trigger-based Events**: Handle gameplay transitions between sections.
 
 ## 🎯 Controls
 
@@ -75,10 +75,10 @@ Assets/
 └── Scene/                # Game scenes
 ```
 ## 🚀 How to Run
-1. Clone the repository
-2. Open the project with Unity 6000.3.8f1
-3. Open the main scene
-4. Press Play
+1. Clone the repository.
+2. Open the project with Unity 6000.3.8f1.
+3. Open the main scene.
+4. Press Play.
 
 ## 👨‍💻 Developer
 
