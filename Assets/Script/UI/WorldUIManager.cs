@@ -10,14 +10,15 @@ public class WorldUIManager : MonoBehaviour
 {
     public static WorldUIManager instance;
 
-    [Header("System UI")] [SerializeField] private GameObject systemUI;
-    [Header("System UI")] [SerializeField] private GameObject settingsUI;
+    [Header("System UI")][SerializeField] private GameObject systemUI;
+    [Header("System UI")][SerializeField] private GameObject settingsUI;
 
-    [Header("Tab UI")] [SerializeField] private List<GameObject> tabUIList;
+    [Header("Tab UI")][SerializeField] private List<GameObject> tabUIList;
 
-    [Header("Defeat Title UI")] 
+    [Header("Defeat Title UI")]
     [SerializeField] private Image defeatBackground;
     [SerializeField] private TextMeshProUGUI defeatText;
+
     public event Action ActiveSystemUIEvent;
     public bool isActiveSettingsUI;
 
@@ -44,7 +45,7 @@ public class WorldUIManager : MonoBehaviour
     {
         GameManagers.Instance.ExitToTitle();
     }
-    
+
     /******************* Checkpoint *******************/
     public void ActiveTabUI(string tabName)
     {
@@ -105,7 +106,7 @@ public class WorldUIManager : MonoBehaviour
     {
         systemUI.SetActive(!systemUI.activeInHierarchy);
     }
-    
+
     public void HandleActiveSettingsUI()
     {
         isActiveSettingsUI = true;
@@ -115,21 +116,21 @@ public class WorldUIManager : MonoBehaviour
             isActiveSettingsUI = false;
         }
     }
-    
+
     /********************************************Fade Defeat*********************************************/
 
     public void StartCoroutineTitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
         StartCoroutine(TitleFade(currentOpacity, targetOpacity, fadeDuration));
-        
+
     }
-    
+
     public void StartCoroutineBackgroundFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
         StartCoroutine(BackgroundFade(currentOpacity, targetOpacity, fadeDuration));
-        
+
     }
-    
+
     private IEnumerator TitleFade(float currentOpacity, float targetOpacity, float fadeDuration)
     {
         defeatText.gameObject.SetActive(true);
@@ -158,12 +159,12 @@ public class WorldUIManager : MonoBehaviour
         {
             var TimePercentage = timeElapsed / fadeDuration;
             var newColor = Mathf.Lerp(currentOpacity, targetOpacity, TimePercentage);
-            backgroundColor.a =  newColor;
+            backgroundColor.a = newColor;
             defeatBackground.color = backgroundColor;
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        backgroundColor.a =  targetOpacity;
+        backgroundColor.a = targetOpacity;
         defeatBackground.color = backgroundColor;
     }
 }

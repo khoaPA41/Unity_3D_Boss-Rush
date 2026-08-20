@@ -18,8 +18,8 @@ namespace Script.Attack
         [SerializeField] private float reduceHealth;
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
-        
-        
+
+
         public float currentHealth;
         public bool isPerfectDodge;
         public bool isReduceDame;
@@ -33,7 +33,7 @@ namespace Script.Attack
         public event Action<float> OnChangeHealth = delegate { };
 
         public event Action FinalPhaseAction;
-        
+
         public event Action EndGameAction;
 
         private bool isPhaseII;
@@ -58,23 +58,21 @@ namespace Script.Attack
             if (gameObject.tag != "Boss") return;
             if (currentHealth / maxHealth <= .5f && !isPhaseII)
             {
-                // Debug.Log("Phase II");
                 FinalPhaseAction?.Invoke();
                 isPhaseII = true;
             }
 
-            if (currentHealth / maxHealth <= 0f  && !isEndGame)
+            if (currentHealth / maxHealth <= 0f && !isEndGame)
             {
-                // Debug.Log("End Game");
                 EndGameAction?.Invoke();
                 isEndGame = true;
             }
         }
-        
+
         public void DealDamage(float damage)
         {
-            if(isReduceDame) damage /= reduceHealth;
-            
+            if (isReduceDame) damage /= reduceHealth;
+
             currentHealth = Mathf.Max(currentHealth - damage + resistance, 0);
             HitAction?.Invoke();
 
@@ -94,11 +92,11 @@ namespace Script.Attack
         private IEnumerator TimeFreeHit()
         {
             Time.timeScale = timeFreeze;
-            
+
             yield return new WaitForSecondsRealtime(timeToBackNormal);
             Time.timeScale = 1f;
         }
-        
+
         private IEnumerator SlowTime()
         {
             noDamage = true;
@@ -107,7 +105,7 @@ namespace Script.Attack
             yield return new WaitForSecondsRealtime(.8f);
             Time.timeScale = 1f;
         }
-        
+
         public void PerfectDodgeAward()
         {
             if (!isPerfectDodge) return;
@@ -120,11 +118,11 @@ namespace Script.Attack
         {
             StartCoroutine(TimeFreeHit());
         }
-        
+
         public void AddHealth()
         {
             if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
-            { 
+            {
                 _playerStateMachine.isCanNotSubSpiritual = false;
                 return;
             }
@@ -132,7 +130,7 @@ namespace Script.Attack
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(currentHealth / maxHealth);
         }
-        
+
         public void SubHealth()
         {
             if (maxHealth == 1000)
@@ -148,13 +146,13 @@ namespace Script.Attack
         public void AddResistance()
         {
             if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
-            { 
+            {
                 _playerStateMachine.isCanNotSubSpiritual = false;
                 return;
             }
             resistance++;
         }
-        
+
         public void SubResistance()
         {
             if (resistance == 0)
