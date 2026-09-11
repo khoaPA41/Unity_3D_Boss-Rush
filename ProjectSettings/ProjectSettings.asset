@@ -845,6 +845,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Standalone: UNITY_PIPELINE_URP
     WebGL: UNITY_PIPELINE_URP
+    Windows Store Apps: UNITY_PIPELINE_URP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

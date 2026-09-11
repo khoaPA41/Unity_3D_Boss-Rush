@@ -62,7 +62,7 @@ namespace Script.Attack.Skill_Factory
                 player.SkinnedMeshRenderer.materials = tempMaterials;
                 player.ManageAnimationSkillEvent.SituationEvent -= situationAction;
             };
-            
+
             AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.indestructibleResource);
             player.ManageAnimationSkillEvent.SituationEvent += situationAction;
         }
@@ -194,7 +194,7 @@ namespace Script.Attack.Skill_Factory
             situationAction = () =>
             {
                 getSkill.SpawnSkill(SkillName, spawnPos);
-                
+
                 var throwSword = getSkill.Skill.GetComponent<SwordSkill>();
                 throwSword.TargetPosition = bossStateMachine.PlayerStateMachine.transform.position;
                 throwSword.InitializeBullet();
@@ -296,7 +296,7 @@ namespace Script.Attack.Skill_Factory
         public string SkillName => "FirstAoe";
         public string AnimationName => "FirstAoe";
         public int ManaCost => 20;
-        
+
         public void Cast(ICaster caster)
         {
             var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
@@ -313,7 +313,7 @@ namespace Script.Attack.Skill_Factory
                 getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
                 castCount++;
                 AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.firstAOEResource);
-            
+
                 if (castCount >= 4)
                 {
                     manageEvent.SituationEvent -= situationAction;
@@ -340,7 +340,7 @@ namespace Script.Attack.Skill_Factory
             var spawnPosition = caster.GetTransform().transform.position + new Vector3(2f, 3f, 0f);
 
             manageEvent.ClearSituationEvent();
-            
+
             Action situationAction = null;
             situationAction = () =>
             {

@@ -12,7 +12,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public bool IsHeavyAttack { get; set; }
     public bool isCharging { get; set; }
     public bool IsSetting { get; set; }
-    
+
     public event Action JumpAction;
     public event Action DodgeAction;
     public event Action TargetAction;
@@ -25,12 +25,13 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     public event Action<int> SkillAction;
     public event Action SettingsUIAction;
     public event Action ActiveCheckPointAction;
-    
+
     private InputController inputActions;
     private bool cursorInputForLook = true;
     private bool cursorLocked = true;
     private InputBuffering _inputBuffering;
-    
+
+
     private void Awake()
     {
         _inputBuffering = GetComponent<InputBuffering>();
@@ -52,7 +53,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
     {
         inputActions.Disable();
     }
-    
+
     public void OnEnableInput()
     {
         inputActions.Enable();
@@ -80,7 +81,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         else if (context.performed)
         {
             _inputBuffering.Register(ActionType.Attack);
-            IsAttack = true; 
+            IsAttack = true;
         }
     }
 
@@ -97,10 +98,10 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         _inputBuffering.Register(ActionType.Dodge);
         DodgeAction?.Invoke();
     }
-    
+
     public void OnSkill(InputAction.CallbackContext context)
     {
-        if (context is {canceled: true, performed: true}) { return; }
+        if (context is { canceled: true, performed: true }) { return; }
         if (context.started)
         {
             SkillAction?.Invoke(Convert.ToInt32(context.control.name));
@@ -114,7 +115,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             isCharging = true;
             IsHeavyAttack = true;
         }
-        
+
         if (context.canceled)
         {
             isCharging = false;
@@ -123,8 +124,8 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnUsePotion(InputAction.CallbackContext context)
     {
-        if (context is {canceled: true, performed: true}) return;
-        
+        if (context is { canceled: true, performed: true }) return;
+
         if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
         {
             Debug.Log("Sub Potion");
@@ -134,7 +135,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         }
         UsePotionAction?.Invoke();
     }
-    
+
     public void OnChangeMainPotion(InputAction.CallbackContext context)
     {
         if ((Keyboard.current != null && Keyboard.current.qKey.isPressed) && !context.canceled)
@@ -184,7 +185,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
         {
             IsSetting = true;
         }
-        
+
         if (context.canceled)
         {
             IsSetting = false;
