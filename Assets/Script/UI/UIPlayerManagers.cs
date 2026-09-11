@@ -15,23 +15,26 @@ public class StatusUI
 
 public class UIPlayerManagers : MonoBehaviour
 {
-    [Header("Status UI")] [SerializeField] 
+    [Header("Status UI")]
+    [SerializeField]
     private Slider healthPrevSlider;
     [SerializeField] private Slider healthFollowingSlider;
     [SerializeField] private Slider manaSlider;
     [SerializeField] private Slider staminaSlider;
 
-    [Header("Item UI")] [SerializeField] 
+    [Header("Item UI")]
+    [SerializeField]
     private Slider healthPotionSlider;
     [SerializeField] private Slider manaPotionSlider;
 
-    [Header("Main Potion UI")] [SerializeField]
+    [Header("Main Potion UI")]
+    [SerializeField]
     private GameObject healthPotionUI;
     [SerializeField] private GameObject manaPotionUI;
     [SerializeField] private GameObject nextHealthPotionUI;
     [SerializeField] private GameObject nextManaPotionUI;
 
-    [Header("Coroutines")] 
+    [Header("Coroutines")]
     private Coroutine _healthChangeCoroutine;
     private Coroutine _healthFollowingChangeCoroutine;
     private Coroutine _manaChangeCoroutine;
@@ -39,47 +42,53 @@ public class UIPlayerManagers : MonoBehaviour
     private Coroutine _staminaRecoveryCoroutine;
     private Coroutine _healthPotionChangeCoroutine;
     private Coroutine _manaPotionChangeCoroutine;
-    
-    [Header("Sub Potion")] [SerializeField]
+
+    [Header("Sub Potion")]
+    [SerializeField]
     private GameObject subPotion;
 
-    [Header("Image Of Sub Potion")] [SerializeField]
+    [Header("Image Of Sub Potion")]
+    [SerializeField]
     private Image subPotionImage1;
 
     [SerializeField] private Image subPotionImage2;
     [SerializeField] private Image subPotionImage3;
 
-    [Header("Skill UI")] [SerializeField] 
+    [Header("Skill UI")]
+    [SerializeField]
     private Image icon_ChangingTheGame;
     [SerializeField] private Image icon_Escape;
     [SerializeField] private Image icon_Response;
 
-    [Header("System UI")] [field:SerializeField] 
+    [Header("System UI")]
+    [field: SerializeField]
     public GameObject systemUI;
     [SerializeField] private List<Image> skillSystemList;
-    
-    [Header("Status UI")] 
+
+    [Header("Status UI")]
     [SerializeField] private List<TextMeshProUGUI> statusTextList;
 
-    [Header("Dodge Award UI")] 
+    [Header("Dodge Award UI")]
     [SerializeField] private Image dodgeAwardImage1;
     [SerializeField] private Image dodgeAwardImage2;
     [SerializeField] private Image dodgeAwardImage3;
 
-    [Header("Settings UI")] [SerializeField]
+    [Header("Settings UI")]
+    [SerializeField]
     private GameObject soundSettings;
-    [SerializeField ] private GameObject graphicSettings;
-    [SerializeField ] private GameObject exit;
+    [SerializeField] private GameObject graphicSettings;
+    [SerializeField] private GameObject exit;
 
-    [Header("Settings Non Checkpoint UI")] [SerializeField]
+    [Header("Settings Non Checkpoint UI")]
+    [SerializeField]
     private GameObject settingsNonCheckpoint;
     [SerializeField] private GameObject soundNonCheckpointSettings;
-    [SerializeField ] private GameObject graphicNonCheckpointSettings;
-    [SerializeField ] private GameObject exitNonCheckpoint;
-    
-    [Header("Spiritual Power UI")] 
+    [SerializeField] private GameObject graphicNonCheckpointSettings;
+    [SerializeField] private GameObject exitNonCheckpoint;
+
+    [Header("Spiritual Power UI")]
     [SerializeField] private TextMeshProUGUI spiritualPowerText;
-    
+
     /************************************************************************/
     private InputReader _inputReader;
     private Health _health;
@@ -369,11 +378,11 @@ public class UIPlayerManagers : MonoBehaviour
     private void UpdateChangeTheGameSkillUI()
     {
         ChangOpacityImageUnActive();
- 
-            icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
-            var skillImage = FindImage(icon_ChangingTheGame.sprite);
-            ChangeOpacity(skillImage, 1f);
-        
+
+        icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
+        var skillImage = FindImage(icon_ChangingTheGame.sprite);
+        ChangeOpacity(skillImage, 1f);
+
     }
 
     private void UpdateEscapeSkillUI()
@@ -422,7 +431,8 @@ public class UIPlayerManagers : MonoBehaviour
         {
             1 => icon_ChangingTheGame,
             2 => icon_Escape,
-            3 => icon_Response
+            3 => icon_Response,
+            _ => null
         };
     }
 
@@ -445,7 +455,7 @@ public class UIPlayerManagers : MonoBehaviour
 
         targetImage.fillAmount = 1f;
     }
-    
+
     /*********************************************Dodge Award UI*********************************************/
     private void ChangOpacityDodgeIcon()
     {
@@ -462,10 +472,10 @@ public class UIPlayerManagers : MonoBehaviour
             case 1:
                 ChangeOpacity(dodgeAwardImage1, 1f);
                 break;
-            case 2: 
+            case 2:
                 ChangeOpacity(dodgeAwardImage2, 1f);
                 break;
-            case 3: 
+            case 3:
                 ChangeOpacity(dodgeAwardImage3, 1f);
                 break;
             default:
@@ -481,7 +491,7 @@ public class UIPlayerManagers : MonoBehaviour
         tempColor.a = opacity;
         image.color = tempColor;
     }
-    
+
     /*********************************************Status UI*********************************************/
     private void ReviewStatusTextList(string name)
     {
@@ -509,7 +519,7 @@ public class UIPlayerManagers : MonoBehaviour
     {
         return statusTextList.Find(text => text.gameObject.name == name);
     }
-    
+
     private void UpdateStatus(float value, TextMeshProUGUI statusText)
     {
         statusText.text = value.ToString();
@@ -541,7 +551,7 @@ public class UIPlayerManagers : MonoBehaviour
                 break;
         }
     }
-    
+
     public void SubStatusButton(string name)
     {
         switch (name)
@@ -568,7 +578,7 @@ public class UIPlayerManagers : MonoBehaviour
                 break;
         }
     }
-    
+
     /*********************************************Settings UI*********************************************/
     public void ActiveSoundSettingUI()
     {
@@ -576,45 +586,45 @@ public class UIPlayerManagers : MonoBehaviour
         exit.SetActive(false);
         soundSettings.SetActive(true);
     }
-    
+
     public void ActiveGraphicSettingUI()
     {
         soundSettings.SetActive(false);
         exit.SetActive(false);
         graphicSettings.SetActive(true);
     }
-    
+
     public void ActiveExitUI()
     {
         soundSettings.SetActive(false);
         graphicSettings.SetActive(false);
         exit.SetActive(true);
     }
-    
+
     public void ActiveSoundSettingNonCheckpointUI()
     {
         graphicNonCheckpointSettings.SetActive(false);
         exitNonCheckpoint.SetActive(false);
         soundNonCheckpointSettings.SetActive(true);
     }
-    
+
     public void ActiveGraphicSettingNonCheckpointUI()
     {
         soundNonCheckpointSettings.SetActive(false);
         exitNonCheckpoint.SetActive(false);
         graphicNonCheckpointSettings.SetActive(true);
     }
-    
+
     public void ActiveExitNonCheckpointUI()
     {
         soundNonCheckpointSettings.SetActive(false);
         graphicNonCheckpointSettings.SetActive(false);
         exitNonCheckpoint.SetActive(true);
     }
-    
+
     /*********************************************Spiritual Power*********************************************/
     private void UpdateSpiritualPower(int value)
     {
-        spiritualPowerText.SetText(": " +  value.ToString());
+        spiritualPowerText.SetText(": " + value.ToString());
     }
 }

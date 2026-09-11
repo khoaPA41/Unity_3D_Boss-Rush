@@ -23,22 +23,22 @@ public class SwordSkill : MonoBehaviour
     private bool _alreadySendEvent;
 
     private FinalBossStateMachine boss;
-    
+
     private void Awake()
     {
 
     }
-    
+
     private void OnEnable()
     {
-        var container =  GameObject.FindWithTag("Boss");
-        if(container == null) return;
+        var container = GameObject.FindWithTag("Boss");
+        if (container == null) return;
         boss = container.GetComponentInChildren<FinalBossStateMachine>(true);
         GetComponent<Rigidbody>();
         _pooledObject = GetComponent<PooledObject>();
         // Debug.Log($"[Bullet {GetInstanceID()}] ENABLED @ {Time.time:F3}");
     }
-    
+
     private void OnDisable()
     {
         // Debug.Log($"[Bullet {GetInstanceID()}] RELEASED @ {Time.time:F3}");
@@ -56,14 +56,14 @@ public class SwordSkill : MonoBehaviour
 
         if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
         {
-            if (isActiveAnotherSkill && !isPlayedAnotherSkill) 
+            if (isActiveAnotherSkill && !isPlayedAnotherSkill)
             {
                 var getSkill = boss.GetComponent<GetSkill>();
                 getSkill.SpawnSkill(skillNameContinue, transform.position);
                 AudioManagers.Instance.PlaySound(transform, AudioManagers.Instance.fireExplosionResource);
                 isPlayedAnotherSkill = true;
             }
-            
+
             Release();
             return;
         }
@@ -98,11 +98,11 @@ public class SwordSkill : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {        
+        {
             boss.TryGetComponent(out ICaster casterObj);
             GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
         }
-        
+
         if (isRelease) return;
         if (other.CompareTag("Boss"))
         {

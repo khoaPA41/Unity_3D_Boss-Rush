@@ -9,14 +9,14 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private GameObject weaponLeftLogic;
     [SerializeField] private GameObject otherDamageLogic;
     [SerializeField] private GameObject specialDamageLogic;
-    
+
     [SerializeField] private GameObject weaponMain;
     [SerializeField] private GameObject weaponStore;
-    
+
     [SerializeField] private GameObject LeftSingleSword;
     [SerializeField] private GameObject RightSingleSword;
     [SerializeField] private GameObject DoubleEdgedSword;
-    
+
     /***********Collider***********/
     public void OnActiveWeaponCollider()
     {
@@ -28,7 +28,7 @@ public class WeaponHandler : MonoBehaviour
         if (specialDamageLogic == null) return;
         specialDamageLogic?.SetActive(false);
     }
-    
+
     public void OnActiveWeaponLeftCollider()
     {
         weaponLeftLogic?.SetActive(true);
@@ -39,7 +39,7 @@ public class WeaponHandler : MonoBehaviour
         if (weaponLeftLogic == null) return;
         weaponLeftLogic?.SetActive(false);
     }
-    
+
     public void OnActiveWeaponRightCollider()
     {
         weaponRightLogic?.SetActive(true);
@@ -50,7 +50,7 @@ public class WeaponHandler : MonoBehaviour
         weaponRightLogic?.SetActive(false);
     }
 
-    
+
     public void OnActiveOtherCollider()
     {
         otherDamageLogic?.SetActive(true);
@@ -61,7 +61,7 @@ public class WeaponHandler : MonoBehaviour
         otherDamageLogic?.SetActive(false);
     }
 
-    
+
     /***********Game Object***********/
     public void OnGetWeapon()
     {
@@ -80,7 +80,7 @@ public class WeaponHandler : MonoBehaviour
             weaponStore.SetActive(true);
         }
     }
-    
+
     // Left Single Sword
     public void OnActiveLeftSingleSword()
     {
@@ -101,7 +101,7 @@ public class WeaponHandler : MonoBehaviour
     {
         RightSingleSword?.SetActive(false);
     }
-    
+
     public void OnActiveDoubleEdgedSword()
     {
         DoubleEdgedSword?.SetActive(true);

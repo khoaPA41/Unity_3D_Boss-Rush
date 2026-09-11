@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponTrail : MonoBehaviour
 {
-    [SerializeField] private LayerMask _layerMask= 255;
+    [SerializeField] private LayerMask _layerMask = 255;
     [SerializeField] private GameObject _legalOwner;
     [SerializeField] private int baseDamage;
     private List<GameObject> alreadyObjectHit = new();
@@ -22,7 +22,7 @@ public class WeaponTrail : MonoBehaviour
     private void OnEnable()
     {
         alreadyObjectHit.Clear();
-        if(_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
+        if (_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
     }
 
     public void ResetObjectHitList()
@@ -38,7 +38,7 @@ public class WeaponTrail : MonoBehaviour
         var direction = (currentPosition - previousPosition).normalized;
         var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
 
-        var overlaps = Physics.OverlapBox(currentPosition, halfExtend , transform.rotation, _layerMask);
+        var overlaps = Physics.OverlapBox(currentPosition, halfExtend, transform.rotation, _layerMask);
         foreach (var overlap in overlaps)
         {
             DealDamage(overlap.gameObject);
@@ -52,8 +52,8 @@ public class WeaponTrail : MonoBehaviour
                 DealDamage(hit.collider.gameObject);
             }
         }
-        
-        previousPosition  = currentPosition;
+
+        previousPosition = currentPosition;
     }
 
     public void SetDamage(float damage)
@@ -68,13 +68,13 @@ public class WeaponTrail : MonoBehaviour
         if (alreadyObjectHit.Contains(other)) return;
 
         alreadyObjectHit.Add(other);
-        
+
         if (!other.TryGetComponent(out Health health)) return;
-        
+
         health.PerfectDodgeAward();
 
         if (health.noDamage) return;
-        
+
         Debug.Log(damage);
         health.DealDamage(damage);
         health.HitStop();
@@ -85,7 +85,7 @@ public class WeaponTrail : MonoBehaviour
     {
         _collider ??= GetComponent<BoxCollider>();
         if (_collider is null) return;
-        
+
         Gizmos.color = Color.red;
 
         var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
