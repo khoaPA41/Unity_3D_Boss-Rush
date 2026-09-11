@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611404839}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DodgeAward, Assembly-CSharp
         m_MethodName: SetDodgeAward
         m_Mode: 3
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateChangingTheGameSkill
         m_Mode: 5
@@ -3947,7 +3947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateEscapeSkill
         m_Mode: 5
@@ -4141,11 +4141,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131199158}
   m_CullTransparentMesh: 1
---- !u!4 &133760212 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &137407612
 GameObject:
   m_ObjectHideFlags: 0
@@ -9620,7 +9615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: AddStatusButton
         m_Mode: 5
@@ -9632,7 +9627,7 @@ MonoBehaviour:
           m_StringArgument: Stamina
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -11190,7 +11185,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
         m_Mode: 5
@@ -11202,7 +11197,7 @@ MonoBehaviour:
           m_StringArgument: BloodPomegranate
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -23098,7 +23093,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: SubStatusButton
         m_Mode: 5
@@ -23110,7 +23105,7 @@ MonoBehaviour:
           m_StringArgument: Mana
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -24884,7 +24879,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.10780346, y: 0, z: 0, w: 0.9941722}
-  m_LocalPosition: {x: 124.7, y: 4.4014115, z: 26.772566}
+  m_LocalPosition: {x: 124.7, y: 4.061412, z: 26.372566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26088,7 +26083,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveSoundSettingNonCheckpointUI
         m_Mode: 1
@@ -31972,7 +31967,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611404839}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DodgeAward, Assembly-CSharp
         m_MethodName: SetDodgeAward
         m_Mode: 3
@@ -41462,7 +41457,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
         m_Mode: 5
@@ -41474,7 +41469,7 @@ MonoBehaviour:
           m_StringArgument: BloodPomegranate
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -42276,7 +42271,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateResponseSkill
         m_Mode: 5
@@ -48151,7 +48146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: SubStatusButton
         m_Mode: 5
@@ -48163,7 +48158,7 @@ MonoBehaviour:
           m_StringArgument: Resistance
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -48963,7 +48958,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveGraphicSettingNonCheckpointUI
         m_Mode: 1
@@ -49865,7 +49860,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: AddStatusButton
         m_Mode: 5
@@ -49877,7 +49872,7 @@ MonoBehaviour:
           m_StringArgument: Health
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -54906,17 +54901,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &611404839 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2556437998171310569, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 795484ace12c67b4fba16d7c88bc6941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DodgeAward
 --- !u!1 &615527352
 GameObject:
   m_ObjectHideFlags: 0
@@ -55152,7 +55136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveGraphicSettingUI
         m_Mode: 1
@@ -56054,6 +56038,67 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1001 &647268357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 120.022736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4449072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.622438
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279878232309987924, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150357300818250385, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_Name
+      value: SKM_BarbarianWarriorA
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150357300818250385, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e97e268685eeeac42b19d85350de9fac, type: 3}
 --- !u!1 &648241495
 GameObject:
   m_ObjectHideFlags: 0
@@ -56169,7 +56214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: SubStatusButton
         m_Mode: 5
@@ -56181,7 +56226,7 @@ MonoBehaviour:
           m_StringArgument: Stamina
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -60396,7 +60441,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382391}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthPotion, Assembly-CSharp
         m_MethodName: AddUsagePotion
         m_Mode: 1
@@ -60408,7 +60453,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -62108,7 +62153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: AddStatusButton
         m_Mode: 5
@@ -62120,7 +62165,7 @@ MonoBehaviour:
           m_StringArgument: Resistance
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -69059,7 +69104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382391}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthPotion, Assembly-CSharp
         m_MethodName: AddMaxPotion
         m_Mode: 1
@@ -69071,7 +69116,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -69683,17 +69728,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &880794422 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 383751974673175140, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1001 &881310262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74158,7 +74192,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateChangingTheGameSkill
         m_Mode: 5
@@ -75203,7 +75237,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManaPotion, Assembly-CSharp
         m_MethodName: AddMaxPotion
         m_Mode: 1
@@ -75215,7 +75249,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -78883,7 +78917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManaPotion, Assembly-CSharp
         m_MethodName: SubtractMaxPotion
         m_Mode: 1
@@ -78895,7 +78929,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -96524,7 +96558,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: SubStatusButton
         m_Mode: 5
@@ -96536,7 +96570,7 @@ MonoBehaviour:
           m_StringArgument: Strength
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -97120,7 +97154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
         m_Mode: 5
@@ -97132,7 +97166,7 @@ MonoBehaviour:
           m_StringArgument: EmeraldGuava
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -103644,7 +103678,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: AddStatusButton
         m_Mode: 5
@@ -103656,7 +103690,7 @@ MonoBehaviour:
           m_StringArgument: Strength
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -104496,7 +104530,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveSoundSettingUI
         m_Mode: 1
@@ -104789,7 +104823,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateResponseSkill
         m_Mode: 5
@@ -106757,7 +106791,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: AddStatusButton
         m_Mode: 5
@@ -106769,7 +106803,7 @@ MonoBehaviour:
           m_StringArgument: Mana
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -109039,7 +109073,7 @@ PlayableDirector:
     - 783faf54110f2f847a81744b7bbcb5bb: {fileID: 1281934212}
     - 1090c639c1be7654da41b10832af0602: {fileID: 1205026458}
     - 0f457431adb4df240bf8ef04e0e4142c: {fileID: 1868502085}
-    - dc92f2e7679b0464ba26640def21e0a6: {fileID: 880794422}
+    - dc92f2e7679b0464ba26640def21e0a6: {fileID: 0}
     - eb4f9a59fc4d42047b46427760154f00: {fileID: 2077723822}
     - 3288da3112911bf42a8c7b239ece306c: {fileID: 597188209}
     - e2bece96eb821cf4396947209d76be3f: {fileID: 1281934212}
@@ -110733,7 +110767,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveExitNonCheckpointUI
         m_Mode: 1
@@ -117150,7 +117184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 611404839}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DodgeAward, Assembly-CSharp
         m_MethodName: SetDodgeAward
         m_Mode: 3
@@ -135053,7 +135087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
         m_Mode: 5
@@ -135065,7 +135099,7 @@ MonoBehaviour:
           m_StringArgument: GoldenPear
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -136973,7 +137007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382391}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthPotion, Assembly-CSharp
         m_MethodName: SubtractMaxPotion
         m_Mode: 1
@@ -136985,7 +137019,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -137778,7 +137812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: SubStatusButton
         m_Mode: 5
@@ -137790,7 +137824,7 @@ MonoBehaviour:
           m_StringArgument: Health
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -149344,7 +149378,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382390}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManaPotion, Assembly-CSharp
         m_MethodName: AddUsagePotion
         m_Mode: 1
@@ -149356,7 +149390,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -155843,7 +155877,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
         m_Mode: 5
@@ -155855,7 +155889,7 @@ MonoBehaviour:
           m_StringArgument: EmeraldGuava
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: SubSpiritualPower
@@ -164967,7 +165001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382389}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
         m_Mode: 5
@@ -164979,7 +165013,7 @@ MonoBehaviour:
           m_StringArgument: GoldenPear
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7067070981187382402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
           Assembly-CSharp
         m_MethodName: AddSpiritualPower
@@ -165663,7 +165697,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382387}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIPlayerManagers, Assembly-CSharp
         m_MethodName: ActiveExitUI
         m_Mode: 1
@@ -166418,7 +166452,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7067070981187382378}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SkillActive, Assembly-CSharp
         m_MethodName: UpdateEscapeSkill
         m_Mode: 5
@@ -166749,7 +166783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 133760212}
+  - {fileID: 1049765691398024040}
   - {fileID: 1389467785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -227361,6 +227395,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3423388301569400142}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!4 &1049765691398024040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+  m_PrefabInstance: {fileID: 6472953522197078485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1062220792179084671
 Transform:
   m_ObjectHideFlags: 0
@@ -531135,6 +531174,231 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &6472953522197078485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2077723823}
+    m_Modifications:
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 124.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767233815217198598, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365581201750852738, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: <TargetPoint>k__BackingField
+      value: 
+      objectReference: {fileID: 177760513}
+    - target: {fileID: 5780190265239677537, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5780190265239677537, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 741723537}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: systemUI
+      value: 
+      objectReference: {fileID: 1923823527}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: subPotion
+      value: 
+      objectReference: {fileID: 414923764}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: manaSlider
+      value: 
+      objectReference: {fileID: 2035553446}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: icon_Escape
+      value: 
+      objectReference: {fileID: 1415240150}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: manaPotionUI
+      value: 
+      objectReference: {fileID: 935220433}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: icon_Response
+      value: 
+      objectReference: {fileID: 332224955}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: soundSettings
+      value: 
+      objectReference: {fileID: 2116265409}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: staminaSlider
+      value: 
+      objectReference: {fileID: 2008065021}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: healthPotionUI
+      value: 
+      objectReference: {fileID: 550681872}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: graphicSettings
+      value: 
+      objectReference: {fileID: 823339542}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: subPotionImage1
+      value: 
+      objectReference: {fileID: 1155955868}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: subPotionImage2
+      value: 
+      objectReference: {fileID: 1698436347}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: subPotionImage3
+      value: 
+      objectReference: {fileID: 1543500984}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: dodgeAwardImage1
+      value: 
+      objectReference: {fileID: 873523046}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: dodgeAwardImage2
+      value: 
+      objectReference: {fileID: 1167530522}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: dodgeAwardImage3
+      value: 
+      objectReference: {fileID: 530954290}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: healthPrevSlider
+      value: 
+      objectReference: {fileID: 1143711105}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: manaPotionSlider
+      value: 
+      objectReference: {fileID: 935220434}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: nextManaPotionUI
+      value: 
+      objectReference: {fileID: 841435779}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: exitNonCheckpoint
+      value: 
+      objectReference: {fileID: 1685564945}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: healthPotionSlider
+      value: 
+      objectReference: {fileID: 550681876}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: nextHealthPotionUI
+      value: 
+      objectReference: {fileID: 598436066}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: spiritualPowerText
+      value: 
+      objectReference: {fileID: 1757064269}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: icon_ChangingTheGame
+      value: 
+      objectReference: {fileID: 2071092707}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: healthFollowingSlider
+      value: 
+      objectReference: {fileID: 922117923}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: settingsNonCheckpoint
+      value: 
+      objectReference: {fileID: 293951391}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: soundNonCheckpointSettings
+      value: 
+      objectReference: {fileID: 747968099}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: graphicNonCheckpointSettings
+      value: 
+      objectReference: {fileID: 764647399}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'statusTextList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1847590249}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'statusTextList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1087874848}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'statusTextList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 414648667}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'statusTextList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1595707211}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'statusTextList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 296253419}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 97443177}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1007091763}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2064945440}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 128436990}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1313435625}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: 'skillSystemList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 552305796}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
 --- !u!1 &6473938766844440692
 GameObject:
   m_ObjectHideFlags: 0
@@ -575499,361 +575763,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &7067070981187382376
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2077723823}
-    m_Modifications:
-    - target: {fileID: 1241881938327436604, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241881938327436604, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1241881938327436604, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: exit
-      value: 
-      objectReference: {fileID: 741723537}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: systemUI
-      value: 
-      objectReference: {fileID: 1923823527}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: subPotion
-      value: 
-      objectReference: {fileID: 414923764}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: manaSlider
-      value: 
-      objectReference: {fileID: 2035553446}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: icon_Escape
-      value: 
-      objectReference: {fileID: 1415240150}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: manaPotionUI
-      value: 
-      objectReference: {fileID: 935220433}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: icon_Response
-      value: 
-      objectReference: {fileID: 332224955}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: soundSettings
-      value: 
-      objectReference: {fileID: 2116265409}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: staminaSlider
-      value: 
-      objectReference: {fileID: 2008065021}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: healthPotionUI
-      value: 
-      objectReference: {fileID: 550681872}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: graphicSettings
-      value: 
-      objectReference: {fileID: 823339542}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: subPotionImage1
-      value: 
-      objectReference: {fileID: 1155955868}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: subPotionImage2
-      value: 
-      objectReference: {fileID: 1698436347}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: subPotionImage3
-      value: 
-      objectReference: {fileID: 1543500984}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: dodgeAwardImage1
-      value: 
-      objectReference: {fileID: 873523046}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: dodgeAwardImage2
-      value: 
-      objectReference: {fileID: 1167530522}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: dodgeAwardImage3
-      value: 
-      objectReference: {fileID: 530954290}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: healthPrevSlider
-      value: 
-      objectReference: {fileID: 1143711105}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: manaPotionSlider
-      value: 
-      objectReference: {fileID: 935220434}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: nextManaPotionUI
-      value: 
-      objectReference: {fileID: 841435779}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: exitNonCheckpoint
-      value: 
-      objectReference: {fileID: 1685564945}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: healthPotionSlider
-      value: 
-      objectReference: {fileID: 550681876}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: nextHealthPotionUI
-      value: 
-      objectReference: {fileID: 598436066}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: spiritualPowerText
-      value: 
-      objectReference: {fileID: 1757064269}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: icon_ChangingTheGame
-      value: 
-      objectReference: {fileID: 2071092707}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: healthFollowingSlider
-      value: 
-      objectReference: {fileID: 922117923}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: settingsNonCheckpoint
-      value: 
-      objectReference: {fileID: 293951391}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: soundNonCheckpointSettings
-      value: 
-      objectReference: {fileID: 747968099}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: graphicNonCheckpointSettings
-      value: 
-      objectReference: {fileID: 764647399}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'statusTextList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1847590249}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'statusTextList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1087874848}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'statusTextList.Array.data[2]'
-      value: 
-      objectReference: {fileID: 414648667}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'statusTextList.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1595707211}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'statusTextList.Array.data[4]'
-      value: 
-      objectReference: {fileID: 296253419}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 97443177}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1007091763}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2064945440}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[3]'
-      value: 
-      objectReference: {fileID: 128436990}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[4]'
-      value: 
-      objectReference: {fileID: 1313435625}
-    - target: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: 'skillSystemList.Array.data[5]'
-      value: 
-      objectReference: {fileID: 552305796}
-    - target: {fileID: 3405503375999969087, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3405503375999969087, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3405503375999969087, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4760237588493309127, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: objectPooling
-      value: 
-      objectReference: {fileID: 1732882633108240890}
-    - target: {fileID: 4874596431932724330, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: <TargetPoint>k__BackingField
-      value: 
-      objectReference: {fileID: 177760513}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1014118
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.9074345
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9941722
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.10780346
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6444499961475300577, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6964073575420353791, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7677816925484894545, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.005317688
-      objectReference: {fileID: 0}
-    - target: {fileID: 7677816925484894545, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.87717223
-      objectReference: {fileID: 0}
-    - target: {fileID: 7677816925484894545, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.086502075
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 124.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 28.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8220116246289507004, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
---- !u!114 &7067070981187382378 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8241549544909405356, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af434171998e054094805b0caf5cba2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillActive
---- !u!114 &7067070981187382387 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3369746024849944489, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f33c87a84b24340a4dcb061afd39ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIPlayerManagers
---- !u!114 &7067070981187382389 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4805002615408738902, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 906c9f3414b58ea43b2ae9d56806258c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SubPotion
---- !u!114 &7067070981187382390 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6311084434600137132, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d9de15746da1742ab7c8f2f340b69d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ManaPotion
---- !u!114 &7067070981187382391 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3710905981597236340, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d571e03733ec44aa14ab19de62f84e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthPotion
---- !u!114 &7067070981187382402 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4874596431932724330, guid: d2f09a87a713ec945a99e0911e1a7998, type: 3}
-  m_PrefabInstance: {fileID: 7067070981187382376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c825a8ec7a16d454f980c2d2c7c91557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
 --- !u!198 &7132485494128777278
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -701808,3 +701717,4 @@ SceneRoots:
   - {fileID: 998053732}
   - {fileID: 408249837}
   - {fileID: 2053487060}
+  - {fileID: 647268357}
