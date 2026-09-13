@@ -7,22 +7,21 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
     public class CheckAttackRange : BehaviorNode
     {
         private FinalBossStateMachine bossSystem;
-        
+
         public CheckAttackRange(FinalBossStateMachine bossSystem)
         {
             this.bossSystem = bossSystem;
-
         }
-        
+
         public override NodeState Evaluate()
         {
             if (!bossSystem.IsChasingState) return NodeState.Failure;
-            
+
             if (bossSystem.IsAttackRange() && !bossSystem.IsChangePhase && bossSystem.Player.currentHealth > 0)
             {
                 return NodeState.Success;
             }
-            
+
             return NodeState.Failure;
         }
     }

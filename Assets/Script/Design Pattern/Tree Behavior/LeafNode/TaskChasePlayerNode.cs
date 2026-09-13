@@ -8,12 +8,12 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
     {
         private FinalBossStateMachine bossSystem;
 
-        public TaskChasePlayerNode( FinalBossStateMachine bossSystem)
+        public TaskChasePlayerNode(FinalBossStateMachine bossSystem)
         {
             this.bossSystem = bossSystem;
-            bossSystem.NextPhaseToggleTime = Time.time + bossSystem.IdleDuration; 
+            bossSystem.NextPhaseToggleTime = Time.time + bossSystem.IdleDuration;
         }
-        
+
         public override NodeState Evaluate()
         {
             bossSystem.IsFinishedAttack = false;
@@ -27,16 +27,16 @@ namespace Script.Design_Pattern.Tree_Behavior.LeafNode
             if (bossSystem.IsChasingState)
             {
                 var dir = bossSystem.GetDirToPlayer(bossSystem.Target);
-            
+
                 bossSystem.InputMovement = new Vector2(dir.x, dir.z);
-            
+
                 bossSystem.IsWalking = bossSystem.IsWalkRange();
             }
             else
             {
                 bossSystem.InputMovement = Vector2.zero;
             }
-            
+
             return NodeState.Running;
         }
     }

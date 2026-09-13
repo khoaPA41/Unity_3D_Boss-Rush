@@ -9,7 +9,6 @@ using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
 using UnityEngine;
-using UnityEngine.Playables;
 using State = Script.Design_Pattern.StateMachine.Base.State;
 
 namespace Script.Design_Pattern.StateMachine.Boss.Base
@@ -64,7 +63,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
         [field: SerializeField] public WeaponTrail[] DealsDamage { get; private set; }
-        [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
+        // [field: SerializeField] public WeaponDealDamage[] AllDamageDealer { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; } = 5f;
         [field: SerializeField] public float AttackFurtherRange { get; private set; } = 30f;
@@ -82,7 +81,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public GameObject Neck { get; private set; }
-        
+
         [field: Header("State")]
         [field: SerializeField]
         public float ChaseDuration { get; private set; } = 4f;
@@ -105,7 +104,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         public bool IsCanMove { get; set; } = false;
 
         public Transform Target { get; set; }
-        
+
         private void Awake()
         {
             _locomotionState = new FinalBossLocomotionState(this);
@@ -116,15 +115,17 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             Player = GameObject.FindWithTag("Player").GetComponent<Health>();
             Target = Player.gameObject.transform;
             PlayerStateMachine = Player.GetComponent<PlayerStateMachine>();
-            
+
             WeaponRightMaterial = WeaponRight.GetComponent<MeshRenderer>().material;
             WeaponRightEmissionColor = WeaponRightMaterial.GetColor("_EmissionColor");
-            
+
             WeaponLeftMaterial = WeaponLeft.GetComponent<MeshRenderer>().material;
             WeaponLeftEmissionColor = WeaponLeftMaterial.GetColor("_EmissionColor");
-            
+
             WeaponMaterial = Weapon.GetComponent<MeshRenderer>().material;
             WeaponEmissionColor = WeaponMaterial.GetColor("_EmissionColor");
+
+            GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
         }
 
         private void OnEnable()
@@ -132,7 +133,6 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
             // Player.DeathAction += FinishedCombat;
             Health.HitAction += EnterHitState;
             Health.DeathAction += EnterDeathState;
-            GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
         }
 
         private void OnDisable()
@@ -215,7 +215,8 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); },
+                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); }
+                ,
                 SkillEffect.Inescapable => () => Coroutine(3f, () =>
                     {
                         ForceReceiver.SetCoefficientOfMovement(0f);
@@ -266,7 +267,7 @@ namespace Script.Design_Pattern.StateMachine.Boss.Base
         {
             StartCoroutine(WaitToContinue(time, action1, action2));
         }
-        
+
         private IEnumerator WaitToContinue(float time, Action action1, Action action2)
         {
             action1?.Invoke();

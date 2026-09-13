@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7013697905257750264
 Transform:
   m_ObjectHideFlags: 0
@@ -3925,9 +3925,6 @@ MonoBehaviour:
   - {fileID: 7511495633613269259}
   - {fileID: 5319652354587540303}
   - {fileID: 5065263862213103843}
-  <AllDamageDealer>k__BackingField:
-  - {fileID: 0}
-  - {fileID: 0}
   <Health>k__BackingField: {fileID: 898135607142949351}
   <AttackRange>k__BackingField: 8
   <AttackFurtherRange>k__BackingField: 30
@@ -5134,7 +5131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1387498051964617164
 Transform:
   m_ObjectHideFlags: 0
