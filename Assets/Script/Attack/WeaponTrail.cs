@@ -75,7 +75,6 @@ public class WeaponTrail : MonoBehaviour
 
         if (health.noDamage) return;
 
-        Debug.Log(damage);
         health.DealDamage(damage);
         health.HitStop();
     }

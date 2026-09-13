@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Script.Design_Pattern.StateMachine;
 using Script.Design_Pattern.Tree_Behavior.Base;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Script.Design_Pattern.Tree_Behavior
 {
@@ -11,28 +13,44 @@ namespace Script.Design_Pattern.Tree_Behavior
         [field: SerializeField] public float IdleDuration { get; private set; }
         [field: SerializeField] public float ChaseDuration { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
+        [field: SerializeField] public int EnduredTimes { get; set; }
         [field: SerializeField] public float TimeOutCombo { get; private set; } = 2f;
+
+
+        // Phase params
+        public int Phase { get; private set; }
+        public int CurrentPhase { get; set; }
+        public int NextPhase { get; set; }
+
+
+        public uint HitReceived { get; set; }
+        public bool IsDead { get; set; }
 
 
         private BossStateMachine bossStateMachine;
         private BehaviorNode topNode { get; set; }
 
 
-
         public float NextToggleTime { get; set; }
         public bool IsChasingState { get; set; }
+
+
+        public event Action DeadPhaseAction;
+        private bool isCallDeadPhaseAction;
 
         private void Awake()
         {
             bossStateMachine = GetComponent<BossStateMachine>();
-            bossStateMachine.ReturnLocomotion();
+            // bossStateMachine.ReturnLocomotion();
             ConstructBehaviorTree();
+            Phase = bossStateMachine.NormalCombo.Length;
+            CurrentPhase = 0;
+            NextPhase = CurrentPhase + 1;
         }
 
         private void OnEnable()
         {
             bossStateMachine.ReturnLocomotion();
-            // ConstructBehaviorTree();
         }
 
         private void Update()
@@ -42,7 +60,7 @@ namespace Script.Design_Pattern.Tree_Behavior
 
         private void ConstructBehaviorTree()
         {
-            /*Nhanh ca hai dieu dien dung*/
+            // Branch both true
             var atkSequence = new BehaviorSequence(new List<BehaviorNode>
             {
                 new CheckAttackRangeNode(bossStateMachine, this),
@@ -55,20 +73,34 @@ namespace Script.Design_Pattern.Tree_Behavior
                 new TaskChangePhaseNode(bossStateMachine, this)
             });
 
-            // /*Duoi theo*/
+            var counterAtkSequence = new BehaviorSequence(new List<BehaviorNode>
+            {
+                new CheckCounterAttackNode(bossStateMachine, this),
+                new TaskCounterAttackNode(bossStateMachine, this)
+            });
+
+            // Branch one condition
             var tacticalChasing = new TaskChasingNode(bossStateMachine, this);
+            var finishedCombat = new CheckPlayerHealthNode(bossStateMachine, this);
+            var bossDead = new CheckBossHealthNode(bossStateMachine, this);
 
-            // /*Kiem tra mau player*/
-            // var finishedCombat = new CheckPlayerHealth(bossSystem);
-
-            /*Nhanh 3: uu tien tan cong truoc*/
+            // Root node
             topNode = new BehaviorSelector(new List<BehaviorNode>
             {
-                // finishedCombat,
+                bossDead,
+                finishedCombat,
                 changePhaseSequence,
+                counterAtkSequence,
                 atkSequence,
                 tacticalChasing
             });
+        }
+
+        public void CallDeadPhaseAction()
+        {
+            if (isCallDeadPhaseAction) return;
+            DeadPhaseAction?.Invoke();
+            isCallDeadPhaseAction = true;
         }
     }
 }

@@ -1,7 +1,7 @@
 using Script.Attack.Skill_Factory;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine.Boss.Base;
+using Script.Design_Pattern.StateMachine;
 using UnityEngine;
 
 public class SwordSkill : MonoBehaviour
@@ -22,7 +22,7 @@ public class SwordSkill : MonoBehaviour
     private float _countTime;
     private bool _alreadySendEvent;
 
-    private FinalBossStateMachine boss;
+    private BossStateMachine boss;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class SwordSkill : MonoBehaviour
     {
         var container = GameObject.FindWithTag("Boss");
         if (container == null) return;
-        boss = container.GetComponentInChildren<FinalBossStateMachine>(true);
+        boss = container.GetComponentInChildren<BossStateMachine>(true);
         GetComponent<Rigidbody>();
         _pooledObject = GetComponent<PooledObject>();
         // Debug.Log($"[Bullet {GetInstanceID()}] ENABLED @ {Time.time:F3}");
@@ -108,7 +108,7 @@ public class SwordSkill : MonoBehaviour
         {
             var weaponTouch = other.GetComponent<WeaponHandler>();
             weaponTouch.OnGetWeapon();
-            boss.SendActionEvent();
+            // boss.SendActionEvent();
             Release();
         }
     }

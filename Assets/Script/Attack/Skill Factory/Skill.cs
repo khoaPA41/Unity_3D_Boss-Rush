@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Script.Design_Pattern.EventBus;
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine.Boss.Base;
+using Script.Design_Pattern.StateMachine;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
@@ -186,7 +186,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var spawnPos = caster.GetTransform().transform.position + new Vector3(0f, 4f, 0f);
@@ -217,7 +217,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             bossStateMachine.IsCanMove = true;
             manageEvent.ClearSituationEvent();
@@ -242,7 +242,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
         }
     }
@@ -257,7 +257,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
 
@@ -285,7 +285,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var player = bossStateMachine.PlayerStateMachine;
         }
     }
@@ -299,7 +299,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
 
@@ -333,7 +333,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
@@ -368,7 +368,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var weaponHandler = bossStateMachine.GetComponent<WeaponHandler>();
@@ -397,7 +397,7 @@ namespace Script.Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<FinalBossStateMachine>();
+            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var weaponHandler = bossStateMachine.GetComponent<WeaponHandler>();

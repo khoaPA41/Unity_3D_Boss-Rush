@@ -486,7 +486,7 @@ public class UIPlayerManagers : MonoBehaviour
 
     private void ChangeOpacity(Image image, float opacity)
     {
-        Debug.Log("Opacity: " + opacity);
+        // Debug.Log("Opacity: " + opacity);
         var tempColor = image.color;
         tempColor.a = opacity;
         image.color = tempColor;

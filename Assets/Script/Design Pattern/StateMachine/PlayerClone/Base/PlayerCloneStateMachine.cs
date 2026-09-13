@@ -52,6 +52,8 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         public bool IsAttack { get; set; }
 
         public int SkillNumber { get; set; }
+        public bool IsCounterAttack { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event Action JumpAction;
         public event Action DodgeAction;
         public event Action TargetAction;

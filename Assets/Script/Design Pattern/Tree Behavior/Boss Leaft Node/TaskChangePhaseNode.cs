@@ -19,7 +19,9 @@ namespace Script.Design_Pattern.Tree_Behavior
 
         public override NodeState Evaluate()
         {
-            bossStateMachine.IsChangePhase = true;
+            bossBehaviorBrain.CurrentPhase++;
+            bossBehaviorBrain.NextPhase = bossBehaviorBrain.CurrentPhase + 1;
+
             return NodeState.Success;
         }
     }

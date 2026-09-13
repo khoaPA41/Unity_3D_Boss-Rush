@@ -17,17 +17,15 @@ namespace Script.Design_Pattern.Tree_Behavior
         }
         public override NodeState Evaluate()
         {
-            if (!bossStateMachine.IsChangePhase)
+            if (bossBehaviorBrain.CurrentPhase + 1 == bossBehaviorBrain.Phase)
             {
-                if (bossStateMachine.NextPhase == bossStateMachine.UltimateCombo.Length)
-                {
-                    return NodeState.Failure;
-                }
+                return NodeState.Failure;
+            }
 
-                if (bossStateMachine.UltimateCombo[bossStateMachine.NextPhase].HealthThreshold >= bossStateMachine.Health.currentHealth / bossStateMachine.Health.maxHealth)
-                {
-                    return NodeState.Success;
-                }
+            if (bossStateMachine.NormalCombo[bossBehaviorBrain.NextPhase].HealthThreshold >=
+            bossStateMachine.Health.currentHealth / bossStateMachine.Health.maxHealth)
+            {
+                return NodeState.Success;
             }
 
             return NodeState.Failure;
