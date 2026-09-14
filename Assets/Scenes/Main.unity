@@ -58697,6 +58697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1123718407}
     m_Modifications:
+    - target: {fileID: 369613640837644495, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
+      propertyPath: objectPooling
+      value: 
+      objectReference: {fileID: 1732882633108240890}
     - target: {fileID: 2905179160414437096, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
       propertyPath: healthPrevSlider
       value: 
@@ -58756,6 +58760,10 @@ PrefabInstance:
     - target: {fileID: 5226968509053972763, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
       propertyPath: m_Name
       value: Nordic_Phase_III
+      objectReference: {fileID: 0}
+    - target: {fileID: 5226968509053972763, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78442,8 +78450,8 @@ GameObject:
   - component: {fileID: 1123718407}
   - component: {fileID: 1123718406}
   m_Layer: 0
-  m_Name: Boss Phase Container (1)
-  m_TagString: Untagged
+  m_Name: Boss Container
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78461,7 +78469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossPhaseManager
   phases:
-  - {fileID: 9162252676942642797}
+  - {fileID: 4038233868405694222}
   - {fileID: 1945476741}
   - {fileID: 726162186}
 --- !u!4 &1123718407
@@ -78472,7 +78480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123718405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 157.49983, y: 2.14056, z: 91.99012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -78480,7 +78488,7 @@ Transform:
   - {fileID: 8257817692432551271}
   - {fileID: 1945476742}
   - {fileID: 726162187}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2077723823}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124015175
 GameObject:
@@ -108183,37 +108191,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &1389467784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1389467785}
-  m_Layer: 0
-  m_Name: Boss Container
-  m_TagString: Boss
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1389467785
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389467784}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2077723823}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389783376
 GameObject:
   m_ObjectHideFlags: 0
@@ -156827,9 +156804,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5930701252171628961, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
+      propertyPath: objectPooling
+      value: 
+      objectReference: {fileID: 1732882633108240890}
     - target: {fileID: 6386874535358358360, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
       propertyPath: m_Name
       value: Nordic_Phase_II
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386874535358358360, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -167095,7 +167080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1049765691398024040}
-  - {fileID: 1389467785}
+  - {fileID: 1123718407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2080859989
@@ -389292,6 +389277,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1123718407}
     m_Modifications:
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <ManageAnimationSkillEvent>k__BackingField
+      value: 
+      objectReference: {fileID: 8257817692432551272}
     - target: {fileID: 2893961638942429680, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: attackAnimationSpeedFast
       value: 1.2
@@ -389359,8 +389348,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6253307532909113265, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8257817692432551273}
+    - targetCorrespondingSourceObject: {fileID: 6253307532909113265, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8257817692432551272}
   m_SourcePrefab: {fileID: 100100000, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+--- !u!1 &4038233868405694221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6253307532909113265, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+  m_PrefabInstance: {fileID: 4038233868405694220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4038233868405694222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4613344505173849140, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+  m_PrefabInstance: {fileID: 4038233868405694220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038233868405694221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cff9bae627c5f41bfea10b039577f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Tree_Behavior.BossBehaviorBrain
 --- !u!199 &4039223340881510092
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -532145,7 +532156,7 @@ PrefabInstance:
     - target: {fileID: 5365581201750852738, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
       propertyPath: <TargetPoint>k__BackingField
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 126139655}
     - target: {fileID: 5365581201750852738, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
       propertyPath: <SkinnedMeshRenderer>k__BackingField
       value: 
@@ -630651,6 +630662,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3978715272628025376, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
   m_PrefabInstance: {fileID: 4038233868405694220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8257817692432551272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038233868405694221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81baae89869d9d0459b79d0135ba7436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ManageAnimationSkillEvent
+--- !u!114 &8257817692432551273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038233868405694221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce624e3602ad04a4da1d70f7ca33ef70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Object_Pooling.GetSkill
+  objectPooling: {fileID: 1732882633108240890}
 --- !u!1 &8263976968177259451
 GameObject:
   m_ObjectHideFlags: 0
@@ -693491,17 +693527,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
---- !u!114 &9162252676942642797 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4613344505173849140, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
-  m_PrefabInstance: {fileID: 4038233868405694220}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cff9bae627c5f41bfea10b039577f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Tree_Behavior.BossBehaviorBrain
 --- !u!198 &9165595298375335003
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -702963,4 +702988,3 @@ SceneRoots:
   - {fileID: 408249837}
   - {fileID: 2053487060}
   - {fileID: 1921203539}
-  - {fileID: 1123718407}

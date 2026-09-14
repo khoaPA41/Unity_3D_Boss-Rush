@@ -101,6 +101,8 @@ public class SwordSkill : MonoBehaviour
         {
             boss.TryGetComponent(out ICaster casterObj);
             GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+            var weaponTouch = boss.GetComponent<WeaponHandler>();
+            weaponTouch.OnGetWeapon();
         }
 
         if (isRelease) return;

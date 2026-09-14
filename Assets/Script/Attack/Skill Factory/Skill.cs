@@ -344,8 +344,9 @@ namespace Script.Attack.Skill_Factory
             Action situationAction = null;
             situationAction = () =>
             {
+                Debug.Log(SkillName);
                 getSkill.SpawnSkill(SkillName, spawnPosition);
-                Debug.Log(getSkill.Skill);
+
                 var skill = getSkill.Skill.GetComponent<SwordSkill>();
                 skill.TargetPosition = caster.TargetCaster().transform.position;
                 skill.InitializeBullet();

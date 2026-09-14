@@ -45,7 +45,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
-            
+
             if (movement != Vector3.zero)
             {
                 playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
@@ -54,13 +54,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             {
                 playerStateMachine.Stamina.RecoveryStamina();
             }
-            
+
             if (playerStateMachine.Stamina.currentStamina <= 0f)
             {
                 speed = 0f;
                 movement = Vector3.zero;
             }
-            
+
             Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceTarget(deltaTime);

@@ -33,6 +33,8 @@ namespace Script.Design_Pattern.StateMachine
 
             bossStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName,
                 _attackData.AnimationTransition);
+
+            UseSkill(_attackData.SkillType);
         }
 
         public override void Tick(float deltaTime)

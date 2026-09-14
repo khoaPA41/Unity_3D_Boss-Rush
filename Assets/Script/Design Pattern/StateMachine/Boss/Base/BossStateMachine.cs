@@ -126,6 +126,22 @@ namespace Script.Design_Pattern.StateMachine
             GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
         }
 
+
+        public void SendEvent()
+        {
+            ManageAnimationSkillEvent.SendSituationEvent();
+        }
+
+        public void SendActionEvent()
+        {
+            ManageAnimationSkillEvent.SendNextActionEvent();
+        }
+
+        public void SendReleasePoolObjectEvent()
+        {
+            ManageAnimationSkillEvent.SendReleasePoolObjectEvent();
+        }
+
         public void ReturnLocomotion()
         {
             SwitchState(LocomotionState);
