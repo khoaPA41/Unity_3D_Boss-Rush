@@ -8,6 +8,7 @@ using UnityEngine.Playables;
 public class BossPhaseManager : MonoBehaviour
 {
     [SerializeField] private List<BossBehaviorBrain> phases;
+    [SerializeField] private List<ParticleSystem> lockGateParticle;
     private int currentPhaseIndex = 0;
 
     private bool firstTime;
@@ -52,6 +53,7 @@ public class BossPhaseManager : MonoBehaviour
 
         if (!firstTime)
         {
+            ActiveLockGateParticle();
             isActiveCutscene = true;
             phases[currentPhaseIndex].gameObject.SetActive(true);
             firstTime = true;
@@ -66,11 +68,31 @@ public class BossPhaseManager : MonoBehaviour
 
         if (currentPhaseIndex == phases.Count)
         {
+            // InactiveLockGateParticle();
+            AudioManagers.Instance.StopBackgroundMusic();
             this.gameObject.SetActive(false);
             return;
         }
 
         phases[currentPhaseIndex].gameObject.SetActive(true);
 
+    }
+
+    private void ActiveLockGateParticle()
+    {
+        foreach (var particle in lockGateParticle)
+        {
+            particle.gameObject.SetActive(true);
+            particle.Play();
+        }
+    }
+
+    public void InactiveLockGateParticle()
+    {
+        foreach (var particle in lockGateParticle)
+        {
+            particle.Stop();
+            particle.gameObject.SetActive(false);
+        }
     }
 }

@@ -66,6 +66,12 @@ public class AudioManagers : MonoBehaviour
         bossFight_II.Play();
     }
 
+    public void StopBackgroundMusic()
+    {
+        bossFight_I.Stop();
+        bossFight_II.Stop();
+    }
+
     public void PlaySound(Transform pos, AudioResource resource)
     {
         var audioPool = _objectPooling.GetPooledObject("Audio", pos.position);

@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class CutsceneManagers : MonoBehaviour
 {
     [SerializeField] private GameObject BossContainer;
+
+
     private BoxCollider boxCollider;
 
 
@@ -21,6 +24,5 @@ public class CutsceneManagers : MonoBehaviour
         boxCollider.enabled = false;
         TimelineEvent.Instance.CallTimelineAction();
         AudioManagers.Instance.PlayerBackgroundMusic(true);
-
     }
 }
