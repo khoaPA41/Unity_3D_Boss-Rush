@@ -7,10 +7,10 @@ public class CheckPoint : MonoBehaviour
     public string checkpointID;
     private InputReader _inputReader;
     private PlayerStateMachine _playerStateMachine;
-    
+
     public bool isAlreadyActive = false;
     public bool CanInteractCheckPoint { get; private set; }
-    
+
     private void Start()
     {
         _playerStateMachine = GetComponent<PlayerStateMachine>();
@@ -23,11 +23,12 @@ public class CheckPoint : MonoBehaviour
         isAlreadyActive = true;
         _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, true));
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CheckPoint"))
         {
+            other.GetComponent<ActiveCheckPoint>().SubcribeEvent();
             _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
             GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
             // GameManagers.Instance.AutoSave();
@@ -38,6 +39,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.CompareTag("CheckPoint"))
         {
+            other.GetComponent<ActiveCheckPoint>().UnsubcribeEvent();
             isAlreadyActive = false;
             _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
             // GameManagers.Instance.AutoSave();
