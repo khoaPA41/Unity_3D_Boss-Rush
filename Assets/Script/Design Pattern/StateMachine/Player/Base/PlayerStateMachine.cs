@@ -39,6 +39,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public SkillActive SkillActive { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
+        [field: SerializeField] public Transform WeaponTranform { get; private set; }
+
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }
         [field: SerializeField] public Stamina Stamina { get; private set; }
@@ -124,6 +126,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public State changeAction { get; private set; }
         public GameObject Boss { get; private set; }
 
+        public event Action ActiveSlashVfxAction = delegate { };
+
         private void Start()
         {
             Boss = GameObject.FindWithTag("Boss");
@@ -168,6 +172,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             Health.DeathAction -= HandleDeathState;
             InputReader.ChangeHealthPotionAction -= ChangeHealthPotion;
             InputReader.ChangeManaPotionAction -= ChangeManaPotion;
+        }
+
+        public void CallSlashVfx()
+        {
+            ActiveSlashVfxAction?.Invoke();
         }
 
         public void SendSituationEvent()

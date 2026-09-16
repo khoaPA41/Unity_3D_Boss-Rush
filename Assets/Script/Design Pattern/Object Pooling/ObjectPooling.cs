@@ -21,7 +21,18 @@ namespace Script.Design_Pattern.Object_Pooling
         private Dictionary<string, Stack<PooledObject>> pooledObjectDict;
 
         private List<GameObject> parentObjectList;
-        
+
+
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            Instance = this;
+        }
+
         private void Start()
         {
             parentObjectList = new List<GameObject>();
@@ -51,7 +62,7 @@ namespace Script.Design_Pattern.Object_Pooling
                 for (var i = 0; i < item.size; i++)
                 {
                     var newItem = Instantiate(item.pooledObject, item.pooledObject.transform.position,
-                        Quaternion.identity);
+                        item.pooledObject.transform.rotation);
                     newItem.Instance = this;
                     newItem.name = item.objectName;
                     newItem.transform.SetParent(parent.transform);

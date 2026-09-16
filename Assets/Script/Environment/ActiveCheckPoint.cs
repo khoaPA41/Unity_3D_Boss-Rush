@@ -30,14 +30,8 @@ public class ActiveCheckPoint : MonoBehaviour
 
     private void Start()
     {
-        // WorldUIManager.instance.ActiveSystemUIEvent += HandleCheckPoint;
         treeMeshMaterial = treeMeshRenderer.material;
         treeEmissionColor = treeMeshMaterial.GetColor("_EmissionColor");
-        // DontDestroyOnLoad(gameObject);
-    }
-    private void OnDisable()
-    {
-        // WorldUIManager.instance.ActiveSystemUIEvent -= HandleCheckPoint;
     }
 
     public void SubcribeEvent()

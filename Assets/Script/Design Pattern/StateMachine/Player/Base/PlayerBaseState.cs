@@ -8,7 +8,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
     {
         protected readonly PlayerStateMachine playerStateMachine;
         private AnimatorOverrideController overrideController;
-        
+
         protected PlayerBaseState(PlayerStateMachine playerStateMachine)
         {
             this.playerStateMachine = playerStateMachine;
@@ -73,15 +73,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             movement += playerStateMachine.transform.right * playerStateMachine.InputReader.InputMovement.x;
             return movement;
         }
-        
+
         protected void ChangeSwordIdle(string idleAnimationName, AnimationClip animationClip)
         {
             overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);
             playerStateMachine.Animator.runtimeAnimatorController = overrideController;
             overrideController[idleAnimationName] = animationClip;
         }
-        
-        
+
+
         protected void ChangeColorEffect(string hexCode)
         {
             var formattedHex = hexCode.StartsWith("#") ? hexCode : "#" + hexCode;

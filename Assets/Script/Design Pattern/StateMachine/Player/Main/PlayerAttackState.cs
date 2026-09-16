@@ -1,5 +1,6 @@
+using Script.Design_Pattern.Object_Pooling;
 using Script.Design_Pattern.StateMachine.Player.Base;
-
+using UnityEngine;
 namespace Script.Design_Pattern.StateMachine.Player.Main
 {
     public class PlayerAttackState : PlayerBaseState
@@ -7,6 +8,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private readonly AttackData _attackData;
         private float _previousTime;
         private bool _alreadyApplyForce;
+        private bool _alreadyActiveVfx;
 
         public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
         {
@@ -24,36 +26,45 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
                 0);
             playerStateMachine.DealDamage.SetDamage(playerStateMachine.IsIncreaseDamePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
+            playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
         }
 
         public override void Tick(float deltaTime)
         {
-            
+
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
             if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
-                
+                // if (!_alreadyActiveVfx)
+                // {
+                //     if (normalizeTime > 0.3f)
+                //     {
+                //         _alreadyActiveVfx = true;
+
+                //     }
+                // }
+
                 if (normalizeTime >= _attackData.AttackAnimationTime)
                 {
-                    
+
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Dodge))
                     {
                         playerStateMachine.SwitchState(new PlayerDodgeState(playerStateMachine));
                         return;
                     }
-                    
+
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
                     {
                         TryCombo();
                     }
-                    
+
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Jump))
                     {
                         playerStateMachine.SwitchState(new PlayerStartJumpState(playerStateMachine));
                         return;
                     }
                 }
-                
+
                 if (normalizeTime >= _attackData.ForceTime)
                 {
                     TryApplyForce();
@@ -75,6 +86,9 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
+            _alreadyActiveVfx = false;
+            playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;
+
         }
 
         private void TryCombo()
@@ -99,6 +113,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             playerStateMachine.ForceReceiver.AddForce(playerStateMachine.transform.forward * _attackData.Force);
             _alreadyApplyForce = true;
+        }
+
+        private void ActiveVfx()
+        {
+            var vfx = ObjectPooling.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTranform.position);
+            vfx.transform.SetParent(playerStateMachine.WeaponTranform);
+            // var dir = CalculateMovementInFreeLook();
+            // var rotation = new Vector3(playerStateMachine.DealDamage.transform.rotation.x, playerStateMachine.DealDamage.transform.rotation.y, playerStateMachine.DealDamage.transform.rotation.z);
+            // vfx.transform.rotation = playerStateMachine.DealDamage.transform.rotation * Quaternion.Euler(0f, 180f, 0f); ;
+            // vfx.transform.Rotate(rotation);
         }
     }
 }
