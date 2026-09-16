@@ -39,7 +39,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public SkillActive SkillActive { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
-        [field: SerializeField] public Transform WeaponTranform { get; private set; }
+        [field: SerializeField] public Transform WeaponTrip { get; private set; }
+        [field: SerializeField] public Transform WeaponTrasform { get; private set; }
+        [field: SerializeField] public GameObject WeaponTrail { get; private set; }
+
+        public Vector3 StartSwordPos { get; set; }
+        public Vector3 EndSwordPos { get; set; }
 
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public Mana Mana { get; private set; }
@@ -177,6 +182,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public void CallSlashVfx()
         {
             ActiveSlashVfxAction?.Invoke();
+        }
+
+        public void RecordSwordStartPos()
+        {
+            StartSwordPos = WeaponTrip.transform.position;
         }
 
         public void SendSituationEvent()

@@ -62,7 +62,7 @@ namespace Script.Design_Pattern.Object_Pooling
                 for (var i = 0; i < item.size; i++)
                 {
                     var newItem = Instantiate(item.pooledObject, item.pooledObject.transform.position,
-                        item.pooledObject.transform.rotation);
+                        Quaternion.identity);
                     newItem.Instance = this;
                     newItem.name = item.objectName;
                     newItem.transform.SetParent(parent.transform);

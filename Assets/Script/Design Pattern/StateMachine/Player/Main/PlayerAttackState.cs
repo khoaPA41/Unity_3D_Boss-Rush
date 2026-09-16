@@ -8,8 +8,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private readonly AttackData _attackData;
         private float _previousTime;
         private bool _alreadyApplyForce;
-        private bool _alreadyActiveVfx;
 
+        private Vector3 swordEndPos;
         public PlayerAttackState(PlayerStateMachine playerStateMachine, int attackDataIndex) : base(playerStateMachine)
         {
             _attackData = playerStateMachine.AttackData[attackDataIndex];
@@ -27,6 +27,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 0);
             playerStateMachine.DealDamage.SetDamage(playerStateMachine.IsIncreaseDamePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
+            playerStateMachine.WeaponTrail.SetActive(true);
         }
 
         public override void Tick(float deltaTime)
@@ -35,15 +36,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
             if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
-                // if (!_alreadyActiveVfx)
-                // {
-                //     if (normalizeTime > 0.3f)
-                //     {
-                //         _alreadyActiveVfx = true;
-
-                //     }
-                // }
-
                 if (normalizeTime >= _attackData.AttackAnimationTime)
                 {
 
@@ -86,9 +78,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            _alreadyActiveVfx = false;
             playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;
-
+            playerStateMachine.WeaponTrail.SetActive(false);
         }
 
         private void TryCombo()
@@ -117,12 +108,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void ActiveVfx()
         {
-            var vfx = ObjectPooling.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTranform.position);
-            vfx.transform.SetParent(playerStateMachine.WeaponTranform);
-            // var dir = CalculateMovementInFreeLook();
-            // var rotation = new Vector3(playerStateMachine.DealDamage.transform.rotation.x, playerStateMachine.DealDamage.transform.rotation.y, playerStateMachine.DealDamage.transform.rotation.z);
-            // vfx.transform.rotation = playerStateMachine.DealDamage.transform.rotation * Quaternion.Euler(0f, 180f, 0f); ;
-            // vfx.transform.Rotate(rotation);
+            swordEndPos = playerStateMachine.WeaponTrip.position;
+            var slashDir = swordEndPos - playerStateMachine.StartSwordPos;
+
+            var vfx = ObjectPooling.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTrasform.position);
+            if (slashDir.sqrMagnitude > 0.001f)
+            {
+
+                var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);
+                vfx.transform.rotation = rot;
+            }
         }
     }
 }
