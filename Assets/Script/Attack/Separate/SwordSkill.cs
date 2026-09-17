@@ -19,15 +19,8 @@ public class SwordSkill : MonoBehaviour
     private Vector3 _currentVelocity;
     private Vector3 _direction;
     private PooledObject _pooledObject;
-    private float _countTime;
-    private bool _alreadySendEvent;
 
     private BossStateMachine boss;
-
-    private void Awake()
-    {
-
-    }
 
     private void OnEnable()
     {
@@ -36,12 +29,6 @@ public class SwordSkill : MonoBehaviour
         boss = container.GetComponentInChildren<BossStateMachine>(true);
         GetComponent<Rigidbody>();
         _pooledObject = GetComponent<PooledObject>();
-        // Debug.Log($"[Bullet {GetInstanceID()}] ENABLED @ {Time.time:F3}");
-    }
-
-    private void OnDisable()
-    {
-        // Debug.Log($"[Bullet {GetInstanceID()}] RELEASED @ {Time.time:F3}");
     }
 
     private void Release()
@@ -85,7 +72,6 @@ public class SwordSkill : MonoBehaviour
     {
         _currentVelocity = Vector3.zero;
         isPlayedAnotherSkill = false;
-        _alreadySendEvent = false;
         var direction = (TargetPosition - transform.position).normalized;
 
         if (direction != Vector3.zero)
@@ -110,7 +96,6 @@ public class SwordSkill : MonoBehaviour
         {
             var weaponTouch = other.GetComponent<WeaponHandler>();
             weaponTouch.OnGetWeapon();
-            // boss.SendActionEvent();
             Release();
         }
     }

@@ -100,7 +100,7 @@ public class UIPlayerManagers : MonoBehaviour
     private SkillActive _skillActive;
     // private DodgeAward _dodgeAward;
     private PlayerStateMachine _playerStateMachine;
-    public event Action DodgeAwardAction;
+    // public event Action DodgeAwardAction;
     // private bool _isPrevHealthChanged;
 
     private void Awake()
