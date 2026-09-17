@@ -10,6 +10,8 @@ namespace Script.Design_Pattern.Tree_Behavious.Dependency_Injection
         bool IsSprint { get; set; }
         bool IsAttack { get; set; }
         bool IsCounterAttack { get; set; }
+        bool IsUltimateAttack { get; set; }
+
 
         event Action<int> SkillAction;
     }

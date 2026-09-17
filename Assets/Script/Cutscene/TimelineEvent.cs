@@ -10,7 +10,6 @@ public class TimelineEvent : MonoBehaviour
     [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }
 
     public event Action PlayTimelineAction;
-    public event Action PlayEndTimelineAction;
 
     private void Awake()
     {

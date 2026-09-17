@@ -38889,6 +38889,8 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 0}
   baseDamage: 0
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!1 &7095057181684307903
 GameObject:
   m_ObjectHideFlags: 0

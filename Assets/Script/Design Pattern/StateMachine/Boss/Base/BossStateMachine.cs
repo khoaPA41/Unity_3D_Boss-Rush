@@ -45,7 +45,7 @@ namespace Script.Design_Pattern.StateMachine
         [field: Header("Attack")]
         [field: SerializeField] public BossBehaviorBrain BossBehaviorBrain { get; private set; }
         [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
-        [field: SerializeField] public UltimateCombo[] UltimateCombo { get; private set; }
+        [field: SerializeField] public UltimateCombo UltimateCombo { get; private set; }
         [field: SerializeField] public NormalCombo[] NormalCombo { get; private set; }
         [field: SerializeField] public WeaponTrail[] DealsDamage { get; private set; }
         [field: SerializeField] public Health Health { get; private set; }
@@ -87,6 +87,7 @@ namespace Script.Design_Pattern.StateMachine
         public bool IsCounterAttack { get; set; }
         public bool IsAttack { get; set; }
         public int SkillNumber { get; set; }
+        public bool IsUltimateAttack { get; set; }
 
 
         //State
@@ -182,6 +183,7 @@ namespace Script.Design_Pattern.StateMachine
             if (caster.GetTransform().gameObject.TryGetComponent(out BossStateMachine _)) return;
             ActiveEnventBySkill(skillEffect)?.Invoke();
         }
+
         private Action ActiveEnventBySkill(SkillEffect skillEffect)
         {
             return skillEffect switch

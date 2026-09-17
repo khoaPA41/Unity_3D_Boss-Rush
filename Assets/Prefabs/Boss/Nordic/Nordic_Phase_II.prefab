@@ -9,9 +9,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <ManageAnimationSkillEvent>k__BackingField
       value: 
       objectReference: {fileID: 2724837157200881486}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.HealthThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <NormalCombo>k__BackingField.Array.data[0].HealthThreshold
       value: 1
@@ -19,6 +31,26 @@ PrefabInstance:
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <NormalCombo>k__BackingField.Array.data[0].Combo.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].HealthThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<SkillType>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<SkillType>k__BackingField
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<SkillType>k__BackingField
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <NormalCombo>k__BackingField.Array.data[0].Combo.Array.data[0].AttackData.Array.size
@@ -35,6 +67,162 @@ PrefabInstance:
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <NormalCombo>k__BackingField.Array.data[0].Combo.Array.data[3].AttackData.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<AttackDamage>k__BackingField
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<AttackDamage>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<AttackDamage>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<AnimationName>k__BackingField
+      value: PullBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<AnimationName>k__BackingField
+      value: ChokeNeck
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<AnimationName>k__BackingField
+      value: FirstAoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[0].<NextAttackDataIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[1].<NextAttackDataIndex>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.AttackData.Array.data[2].<NextAttackDataIndex>k__BackingField
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<SkillType>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<SkillType>k__BackingField
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<SkillType>k__BackingField
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<AttackDamage>k__BackingField
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<AttackDamage>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<AnimationTag>k__BackingField
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<AttackDamage>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<AnimationName>k__BackingField
+      value: PullBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<AnimationName>k__BackingField
+      value: ChokeNeck
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<AnimationName>k__BackingField
+      value: FirstAoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[0].<NextAttackDataIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[1].<NextAttackDataIndex>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<AnimationTransition>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<AttackAnimationTime>k__BackingField
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <UltimateCombo>k__BackingField.Array.data[0].AttackData.Array.data[2].<NextAttackDataIndex>k__BackingField
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 520559354224899590, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <NormalCombo>k__BackingField.Array.data[0].Combo.Array.data[0].AttackData.Array.data[2].<Force>k__BackingField

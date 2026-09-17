@@ -58300,6 +58300,8 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 0}
   baseDamage: 500
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!65 &6859520657911389092
 BoxCollider:
   m_ObjectHideFlags: 0

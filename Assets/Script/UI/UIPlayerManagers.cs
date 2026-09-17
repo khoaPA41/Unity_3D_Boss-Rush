@@ -96,9 +96,9 @@ public class UIPlayerManagers : MonoBehaviour
     private Stamina _stamina;
     private HealthPotion _healthPotion;
     private ManaPotion _manaPotion;
-    private SubPotion _subPotion;
+    // private SubPotion _subPotion;
     private SkillActive _skillActive;
-    private DodgeAward _dodgeAward;
+    // private DodgeAward _dodgeAward;
     private PlayerStateMachine _playerStateMachine;
     public event Action DodgeAwardAction;
     // private bool _isPrevHealthChanged;
@@ -111,9 +111,9 @@ public class UIPlayerManagers : MonoBehaviour
         _stamina = GetComponent<Stamina>();
         _healthPotion = GetComponent<HealthPotion>();
         _manaPotion = GetComponent<ManaPotion>();
-        _subPotion = GetComponent<SubPotion>();
+        // _subPotion = GetComponent<SubPotion>();
         _skillActive = GetComponent<SkillActive>();
-        _dodgeAward = GetComponent<DodgeAward>();
+        // _dodgeAward = GetComponent<DodgeAward>();
         _playerStateMachine = GetComponent<PlayerStateMachine>();
 
     }

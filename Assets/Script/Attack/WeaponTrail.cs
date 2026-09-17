@@ -9,6 +9,7 @@ public class WeaponTrail : MonoBehaviour
     [SerializeField] private int baseDamage;
 
     [SerializeField] private PlayerSFX sfx;
+    [SerializeField] private bool isEffect;
 
     private List<GameObject> alreadyObjectHit = new();
     private BoxCollider _collider;
@@ -81,8 +82,8 @@ public class WeaponTrail : MonoBehaviour
         health.DealDamage(damage);
         health.HitStop();
 
+        if (isEffect) return;
         health.PlayerSFX.PlayHitSound(sfx.HitResource);
-
     }
 
 

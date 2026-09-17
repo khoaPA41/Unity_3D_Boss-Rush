@@ -12,6 +12,11 @@ public class GameButtonManagers : MonoBehaviour
         GameManagers.Instance.ContinueGame();
     }
 
+    public void Home()
+    {
+        GameManagers.Instance.ExitToTitle();
+    }
+
     public void ExitGame()
     {
         GameManagers.Instance.ExitGame();

@@ -139,7 +139,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             AddSpiritualPower();
             SetupState();
             InputReader.ApplicationCursor();
-            if (Camera.main is not null) MainCameraTransform = Camera.main.transform;
+            if (Camera.main != null) MainCameraTransform = Camera.main.transform;
             ReturnLocomotion();
         }
 

@@ -21,6 +21,7 @@ namespace Script.Design_Pattern.Tree_Behavior
         public int Phase { get; private set; }
         public int CurrentPhase { get; set; }
         public int NextPhase { get; set; }
+        public bool IsUsedUltimate { get; set; }
 
 
         public uint HitReceived { get; set; }
@@ -67,6 +68,12 @@ namespace Script.Design_Pattern.Tree_Behavior
                 new TaskAttackingNode(bossStateMachine, this)
             });
 
+            var ultSequence = new BehaviorSequence(new List<BehaviorNode>
+            {
+                new CheckUltimateNode(bossStateMachine, this),
+                new TaskUltimateAttackNode(bossStateMachine, this)
+            });
+
             var changePhaseSequence = new BehaviorSequence(new List<BehaviorNode>
             {
                 new CheckChangePhaseNode(bossStateMachine, this),
@@ -90,6 +97,7 @@ namespace Script.Design_Pattern.Tree_Behavior
                 bossDead,
                 finishedCombat,
                 changePhaseSequence,
+                ultSequence,
                 counterAtkSequence,
                 atkSequence,
                 tacticalChasing

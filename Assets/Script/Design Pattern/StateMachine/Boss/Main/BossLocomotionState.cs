@@ -26,6 +26,11 @@ namespace Script.Design_Pattern.StateMachine
 
         public override void Tick(float deltaTime)
         {
+            if (bossStateMachine.IsUltimateAttack)
+            {
+                bossStateMachine.SwitchState(new BossUltimateState(bossStateMachine, 0));
+            }
+
             if (!bossStateMachine.IsChasing)
             {
                 animationValue = 0;
