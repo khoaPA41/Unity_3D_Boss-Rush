@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class BossHealthUIManagers : MonoBehaviour
 {
-    [Header("Status UI")] [SerializeField] 
+    [Header("Status UI")]
+    [SerializeField]
     private Slider healthPrevSlider;
     [SerializeField] private Slider healthFollowingSlider;
     private Health _health;
@@ -20,6 +21,7 @@ public class BossHealthUIManagers : MonoBehaviour
 
     private void OnEnable()
     {
+        SetupHealthSlider(1f);
         _health.OnChangeHealth += UpdateHealthSlider;
     }
 
@@ -33,7 +35,7 @@ public class BossHealthUIManagers : MonoBehaviour
         healthPrevSlider.value = value;
         healthFollowingSlider.value = value;
     }
-    
+
     private void UpdateHealthSlider(float value)
     {
         if (_healthChangeCoroutine != null) StopCoroutine(_healthChangeCoroutine);

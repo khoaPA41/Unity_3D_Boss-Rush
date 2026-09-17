@@ -7,8 +7,11 @@ public class TimelineEvent : MonoBehaviour
     public static TimelineEvent Instance;
 
     [field: SerializeField] public PlayableDirector Timeline { get; private set; }
+    [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }
 
     public event Action PlayTimelineAction;
+    public event Action PlayEndTimelineAction;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,6 +25,13 @@ public class TimelineEvent : MonoBehaviour
     private void OnEnable()
     {
         PlayTimelineAction += PlayTimeline;
+        // PlayEndTimelineAction += PlayEndTimeline;
+    }
+
+    private void OnDisable()
+    {
+        // PlayEndTimelineAction -= PlayEndTimeline;
+        PlayTimelineAction -= PlayTimeline;
     }
 
     public void CallTimelineAction()
@@ -33,5 +43,11 @@ public class TimelineEvent : MonoBehaviour
     {
         Time.timeScale = 1;
         Timeline.Play();
+    }
+
+    public void PlayEndTimeline()
+    {
+        Time.timeScale = 1;
+        EndTimeline.Play();
     }
 }

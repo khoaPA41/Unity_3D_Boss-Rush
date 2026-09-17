@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 namespace Script.Attack
@@ -19,6 +20,8 @@ namespace Script.Attack
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
 
+        [field: Header("Hit Sound")]
+        [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
 
         public float currentHealth;
         public bool isPerfectDodge;
@@ -50,6 +53,11 @@ namespace Script.Attack
 
             currentHealth = maxHealth;
             noDamage = false;
+        }
+
+        private void OnEnable()
+        {
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
         }
 
 

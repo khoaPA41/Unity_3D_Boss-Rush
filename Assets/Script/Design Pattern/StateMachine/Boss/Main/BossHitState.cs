@@ -16,7 +16,7 @@ namespace Script.Design_Pattern.StateMachine
         {
             previousTime = 0f;
             bossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, bossStateMachine.AnimationCrossFade);
-            bossStateMachine.PlayerSFX.PlayHitSound();
+            // bossStateMachine.PlayerSFX.PlayHitSound();
             bossStateMachine.BossBehaviorBrain.HitReceived++;
         }
 

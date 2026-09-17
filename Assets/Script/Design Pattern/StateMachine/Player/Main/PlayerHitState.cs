@@ -38,7 +38,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 playerStateMachine.Animator.CrossFadeInFixedTime(hitAnimationHash,
                     playerStateMachine.AnimationCrossFade);
             }
-            playerStateMachine.PlayerSFX.PlayHitSound();
+            // playerStateMachine.PlayerSFX.PlayHitSound();
         }
 
         public override void Tick(float deltaTime)

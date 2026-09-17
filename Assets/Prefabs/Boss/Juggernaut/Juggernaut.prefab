@@ -102,6 +102,7 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 2034142004591030147}
   baseDamage: 0
+  sfx: {fileID: 7699322129104988067}
 --- !u!1 &811978636265641828
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +428,7 @@ MonoBehaviour:
   <IdleDuration>k__BackingField: 3
   <ChaseDuration>k__BackingField: 5
   <AttackRange>k__BackingField: 5
-  <EnduredTimes>k__BackingField: 3
+  <EnduredTimes>k__BackingField: 10
   <TimeOutCombo>k__BackingField: 2
 --- !u!114 &4095888534965917343
 MonoBehaviour:
@@ -454,9 +455,8 @@ MonoBehaviour:
     Combo:
     - AttackData:
       - <AnimationName>k__BackingField: Phase_1.Attack_2
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -466,9 +466,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_1.Attack_1
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -477,9 +476,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 100
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_1.Attack_4
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -491,9 +489,8 @@ MonoBehaviour:
     Combo:
     - AttackData:
       - <AnimationName>k__BackingField: Phase_2.Attack_2
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -502,9 +499,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_1
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -513,9 +509,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_4
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -525,9 +520,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_2.Attack_3
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -536,9 +530,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_2
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -547,9 +540,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 200
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_5
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -639,13 +631,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Attack.Health
-  <maxHealth>k__BackingField: 1000
-  <resistance>k__BackingField: 50
+  <maxHealth>k__BackingField: 100
+  <resistance>k__BackingField: 0
   <reduceHealthFollowingDuration>k__BackingField: 0.15
   <reduceHealPrevDuration>k__BackingField: 0.3
   reduceHealth: 0
   timeFreeze: 0
   timeToBackNormal: 0
+  <PlayerSFX>k__BackingField: {fileID: 7699322129104988067}
   currentHealth: 0
   isPerfectDodge: 0
   isReduceDame: 0
@@ -664,7 +657,6 @@ MonoBehaviour:
   weaponRightLogic: {fileID: 354206549038499582}
   weaponLeftLogic: {fileID: 7038892689361759465}
   otherDamageLogic: {fileID: 0}
-  specialDamageLogic: {fileID: 0}
   weaponMain: {fileID: 0}
   weaponStore: {fileID: 0}
   LeftSingleSword: {fileID: 0}
@@ -705,6 +697,7 @@ MonoBehaviour:
   normalDodgeSource: {fileID: 0}
   perfectDodgeSource: {fileID: 0}
   hitSource: {fileID: 5092203091479810135}
+  <HitResource>k__BackingField: {fileID: 6418180475301049370, guid: 5d5135d9b5d13f947b5815d76008efa6, type: 2}
 --- !u!114 &6189249740507399845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,7 +842,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 372912861801490173, guid: 05371b490a8bdc54ea5a45736371088a, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 6418180475301049370, guid: 0a0c6713ccaff714483e15a721225835, type: 2}
+  m_Resource: {fileID: 6418180475301049370, guid: c7a57cd6b18a6f143a7138e860aff664, type: 2}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1922,6 +1915,7 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 2034142004591030147}
   baseDamage: 0
+  sfx: {fileID: 7699322129104988067}
 --- !u!1 &7292514636967995522
 GameObject:
   m_ObjectHideFlags: 0

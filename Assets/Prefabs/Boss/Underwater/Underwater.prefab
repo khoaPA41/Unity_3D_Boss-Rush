@@ -374,7 +374,7 @@ MonoBehaviour:
   <IdleDuration>k__BackingField: 3
   <ChaseDuration>k__BackingField: 5
   <AttackRange>k__BackingField: 5
-  <EnduredTimes>k__BackingField: 3
+  <EnduredTimes>k__BackingField: 8
   <TimeOutCombo>k__BackingField: 2
 --- !u!114 &3392446123871060620
 MonoBehaviour:
@@ -401,9 +401,8 @@ MonoBehaviour:
     Combo:
     - AttackData:
       - <AnimationName>k__BackingField: Phase_1.Attack_1
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -412,9 +411,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 100
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_1.Attack_3
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -423,9 +421,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 100
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_1.Attack_5
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -435,9 +432,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_1.Attack_2
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -446,9 +442,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 100
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_1.Attack_4
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -458,9 +453,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_1.Attack_6
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.8
         <AnimationTransition>k__BackingField: 0.1
@@ -472,9 +466,8 @@ MonoBehaviour:
     Combo:
     - AttackData:
       - <AnimationName>k__BackingField: Phase_2.Attack_1
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -483,9 +476,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_3
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -494,9 +486,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_8
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -506,9 +497,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_2.Attack_2
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -517,9 +507,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_4
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -528,9 +517,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 200
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_9
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -540,9 +528,8 @@ MonoBehaviour:
         <SkillType>k__BackingField: 0
     - AttackData:
       - <AnimationName>k__BackingField: Phase_2.Attack_6
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -551,9 +538,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 150
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_5
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: 2
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -562,9 +548,8 @@ MonoBehaviour:
         <AttackDamage>k__BackingField: 200
         <SkillType>k__BackingField: 0
       - <AnimationName>k__BackingField: Phase_2.Attack_10
+        <VfxName>k__BackingField: 
         <AnimationTag>k__BackingField: Attack
-        <AnimationStartSlowThreshold>k__BackingField: 0
-        <AnimationSpeed>k__BackingField: 1
         <NextAttackDataIndex>k__BackingField: -1
         <AttackAnimationTime>k__BackingField: 0.9
         <AnimationTransition>k__BackingField: 0.1
@@ -636,13 +621,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4.74
-  m_Radius: 0.83
+  m_Height: 2.86
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.97, z: 0}
+  m_Center: {x: 0, y: 1.44, z: 0}
 --- !u!114 &7692617138037183675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,13 +640,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Attack.Health
-  <maxHealth>k__BackingField: 1000
+  <maxHealth>k__BackingField: 100
   <resistance>k__BackingField: 0
   <reduceHealthFollowingDuration>k__BackingField: 0.15
   <reduceHealPrevDuration>k__BackingField: 0.3
   reduceHealth: 0
   timeFreeze: 0
   timeToBackNormal: 0
+  <PlayerSFX>k__BackingField: {fileID: 5036027512701539147}
   currentHealth: 0
   isPerfectDodge: 0
   isReduceDame: 0
@@ -720,6 +706,7 @@ MonoBehaviour:
   normalDodgeSource: {fileID: 0}
   perfectDodgeSource: {fileID: 0}
   hitSource: {fileID: 3997253364659345496}
+  <HitResource>k__BackingField: {fileID: 6418180475301049370, guid: e8aa71c571b13d749919bd95da3293ed, type: 2}
 --- !u!114 &3627468049444448197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,7 +2245,7 @@ Transform:
   m_GameObject: {fileID: 5000449613081613087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 6}
+  m_LocalPosition: {x: -0, y: 0.381, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2302,6 +2289,7 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
   baseDamage: 0
+  sfx: {fileID: 5036027512701539147}
 --- !u!1 &5067299756226219076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,7 +2970,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 372912861801490173, guid: 05371b490a8bdc54ea5a45736371088a, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 6418180475301049370, guid: 0a0c6713ccaff714483e15a721225835, type: 2}
+  m_Resource: {fileID: 6418180475301049370, guid: d4e0da22bc98760419bde3f20c134872, type: 2}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3258,7 +3246,7 @@ Transform:
   m_GameObject: {fileID: 7297188902878031813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 6}
+  m_LocalPosition: {x: 0, y: -0.381, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3302,6 +3290,7 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
   baseDamage: 0
+  sfx: {fileID: 5036027512701539147}
 --- !u!1 &7444263777270884549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,7 +3350,7 @@ Transform:
   m_GameObject: {fileID: 7650476459253416663}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.09640002, z: -2.9496307}
+  m_LocalPosition: {x: 0, y: -0.09640002, z: 0.33}
   m_LocalScale: {x: 2.8, y: 2.8, z: 2.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3784,6 +3773,7 @@ MonoBehaviour:
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
   baseDamage: 0
+  sfx: {fileID: 5036027512701539147}
 --- !u!1 &8063748326844176760
 GameObject:
   m_ObjectHideFlags: 0

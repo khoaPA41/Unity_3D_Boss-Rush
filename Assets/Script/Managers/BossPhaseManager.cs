@@ -9,6 +9,9 @@ public class BossPhaseManager : MonoBehaviour
 {
     [SerializeField] private List<BossBehaviorBrain> phases;
     [SerializeField] private List<ParticleSystem> lockGateParticle;
+    [SerializeField] private GameObject healthUi;
+    [SerializeField] private bool isFinalBoss;
+
     private int currentPhaseIndex = 0;
 
     private bool firstTime;
@@ -17,6 +20,12 @@ public class BossPhaseManager : MonoBehaviour
     public void Start()
     {
         GetEventInPhases();
+    }
+
+
+    private void OnEnable()
+    {
+        healthUi.SetActive(true);
     }
 
     private void Update()
@@ -69,8 +78,12 @@ public class BossPhaseManager : MonoBehaviour
         if (currentPhaseIndex == phases.Count)
         {
             // InactiveLockGateParticle();
+            healthUi.SetActive(false);
             AudioManagers.Instance.StopBackgroundMusic();
             this.gameObject.SetActive(false);
+
+            if (!isFinalBoss) return;
+            TimelineEvent.Instance.PlayEndTimeline();
             return;
         }
 

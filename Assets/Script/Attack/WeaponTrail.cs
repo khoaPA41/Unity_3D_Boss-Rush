@@ -7,6 +7,9 @@ public class WeaponTrail : MonoBehaviour
     [SerializeField] private LayerMask _layerMask = 255;
     [SerializeField] private GameObject _legalOwner;
     [SerializeField] private int baseDamage;
+
+    [SerializeField] private PlayerSFX sfx;
+
     private List<GameObject> alreadyObjectHit = new();
     private BoxCollider _collider;
     private Vector3 previousPosition;
@@ -77,6 +80,9 @@ public class WeaponTrail : MonoBehaviour
 
         health.DealDamage(damage);
         health.HitStop();
+
+        health.PlayerSFX.PlayHitSound(sfx.HitResource);
+
     }
 
 
