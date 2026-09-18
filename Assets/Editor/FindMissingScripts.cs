@@ -12,21 +12,21 @@ public class FindMissingScripts : EditorWindow
 
     private void OnGUI()
     {
-        if (GUILayout.Button("Tìm Missing Scripts trong Scene hiện tại", GUILayout.Height(30)))
+        if (GUILayout.Button("Find Missing Scripts in current Scene", GUILayout.Height(30)))
         {
             FindInCurrentScene();
         }
 
         GUILayout.Space(10);
 
-        if (GUILayout.Button("Tìm Missing Scripts trong toàn bộ Prefabs", GUILayout.Height(30)))
+        if (GUILayout.Button("Find Missing Scripts in all Prefabs", GUILayout.Height(30)))
         {
             FindInAllPrefabs();
         }
 
         GUILayout.Space(10);
 
-        if (GUILayout.Button("Tìm Missing Scripts trong TẤT CẢ Scene + Prefab", GUILayout.Height(40)))
+        if (GUILayout.Button("Find Missing Scripts in all Scene + Prefab", GUILayout.Height(40)))
         {
             FindInAllScenesAndPrefabs();
         }
@@ -34,7 +34,7 @@ public class FindMissingScripts : EditorWindow
 
     static void FindInCurrentScene()
     {
-        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);
+        GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         int count = 0;
 
         foreach (GameObject go in allObjects)
@@ -42,7 +42,7 @@ public class FindMissingScripts : EditorWindow
             count += CheckGameObject(go);
         }
 
-        Debug.Log($"<color=cyan>Hoàn thành!</color> Tìm thấy <b>{count}</b> Missing Script trong Scene hiện tại.");
+        Debug.Log($"<color=cyan>Success!</color> Found <b>{count}</b> Missing Script in current Scene.");
     }
 
     static void FindInAllPrefabs()
@@ -61,7 +61,7 @@ public class FindMissingScripts : EditorWindow
             }
         }
 
-        Debug.Log($"<color=cyan>Hoàn thành!</color> Tìm thấy <b>{count}</b> Missing Script trong tất cả Prefab.");
+        Debug.Log($"<color=cyan>Success!</color> Found <b>{count}</b> Missing Script in all Prefab.");
     }
 
     static void FindInAllScenesAndPrefabs()
@@ -78,7 +78,7 @@ public class FindMissingScripts : EditorWindow
             string path = AssetDatabase.GUIDToAssetPath(guid);
             var scene = UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path, UnityEditor.SceneManagement.OpenSceneMode.Additive);
 
-            GameObject[] allObjects = Object.FindObjectsOfType<GameObject>(true);
+            GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             int sceneCount = 0;
 
             foreach (GameObject go in allObjects)
@@ -90,7 +90,7 @@ public class FindMissingScripts : EditorWindow
             UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
         }
 
-        Debug.Log($"<color=green><b>HOÀN TẤT!</b></color> Tổng cộng tìm thấy Missing Script trong toàn project.");
+        Debug.Log($"<color=green><b>COMPLETE!</b></color> A total of Missing Scripts were found throughout the whole project.");
     }
 
     static int CheckGameObject(GameObject go, string path = "")
@@ -104,7 +104,7 @@ public class FindMissingScripts : EditorWindow
             {
                 count++;
                 string location = string.IsNullOrEmpty(path) ? go.name : $"{path} → {GetFullPath(go)}";
-                Debug.LogWarning($"<color=yellow>Missing Script</color> tại: <b>{location}</b>", go);
+                Debug.LogWarning($"<color=yellow>Missing Script</color> at: <b>{location}</b>", go);
             }
         }
 
