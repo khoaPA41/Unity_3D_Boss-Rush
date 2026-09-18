@@ -1,125 +1,139 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Script.Attack.Skill_Factory;
+using Attack.Skill_Factory;
 using UnityEngine;
 
-[Serializable]
-public class SkillActiveType
+namespace Attack
 {
-    public string skillName;
-    public string skillDescription;
-    public Sprite skillIcon;
-    public string skillAnimationName;
-    public string skillAnimationTag;
-    public SkillType skillType;
-    public float coolDown;
-    public bool canUse;
-    public float countCoolDown { get; set; }
-}
-
-public class SkillActive : MonoBehaviour
-{
-    [SerializeField] private List<SkillActiveType> changingTheGameList;
-    [SerializeField] private List<SkillActiveType> escapeList;
-    [SerializeField] private List<SkillActiveType> responseList;
-
-    public SkillActiveType changingTheGameSkill;
-    public SkillActiveType escapeSkill;
-    public SkillActiveType responseSkill;
-
-    private InputReader _inputReader;
-    public event Action<string> UpdateSkillUIEvent;
-    public event Action<int, SkillActiveType> OnUseSkill;
-
-    private void Awake()
+    [Serializable]
+    public class SkillActiveType
     {
-        _inputReader = GetComponent<InputReader>();
+        public string skillName;
+        public string skillDescription;
+        public Sprite skillIcon;
+        public string skillAnimationName;
+        public string skillAnimationTag;
+        public SkillType skillType;
+        public float coolDown;
+        public bool canUse;
+        public float countCoolDown { get; set; }
     }
 
-    private void OnEnable()
+    public class SkillActive : MonoBehaviour
     {
-        _inputReader.SkillAction += CountCoolDown;
-    }
+        [SerializeField] private List<SkillActiveType> changingTheGameList;
+        [SerializeField] private List<SkillActiveType> escapeList;
+        [SerializeField] private List<SkillActiveType> responseList;
 
-    private void OnDisable()
-    {
-        _inputReader.SkillAction -= CountCoolDown;
-    }
-    
-    private void CountCoolDown(int skillNumber)
-    {
-        switch (skillNumber)
+        public SkillActiveType changingTheGameSkill;
+        public SkillActiveType escapeSkill;
+        public SkillActiveType responseSkill;
+
+        private InputReader _inputReader;
+        public event Action<string> UpdateSkillUIEvent;
+        public event Action<int, SkillActiveType> OnUseSkill;
+        public event Action<int> UseSkillSuccess;
+
+        private void Awake()
         {
-            case 1:
-                if (changingTheGameSkill.canUse)
-                {
-                    OnUseSkill?.Invoke(skillNumber, changingTheGameSkill);
-                    StartCoroutine(CountCoolDownCoroutine(changingTheGameSkill.coolDown, changingTheGameSkill));
-                }
-
-                break;
-            case 2:
-                if (escapeSkill.canUse)
-                {
-                    OnUseSkill?.Invoke(skillNumber, escapeSkill);
-                    StartCoroutine(CountCoolDownCoroutine(escapeSkill.coolDown, escapeSkill));
-                }
- 
-                break;
-            case 3:
-                if (responseSkill.canUse)
-                {
-                    OnUseSkill?.Invoke(skillNumber, responseSkill);
-                    StartCoroutine(CountCoolDownCoroutine(responseSkill.coolDown, responseSkill));
-                }
-                break;
-        }
-    }
-
-    private IEnumerator CountCoolDownCoroutine(float coolDown, SkillActiveType skill)
-    {
-        float countCoolDown = 0;
-        while (countCoolDown < coolDown)
-        {
-            countCoolDown += Time.deltaTime;
-            yield return null;
+            _inputReader = GetComponent<InputReader>();
         }
 
-        skill.canUse = true;
-    }
-
-    public void UpdateChangingTheGameSkill(string name)
-    {
-        changingTheGameSkill = changingTheGameList.Find(skill => skill.skillName == name);
-        UpdateSkillUIEvent?.Invoke("ChangingTheGame");
-    }
-
-    public void UpdateEscapeSkill(string name)
-    {
-        escapeSkill = escapeList.Find(skill => skill.skillName == name);
-        UpdateSkillUIEvent?.Invoke("Escape");
-    }
-
-    public void UpdateResponseSkill(string name)
-    {
-        responseSkill = responseList.Find(skill => skill.skillName == name);
-        UpdateSkillUIEvent?.Invoke("Response");
-    }
-
-    public void UpdateSkillUIByType()
-    {
-        if (changingTheGameSkill != null)
+        private void OnEnable()
         {
-            UpdateChangingTheGameSkill(changingTheGameSkill.skillName);
+            UseSkillSuccess += CountCoolDown;
         }
-        if (escapeSkill != null)
+
+        private void OnDisable()
         {
-            UpdateEscapeSkill(escapeSkill.skillName);
+            UseSkillSuccess -= CountCoolDown;
         }
-        if (responseSkill != null)
+
+        public void CallUseSkillSuccess(int skillNumber)
         {
-            UpdateResponseSkill(responseSkill.skillName);
+            UseSkillSuccess?.Invoke(skillNumber);
+        }
+
+        public void CountCoolDown(int skillNumber)
+        {
+            switch (skillNumber)
+            {
+                case 1:
+                    if (changingTheGameSkill.canUse)
+                    {
+                        OnUseSkill?.Invoke(skillNumber, changingTheGameSkill);
+                        changingTheGameSkill.canUse = false;
+                        StartCoroutine(CountCoolDownCoroutine(changingTheGameSkill.coolDown, changingTheGameSkill));
+                    }
+
+                    break;
+                case 2:
+                    if (escapeSkill.canUse)
+                    {
+                        OnUseSkill?.Invoke(skillNumber, escapeSkill);
+                        escapeSkill.canUse = false;
+                        StartCoroutine(CountCoolDownCoroutine(escapeSkill.coolDown, escapeSkill));
+                    }
+
+                    break;
+                case 3:
+                    if (responseSkill.canUse)
+                    {
+                        OnUseSkill?.Invoke(skillNumber, responseSkill);
+                        responseSkill.canUse = false;
+                        StartCoroutine(CountCoolDownCoroutine(responseSkill.coolDown, responseSkill));
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private IEnumerator CountCoolDownCoroutine(float coolDown, SkillActiveType skill)
+        {
+            float countCoolDown = 0;
+            while (countCoolDown < coolDown)
+            {
+                countCoolDown += Time.deltaTime;
+                yield return null;
+            }
+
+            skill.canUse = true;
+        }
+
+        public void UpdateChangingTheGameSkill(string name)
+        {
+            changingTheGameSkill = changingTheGameList.Find(skill => skill.skillName == name);
+            UpdateSkillUIEvent?.Invoke("ChangingTheGame");
+        }
+
+        public void UpdateEscapeSkill(string name)
+        {
+            escapeSkill = escapeList.Find(skill => skill.skillName == name);
+            UpdateSkillUIEvent?.Invoke("Escape");
+        }
+
+        public void UpdateResponseSkill(string name)
+        {
+            responseSkill = responseList.Find(skill => skill.skillName == name);
+            UpdateSkillUIEvent?.Invoke("Response");
+        }
+
+        public void UpdateSkillUIByType()
+        {
+            if (changingTheGameSkill != null)
+            {
+                UpdateChangingTheGameSkill(changingTheGameSkill.skillName);
+            }
+            if (escapeSkill != null)
+            {
+                UpdateEscapeSkill(escapeSkill.skillName);
+            }
+            if (responseSkill != null)
+            {
+                UpdateResponseSkill(responseSkill.skillName);
+            }
         }
     }
 }

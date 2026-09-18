@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.StateMachine.Player.Base;
+using Attack;
+using Attack.Skill_Factory;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerUseSkillState : PlayerBaseState
     {
@@ -12,58 +12,70 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private SkillActiveType skill;
         public PlayerUseSkillState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            
+
         }
-        
+
         public override void Enter()
         {
             GetTheSkillActive();
+
             if (!skill.canUse)
             {
                 playerStateMachine.ReturnLocomotion();
                 return;
             }
-            skill.canUse = false;
+
+            // skill.canUse = false;
             currentSkill = UseSkill(skill.skillType);
+
             if (currentSkill is null)
             {
                 playerStateMachine.ReturnLocomotion();
                 return;
             }
-            
+
             playerStateMachine.Animator.CrossFadeInFixedTime(skill.skillAnimationName, .1f, 0);
         }
 
         public override void Tick(float deltaTime)
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skill.skillAnimationTag, 0);
-            if (normalizeTime <.9f) return;
+            if (normalizeTime < .9f) return;
             // ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.ReturnLocomotion();
         }
 
         public override void PhysicTick(float fixedDeltaTime)
         {
-            
+
         }
 
         public override void Exit()
         {
-            
+
         }
-        
+
         private ISkill UseSkill(SkillType skillType)
         {
+
             var skill = SkillFactory.CreateSkill(skillType);
-            
+
             if (skill == null) return null;
-            
+
+            Debug.Log("Can not use");
+
             if (playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
-            
+
+            Debug.Log("Success");
+
+            // playerStateMachine.SkillActive.CountCoolDown(playerStateMachine.SkillNumber);
+
+            playerStateMachine.SkillActive.CallUseSkillSuccess(playerStateMachine.SkillNumber);
+
             skill.Cast(playerStateMachine);
             return skill;
         }
-        
+
         private void ResetAfterSkill(SkillEffect skillEffect)
         {
             switch (skillEffect)
@@ -95,16 +107,16 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                     return;
             }
         }
-        
+
         private static IEnumerator Count(float time, Action callback)
         {
             yield return new WaitForSecondsRealtime(time);
             callback?.Invoke();
         }
-        
+
         private void ResetToMainMaterial()
         {
-            var tempMaterials = new Material[] {playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2};
+            var tempMaterials = new Material[] { playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2 };
             playerStateMachine.SkinnedMeshRenderer.materials = tempMaterials;
         }
 
@@ -115,7 +127,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 1 => playerStateMachine.SkillActive.changingTheGameSkill,
                 2 => playerStateMachine.SkillActive.escapeSkill,
                 3 => playerStateMachine.SkillActive.responseSkill,
-                _=> null
+                _ => null
             };
         }
     }
