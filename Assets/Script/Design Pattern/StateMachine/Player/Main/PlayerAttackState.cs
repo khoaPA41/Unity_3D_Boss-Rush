@@ -1,7 +1,6 @@
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerAttackState : PlayerBaseState
     {
@@ -22,9 +21,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 playerStateMachine.ReturnLocomotion();
                 return;
             }
-            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.lightAttackReduce);
-            playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition,
-                0);
+            playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition, 0);
             playerStateMachine.DealDamage.SetDamage(playerStateMachine.IsIncreaseDamePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
             playerStateMachine.WeaponTrail.SetActive(true);
@@ -34,8 +31,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
 
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _attackData.AnimationTag, 0);
-            if (normalizeTime >= _previousTime && normalizeTime <= 1f)
+            if (normalizeTime >= _previousTime && normalizeTime < 1f)
             {
+                if (normalizeTime < .6f)
+                {
+                    playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.lightAttackReduce);
+                }
+
                 if (normalizeTime >= _attackData.AttackAnimationTime)
                 {
 
@@ -114,7 +116,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
             var vfx = ObjectPooling.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTrasform.position);
             if (slashDir.sqrMagnitude > 0.001f)
             {
-
                 var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);
                 vfx.transform.rotation = rot;
             }

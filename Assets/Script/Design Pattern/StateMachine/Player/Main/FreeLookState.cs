@@ -1,7 +1,6 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class FreeLookState : PlayerBaseState
     {
@@ -34,22 +33,28 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             if (_movement != Vector3.zero)
             {
-                playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
+                if (playerStateMachine.InputReader.IsSprint)
+                {
+                    playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.runReduce);
+                }
+                else
+                {
+                    playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.walkReduce);
+                }
             }
             else
             {
                 playerStateMachine.Stamina.RecoveryStamina();
             }
 
-
-            if (playerStateMachine.Stamina.currentStamina <= 0f)
+            if (playerStateMachine.Stamina.CurrentStamina < playerStateMachine.Stamina.walkReduce)
             {
                 speed = 0f;
+                _movement = Vector3.zero;
             }
 
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
-
             Move(_movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceDir(_movement, deltaTime);
@@ -72,7 +77,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private void UpdateAnimation(float deltaTime)
         {
             var currentMovement = playerStateMachine.Animator.GetFloat(Movement);
-            if (playerStateMachine.InputReader.InputMovement == Vector2.zero)
+            if (playerStateMachine.InputReader.InputMovement == Vector2.zero ||
+            playerStateMachine.Stamina.CurrentStamina < playerStateMachine.Stamina.walkReduce)
             {
                 if (currentMovement is < 0.05f and > -0.05f)
                 {
@@ -93,10 +99,5 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.SetFloat(Movement, .5f, playerStateMachine.AnimationCrossFade, deltaTime);
         }
-
-        // private void ActiveSysUIScene()
-        // {
-        //     playerStateMachine.SwitchState(new PlayerActiveCheckPointState(playerStateMachine, true));
-        // }
     }
 }

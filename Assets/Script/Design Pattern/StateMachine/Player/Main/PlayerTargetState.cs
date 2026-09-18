@@ -1,7 +1,6 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerTargetState : PlayerBaseState
     {
@@ -34,34 +33,42 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            if (playerStateMachine.Targeter.currentTarget is null)
+            if (playerStateMachine.Targeter.currentTarget == null)
             {
                 OutTargetState();
             }
 
-            playerStateMachine.HandleAttackState();
-            playerStateMachine.HandleHeavyAttackState();
-            var movement = CalculateMovementInTarget();
+            var _movement = CalculateMovementInTarget();
             var speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
-            if (movement != Vector3.zero)
+            if (_movement != Vector3.zero)
             {
-                playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.movementReduce);
+                if (playerStateMachine.InputReader.IsSprint)
+                {
+                    playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.runReduce);
+                }
+                else
+                {
+                    playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.walkReduce);
+                }
             }
             else
             {
                 playerStateMachine.Stamina.RecoveryStamina();
             }
 
-            if (playerStateMachine.Stamina.currentStamina <= 0f)
+            if (playerStateMachine.Stamina.CurrentStamina < playerStateMachine.Stamina.walkReduce)
             {
                 speed = 0f;
-                movement = Vector3.zero;
+                _movement = Vector3.zero;
             }
 
-            Move(movement * speed, deltaTime);
+
+            playerStateMachine.HandleAttackState();
+            playerStateMachine.HandleHeavyAttackState();
+            Move(_movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceTarget(deltaTime);
         }
