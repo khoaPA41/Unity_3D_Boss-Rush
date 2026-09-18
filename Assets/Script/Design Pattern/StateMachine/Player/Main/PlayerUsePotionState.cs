@@ -1,8 +1,7 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerUsePotionState : PlayerBaseState
     {
@@ -16,22 +15,29 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Enter()
         {
+            _previousTime = 0f;
             hexColorEffect = playerStateMachine.IsHealthPotion ? "#C92800" : "#0026C1";
             ChangeColorEffect(hexColorEffect);
             UseMainPotion();
-            
-            playerStateMachine.Animator.CrossFadeInFixedTime(_usePotionAnimationHash,
-                playerStateMachine.AnimationCrossFade);
+            playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
+            playerStateMachine.Animator.CrossFadeInFixedTime(_usePotionAnimationHash, playerStateMachine.AnimationCrossFade);
         }
 
         public override void Tick(float deltaTime)
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, UsePotionAnimationTag, 0);
 
-            if (normalizeTime >= .8f)
+            if (normalizeTime > _previousTime && normalizeTime >= .8f)
             {
                 playerStateMachine.ReturnLocomotion();
             }
+
+            if (normalizeTime > _previousTime && normalizeTime < .8f)
+            {
+
+            }
+
+            _previousTime = normalizeTime;
         }
 
         public override void PhysicTick(float fixedDeltaTime)
@@ -45,6 +51,11 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             playerStateMachine.PotionLight.SetActive(false);
             playerStateMachine.ManaParticle.Stop();
+
+            // playerStateMachine.InputReader.UsePotionAction -= UseMainPotion;
+
+            playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
+
         }
 
 

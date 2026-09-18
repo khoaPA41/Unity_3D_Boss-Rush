@@ -124,7 +124,10 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnUsePotion(InputAction.CallbackContext context)
     {
-        if (context is { canceled: true, performed: true }) return;
+        Debug.Log("Don't Press");
+        // if (context is { canceled: true, performed: true }) return;
+
+        if (!context.started) return;
 
         if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
         {
@@ -133,12 +136,13 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             UseSubPotionAction?.Invoke();
             return;
         }
+        Debug.Log("Use Success");
         UsePotionAction?.Invoke();
     }
 
     public void OnChangeMainPotion(InputAction.CallbackContext context)
     {
-        if ((Keyboard.current != null && Keyboard.current.qKey.isPressed) && !context.canceled)
+        if (Keyboard.current != null && Keyboard.current.qKey.isPressed && !context.canceled)
         {
             var scrollY = context.ReadValue<Vector2>();
             if (!context.performed) return;
@@ -155,7 +159,7 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
             }
         }
 
-        if ((Keyboard.current != null && Keyboard.current.altKey.isPressed) && !context.canceled)
+        if (Keyboard.current != null && Keyboard.current.altKey.isPressed && !context.canceled)
         {
             var scrollY = context.ReadValue<Vector2>();
             if (!context.performed) return;
