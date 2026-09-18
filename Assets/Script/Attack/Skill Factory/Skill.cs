@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using Script.Design_Pattern.EventBus;
+using Design_Pattern.EventBus;
+using Design_Pattern.StateMachine.Boss;
+using Design_Pattern.StateMachine.Player;
+using Design_Pattern.StateMachine.PlayerClone;
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine;
-using Script.Design_Pattern.StateMachine.Player.Base;
-using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
 
-namespace Script.Attack.Skill_Factory
+namespace Attack.Skill_Factory
 {
     public class Inescapable : ISkill
     {
@@ -24,7 +23,7 @@ namespace Script.Attack.Skill_Factory
             caster.ComsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
 
-            if (player.Targeter.currentTarget is not null)
+            if (player.Targeter.currentTarget != null)
             {
                 GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
                 AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.inescapableResource);

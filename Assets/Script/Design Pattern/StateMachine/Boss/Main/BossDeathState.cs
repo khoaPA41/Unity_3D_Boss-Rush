@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace Script.Design_Pattern.StateMachine
+namespace Design_Pattern.StateMachine.Boss
 {
     public class BossDeathState : BossBaseState
     {

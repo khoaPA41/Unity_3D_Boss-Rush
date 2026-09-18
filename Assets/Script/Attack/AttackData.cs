@@ -1,5 +1,5 @@
 using System;
-using Script.Attack.Skill_Factory;
+using Attack.Skill_Factory;
 using UnityEngine;
 [Serializable]
 public class AttackData

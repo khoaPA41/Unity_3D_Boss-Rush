@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Script.Design_Pattern.Tree_Behavior.Base
+namespace Design_Pattern.Tree_Behavior.Base
 {
     public class BehaviorSequence : BehaviorNode
     {
@@ -10,7 +10,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Base
         {
             this.nodes = nodes;
         }
-        
+
         public override NodeState Evaluate()
         {
             var isAnyChildIsRunning = false;

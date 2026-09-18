@@ -1,6 +1,6 @@
 
 
-namespace Script.Attack.Skill_Factory
+namespace Attack.Skill_Factory
 {
     public enum SkillType
     {
@@ -21,7 +21,7 @@ namespace Script.Attack.Skill_Factory
         TransformToTwoSword,
         TransformToBlade
     }
-    
+
     public enum SkillEffect
     {
         NonEffect,
@@ -34,10 +34,10 @@ namespace Script.Attack.Skill_Factory
         AttractiveForce,
         PushOut
     }
-    
+
     public static class SkillFactory
     {
-        public static ISkill CreateSkill(SkillType  skillType)
+        public static ISkill CreateSkill(SkillType skillType)
         {
             return skillType switch
             {

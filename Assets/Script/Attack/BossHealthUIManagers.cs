@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using Script.Attack;
+using Status;
 using UnityEngine;
 using UnityEngine.UI;
 

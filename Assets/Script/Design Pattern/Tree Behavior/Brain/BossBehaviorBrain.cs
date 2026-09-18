@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Script.Design_Pattern.StateMachine;
-using Script.Design_Pattern.Tree_Behavior.Base;
+using Design_Pattern.StateMachine.Boss;
+using Design_Pattern.Tree_Behavior.Base;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-namespace Script.Design_Pattern.Tree_Behavior
+
+namespace Design_Pattern.Tree_Behavior.Boss
 {
     public class BossBehaviorBrain : MonoBehaviour
     {

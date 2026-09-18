@@ -1,8 +1,9 @@
-using Script.Design_Pattern.StateMachine;
-using Script.Design_Pattern.Tree_Behavior.Base;
+using Design_Pattern.StateMachine.Boss;
+using Design_Pattern.Tree_Behavior.Base;
+using Design_Pattern.Tree_Behavior.Boss;
 using UnityEngine;
 
-namespace Script.Design_Pattern.Tree_Behavior
+namespace Design_Pattern.Tree_Behavior
 {
     public class TaskAttackingNode : BehaviorNode
     {

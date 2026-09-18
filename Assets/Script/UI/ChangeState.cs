@@ -1,5 +1,8 @@
 using UnityEngine;
-using Script.Design_Pattern.StateMachine;
+using Design_Pattern.EventBus;
+using Design_Pattern.StateMachine.Boss;
+
+
 
 
 #if UNITY_EDITOR

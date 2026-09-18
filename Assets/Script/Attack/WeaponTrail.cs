@@ -1,103 +1,106 @@
 using System.Collections.Generic;
-using Script.Attack;
+using Status;
 using UnityEngine;
 
-public class WeaponTrail : MonoBehaviour
+namespace Attack
 {
-    [SerializeField] private LayerMask _layerMask = 255;
-    [SerializeField] private GameObject _legalOwner;
-    [SerializeField] private int baseDamage;
-
-    [SerializeField] private PlayerSFX sfx;
-    [SerializeField] private bool isEffect;
-
-    private List<GameObject> alreadyObjectHit = new();
-    private BoxCollider _collider;
-    private Vector3 previousPosition;
-
-    private float damage;
-
-    private void Awake()
+    public class WeaponTrail : MonoBehaviour
     {
-        _collider = GetComponent<BoxCollider>();
-        damage = baseDamage;
-    }
+        [SerializeField] private LayerMask _layerMask = 255;
+        [SerializeField] private GameObject _legalOwner;
+        [SerializeField] private int baseDamage;
 
-    private void OnEnable()
-    {
-        alreadyObjectHit.Clear();
-        if (_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
-    }
+        [SerializeField] private PlayerSFX sfx;
+        [SerializeField] private bool isEffect;
 
-    public void ResetObjectHitList()
-    {
-        alreadyObjectHit.Clear();
-    }
+        private List<GameObject> alreadyObjectHit = new();
+        private BoxCollider _collider;
+        private Vector3 previousPosition;
 
-    private void LateUpdate()
-    {
-        var currentPosition = transform.TransformPoint(_collider.center);
-        var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
-        var halfExtend = sizeWorld * .5f;
-        var direction = (currentPosition - previousPosition).normalized;
-        var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
+        private float damage;
 
-        var overlaps = Physics.OverlapBox(currentPosition, halfExtend, transform.rotation, _layerMask);
-        foreach (var overlap in overlaps)
+        private void Awake()
         {
-            DealDamage(overlap.gameObject);
+            _collider = GetComponent<BoxCollider>();
+            damage = baseDamage;
         }
 
-        if (sweepDistance > 0.01f)
+        private void OnEnable()
         {
-            var raycastHits = Physics.BoxCastAll(previousPosition, halfExtend, direction, transform.rotation, sweepDistance, _layerMask);
-            foreach (var hit in raycastHits)
+            alreadyObjectHit.Clear();
+            if (_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
+        }
+
+        public void ResetObjectHitList()
+        {
+            alreadyObjectHit.Clear();
+        }
+
+        private void LateUpdate()
+        {
+            var currentPosition = transform.TransformPoint(_collider.center);
+            var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
+            var halfExtend = sizeWorld * .5f;
+            var direction = (currentPosition - previousPosition).normalized;
+            var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
+
+            var overlaps = Physics.OverlapBox(currentPosition, halfExtend, transform.rotation, _layerMask);
+            foreach (var overlap in overlaps)
             {
-                DealDamage(hit.collider.gameObject);
+                DealDamage(overlap.gameObject);
             }
+
+            if (sweepDistance > 0.01f)
+            {
+                var raycastHits = Physics.BoxCastAll(previousPosition, halfExtend, direction, transform.rotation, sweepDistance, _layerMask);
+                foreach (var hit in raycastHits)
+                {
+                    DealDamage(hit.collider.gameObject);
+                }
+            }
+
+            previousPosition = currentPosition;
         }
 
-        previousPosition = currentPosition;
-    }
-
-    public void SetDamage(float damage)
-    {
-        this.damage = damage;
-    }
+        public void SetDamage(float damage)
+        {
+            this.damage = damage;
+        }
 
 
-    private void DealDamage(GameObject other)
-    {
-        if (other.gameObject == _legalOwner || other.gameObject == gameObject) return;
-        if (alreadyObjectHit.Contains(other)) return;
+        private void DealDamage(GameObject other)
+        {
+            if (other.gameObject == _legalOwner || other.gameObject == gameObject) return;
+            if (alreadyObjectHit.Contains(other)) return;
 
-        alreadyObjectHit.Add(other);
+            alreadyObjectHit.Add(other);
 
-        if (!other.TryGetComponent(out Health health)) return;
+            if (!other.TryGetComponent(out Health health)) return;
 
-        health.PerfectDodgeAward();
+            health.PerfectDodgeAward();
 
-        if (health.noDamage) return;
+            if (health.noDamage) return;
 
-        health.DealDamage(damage);
-        health.HitStop();
+            health.DealDamage(damage);
+            health.HitStop();
 
-        if (isEffect) return;
-        health.PlayerSFX.PlayHitSound(sfx.HitResource);
-    }
+            if (isEffect) return;
+            health.PlayerSFX.PlayHitSound(sfx.HitResource);
+        }
 
 
-    private void OnDrawGizmos()
-    {
-        _collider ??= GetComponent<BoxCollider>();
-        if (_collider is null) return;
+        private void OnDrawGizmos()
+        {
+            _collider ??= GetComponent<BoxCollider>();
+            if (_collider is null) return;
 
-        Gizmos.color = Color.red;
+            Gizmos.color = Color.red;
 
-        var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
-        var centerWorld = transform.TransformPoint(_collider.center);
+            var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
+            var centerWorld = transform.TransformPoint(_collider.center);
 
-        Gizmos.matrix = Matrix4x4.TRS(centerWorld, transform.rotation, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, sizeWorld);
+            Gizmos.matrix = Matrix4x4.TRS(centerWorld, transform.rotation, Vector3.one);
+            Gizmos.DrawWireCube(Vector3.zero, sizeWorld);
+        }
     }
 }

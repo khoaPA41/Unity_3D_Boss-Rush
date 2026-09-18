@@ -1,12 +1,11 @@
-using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.PlayerClone.Main
+namespace Design_Pattern.StateMachine.PlayerClone
 {
     public class PlayerCloneChasingState : PlayerCloneBaseState
     {
         private static readonly int _movementAnimation = Animator.StringToHash("Movement");
-        
+
         private Vector3 _movement;
 
         public PlayerCloneChasingState(PlayerCloneStateMachine cloneStateMachine) : base(cloneStateMachine)

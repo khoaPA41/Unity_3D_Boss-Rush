@@ -1,31 +1,34 @@
 using System.Collections;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
+using Attack.Skill_Factory;
+using Design_Pattern.EventBus;
 using UnityEngine;
 
-public class TriggerSkillForBoss : MonoBehaviour
+namespace Attack
 {
-    [SerializeField] private float timeToActiveTrigger;
-    [SerializeField] private SkillEffect effect;
-    [SerializeField] private GameObject damageLogic;
-    public ICaster Caster {get; set;}
-
-    private void OnEnable()
+    public class TriggerSkillForBoss : MonoBehaviour
     {
-        damageLogic.SetActive(false);
-        StartCoroutine(WaitToActiveTrigger());
-    }
+        [SerializeField] private float timeToActiveTrigger;
+        [SerializeField] private SkillEffect effect;
+        [SerializeField] private GameObject damageLogic;
+        public ICaster Caster { get; set; }
 
-    private IEnumerator WaitToActiveTrigger()
-    {
-        yield return new WaitForSeconds(timeToActiveTrigger);
-        damageLogic.SetActive(true);
-    }
+        private void OnEnable()
+        {
+            damageLogic.SetActive(false);
+            StartCoroutine(WaitToActiveTrigger());
+        }
+
+        private IEnumerator WaitToActiveTrigger()
+        {
+            yield return new WaitForSeconds(timeToActiveTrigger);
+            damageLogic.SetActive(true);
+        }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Player")) return;
-        GameEventManagers.Instance.TriggerSkillCasted(Caster, effect); 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag("Player")) return;
+            GameEventManagers.Instance.TriggerSkillCasted(Caster, effect);
+        }
     }
 }

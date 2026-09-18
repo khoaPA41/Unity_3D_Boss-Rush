@@ -1,102 +1,105 @@
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
+using Attack.Skill_Factory;
+using Design_Pattern.EventBus;
+using Design_Pattern.StateMachine.Boss;
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine;
 using UnityEngine;
 
-public class SwordSkill : MonoBehaviour
+namespace Attack
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float homingSensitivity;
-    [SerializeField] private float hitDistance;
-    [SerializeField] private float timeToReturn;
-    [SerializeField] private bool isRelease;
-    [SerializeField] private bool isActiveAnotherSkill; // if this skill have effect after touch player
-    private bool isPlayedAnotherSkill; // if added skill has played
-    [SerializeField] private string skillNameContinue;
-    public Vector3 TargetPosition { get; set; }
-
-    private Vector3 _currentVelocity;
-    private Vector3 _direction;
-    private PooledObject _pooledObject;
-
-    private BossStateMachine boss;
-
-    private void OnEnable()
+    public class SwordSkill : MonoBehaviour
     {
-        var container = GameObject.FindWithTag("Boss");
-        if (container == null) return;
-        boss = container.GetComponentInChildren<BossStateMachine>(true);
-        GetComponent<Rigidbody>();
-        _pooledObject = GetComponent<PooledObject>();
-    }
+        [SerializeField] private float speed;
+        [SerializeField] private float homingSensitivity;
+        [SerializeField] private float hitDistance;
+        [SerializeField] private float timeToReturn;
+        [SerializeField] private bool isRelease;
+        [SerializeField] private bool isActiveAnotherSkill; // if this skill have effect after touch player
+        private bool isPlayedAnotherSkill; // if added skill has played
+        [SerializeField] private string skillNameContinue;
+        public Vector3 TargetPosition { get; set; }
 
-    private void Release()
-    {
-        _pooledObject.Release(name);
-    }
+        private Vector3 _currentVelocity;
+        private Vector3 _direction;
+        private PooledObject _pooledObject;
 
-    private void Update()
-    {
-        var targetCenter = TargetPosition + new Vector3(0f, .8f, 0f);
-        var distanceToTarget = targetCenter - transform.position;
+        private BossStateMachine boss;
 
-        if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
+        private void OnEnable()
         {
-            if (isActiveAnotherSkill && !isPlayedAnotherSkill)
+            var container = GameObject.FindWithTag("Boss");
+            if (container == null) return;
+            boss = container.GetComponentInChildren<BossStateMachine>(true);
+            GetComponent<Rigidbody>();
+            _pooledObject = GetComponent<PooledObject>();
+        }
+
+        private void Release()
+        {
+            _pooledObject.Release(name);
+        }
+
+        private void Update()
+        {
+            var targetCenter = TargetPosition + new Vector3(0f, .8f, 0f);
+            var distanceToTarget = targetCenter - transform.position;
+
+            if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
             {
-                var getSkill = boss.GetComponent<GetSkill>();
-                getSkill.SpawnSkill(skillNameContinue, transform.position);
-                AudioManagers.Instance.PlaySound(transform, AudioManagers.Instance.fireExplosionResource);
-                isPlayedAnotherSkill = true;
+                if (isActiveAnotherSkill && !isPlayedAnotherSkill)
+                {
+                    var getSkill = boss.GetComponent<GetSkill>();
+                    getSkill.SpawnSkill(skillNameContinue, transform.position);
+                    AudioManagers.Instance.PlaySound(transform, AudioManagers.Instance.fireExplosionResource);
+                    isPlayedAnotherSkill = true;
+                }
+
+                Release();
+                return;
             }
 
-            Release();
-            return;
+            _direction = distanceToTarget.normalized;
+            transform.rotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(90f, 0f, 0f);
+
+            Move();
         }
 
-        _direction = distanceToTarget.normalized;
-        transform.rotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(90f, 0f, 0f);
-
-        Move();
-    }
-
-    private void Move()
-    {
-        var desiredVelocity = _direction * speed;
-        _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
-        transform.position += _currentVelocity * Time.deltaTime;
-    }
-
-    public void InitializeBullet()
-    {
-        _currentVelocity = Vector3.zero;
-        isPlayedAnotherSkill = false;
-        var direction = (TargetPosition - transform.position).normalized;
-
-        if (direction != Vector3.zero)
+        private void Move()
         {
-            transform.rotation = Quaternion.LookRotation(direction);
-        }
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            boss.TryGetComponent(out ICaster casterObj);
-            GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
-            var weaponTouch = boss.GetComponent<WeaponHandler>();
-            weaponTouch.OnGetWeapon();
+            var desiredVelocity = _direction * speed;
+            _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
+            transform.position += _currentVelocity * Time.deltaTime;
         }
 
-        if (isRelease) return;
-        if (other.CompareTag("Boss"))
+        public void InitializeBullet()
         {
-            var weaponTouch = other.GetComponent<WeaponHandler>();
-            weaponTouch.OnGetWeapon();
-            Release();
+            _currentVelocity = Vector3.zero;
+            isPlayedAnotherSkill = false;
+            var direction = (TargetPosition - transform.position).normalized;
+
+            if (direction != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(direction);
+            }
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                boss.TryGetComponent(out ICaster casterObj);
+                GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+                var weaponTouch = boss.GetComponent<WeaponHandler>();
+                weaponTouch.OnGetWeapon();
+            }
+
+            if (isRelease) return;
+            if (other.CompareTag("Boss"))
+            {
+                var weaponTouch = other.GetComponent<WeaponHandler>();
+                weaponTouch.OnGetWeapon();
+                Release();
+            }
         }
     }
 }

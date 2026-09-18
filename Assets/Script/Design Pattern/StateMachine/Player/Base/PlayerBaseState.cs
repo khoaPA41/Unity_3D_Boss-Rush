@@ -1,8 +1,7 @@
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.StateMachine.Base;
+using Design_Pattern.StateMachine.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Base
+namespace Design_Pattern.StateMachine.Player
 {
     public abstract class PlayerBaseState : State
     {
@@ -45,7 +44,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 return;
             }
 
-            var dir = (currentTarget.transform.position - playerStateMachine.transform.position);
+            var dir = currentTarget.transform.position - playerStateMachine.transform.position;
             dir.y = 0;
             playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation,
                 Quaternion.LookRotation(dir), playerStateMachine.RotationDamping * deltaTime);

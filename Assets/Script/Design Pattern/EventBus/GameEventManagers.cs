@@ -1,8 +1,8 @@
-using Script.Attack.Skill_Factory;
 using System;
+using Attack.Skill_Factory;
 using UnityEngine;
 
-namespace Script.Design_Pattern.EventBus
+namespace Design_Pattern.EventBus
 {
     public class GameEventManagers : MonoBehaviour
     {

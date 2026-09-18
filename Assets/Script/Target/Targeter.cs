@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Script.Target
+namespace Target
 {
     public class Targeter : MonoBehaviour
     {
@@ -23,7 +23,7 @@ namespace Script.Target
 
         private void Update()
         {
-            if(currentTarget is not null)
+            if (currentTarget is not null)
             {
                 targetPos = currentTarget.transform.position;
             }

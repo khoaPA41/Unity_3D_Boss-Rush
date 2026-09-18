@@ -1,39 +1,44 @@
 using System.Collections;
+using Manager;
 using UnityEngine;
 
-public class TriggerActiveTutorials : MonoBehaviour
+
+namespace UI
 {
-    private readonly int tutorialAppearAnimationHash = Animator.StringToHash("Appear");
-    private readonly int tutorialDisappearAnimationHash = Animator.StringToHash("Disappear");
-
-    [Header("Tutorials UI")]
-    [SerializeField] private GameObject tutorial_I;
-
-    [Header("Time To Disappear")]
-    [SerializeField] private float time;
-
-    private Animator animator;
-    private void Start()
+    public class TriggerActiveTutorials : MonoBehaviour
     {
-        if (SaveManagers.Instance.CurrentSaveData.hasSaveData)
+        private readonly int tutorialAppearAnimationHash = Animator.StringToHash("Appear");
+        private readonly int tutorialDisappearAnimationHash = Animator.StringToHash("Disappear");
+
+        [Header("Tutorials UI")]
+        [SerializeField] private GameObject tutorial_I;
+
+        [Header("Time To Disappear")]
+        [SerializeField] private float time;
+
+        private Animator animator;
+        private void Start()
         {
-            gameObject.SetActive(false);
+            if (SaveManagers.Instance.CurrentSaveData.hasSaveData)
+            {
+                gameObject.SetActive(false);
+            }
+            animator = tutorial_I.GetComponent<Animator>();
         }
-        animator = tutorial_I.GetComponent<Animator>();
-    }
 
-    private IEnumerator ActiveTutorial()
-    {
-        animator.SetTrigger(tutorialAppearAnimationHash);
-        yield return new WaitForSecondsRealtime(time);
-        animator.SetTrigger(tutorialDisappearAnimationHash);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        private IEnumerator ActiveTutorial()
         {
-            StartCoroutine(ActiveTutorial());
+            animator.SetTrigger(tutorialAppearAnimationHash);
+            yield return new WaitForSecondsRealtime(time);
+            animator.SetTrigger(tutorialDisappearAnimationHash);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                StartCoroutine(ActiveTutorial());
+            }
         }
     }
 }

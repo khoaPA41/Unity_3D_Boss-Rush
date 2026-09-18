@@ -1,4 +1,5 @@
 using System;
+using Attack;
 using UnityEngine;
 
 
@@ -38,11 +39,11 @@ public class SaveData
     public SkillActiveType changingTheGameSkill;
     public SkillActiveType escapeSkill;
     public SkillActiveType responseSkill;
-    
+
     // --------- Sub Information ---------
     public string saveDateTime;
     public bool hasSaveData;
-    
+
     // --------- Sound Settings ---------
     public float masterVolume;
     public float BGMVolume;

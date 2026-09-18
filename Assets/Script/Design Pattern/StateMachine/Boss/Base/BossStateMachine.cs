@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
-using Script.Attack;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
-using Script.Design_Pattern.StateMachine.Base;
-using Script.Design_Pattern.StateMachine.Player.Base;
-using Script.Design_Pattern.Tree_Behavior;
+using Attack;
+using Attack.Skill_Factory;
+using Design_Pattern.EventBus;
+using Design_Pattern.StateMachine.Base;
+using Design_Pattern.StateMachine.Player;
+using Design_Pattern.Tree_Behavior.Boss;
 using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
+using Status;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine
+namespace Design_Pattern.StateMachine.Boss
 {
     [Serializable]
     public struct Combo
@@ -76,7 +77,7 @@ namespace Script.Design_Pattern.StateMachine
         [field: Header("Event")] public Health Player { get; private set; }
         public PlayerStateMachine PlayerStateMachine { get; private set; }
         public bool IsWalking { get; set; }
-        public event Action<int> SkillAction;
+        public event Action<int> SkillAction = delegate { };
         public bool IsCanMove { get; set; } = false;
         public Transform Target { get; set; }
 

@@ -1,9 +1,9 @@
-using Script.Attack;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.StateMachine.Base;
+using Attack.Skill_Factory;
 using UnityEngine;
+using Design_Pattern.StateMachine.Base;
+using Status;
 
-namespace Script.Design_Pattern.StateMachine
+namespace Design_Pattern.StateMachine.Boss
 {
     public abstract class BossBaseState : State
     {

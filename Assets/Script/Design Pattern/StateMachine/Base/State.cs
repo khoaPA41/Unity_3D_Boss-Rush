@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Base
+namespace Design_Pattern.StateMachine.Base
 {
     public abstract class State
     {

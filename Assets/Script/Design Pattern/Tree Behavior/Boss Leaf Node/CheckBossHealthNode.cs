@@ -1,8 +1,8 @@
-using Script.Design_Pattern.StateMachine;
-using Script.Design_Pattern.Tree_Behavior.Base;
-using UnityEngine;
+using Design_Pattern.StateMachine.Boss;
+using Design_Pattern.Tree_Behavior.Base;
+using Design_Pattern.Tree_Behavior.Boss;
 
-namespace Script.Design_Pattern.Tree_Behavior
+namespace Design_Pattern.Tree_Behavior
 {
     public class CheckBossHealthNode : BehaviorNode
     {

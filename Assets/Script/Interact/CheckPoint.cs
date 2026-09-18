@@ -1,48 +1,61 @@
-using System.Collections;
-using Script.Design_Pattern.StateMachine.Player.Base;
+using Design_Pattern.StateMachine.Player;
+using Manager;
 using UnityEngine;
 
-public class CheckPoint : MonoBehaviour
+namespace Interact
 {
-    public string checkpointID;
-    private InputReader _inputReader;
-    private PlayerStateMachine _playerStateMachine;
-
-    public bool isAlreadyActive = false;
-    public bool CanInteractCheckPoint { get; private set; }
-
-    private void Start()
+    [RequireComponent(typeof(InputReader))]
+    [RequireComponent(typeof(PlayerStateMachine))]
+    public class CheckPoint : MonoBehaviour
     {
-        _playerStateMachine = GetComponent<PlayerStateMachine>();
-        _inputReader = GetComponent<InputReader>();
-    }
+        public string checkpointID;
+        private InputReader _inputReader;
+        private PlayerStateMachine _playerStateMachine;
 
-    private void ActiveCheckPointUI()
-    {
-        if (isAlreadyActive) return;
-        isAlreadyActive = true;
-        _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, true));
-    }
+        public bool isAlreadyActive = false;
+        public bool CanInteractCheckPoint { get; private set; }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("CheckPoint"))
+        private void Start()
         {
-            other.GetComponent<ActiveCheckPoint>().SubcribeEvent();
-            _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
-            GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
-            // GameManagers.Instance.AutoSave();
+            _playerStateMachine = GetComponent<PlayerStateMachine>();
+            _inputReader = GetComponent<InputReader>();
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("CheckPoint"))
+        private void ActiveCheckPointUI()
         {
-            other.GetComponent<ActiveCheckPoint>().UnsubcribeEvent();
-            isAlreadyActive = false;
-            _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
-            // GameManagers.Instance.AutoSave();
+            if (isAlreadyActive) return;
+            ResetStatus();
+            isAlreadyActive = true;
+            _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, true));
+        }
+
+        private void ResetStatus()
+        {
+            _playerStateMachine.Health.Reset();
+            _playerStateMachine.Mana.Reset();
+            _playerStateMachine.Stamina.Reset();
+            _playerStateMachine.HealthPotion.Reset();
+            _playerStateMachine.ManaPotion.Reset();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("CheckPoint"))
+            {
+                other.GetComponent<ActiveCheckPoint>().SubcribeEvent();
+                _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
+                GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("CheckPoint"))
+            {
+                other.GetComponent<ActiveCheckPoint>().UnsubcribeEvent();
+                isAlreadyActive = false;
+                _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
+            }
         }
     }
 }

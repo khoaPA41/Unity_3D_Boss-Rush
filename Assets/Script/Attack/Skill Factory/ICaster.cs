@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Attack.Skill_Factory
+namespace Attack.Skill_Factory
 {
     public interface ICaster
     {

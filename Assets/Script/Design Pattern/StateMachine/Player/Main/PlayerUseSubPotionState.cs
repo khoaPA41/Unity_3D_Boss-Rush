@@ -1,8 +1,7 @@
 
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerUseSubPotionState : PlayerBaseState
     {
@@ -32,7 +31,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void PhysicTick(float fixedDeltaTime)
         {
-            
+
         }
 
         public override void Exit()

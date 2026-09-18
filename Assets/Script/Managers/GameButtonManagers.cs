@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class GameButtonManagers : MonoBehaviour
+namespace Manager
 {
-    public void NewGame()
+    public class GameButtonManagers : MonoBehaviour
     {
-        GameManagers.Instance.StartNewGame("Main");
-    }
+        public void NewGame()
+        {
+            GameManagers.Instance.StartNewGame("Main");
+        }
 
-    public void ContinueGame()
-    {
-        GameManagers.Instance.ContinueGame();
-    }
+        public void ContinueGame()
+        {
+            GameManagers.Instance.ContinueGame();
+        }
 
-    public void Home()
-    {
-        GameManagers.Instance.ExitToTitle();
-    }
+        public void Home()
+        {
+            GameManagers.Instance.ExitToTitle();
+        }
 
-    public void ExitGame()
-    {
-        GameManagers.Instance.ExitGame();
+        public void ExitGame()
+        {
+            GameManagers.Instance.ExitGame();
+        }
     }
 }

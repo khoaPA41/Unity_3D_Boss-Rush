@@ -1,7 +1,6 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerDodgeState : PlayerBaseState
     {
@@ -16,7 +15,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         private float countPerfectFrame = 0;
         public PlayerDodgeState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
-            
+
         }
 
         public override void Enter()
@@ -26,7 +25,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 playerStateMachine.ReturnLocomotion();
                 return;
             }
-            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.dodgeReduce);
             playerStateMachine.Health.isPerfectDodge = true;
             dodgeDirection = playerStateMachine.InputReader.InputMovement;
             playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);
@@ -39,8 +37,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
+            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.dodgeReduce);
+
             CheckCounterattack();
-            
+
             countPerfectFrame += deltaTime;
             var movement = CalculateMovement();
 
@@ -60,7 +60,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
             if (remainingTime < playerStateMachine.DodgeDuration * 0.2f)
             {
-                            
+
                 if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
                 {
                     playerStateMachine.SwitchState(new PlayerAttackState(playerStateMachine, 0));
