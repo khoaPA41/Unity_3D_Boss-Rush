@@ -7622,7 +7622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4674764253987626846}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1078035, y: 0, z: 0, w: 0.9941722}
+  m_LocalRotation: {x: -0.1078034, y: 0, z: 0, w: 0.9941722}
   m_LocalPosition: {x: 0, y: 1.1014116, z: -1.9074326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9076,6 +9076,7 @@ GameObject:
   - component: {fileID: 5549043201700883208}
   - component: {fileID: 2517447866474632943}
   - component: {fileID: 4745761821281125155}
+  - component: {fileID: 4872903205454366318}
   m_Layer: 6
   m_Name: Player_Model
   m_TagString: Player
@@ -9183,11 +9184,11 @@ MonoBehaviour:
     <Force>k__BackingField: 3
     <AttackDamage>k__BackingField: 50
     <SkillType>k__BackingField: 0
-  <SkillActive>k__BackingField: {fileID: 5549043201700883208}
   <DealDamage>k__BackingField: {fileID: 4425431695892558300}
   <WeaponTrip>k__BackingField: {fileID: 5239030469626473809}
   <WeaponTrasform>k__BackingField: {fileID: 8028666579852811677}
   <WeaponTrail>k__BackingField: {fileID: 7687407226092184074}
+  <SkillActive>k__BackingField: {fileID: 5549043201700883208}
   <Health>k__BackingField: {fileID: 6702550049071524971}
   <Mana>k__BackingField: {fileID: 1202177237295590385}
   <Stamina>k__BackingField: {fileID: 1046720075806923731}
@@ -9413,13 +9414,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  <maxHealth>k__BackingField: 100000
+  <maxHealth>k__BackingField: 500
   <resistance>k__BackingField: 10
   <reduceHealthFollowingDuration>k__BackingField: 0.2
   <reduceHealPrevDuration>k__BackingField: 0.3
   reduceHealth: 1.3
   timeFreeze: 0
   timeToBackNormal: 0.05
+  <PlayerSFX>k__BackingField: {fileID: 4745761821281125155}
   currentHealth: 0
   isPerfectDodge: 0
   isReduceDame: 0
@@ -9450,15 +9452,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e3be33bd502244a45d2e91aa8def2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  <maxStamina>k__BackingField: 1000
-  <recoveryStaminaDuration>k__BackingField: 1
-  <reduceStaminaDuration>k__BackingField: 0.2
-  <dodgeReduce>k__BackingField: 150
-  <movementReduce>k__BackingField: 1
-  <lightAttackReduce>k__BackingField: 100
-  <heavyAttackReduce>k__BackingField: 200
-  <jumpReduce>k__BackingField: 100
-  reduceStamina: 2
+  <maxStamina>k__BackingField: 100
+  <dodgeReduce>k__BackingField: 20
+  <walkReduce>k__BackingField: 10
+  <runReduce>k__BackingField: 20
+  <lightAttackReduce>k__BackingField: 20
+  <heavyAttackReduce>k__BackingField: 50
+  <jumpReduce>k__BackingField: 30
+  reduceStamina: 10
+  recoveryStamina: 40
   currentStamina: 0
 --- !u!114 &2205322713875373715
 MonoBehaviour:
@@ -9659,6 +9661,37 @@ MonoBehaviour:
   normalDodgeSource: {fileID: 220320940410390118}
   perfectDodgeSource: {fileID: 5054012847948443510}
   hitSource: {fileID: 2867629058801912270}
+  <HitResource>k__BackingField: {fileID: 6418180475301049370, guid: 26b70be39ee4c2246ba6bf303c6b38f1, type: 2}
+--- !u!114 &4872903205454366318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780190265239677537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c31cebfe6f2c5fe40817d97aa86a4557, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7405343325110494026}
+          m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+          m_MethodName: SetCursor
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6051593305917721052
 GameObject:
   m_ObjectHideFlags: 0
@@ -19747,6 +19780,8 @@ MonoBehaviour:
     m_Bits: 63
   _legalOwner: {fileID: 5780190265239677537}
   baseDamage: 0
+  sfx: {fileID: 4745761821281125155}
+  isEffect: 0
 --- !u!65 &8266494265506361776
 BoxCollider:
   m_ObjectHideFlags: 0
