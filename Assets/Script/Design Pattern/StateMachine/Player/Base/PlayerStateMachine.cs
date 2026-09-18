@@ -1,25 +1,27 @@
 using System;
 using System.Collections;
-using Script.Attack;
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.EventBus;
-using Script.Design_Pattern.StateMachine.Base;
-using Script.Design_Pattern.StateMachine.Player.Main;
 using Script.Physics;
-using Script.Target;
+using Target;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
+using Attack;
+using Status;
+using Status.Potion;
+using Status.Award;
+using Attack.Skill_Factory;
+using Design_Pattern.EventBus;
+using Design_Pattern.StateMachine.Base;
+using Interact;
 
-namespace Script.Design_Pattern.StateMachine.Player.Base
+namespace Design_Pattern.StateMachine.Player
 {
-    public class PlayerStateMachine : StateMachine.Base.StateMachine, ICaster
+    public class PlayerStateMachine : Base.StateMachine, ICaster
     {
-        [Header("Input")]
+        [field: Header("Input")]
         [field: SerializeField] public InputReader InputReader { get; private set; }
         [field: SerializeField] public InputBuffering InputBuffering { get; private set; }
 
-        [Header("Physics")]
+        [field: Header("Physics")]
         [field: SerializeField]
         public CharacterController CharacterController { get; private set; }
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
@@ -35,13 +37,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public float HitForce { get; private set; } = 3f;
         [field: SerializeField] public float HitKnockback { get; private set; } = 8f;
 
-        [Header("Attack")]
+        [field: Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField] public SkillActive SkillActive { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
         [field: SerializeField] public Transform WeaponTrip { get; private set; }
         [field: SerializeField] public Transform WeaponTrasform { get; private set; }
         [field: SerializeField] public GameObject WeaponTrail { get; private set; }
+        [field: SerializeField] public SkillActive SkillActive { get; private set; }
 
         public Vector3 StartSwordPos { get; set; }
         public Vector3 EndSwordPos { get; set; }
@@ -53,14 +55,14 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public DodgeAward DodgeAward { get; private set; }
         [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
 
-        [Header("Potion")]
+        [field: Header("Potion")]
         [field: SerializeField]
         public HealthPotion HealthPotion { get; private set; }
         [field: SerializeField] public ManaPotion ManaPotion { get; private set; }
         [field: SerializeField] public SubPotion SubPotion { get; private set; }
 
 
-        [Header("Animation")]
+        [field: Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
@@ -68,7 +70,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
 
-        [Header("Skill")]
+        [field: Header("Skill")]
         [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
         [field: SerializeField] public float SkillTime { get; private set; }
         [field: SerializeField] public Material PhantomMaterial1 { get; private set; }
@@ -78,21 +80,21 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         [field: SerializeField] public Material MainMaterial1 { get; private set; }
         [field: SerializeField] public Material MainMaterial2 { get; private set; }
 
-        [Header("Effect")]
+        [field: Header("Effect")]
         [field: SerializeField] public GameObject PotionLight { get; private set; }
         [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
 
-        [Header("Effect")]
+        [field: Header("Effect")]
         [field: SerializeField]
         public CheckPoint CheckPoint { get; private set; }
         [field: SerializeField] public GameObject TargetPoint { get; set; }
 
-        [Header("Coins")]
+        [field: Header("Coins")]
         [field: SerializeField] public int PlayerSpiritualPower { get; private set; }
 
 
-        [Header("Audio")]
+        [field: Header("Audio")]
         [field: SerializeField] public AudioResource SwordSwingAudioResource { get; private set; }
         public event Action<int> UpdateSpiritualPower;
         public Transform MainCameraTransform { get; private set; }
@@ -113,22 +115,23 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
         /****************************************************************/
-        public State freeLookState { get; private set; }
-        public State hitState { get; private set; }
-        public State deathState { get; private set; }
-        public State jumpState { get; private set; }
-        public State fallState { get; private set; }
-        public State landingState { get; private set; }
-        public State targetState { get; private set; }
-        public State skillState { get; private set; }
-        public State dodgeState { get; private set; }
-        public State attackState1 { get; private set; }
-        public State attackState2 { get; private set; }
-        public State attackState3 { get; private set; }
-        public State attackState4 { get; private set; }
-        public State attackState5 { get; private set; }
-        public State heavyAttack { get; private set; }
-        public State changeAction { get; private set; }
+        public State FreeLookState { get; private set; }
+        public State HitState { get; private set; }
+        public State DeathState { get; private set; }
+        public State JumpState { get; private set; }
+        public State FallState { get; private set; }
+        public State LandingState { get; private set; }
+        public State TargetState { get; private set; }
+        public State SkillState { get; private set; }
+        public State DodgeState { get; private set; }
+        public State AttackState1 { get; private set; }
+        public State AttackState2 { get; private set; }
+        public State AttackState3 { get; private set; }
+        public State AttackState4 { get; private set; }
+        public State AttackState5 { get; private set; }
+        public State HeavyAttack { get; private set; }
+        public State ChangeAction { get; private set; }
+        public State UseMainPotionAction { get; private set; }
         public GameObject Boss { get; private set; }
 
         public event Action ActiveSlashVfxAction = delegate { };
@@ -136,7 +139,8 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         private void Start()
         {
             Boss = GameObject.FindWithTag("Boss");
-            AddSpiritualPower();
+            // AddSpiritualPower();
+            UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
             SetupState();
             InputReader.ApplicationCursor();
             if (Camera.main != null) MainCameraTransform = Camera.main.transform;
@@ -145,20 +149,22 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         private void SetupState()
         {
-            freeLookState = new FreeLookState(this);
-            hitState = new PlayerHitState(this, false);
-            deathState = new PlayerDeathState(this);
-            jumpState = new PlayerStartJumpState(this);
-            fallState = new PlayerFallState(this);
-            landingState = new PlayerLandingState(this);
-            targetState = new PlayerTargetState(this);
-            skillState = new PlayerUseSkillState(this);
-            dodgeState = new PlayerDodgeState(this);
-            attackState1 = new PlayerAttackState(this, 0);
-            attackState2 = new PlayerAttackState(this, 1);
-            attackState3 = new PlayerAttackState(this, 2);
-            attackState4 = new PlayerAttackState(this, 3);
-            heavyAttack = new PlayerHeavyAttackState(this);
+            FreeLookState = new FreeLookState(this);
+            HitState = new PlayerHitState(this, false);
+            DeathState = new PlayerDeathState(this);
+            JumpState = new PlayerStartJumpState(this);
+            FallState = new PlayerFallState(this);
+            LandingState = new PlayerLandingState(this);
+            TargetState = new PlayerTargetState(this);
+            SkillState = new PlayerUseSkillState(this);
+            DodgeState = new PlayerDodgeState(this);
+            AttackState1 = new PlayerAttackState(this, 0);
+            AttackState2 = new PlayerAttackState(this, 1);
+            AttackState3 = new PlayerAttackState(this, 2);
+            AttackState4 = new PlayerAttackState(this, 3);
+            HeavyAttack = new PlayerHeavyAttackState(this);
+            UseMainPotionAction = new PlayerUsePotionState(this);
+
             GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
         }
 
@@ -197,7 +203,6 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
         public void SendNextActionEvent()
         {
             ManageAnimationSkillEvent.SendNextActionEvent();
-
         }
 
         public void SendReleaseObjectEvent()
@@ -212,33 +217,35 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public void ReturnLocomotion()
         {
-            SwitchState(Targeter.currentTarget is null ? freeLookState : targetState);
+            SwitchState(Targeter.currentTarget is null ? FreeLookState : TargetState);
         }
 
         public void HandleJumpState()
         {
-            SwitchState(jumpState);
+            if (Stamina.CurrentStamina < Stamina.jumpReduce) return;
+            SwitchState(JumpState);
         }
 
         public void HandleDodgeState()
         {
-            SwitchState(dodgeState);
+            if (Stamina.CurrentStamina < Stamina.dodgeReduce) return;
+            SwitchState(DodgeState);
         }
 
         public void HandleTargetState()
         {
             if (!Targeter.SelectedTarget()) return;
-            SwitchState(targetState);
+            SwitchState(TargetState);
         }
 
         private void HandleHitState()
         {
-            SwitchState(hitState);
+            SwitchState(HitState);
         }
 
         private void HandleDeathState()
         {
-            SwitchState(deathState);
+            SwitchState(DeathState);
         }
 
         public void HandleUsePotionState()
@@ -252,7 +259,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 if (ManaPotion.CurrentPotion <= 0) return;
             }
 
-            SwitchState(new PlayerUsePotionState(this));
+            SwitchState(UseMainPotionAction);
         }
 
         public void HandleUseSubPotionState()
@@ -277,34 +284,38 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             }
 
             SkillNumber = skillNumber;
-            SwitchState(skillState);
+            SwitchState(SkillState);
         }
 
         public bool CheckLowStamina()
         {
-            return Stamina.currentStamina <= 0f;
+            return Stamina.CurrentStamina <= 0f;
         }
 
         public void HandleAttackState()
         {
+            if (Stamina.CurrentStamina < Stamina.lightAttackReduce) return;
+
             if (!InputReader.IsAttack) return;
             if (!isAttackState)
             {
                 EnterChangeAction(true);
                 return;
             }
-            SwitchState(attackState1);
+            SwitchState(AttackState1);
         }
 
         public void HandleHeavyAttackState()
         {
+            if (Stamina.CurrentStamina < Stamina.heavyAttackReduce) return;
+
             if (!InputReader.IsHeavyAttack) return;
             if (!isAttackState)
             {
                 EnterChangeAction(true);
                 return;
             }
-            SwitchState(heavyAttack);
+            SwitchState(HeavyAttack);
         }
 
         private void HandleEffectedState(ICaster caster, SkillEffect effect)
@@ -335,7 +346,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public GameObject TargetCaster()
         {
-            return Targeter?.currentTarget.gameObject;
+            return Targeter != null ? Targeter.currentTarget.gameObject : null;
         }
 
         public void InvincibleState()
@@ -366,8 +377,10 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             if (PlayerSpiritualPower <= 0)
             {
                 isCanNotSubSpiritual = true;
+                // Debug.Log("Can't sub");
                 return;
             }
+            // Debug.Log("Sub");
             PlayerSpiritualPower = Mathf.Max(PlayerSpiritualPower - 1, 0);
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
@@ -383,6 +396,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
 
+        public void AddBossSpiritualPower(int value)
+        {
+            PlayerSpiritualPower = Mathf.Min(PlayerSpiritualPower + value, 1000000);
+            UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
+        }
+
         private void ResetStateSpiritualPower()
         {
             isCanNotAddSpiritual = false;
@@ -391,11 +410,12 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
 
         public void AddDamage()
         {
-            if (isCanNotSubSpiritual || PlayerSpiritualPower <= 0)
+            if (isCanNotSubSpiritual)
             {
                 isCanNotSubSpiritual = false;
                 return;
             }
+
             foreach (var damage in AttackData)
             {
                 damage.AttackDamage += 1f;
