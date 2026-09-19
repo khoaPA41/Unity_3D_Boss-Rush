@@ -45,9 +45,7 @@ namespace Attack.Skill_Factory
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
-            // var ironMaterials = new[] { player.IronMaterial1, player.IronMaterial2 };
 
-            // player.SkinnedMeshRenderer.materials = ironMaterials;
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
             effect.noDamage = true;
@@ -57,8 +55,6 @@ namespace Attack.Skill_Factory
             situationAction = () =>
             {
                 effect.noDamage = false;
-                // var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
-                // player.SkinnedMeshRenderer.materials = tempMaterials;
                 player.HeadIndestructible.SetActive(true);
                 player.HeadNormal.SetActive(false);
 
@@ -132,8 +128,6 @@ namespace Attack.Skill_Factory
                     player.HairInvisible.SetActive(false);
                     player.HarnessInvisible.SetActive(false);
                     player.LegInvisible.SetActive(false);
-                    // var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
-                    // player.SkinnedMeshRenderer.materials = tempMaterials;
                 });
         }
     }
@@ -206,7 +200,7 @@ namespace Attack.Skill_Factory
                 getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
 
                 var playerClone = getSkill.Skill.GetComponent<PlayerCloneStateMachine>();
-                playerClone.Target = player.Targeter.currentTarget.gameObject;
+                // playerClone.Target = player.Targeter.currentTarget.gameObject;
                 AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomMirageResource);
             }
 

@@ -19,7 +19,7 @@ namespace Design_Pattern.StateMachine.Player
         {
             GetTheSkillActive();
 
-            if (!skill.canUse)
+            if (!skill.canUse) // if in cooldown
             {
                 playerStateMachine.ReturnLocomotion();
                 return;
@@ -41,7 +41,6 @@ namespace Design_Pattern.StateMachine.Player
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skill.skillAnimationTag, 0);
             if (normalizeTime < .9f) return;
-            // ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.ReturnLocomotion();
         }
 
@@ -62,13 +61,7 @@ namespace Design_Pattern.StateMachine.Player
 
             if (skill == null) return null;
 
-            Debug.Log("Can not use");
-
             if (playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
-
-            Debug.Log("Success");
-
-            // playerStateMachine.SkillActive.CountCoolDown(playerStateMachine.SkillNumber);
 
             playerStateMachine.SkillActive.CallUseSkillSuccess(playerStateMachine.SkillNumber);
 
@@ -116,8 +109,6 @@ namespace Design_Pattern.StateMachine.Player
 
         private void ResetToMainMaterial()
         {
-            // var tempMaterials = new Material[] { playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2 };
-            // playerStateMachine.SkinnedMeshRenderer.materials = tempMaterials;
             playerStateMachine.HeadNormal.SetActive(true);
             playerStateMachine.HeadIndestructible.SetActive(false);
 
