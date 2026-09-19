@@ -89,6 +89,12 @@ namespace UI
 
         private void LoadCurrentValuesToUI()
         {
+            if (SaveManagers.Instance.HaveSaveData())
+            {
+                resolutionDropdown.SetValueWithoutNotify(17);
+                displayModeDropdown.SetValueWithoutNotify(0);
+                return;
+            }
             resolutionDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.resolutionIndex);
             displayModeDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.displayModeIndex);
             vsyncToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.vsync);

@@ -124,19 +124,13 @@ public class InputReader : MonoBehaviour, InputController.IPlayerActions
 
     public void OnUsePotion(InputAction.CallbackContext context)
     {
-        Debug.Log("Don't Press");
-        // if (context is { canceled: true, performed: true }) return;
-
         if (!context.started) return;
 
         if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
         {
-            Debug.Log("Sub Potion");
-            // if(context.started)
             UseSubPotionAction?.Invoke();
             return;
         }
-        Debug.Log("Use Success");
         UsePotionAction?.Invoke();
     }
 

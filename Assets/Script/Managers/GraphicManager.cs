@@ -185,8 +185,10 @@ namespace Manager
         /******************************** Load At Start ********************************/
         public void LoadApplyAll()
         {
-            if (SaveManagers.Instance.CurrentSaveData is null)
+            if (SaveManagers.Instance.HaveSaveData())
             {
+                // var currentResolution = Screen.currentResolution;
+                // Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreenMode);
                 SetResolution(17);
                 SetDisplayMode(0);
                 return;

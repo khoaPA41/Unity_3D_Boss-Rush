@@ -161,7 +161,6 @@ namespace Design_Pattern.StateMachine.Player
         private void Start()
         {
             Boss = GameObject.FindWithTag("Boss");
-            // AddSpiritualPower();
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
             SetupState();
             InputReader.ApplicationCursor();
@@ -399,10 +398,8 @@ namespace Design_Pattern.StateMachine.Player
             if (PlayerSpiritualPower <= 0)
             {
                 isCanNotSubSpiritual = true;
-                // Debug.Log("Can't sub");
                 return;
             }
-            // Debug.Log("Sub");
             PlayerSpiritualPower = Mathf.Max(PlayerSpiritualPower - 1, 0);
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
