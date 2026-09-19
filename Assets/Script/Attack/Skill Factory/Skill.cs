@@ -45,9 +45,9 @@ namespace Attack.Skill_Factory
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
-            var ironMaterials = new[] { player.IronMaterial1, player.IronMaterial2 };
+            // var ironMaterials = new[] { player.IronMaterial1, player.IronMaterial2 };
 
-            player.SkinnedMeshRenderer.materials = ironMaterials;
+            // player.SkinnedMeshRenderer.materials = ironMaterials;
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
             effect.noDamage = true;
@@ -57,8 +57,17 @@ namespace Attack.Skill_Factory
             situationAction = () =>
             {
                 effect.noDamage = false;
-                var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
-                player.SkinnedMeshRenderer.materials = tempMaterials;
+                // var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
+                // player.SkinnedMeshRenderer.materials = tempMaterials;
+                player.HeadIndestructible.SetActive(true);
+                player.HeadNormal.SetActive(false);
+
+                player.ArmIndestructible.SetActive(true);
+                player.ArmNormal.SetActive(false);
+
+                player.TorsoIndestructible.SetActive(true);
+                player.TorsoNormal.SetActive(false);
+
                 player.ManageAnimationSkillEvent.SituationEvent -= situationAction;
             };
 
@@ -84,16 +93,47 @@ namespace Attack.Skill_Factory
             player.Coroutine(4f, () =>
                 {
                     player.Invisible = true;
-                    var phantomMaterials = new[] { player.PhantomMaterial1, player.PhantomMaterial2 };
-                    player.SkinnedMeshRenderer.materials = phantomMaterials;
+                    player.ArmNormal.SetActive(false);
+                    player.HeadNormal.SetActive(false);
+                    player.TorsoNormal.SetActive(false);
+                    player.ClothNormal.SetActive(false);
+                    player.HairNormal.SetActive(false);
+                    player.HarnessNormal.SetActive(false);
+                    player.LegNormale.SetActive(false);
+
+                    player.ArmInvisible.SetActive(true);
+                    player.HeadInvisible.SetActive(true);
+                    player.TorsoInvisible.SetActive(true);
+                    player.ClothInvisible.SetActive(true);
+                    player.HairInvisible.SetActive(true);
+                    player.HarnessInvisible.SetActive(true);
+                    player.LegInvisible.SetActive(true);
+
                     AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.invisibleResource);
 
                 },
                 () =>
                 {
                     player.Invisible = false;
-                    var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
-                    player.SkinnedMeshRenderer.materials = tempMaterials;
+
+                    player.Invisible = true;
+                    player.ArmNormal.SetActive(true);
+                    player.HeadNormal.SetActive(true);
+                    player.TorsoNormal.SetActive(true);
+                    player.ClothNormal.SetActive(true);
+                    player.HairNormal.SetActive(true);
+                    player.HarnessNormal.SetActive(true);
+                    player.LegNormale.SetActive(true);
+
+                    player.ArmInvisible.SetActive(false);
+                    player.HeadInvisible.SetActive(false);
+                    player.TorsoInvisible.SetActive(false);
+                    player.ClothInvisible.SetActive(false);
+                    player.HairInvisible.SetActive(false);
+                    player.HarnessInvisible.SetActive(false);
+                    player.LegInvisible.SetActive(false);
+                    // var tempMaterials = new Material[] { player.MainMaterial1, player.MainMaterial2 };
+                    // player.SkinnedMeshRenderer.materials = tempMaterials;
                 });
         }
     }

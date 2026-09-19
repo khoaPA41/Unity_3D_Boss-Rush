@@ -33,7 +33,7 @@ namespace Design_Pattern.StateMachine.Player
                 playerStateMachine.ReturnLocomotion();
                 return;
             }
-
+            ResetAfterSkill(currentSkill.SkillEffect);
             playerStateMachine.Animator.CrossFadeInFixedTime(skill.skillAnimationName, .1f, 0);
         }
 
@@ -116,8 +116,16 @@ namespace Design_Pattern.StateMachine.Player
 
         private void ResetToMainMaterial()
         {
-            var tempMaterials = new Material[] { playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2 };
-            playerStateMachine.SkinnedMeshRenderer.materials = tempMaterials;
+            // var tempMaterials = new Material[] { playerStateMachine.MainMaterial1, playerStateMachine.MainMaterial2 };
+            // playerStateMachine.SkinnedMeshRenderer.materials = tempMaterials;
+            playerStateMachine.HeadNormal.SetActive(true);
+            playerStateMachine.HeadIndestructible.SetActive(false);
+
+            playerStateMachine.ArmNormal.SetActive(true);
+            playerStateMachine.ArmIndestructible.SetActive(false);
+
+            playerStateMachine.TorsoNormal.SetActive(true);
+            playerStateMachine.TorsoIndestructible.SetActive(false);
         }
 
         private void GetTheSkillActive()
