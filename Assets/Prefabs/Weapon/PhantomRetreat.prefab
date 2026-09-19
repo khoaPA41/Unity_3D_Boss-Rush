@@ -29314,7 +29314,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!1 &3828173401782392310
 GameObject:
   m_ObjectHideFlags: 0
@@ -49042,7 +49044,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!1 &7072890732476236523
 GameObject:
   m_ObjectHideFlags: 0
@@ -73367,7 +73371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5662189421672645749}
   - component: {fileID: 1658982481509692408}
-  - component: {fileID: 1556761111898566993}
   - component: {fileID: 754615854699608411}
   m_Layer: 0
   m_Name: Retreat
@@ -73406,18 +73409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363fcab8fdcc3274dbca82fcadf686ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Object_Pooling.PooledObject
---- !u!114 &1556761111898566993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168949609610029455}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ac4db6099548c4b964cae64ca6044a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillPooledObject
 --- !u!114 &754615854699608411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78395,4 +78386,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1

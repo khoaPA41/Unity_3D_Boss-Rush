@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using Status;
 using UnityEngine;
+using Status;
+
 
 namespace Attack
 {
@@ -81,6 +82,7 @@ namespace Attack
 
             if (health.noDamage) return;
 
+            Debug.Log(damage);
             health.DealDamage(damage);
             health.HitStop();
 
