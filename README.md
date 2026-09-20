@@ -7,6 +7,11 @@
 - [Download](https://pakbot4124.itch.io/re-end)
 - [Gameplay Video](https://youtu.be/ITwK9bQ_CvQ)
   
+
+![Combat Demo](Assets/Media/Gif_I.gif) 
+![Combat Demo](Assets/Media/Gif_II.gif) 
+![Combat Demo](Assets/Media/Gif_III.gif) 
+
 ## 📖 Overview
 - RE-END is a 3D action, RPG game developed with Unity and C#.
 - The project focuses on implementing core gameplay systems, including player movement, combat, skills, enemy behavior, and game progression. The combat system emphasizes timing. You can upgrade character stats or change skills according to your style.
