@@ -4,17 +4,18 @@ using UnityEngine;
 
 namespace Script.Design_Pattern.Tree_Behavious
 {
+    [RequireComponent(typeof(PooledObject))]
     public class CloneBehaviour : MonoBehaviour
     {
         [SerializeField] private PooledObject pooledObject;
         [SerializeField] private float timeToRelease;
         private float _countTime;
-        
+
         private void Awake()
         {
             pooledObject = GetComponent<PooledObject>();
         }
-        
+
         private void OnEnable()
         {
             _countTime = timeToRelease;

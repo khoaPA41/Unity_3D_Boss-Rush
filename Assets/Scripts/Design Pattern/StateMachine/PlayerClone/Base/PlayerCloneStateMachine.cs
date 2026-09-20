@@ -43,6 +43,7 @@ namespace Design_Pattern.StateMachine.PlayerClone
         private void OnEnable()
         {
             Target = GameObject.FindGameObjectWithTag("Boss");
+            if (Target == null) return;
             SwitchState(new PlayerCloneIdleState(this));
         }
 

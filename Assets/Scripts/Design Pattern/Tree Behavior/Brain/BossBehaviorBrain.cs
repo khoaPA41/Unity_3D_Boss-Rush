@@ -42,7 +42,6 @@ namespace Design_Pattern.Tree_Behavior.Boss
         private void Awake()
         {
             bossStateMachine = GetComponent<BossStateMachine>();
-            // bossStateMachine.ReturnLocomotion();
             ConstructBehaviorTree();
             Phase = bossStateMachine.NormalCombo.Length;
             CurrentPhase = 0;
