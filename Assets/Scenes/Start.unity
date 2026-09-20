@@ -555,7 +555,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -7.44
+  m_Spacing: 72.17
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1642,6 +1642,7 @@ MonoBehaviour:
   targetPosition: {x: 200, y: 0, z: 0}
   titleText: {fileID: 1842376698}
   fadeBackground: {fileID: 1197473784}
+  buttonGameObject: {fileID: 1901143202}
 --- !u!1 &1037968312
 GameObject:
   m_ObjectHideFlags: 0
