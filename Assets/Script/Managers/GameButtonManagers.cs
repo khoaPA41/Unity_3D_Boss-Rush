@@ -6,11 +6,13 @@ namespace Manager
     {
         public void NewGame()
         {
+            Debug.Log("New");
             GameManagers.Instance.StartNewGame("Main");
         }
 
         public void ContinueGame()
         {
+            Debug.Log("ContinueGame");
             GameManagers.Instance.ContinueGame();
         }
 

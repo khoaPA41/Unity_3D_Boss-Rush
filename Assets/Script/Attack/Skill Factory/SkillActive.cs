@@ -30,15 +30,9 @@ namespace Attack
         public SkillActiveType escapeSkill;
         public SkillActiveType responseSkill;
 
-        private InputReader _inputReader;
         public event Action<string> UpdateSkillUIEvent;
         public event Action<int, SkillActiveType> OnUseSkill;
         public event Action<int> UseSkillSuccess;
-
-        private void Awake()
-        {
-            _inputReader = GetComponent<InputReader>();
-        }
 
         private void OnEnable()
         {

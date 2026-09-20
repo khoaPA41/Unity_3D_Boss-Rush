@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,9 @@ namespace UI
         [SerializeField]
         private Image fadeBackground;
 
+        [Header("Button")]
+        [SerializeField] GameObject buttonGameObject;
+
         private void Start()
         {
             StartCoroutine(WaitToNext(.5f,
@@ -29,6 +33,18 @@ namespace UI
                 () => StartCoroutine(TitleFade(0f, 1f, 1f)),
                 () => StartCoroutine(FadeBackground(1f, 0f, 1f))
             ));
+
+            ActiveContinueButton();
+        }
+
+        private void ActiveContinueButton()
+        {
+            if (!SaveManagers.Instance.HaveSaveData())
+            {
+                buttonGameObject.SetActive(false);
+                return;
+            }
+            buttonGameObject.SetActive(true);
         }
 
 

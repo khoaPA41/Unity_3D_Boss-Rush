@@ -71,16 +71,7 @@ namespace Design_Pattern.StateMachine.Player
         [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
 
         [field: Header("Skill")]
-        // [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
-        // [field: SerializeField] public float SkillTime { get; private set; }
-        // [field: SerializeField] public Material PhantomMaterial1 { get; private set; }
-        // [field: SerializeField] public Material PhantomMaterial2 { get; private set; }
-        // [field: SerializeField] public Material IronMaterial1 { get; private set; }
-        // [field: SerializeField] public Material IronMaterial2 { get; private set; }
-        // [field: SerializeField] public Material MainMaterial1 { get; private set; }
-        // [field: SerializeField] public Material MainMaterial2 { get; private set; }
-
-        [field: Header("MeshRenderer Object")]
+        [field: Header("MeshRenderer Object Normal")]
         [field: SerializeField] public GameObject ArmNormal { get; private set; }
         [field: SerializeField] public GameObject HeadNormal { get; private set; }
         [field: SerializeField] public GameObject TorsoNormal { get; private set; }
@@ -89,10 +80,12 @@ namespace Design_Pattern.StateMachine.Player
         [field: SerializeField] public GameObject HarnessNormal { get; private set; }
         [field: SerializeField] public GameObject LegNormale { get; private set; }
 
+        [field: Header("MeshRenderer Object Indestructible Skill")]
         [field: SerializeField] public GameObject ArmIndestructible { get; private set; }
         [field: SerializeField] public GameObject HeadIndestructible { get; private set; }
         [field: SerializeField] public GameObject TorsoIndestructible { get; private set; }
 
+        [field: Header("MeshRenderer Object Invisible Skill")]
         [field: SerializeField] public GameObject ArmInvisible { get; private set; }
         [field: SerializeField] public GameObject HeadInvisible { get; private set; }
         [field: SerializeField] public GameObject TorsoInvisible { get; private set; }
