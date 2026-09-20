@@ -8,7 +8,6 @@ namespace Interact
     [RequireComponent(typeof(PlayerStateMachine))]
     public class CheckPoint : MonoBehaviour
     {
-        public string checkpointID;
         private InputReader _inputReader;
         private PlayerStateMachine _playerStateMachine;
 
@@ -42,9 +41,10 @@ namespace Interact
         {
             if (other.CompareTag("CheckPoint"))
             {
-                other.GetComponent<ActiveCheckPoint>().SubcribeEvent();
+                var checkPoint = other.GetComponent<ActiveCheckPoint>();
+                checkPoint.SubcribeEvent();
                 _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
-                GameManagers.Instance.SetCheckpoint(checkpointID, transform.position);
+                GameManagers.Instance.SetCheckpoint(checkPoint.checkpointID, transform.position);
             }
         }
 

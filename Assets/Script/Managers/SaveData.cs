@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Attack;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class SaveData
     public float posX;
     public float posY;
     public float posZ;
+
+    public List<string> completedTriggerBoss = new();
 
     // --------- Stats ---------
     public float currentHealth;

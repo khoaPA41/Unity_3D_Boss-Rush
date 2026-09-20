@@ -32,7 +32,7 @@ namespace Manager
 
         private void Awake()
         {
-            if (Instance is not null && Instance != this)
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
                 return;
@@ -94,7 +94,7 @@ namespace Manager
         {
             if (scene.name == "Start") return;
             var player = GameObject.FindGameObjectWithTag("Player");
-            if (player is null) return;
+            if (player == null) return;
 
             switch (loadReason)
             {
@@ -121,6 +121,8 @@ namespace Manager
             if (data is null) return;
 
             player.transform.position = new Vector3(data.posX, data.posY, data.posZ);
+
+            // completedTriggerBoss = SaveManagers.Instance.CurrentSaveData.completedTriggerBoss,
 
             // Stats
             var health = player.GetComponent<Health>(); // include resistance
@@ -178,7 +180,7 @@ namespace Manager
         public void ReturnCheckpoint()
         {
             var player = GameObject.FindGameObjectWithTag("Player");
-            if (player is null) return;
+            if (player == null) return;
             loadReason = ReasonLoadScene.Respawn;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -205,6 +207,11 @@ namespace Manager
             var healthPotion = player.GetComponent<HealthPotion>();
             var manaPotion = player.GetComponent<ManaPotion>();
             var subPotion = player.GetComponent<SubPotion>();
+            foreach (var item in SaveManagers.Instance.CurrentSaveData.completedTriggerBoss)
+            {
+                Debug.Log(item);
+            }
+
 
             var saveData = new SaveData
             {
@@ -213,6 +220,7 @@ namespace Manager
                 posX = checkpointPosition.x,
                 posY = checkpointPosition.y,
                 posZ = checkpointPosition.z,
+                completedTriggerBoss = SaveManagers.Instance.CurrentSaveData.completedTriggerBoss,
                 currentHealth = health.maxHealth,
                 currentMana = mana.maxMana,
                 currentStamina = stamina.maxStamina,

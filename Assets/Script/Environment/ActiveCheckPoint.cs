@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ActiveCheckPoint : MonoBehaviour
 {
+    public string checkpointID;
     [Header("Tree VFX")]
     [SerializeField] private MeshRenderer treeMeshRenderer;
     [SerializeField] private MeshRenderer leafMeshRenderer1;

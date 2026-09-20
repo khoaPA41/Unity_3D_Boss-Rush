@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Design_Pattern.StateMachine.Player;
 using Design_Pattern.Tree_Behavior.Boss;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -11,11 +13,14 @@ namespace Manager
 {
     public class BossPhaseManager : MonoBehaviour
     {
+        public string TriggerId;
         [SerializeField] private List<BossBehaviorBrain> phases;
         [SerializeField] private List<ParticleSystem> lockGateParticle;
         [SerializeField] private GameObject healthUi;
         [SerializeField] private bool isFinalBoss;
-        [SerializeField] private int SpiritualPower;
+        [SerializeField] private int spiritualPower;
+
+        public event Action Finished = delegate { };
 
         public PlayerStateMachine Player { get; set; }
         private int currentPhaseIndex = 0;
@@ -86,12 +91,13 @@ namespace Manager
 
             if (currentPhaseIndex == phases.Count)
             {
+                Finished?.Invoke();
                 healthUi.SetActive(false); // Off Boss health
                 Player.Stamina.IsCombat = false;
                 AudioManagers.Instance.StopBackgroundMusic();
                 this.gameObject.SetActive(false);
 
-                Player.AddBossSpiritualPower(SpiritualPower); // add money
+                Player.AddBossSpiritualPower(spiritualPower); // add money
                 if (!isFinalBoss) return;
                 TimelineEvent.Instance.PlayEndTimeline();
                 return;

@@ -15,6 +15,30 @@ public class CutsceneManagers : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         bossPhaseManager = BossContainer.GetComponent<BossPhaseManager>();
+        bossPhaseManager.Finished += SaveIsDefeat;
+        CheckDefeat();
+    }
+
+    private void OnDisable()
+    {
+        bossPhaseManager.Finished -= SaveIsDefeat;
+
+    }
+
+    private void CheckDefeat()
+    {
+        if (!SaveManagers.Instance.CompletedList.Contains(bossPhaseManager.TriggerId)) return;
+        boxCollider.enabled = false;
+    }
+
+    private void SaveIsDefeat()
+    {
+        if (!SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Contains(bossPhaseManager.TriggerId))
+        {
+            SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Add(bossPhaseManager.TriggerId);
+        }
+
+        GameManagers.Instance.AutoSave();
     }
 
     private void OnTriggerEnter(Collider other)

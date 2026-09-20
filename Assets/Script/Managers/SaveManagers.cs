@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Manager
         // Data in current playing (RAM)
 
         public SaveData CurrentSaveData { get; private set; }
+        public HashSet<string> CompletedList = new();
 
         private string savePath => Path.Combine(Application.persistentDataPath, "saveGame.json");
 
@@ -61,6 +63,7 @@ namespace Manager
 
             var jsonData = File.ReadAllText(savePath);
             CurrentSaveData = JsonUtility.FromJson<SaveData>(jsonData);
+            CompletedList = new HashSet<string>(CurrentSaveData.completedTriggerBoss);
             return CurrentSaveData;
         }
 
