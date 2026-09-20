@@ -1,13 +1,13 @@
 using System;
-using Script.Attack;
-
+using Attack;
 using Script.Design_Pattern.Tree_Behavious.Dependency_Injection;
 using Script.Physics;
+using Status;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
+namespace Design_Pattern.StateMachine.PlayerClone
 {
-    public class PlayerCloneStateMachine : StateMachine.Base.StateMachine, ICombatInput
+    public class PlayerCloneStateMachine : Base.StateMachine, ICombatInput
     {
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }
@@ -37,11 +37,12 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         private void Start()
         {
 
-            Target = GameObject.FindGameObjectWithTag("Boss");
+
         }
 
         private void OnEnable()
         {
+            Target = GameObject.FindGameObjectWithTag("Boss");
             SwitchState(new PlayerCloneIdleState(this));
         }
 
@@ -52,11 +53,12 @@ namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
         public bool IsAttack { get; set; }
 
         public int SkillNumber { get; set; }
-        public event Action JumpAction;
-        public event Action DodgeAction;
-        public event Action TargetAction;
-        public event Action<int> SkillAction;
+        public bool IsCounterAttack { get; set; }
+        public bool IsUltimateAttack { get; set; }
 
-
+        public event Action JumpAction = delegate { };
+        public event Action DodgeAction = delegate { };
+        public event Action TargetAction = delegate { };
+        public event Action<int> SkillAction = delegate { };
     }
 }

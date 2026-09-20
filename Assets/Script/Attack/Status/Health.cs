@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using Script.Design_Pattern.StateMachine.Player.Base;
+using Design_Pattern.StateMachine.Player;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Script.Attack
+
+namespace Status
 {
     public class Health : MonoBehaviour
     {
@@ -19,6 +19,8 @@ namespace Script.Attack
         [SerializeField] private float timeFreeze;
         [SerializeField] private float timeToBackNormal;
 
+        [field: Header("Hit Sound")]
+        [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
 
         public float currentHealth;
         public bool isPerfectDodge;
@@ -50,6 +52,11 @@ namespace Script.Attack
 
             currentHealth = maxHealth;
             noDamage = false;
+        }
+
+        private void OnEnable()
+        {
+            OnChangeHealth?.Invoke(currentHealth / maxHealth);
         }
 
 
@@ -121,11 +128,13 @@ namespace Script.Attack
 
         public void AddHealth()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            if (_playerStateMachine.isCanNotSubSpiritual)
             {
+                Debug.Log("Can't Sub");
                 _playerStateMachine.isCanNotSubSpiritual = false;
                 return;
             }
+            Debug.Log("Sub");
             maxHealth += 1;
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(currentHealth / maxHealth);
@@ -145,7 +154,7 @@ namespace Script.Attack
 
         public void AddResistance()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            if (_playerStateMachine.isCanNotSubSpiritual)
             {
                 _playerStateMachine.isCanNotSubSpiritual = false;
                 return;

@@ -1,7 +1,6 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerHitState : PlayerBaseState
     {
@@ -10,23 +9,23 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private const string HitAnimationTag = "Hit";
 
-        private float previousTime;
+        private float _previousTime;
 
-        private readonly bool isKnockBack;
+        private readonly bool _isKnockBack;
 
-        private bool alreadyApplyForce;
+        private bool _alreadyApplyForce;
         private float force;
 
         public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
         {
-            this.isKnockBack = isKnockBack;
+            _isKnockBack = isKnockBack;
         }
 
         public override void Enter()
         {
-            previousTime = 0;
-            alreadyApplyForce = false;
-            if (isKnockBack)
+            _previousTime = 0;
+            _alreadyApplyForce = false;
+            if (_isKnockBack)
             {
                 force = playerStateMachine.HitKnockback;
                 playerStateMachine.Animator.CrossFadeInFixedTime(hitKnockbackAnimationHash,
@@ -38,14 +37,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 playerStateMachine.Animator.CrossFadeInFixedTime(hitAnimationHash,
                     playerStateMachine.AnimationCrossFade);
             }
-            playerStateMachine.PlayerSFX.PlayHitSound();
         }
 
         public override void Tick(float deltaTime)
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, HitAnimationTag, 0);
 
-            if (normalizeTime >= previousTime && normalizeTime <= 1f)
+            if (normalizeTime >= _previousTime && normalizeTime <= 1f)
             {
                 if (normalizeTime >= playerStateMachine.HitForceTime)
                 {
@@ -57,7 +55,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
                 playerStateMachine.ReturnLocomotion();
             }
 
-            previousTime = normalizeTime;
+            _previousTime = normalizeTime;
             Move(deltaTime);
             FaceTarget(deltaTime);
         }
@@ -72,13 +70,13 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
 
         private void TryApplyForce(float force)
         {
-            if (alreadyApplyForce)
+            if (_alreadyApplyForce)
             {
                 return;
             }
 
             playerStateMachine.ForceReceiver.AddForce(-playerStateMachine.transform.forward * force);
-            alreadyApplyForce = true;
+            _alreadyApplyForce = true;
         }
     }
 }

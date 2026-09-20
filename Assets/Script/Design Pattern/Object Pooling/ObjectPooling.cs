@@ -21,7 +21,18 @@ namespace Script.Design_Pattern.Object_Pooling
         private Dictionary<string, Stack<PooledObject>> pooledObjectDict;
 
         private List<GameObject> parentObjectList;
-        
+
+
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            Instance = this;
+        }
+
         private void Start()
         {
             parentObjectList = new List<GameObject>();

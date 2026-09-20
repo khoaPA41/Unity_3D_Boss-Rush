@@ -1,4 +1,4 @@
-namespace Script.Design_Pattern.Tree_Behavior.Base
+namespace Design_Pattern.Tree_Behavior.Base
 {
     public enum NodeState
     {
@@ -6,7 +6,7 @@ namespace Script.Design_Pattern.Tree_Behavior.Base
         Running,
         Failure
     }
-    
+
     public abstract class BehaviorNode
     {
         protected NodeState state;

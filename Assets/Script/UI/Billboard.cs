@@ -1,26 +1,29 @@
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Transform bossTargetPoint;
-    
-    [SerializeField] private float offsetDistance;
-
-    private Camera mainCamera;
-    
-    private void Start()
+    public class Billboard : MonoBehaviour
     {
-        mainCamera = Camera.main;
-    }
+        [SerializeField] private Transform bossTargetPoint;
+
+        [SerializeField] private float offsetDistance;
+
+        private Camera mainCamera;
+
+        private void Start()
+        {
+            mainCamera = Camera.main;
+        }
 
 
-    private void LateUpdate()
-    {
-        if (bossTargetPoint is null) return;
-        var directionToCamera = (mainCamera.transform.position - bossTargetPoint.position).normalized;
-            
-        transform.position = bossTargetPoint.position + (directionToCamera * offsetDistance);
-            
-        transform.forward = mainCamera.transform.forward;
+        private void LateUpdate()
+        {
+            if (bossTargetPoint is null) return;
+            var directionToCamera = (mainCamera.transform.position - bossTargetPoint.position).normalized;
+
+            transform.position = bossTargetPoint.position + (directionToCamera * offsetDistance);
+
+            transform.forward = mainCamera.transform.forward;
+        }
     }
 }

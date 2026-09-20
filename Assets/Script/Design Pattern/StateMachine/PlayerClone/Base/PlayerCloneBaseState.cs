@@ -1,7 +1,7 @@
-using Script.Design_Pattern.StateMachine.Base;
+using Design_Pattern.StateMachine.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.PlayerClone.Base
+namespace Design_Pattern.StateMachine.PlayerClone
 {
     public abstract class PlayerCloneBaseState : State
     {

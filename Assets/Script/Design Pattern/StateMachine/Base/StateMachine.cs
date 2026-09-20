@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Base
+namespace Design_Pattern.StateMachine.Base
 {
     public class StateMachine : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace Script.Design_Pattern.StateMachine.Base
         {
             currentState?.Tick(Time.deltaTime);
         }
-        
+
 
         private void FixedUpdate()
         {

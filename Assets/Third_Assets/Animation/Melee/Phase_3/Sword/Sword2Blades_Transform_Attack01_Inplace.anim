@@ -638098,21 +638098,42 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: SetSlowSpeedAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.09166667
     functionName: PlayAttackSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.29166666
-    functionName: OnActiveWeaponCollider
+  - time: 0.20833333
+    functionName: ReturnNormalSpeedAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: SendSituationEvent
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.34166667
+    functionName: OnActiveWeaponRightCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.7083333
-    functionName: OnUnActiveWeaponCollider
+    functionName: OnUnActiveWeaponRightCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

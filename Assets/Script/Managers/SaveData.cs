@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Attack;
 using UnityEngine;
 
 
@@ -16,6 +18,8 @@ public class SaveData
     public float posX;
     public float posY;
     public float posZ;
+
+    public List<string> completedTriggerBoss = new();
 
     // --------- Stats ---------
     public float currentHealth;
@@ -38,11 +42,11 @@ public class SaveData
     public SkillActiveType changingTheGameSkill;
     public SkillActiveType escapeSkill;
     public SkillActiveType responseSkill;
-    
+
     // --------- Sub Information ---------
     public string saveDateTime;
     public bool hasSaveData;
-    
+
     // --------- Sound Settings ---------
     public float masterVolume;
     public float BGMVolume;

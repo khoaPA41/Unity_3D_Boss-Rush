@@ -1,43 +1,44 @@
-using Script.Attack.Skill_Factory;
+using Design_Pattern.StateMachine.Boss;
 using Script.Design_Pattern.Object_Pooling;
-using Script.Design_Pattern.StateMachine.Boss.Base;
 using UnityEngine;
 
-[RequireComponent(typeof(PooledObject))]
-
-public class SkillPooledObject : MonoBehaviour
+namespace Attack
 {
-    private ParticleSystem _particle;
-    private PooledObject _pooled;
-    private FinalBossStateMachine _boss;
+    [RequireComponent(typeof(PooledObject))]
 
-    private void Awake()
+    public class SkillPooledObject : MonoBehaviour
     {
-        _particle = GetComponent<ParticleSystem>();
-        _pooled = GetComponent<PooledObject>();
+        private ParticleSystem _particle;
+        private PooledObject _pooled;
+        private BossStateMachine _boss;
+
+        private void Awake()
+        {
+            _particle = GetComponent<ParticleSystem>();
+            _pooled = GetComponent<PooledObject>();
+        }
+
+        private void OnEnable()
+        {
+            _particle?.Clear();
+            _particle?.Play();
+        }
+
+        private void OnDisable()
+        {
+            _particle?.Clear();
+            _particle?.Stop();
+        }
+
+        private void OnParticleSystemStopped()
+        {
+            Release();
+        }
+
+        private void Release()
+        {
+            _particle?.Stop();
+            _pooled.Release(gameObject.name);
+        }
     }
-    
-    private void OnEnable()
-    {
-        _particle?.Clear();
-        _particle?.Play();
-    }
-    
-    private void OnDisable()
-    {
-        _particle?.Clear();
-        _particle?.Stop();
-    }
-    
-    private void OnParticleSystemStopped()
-    {
-        Release();
-    }
-    
-    private void Release()
-    {
-        _particle?.Stop();
-        _pooled.Release(gameObject.name);
-    }
-    
 }

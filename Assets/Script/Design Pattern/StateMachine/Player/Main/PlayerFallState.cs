@@ -1,7 +1,7 @@
-using Script.Design_Pattern.StateMachine.Player.Base;
+
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Main
+namespace Design_Pattern.StateMachine.Player
 {
     public class PlayerFallState : PlayerBaseState
     {
@@ -23,7 +23,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Main
         {
             if (playerStateMachine.CharacterController.isGrounded && playerStateMachine.CharacterController.velocity.y <= 0f)
             {
-                playerStateMachine.SwitchState(playerStateMachine.landingState);
+                playerStateMachine.SwitchState(playerStateMachine.LandingState);
                 return;
             }
 

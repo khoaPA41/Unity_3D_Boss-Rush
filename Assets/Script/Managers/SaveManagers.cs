@@ -1,81 +1,87 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-/// <summary>
-/// Management read/write save file on storage (JSON)
-/// </summary>
-
-
-public class SaveManagers : MonoBehaviour
+namespace Manager
 {
-    public static SaveManagers Instance { get; private set; }
+    /// <summary>
+    /// Management read/write save file on storage (JSON)
+    /// </summary>
 
-    // Data in current playing (RAM)
 
-    public SaveData CurrentSaveData { get; private set; }
-
-    private string savePath => Path.Combine(Application.persistentDataPath, "saveGame.json");
-
-    private void Awake()
+    public class SaveManagers : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static SaveManagers Instance { get; private set; }
+
+        // Data in current playing (RAM)
+
+        public SaveData CurrentSaveData { get; private set; }
+        public HashSet<string> CompletedList = new();
+
+        private string savePath => Path.Combine(Application.persistentDataPath, "saveGame.json");
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    // Check if player has save data
-    public bool HaveSaveData()
-    {
-        return File.Exists(savePath);
-    }
-
-    // Write data to JSON
-    public void SaveGame(SaveData saveData)
-    {
-        saveData.hasSaveData = true;
-        saveData.saveDateTime = System.DateTime.Now.ToString();
-
-
-        var jsonData = JsonUtility.ToJson(saveData, true);
-        File.WriteAllText(savePath, jsonData);
-
-        CurrentSaveData = saveData;
-        Debug.Log("[SaveManagers] Saved Game" + savePath);
-    }
-
-    // Read JSON file to convert save data
-    public SaveData LoadGame()
-    {
-        if (!HaveSaveData())
+        // Check if player has save data
+        public bool HaveSaveData()
         {
-            Debug.LogWarning("[SaveManagers] Don't have save data]");
-            return null;
+            return File.Exists(savePath);
         }
 
-        var jsonData = File.ReadAllText(savePath);
-        CurrentSaveData = JsonUtility.FromJson<SaveData>(jsonData);
-        return CurrentSaveData;
-    }
-
-    // Delete save data
-    public void DeteleSaveGame()
-    {
-        if (HaveSaveData())
+        // Write data to JSON
+        public void SaveGame(SaveData saveData)
         {
-            File.Delete(savePath);
+            saveData.hasSaveData = true;
+            saveData.saveDateTime = System.DateTime.Now.ToString();
+
+
+            var jsonData = JsonUtility.ToJson(saveData, true);
+            File.WriteAllText(savePath, jsonData);
+
+            CurrentSaveData = saveData;
+            Debug.Log("[SaveManagers] Saved Game" + savePath);
         }
 
-        CurrentSaveData = null;
-    }
+        // Read JSON file to convert save data
+        public SaveData LoadGame()
+        {
+            if (!HaveSaveData())
+            {
+                Debug.LogWarning("[SaveManagers] Don't have save data]");
+                return null;
+            }
 
-    // Create new save data
-    public void CreateNewSaveGame()
-    {
-        CurrentSaveData = new SaveData();
+            var jsonData = File.ReadAllText(savePath);
+            CurrentSaveData = JsonUtility.FromJson<SaveData>(jsonData);
+            CompletedList = new HashSet<string>(CurrentSaveData.completedTriggerBoss);
+            return CurrentSaveData;
+        }
+
+        // Delete save data
+        public void DeteleSaveGame()
+        {
+            if (HaveSaveData())
+            {
+                File.Delete(savePath);
+            }
+
+            CurrentSaveData = null;
+        }
+
+        // Create new save data
+        public void CreateNewSaveGame()
+        {
+            CurrentSaveData = new SaveData();
+        }
     }
 }

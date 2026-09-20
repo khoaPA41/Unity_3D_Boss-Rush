@@ -1,14 +1,13 @@
-using Script.Attack.Skill_Factory;
-using Script.Design_Pattern.StateMachine.Base;
+using Design_Pattern.StateMachine.Base;
 using UnityEngine;
 
-namespace Script.Design_Pattern.StateMachine.Player.Base
+namespace Design_Pattern.StateMachine.Player
 {
     public abstract class PlayerBaseState : State
     {
         protected readonly PlayerStateMachine playerStateMachine;
         private AnimatorOverrideController overrideController;
-        
+
         protected PlayerBaseState(PlayerStateMachine playerStateMachine)
         {
             this.playerStateMachine = playerStateMachine;
@@ -45,7 +44,7 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
                 return;
             }
 
-            var dir = (currentTarget.transform.position - playerStateMachine.transform.position);
+            var dir = currentTarget.transform.position - playerStateMachine.transform.position;
             dir.y = 0;
             playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation,
                 Quaternion.LookRotation(dir), playerStateMachine.RotationDamping * deltaTime);
@@ -73,15 +72,15 @@ namespace Script.Design_Pattern.StateMachine.Player.Base
             movement += playerStateMachine.transform.right * playerStateMachine.InputReader.InputMovement.x;
             return movement;
         }
-        
+
         protected void ChangeSwordIdle(string idleAnimationName, AnimationClip animationClip)
         {
             overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);
             playerStateMachine.Animator.runtimeAnimatorController = overrideController;
             overrideController[idleAnimationName] = animationClip;
         }
-        
-        
+
+
         protected void ChangeColorEffect(string hexCode)
         {
             var formattedHex = hexCode.StartsWith("#") ? hexCode : "#" + hexCode;

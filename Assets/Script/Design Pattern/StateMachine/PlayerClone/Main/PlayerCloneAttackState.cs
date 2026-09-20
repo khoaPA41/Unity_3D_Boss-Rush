@@ -1,16 +1,17 @@
-using Script.Design_Pattern.StateMachine.PlayerClone.Base;
 
-public class PlayerCloneAttackState : PlayerCloneBaseState
+namespace Design_Pattern.StateMachine.PlayerClone
 {
-    private readonly AttackData _attackData;
-    private float _previousTime;
-    private bool _alreadyApplyForce;
-    public PlayerCloneAttackState(PlayerCloneStateMachine cloneStateMachine, int attackDataIndex) : base(cloneStateMachine)
+    public class PlayerCloneAttackState : PlayerCloneBaseState
     {
-        _attackData = cloneStateMachine.AttackData[attackDataIndex];
-    }
-    
-     public override void Enter()
+        private readonly AttackData _attackData;
+        private float _previousTime;
+        private bool _alreadyApplyForce;
+        public PlayerCloneAttackState(PlayerCloneStateMachine cloneStateMachine, int attackDataIndex) : base(cloneStateMachine)
+        {
+            _attackData = cloneStateMachine.AttackData[attackDataIndex];
+        }
+
+        public override void Enter()
         {
             // IsFinished = false;
             cloneStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
@@ -79,6 +80,7 @@ public class PlayerCloneAttackState : PlayerCloneBaseState
             cloneStateMachine.ForceReceiver.AddForce(cloneStateMachine.transform.forward * _attackData.Force);
             _alreadyApplyForce = true;
         }
+    }
+
+
 }
-
-

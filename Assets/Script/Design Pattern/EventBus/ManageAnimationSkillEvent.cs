@@ -1,17 +1,20 @@
 using System;
 using UnityEngine;
 
-public class ManageAnimationSkillEvent : MonoBehaviour
+namespace Design_Pattern.EventBus
 {
-    public event Action SituationEvent;
-    public event Action NextActionEvent;
-    public event Action ReleasePoolObjectEvent;
-    public event Action SlashWeaponEvent;
-    
-    public void SendSituationEvent() => SituationEvent?.Invoke();
-    public void ClearSituationEvent() => SituationEvent = null;
-    public void SendNextActionEvent() => NextActionEvent?.Invoke();
-    public void SendReleasePoolObjectEvent() => ReleasePoolObjectEvent?.Invoke();
-    public void SendSlashWeaponEventEvent() => SlashWeaponEvent?.Invoke();
+    public class ManageAnimationSkillEvent : MonoBehaviour
+    {
+        public event Action SituationEvent;
+        public event Action NextActionEvent;
+        public event Action ReleasePoolObjectEvent;
+        public event Action SlashWeaponEvent;
 
+        public void SendSituationEvent() => SituationEvent?.Invoke();
+        public void ClearSituationEvent() => SituationEvent = null;
+        public void SendNextActionEvent() => NextActionEvent?.Invoke();
+        public void SendReleasePoolObjectEvent() => ReleasePoolObjectEvent?.Invoke();
+        public void SendSlashWeaponEventEvent() => SlashWeaponEvent?.Invoke();
+
+    }
 }

@@ -1,7 +1,9 @@
-using UnityEngine;
 
-public class HealthPotion : Potion
+namespace Status.Potion
 {
-    
-    
+    public class HealthPotion : Potion
+    {
+
+
+    }
 }

@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class ManaPotion : Potion
+namespace Status.Potion
 {
-    
+    public class ManaPotion : Potion
+    {
+
+    }
 }

@@ -43473,8 +43473,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
-  - time: 0.2
-    functionName: OnActiveWeaponRightCollider
+  - time: 0.23333333
+    functionName: RecordSwordStartPos
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -43487,7 +43487,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8
+  - time: 0.36666667
+    functionName: OnActiveWeaponRightCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53333336
+    functionName: CallSlashVfx
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76666665
     functionName: OnUnActiveWeaponRightCollider
     data: 
     objectReferenceParameter: {fileID: 0}

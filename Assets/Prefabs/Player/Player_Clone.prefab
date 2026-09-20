@@ -2414,6 +2414,8 @@ MonoBehaviour:
     m_Bits: 8
   _legalOwner: {fileID: 9011084339830874085}
   baseDamage: 10
+  sfx: {fileID: 3900234559763069930}
+  isEffect: 0
 --- !u!65 &6926616099975813659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2866,9 +2868,8 @@ MonoBehaviour:
   <HitKnockback>k__BackingField: 8
   <AttackData>k__BackingField:
   - <AnimationName>k__BackingField: Attack_1
+    <VfxName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <AnimationStartSlowThreshold>k__BackingField: 0
-    <AnimationSpeed>k__BackingField: 0
     <NextAttackDataIndex>k__BackingField: 1
     <AttackAnimationTime>k__BackingField: 0.7
     <AnimationTransition>k__BackingField: 0.1
@@ -2877,9 +2878,8 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 10
     <SkillType>k__BackingField: 0
   - <AnimationName>k__BackingField: Attack_2
+    <VfxName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <AnimationStartSlowThreshold>k__BackingField: 0
-    <AnimationSpeed>k__BackingField: 0
     <NextAttackDataIndex>k__BackingField: 2
     <AttackAnimationTime>k__BackingField: 0.7
     <AnimationTransition>k__BackingField: 0.1
@@ -2888,9 +2888,8 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 20
     <SkillType>k__BackingField: 0
   - <AnimationName>k__BackingField: Attack_3
+    <VfxName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <AnimationStartSlowThreshold>k__BackingField: 0
-    <AnimationSpeed>k__BackingField: 0
     <NextAttackDataIndex>k__BackingField: 3
     <AttackAnimationTime>k__BackingField: 0.7
     <AnimationTransition>k__BackingField: 0.1
@@ -2899,9 +2898,8 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 30
     <SkillType>k__BackingField: 0
   - <AnimationName>k__BackingField: Attack_4
+    <VfxName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <AnimationStartSlowThreshold>k__BackingField: 0
-    <AnimationSpeed>k__BackingField: 0
     <NextAttackDataIndex>k__BackingField: 4
     <AttackAnimationTime>k__BackingField: 0.7
     <AnimationTransition>k__BackingField: 0.1
@@ -2910,9 +2908,8 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 40
     <SkillType>k__BackingField: 0
   - <AnimationName>k__BackingField: Attack_5
+    <VfxName>k__BackingField: 
     <AnimationTag>k__BackingField: Attack
-    <AnimationStartSlowThreshold>k__BackingField: 0
-    <AnimationSpeed>k__BackingField: 0
     <NextAttackDataIndex>k__BackingField: -1
     <AttackAnimationTime>k__BackingField: 0.8
     <AnimationTransition>k__BackingField: 0.1
@@ -2952,7 +2949,6 @@ MonoBehaviour:
   weaponRightLogic: {fileID: 7780858085628265966}
   weaponLeftLogic: {fileID: 0}
   otherDamageLogic: {fileID: 0}
-  specialDamageLogic: {fileID: 0}
   weaponMain: {fileID: 5267541342858172581}
   weaponStore: {fileID: 0}
   LeftSingleSword: {fileID: 0}
@@ -2977,6 +2973,7 @@ MonoBehaviour:
   reduceHealth: 0
   timeFreeze: 1
   timeToBackNormal: 0.05
+  <PlayerSFX>k__BackingField: {fileID: 0}
   currentHealth: 0
   isPerfectDodge: 0
   isReduceDame: 0
@@ -3060,6 +3057,7 @@ MonoBehaviour:
   normalDodgeSource: {fileID: 0}
   perfectDodgeSource: {fileID: 0}
   hitSource: {fileID: 0}
+  <HitResource>k__BackingField: {fileID: 6418180475301049370, guid: 26b70be39ee4c2246ba6bf303c6b38f1, type: 2}
 --- !u!1 &9195443297240385795
 GameObject:
   m_ObjectHideFlags: 0

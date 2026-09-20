@@ -24363,7 +24363,6 @@ GameObject:
   - component: {fileID: 3263953367386422507}
   - component: {fileID: 3815704381605517714}
   - component: {fileID: 5064075133839491189}
-  - component: {fileID: 6109415239388679294}
   - component: {fileID: 6106113853370185187}
   m_Layer: 0
   m_Name: Crystal effect blue (2)
@@ -29299,19 +29298,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6109415239388679294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3493641017076585953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3000368fa2d67a64d9724b709422753d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDealDamage
-  myCollider: {fileID: 0}
 --- !u!114 &6106113853370185187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29328,7 +29314,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!1 &3828173401782392310
 GameObject:
   m_ObjectHideFlags: 0
@@ -44105,7 +44093,6 @@ GameObject:
   - component: {fileID: 5103975739747561051}
   - component: {fileID: 2949260610787455988}
   - component: {fileID: 4171554553984957641}
-  - component: {fileID: 1948994921602602097}
   - component: {fileID: 8596607652522577114}
   m_Layer: 0
   m_Name: Crystal effect blue
@@ -49041,19 +49028,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1948994921602602097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6163921762616240818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3000368fa2d67a64d9724b709422753d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDealDamage
-  myCollider: {fileID: 0}
 --- !u!114 &8596607652522577114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49070,7 +49044,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1
 --- !u!1 &7072890732476236523
 GameObject:
   m_ObjectHideFlags: 0
@@ -73395,7 +73371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5662189421672645749}
   - component: {fileID: 1658982481509692408}
-  - component: {fileID: 1556761111898566993}
   - component: {fileID: 754615854699608411}
   m_Layer: 0
   m_Name: Retreat
@@ -73434,18 +73409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363fcab8fdcc3274dbca82fcadf686ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Design_Pattern.Object_Pooling.PooledObject
---- !u!114 &1556761111898566993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168949609610029455}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ac4db6099548c4b964cae64ca6044a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillPooledObject
 --- !u!114 &754615854699608411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73472,7 +73435,6 @@ GameObject:
   - component: {fileID: 8463724453494401051}
   - component: {fileID: 8903090327457967798}
   - component: {fileID: 4259233423061557932}
-  - component: {fileID: 6520625102675744195}
   - component: {fileID: 3010331942507115427}
   m_Layer: 0
   m_Name: Crystal effect blue (1)
@@ -78408,19 +78370,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6520625102675744195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8314988954612023226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3000368fa2d67a64d9724b709422753d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDealDamage
-  myCollider: {fileID: 0}
 --- !u!114 &3010331942507115427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78437,4 +78386,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 10
+  baseDamage: 25
+  sfx: {fileID: 0}
+  isEffect: 1

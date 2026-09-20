@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Script.Target
+namespace Target
 {
     public class Target : MonoBehaviour
     {
