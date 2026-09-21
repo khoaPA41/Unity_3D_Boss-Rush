@@ -6,7 +6,8 @@
 ## 🎮 Demo
 - [Download](https://pakbot4124.itch.io/re-end)
 - [Gameplay Video](https://youtu.be/ITwK9bQ_CvQ)
-  
+- [Play Demo](https://pakbot4124.itch.io/re-en-web)
+- [Developer Logs](https://app.notion.com/p/Unity-Project-RE-END-3e2fa5c6075a8196b198d63e72bda3ff?source=copy_link)
 <table>
   <tr>
     <td><img src="Assets/Media/Gif_I.gif" width="300"></td>
