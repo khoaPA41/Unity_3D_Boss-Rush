@@ -1,0 +1,2 @@
+# Exclude third-party assets from GitHub language statistics
+/Assets/Third_Assets/** linguist-vendored
