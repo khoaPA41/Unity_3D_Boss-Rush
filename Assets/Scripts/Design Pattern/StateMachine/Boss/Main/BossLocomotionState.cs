@@ -38,10 +38,6 @@ namespace Design_Pattern.StateMachine.Boss
             }
             else
             {
-                // animationValue = isWalk ? 1 : 2;
-                // speed = isWalk ? bossStateMachine.SprintSpeed : bossStateMachine.MovementSpeed;
-                // var dir = new Vector3(movementInput.x, 0, movementInput.y);
-
                 animationValue = 2f;
                 speed = bossStateMachine.SprintSpeed;
                 var dir = GetDirToPlayer(bossStateMachine.Target);
@@ -54,10 +50,6 @@ namespace Design_Pattern.StateMachine.Boss
             EnterAttackState();
 
             UpdateAnimation(animationValue, deltaTime);
-        }
-
-        public override void PhysicTick(float fixedDeltaTime)
-        {
         }
 
         public override void Exit()

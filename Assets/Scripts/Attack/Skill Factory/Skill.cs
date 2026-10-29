@@ -377,7 +377,6 @@ namespace Attack.Skill_Factory
             Action situationAction = null;
             situationAction = () =>
             {
-                Debug.Log(SkillName);
                 getSkill.SpawnSkill(SkillName, spawnPosition);
 
                 var skill = getSkill.Skill.GetComponent<SwordSkill>();

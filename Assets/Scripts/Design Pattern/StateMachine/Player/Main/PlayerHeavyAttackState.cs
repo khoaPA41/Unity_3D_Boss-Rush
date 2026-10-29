@@ -49,11 +49,6 @@ namespace Design_Pattern.StateMachine.Player
             _previousTime = normalizedTime;
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-
-        }
-
         public override void Exit()
         {
             playerStateMachine.InputReader.IsHeavyAttack = false;

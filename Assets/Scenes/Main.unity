@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 6ad6ffb65cf819a4b985cdcb8355a48a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7c282ae9a36b17d4e87ebb0b78d53d57, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -94,7 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 9e09fa5e2e672b64eb1f4294907d21ab, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 282be8cebad46634fbb13bd7f8724afd, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 3ac7040da97f32844bdc8d0b8a5db9a0, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -87384,7 +87384,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -732846,7 +732846,7 @@ PrefabInstance:
     - target: {fileID: 4337736837307362208, guid: 8f637ad20d9dc5f4d884e7e21b0d7cf6, type: 3}
       propertyPath: sharedProfile
       value: 
-      objectReference: {fileID: 11400000, guid: 0bfda6f0a69be114aa339ee6f3b9e87e, type: 2}
+      objectReference: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
     - target: {fileID: 7051783424163239491, guid: 8f637ad20d9dc5f4d884e7e21b0d7cf6, type: 3}
       propertyPath: m_Name
       value: Global Volume

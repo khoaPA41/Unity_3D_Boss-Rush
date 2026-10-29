@@ -29,7 +29,7 @@ namespace Attack
         private void OnEnable()
         {
             alreadyObjectHit.Clear();
-            if (_collider is not null) previousPosition = transform.TransformPoint(_collider.center);
+            if (_collider != null) previousPosition = transform.TransformPoint(_collider.center);
         }
 
         public void ResetObjectHitList()
@@ -82,7 +82,6 @@ namespace Attack
 
             if (health.noDamage) return;
 
-            Debug.Log(damage);
             health.DealDamage(damage);
             health.HitStop();
 

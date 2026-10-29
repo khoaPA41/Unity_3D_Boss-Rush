@@ -74,10 +74,6 @@ namespace Design_Pattern.StateMachine.Player
             Move(deltaTime);
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
             playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;

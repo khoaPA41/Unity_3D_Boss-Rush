@@ -60,10 +60,6 @@ namespace Design_Pattern.StateMachine.Player
             FaceDir(_movement, deltaTime);
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
             playerStateMachine.InputReader.SkillAction -= playerStateMachine.HandleSkillEvent;

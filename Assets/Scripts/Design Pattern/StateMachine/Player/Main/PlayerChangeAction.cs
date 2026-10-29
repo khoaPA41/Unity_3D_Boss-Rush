@@ -88,10 +88,6 @@ namespace Design_Pattern.StateMachine.Player
             Move(movement * speed, deltaTime);
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
             if (isSwordEnter)

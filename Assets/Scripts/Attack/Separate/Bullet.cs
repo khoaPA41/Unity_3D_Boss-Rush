@@ -36,8 +36,7 @@ namespace Attack
             foreach (var bullet in bullets)
             {
 
-                var bulletDamage = bullet.GetComponent<WeaponTrail>();
-                // bulletDamage.SetDamage(10);
+                // var bulletDamage = bullet.GetComponent<WeaponTrail>();
                 bullet.MovePosition(bullet.transform.position + (DirToTarget() * (bulletSpeed * Time.deltaTime)));
             }
         }

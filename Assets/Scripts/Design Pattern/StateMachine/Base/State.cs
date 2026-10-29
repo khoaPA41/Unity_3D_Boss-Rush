@@ -4,10 +4,8 @@ namespace Design_Pattern.StateMachine.Base
 {
     public abstract class State
     {
-        // public bool IsFinished { get; protected set; } = false;
         public abstract void Enter();
         public abstract void Tick(float deltaTime);
-        public abstract void PhysicTick(float fixedDeltaTime);
         public abstract void Exit();
 
         protected static float GetNormalizeTime(Animator animator, string animationTag, int layer)

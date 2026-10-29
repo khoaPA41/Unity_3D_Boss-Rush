@@ -44,11 +44,6 @@ namespace Design_Pattern.StateMachine.Player
             playerStateMachine.ReturnLocomotion();
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-
-        }
-
         public override void Exit()
         {
 

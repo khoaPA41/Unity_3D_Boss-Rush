@@ -123,7 +123,6 @@ namespace UI
             SetupStaminaSlider(_stamina.CurrentStamina / _stamina.maxStamina);
             SetupHealthPotionSlider(_healthPotion.CurrentPotion / _healthPotion.maxPotion);
             SetupManaPotionSlider(_manaPotion.CurrentPotion / _manaPotion.maxPotion);
-            // ChangeOpacityImageSkill();
 
             foreach (var text in statusTextList)
             {

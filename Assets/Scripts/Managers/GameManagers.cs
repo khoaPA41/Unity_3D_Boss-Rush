@@ -70,7 +70,6 @@ namespace Manager
 
             currentCheckpointID = saveData.currentCheckpointID;
             checkpointPosition = new Vector3(saveData.posX, saveData.posY, saveData.posZ);
-            // SceneManager.LoadScene(saveData.sceneName);
             SceneManager.LoadScene("LoadScene");
         }
 
@@ -118,7 +117,7 @@ namespace Manager
         {
             var data = SaveManagers.Instance.CurrentSaveData;
             var audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSetting>();
-            if (data is null) return;
+            if (data == null) return;
 
             player.transform.position = new Vector3(data.posX, data.posY, data.posZ);
 
@@ -237,7 +236,6 @@ namespace Manager
                 changingTheGameSkill = stateMachine.SkillActive.changingTheGameSkill,
                 escapeSkill = stateMachine.SkillActive.escapeSkill,
                 responseSkill = stateMachine.SkillActive.responseSkill,
-
                 masterVolume = audio._masterVolume,
                 BGMVolume = audio._bgmVolume,
                 SFXVolume = audio._sfxVolume,

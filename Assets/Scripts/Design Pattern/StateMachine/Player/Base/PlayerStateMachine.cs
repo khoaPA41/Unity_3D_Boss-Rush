@@ -193,7 +193,7 @@ namespace Design_Pattern.StateMachine.Player
 
         private void OnDisable()
         {
-            GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
+            GameEventManagers.Instance.OnSkillCasted -= HandleEffectedState;
             Health.HitAction -= HandleHitState;
             Health.DeathAction -= HandleDeathState;
             InputReader.ChangeHealthPotionAction -= ChangeHealthPotion;
@@ -411,7 +411,6 @@ namespace Design_Pattern.StateMachine.Player
 
         public void AddBossSpiritualPower(int value)
         {
-            Debug.Log(value);
             PlayerSpiritualPower = Mathf.Min(PlayerSpiritualPower + value, 1000000);
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }

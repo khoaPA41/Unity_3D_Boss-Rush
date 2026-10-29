@@ -185,7 +185,7 @@ namespace Manager
         /******************************** Load At Start ********************************/
         public void LoadApplyAll()
         {
-            if (SaveManagers.Instance.HaveSaveData())
+            if (!SaveManagers.Instance.HaveSaveData())
             {
                 SetResolution(17);
                 SetDisplayMode(0);

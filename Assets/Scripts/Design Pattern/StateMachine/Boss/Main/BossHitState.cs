@@ -16,7 +16,6 @@ namespace Design_Pattern.StateMachine.Boss
         {
             previousTime = 0f;
             bossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, bossStateMachine.AnimationCrossFade);
-            // bossStateMachine.PlayerSFX.PlayHitSound();
             bossStateMachine.BossBehaviorBrain.HitReceived++;
         }
 
@@ -28,10 +27,6 @@ namespace Design_Pattern.StateMachine.Boss
                 bossStateMachine.ReturnLocomotion();
             }
             previousTime = normalizeTime;
-        }
-
-        public override void PhysicTick(float fixedDeltaTime)
-        {
         }
 
         public override void Exit()

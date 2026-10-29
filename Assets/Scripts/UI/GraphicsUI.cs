@@ -89,7 +89,7 @@ namespace UI
 
         private void LoadCurrentValuesToUI()
         {
-            if (SaveManagers.Instance.HaveSaveData())
+            if (!SaveManagers.Instance.HaveSaveData())
             {
                 resolutionDropdown.SetValueWithoutNotify(17);
                 displayModeDropdown.SetValueWithoutNotify(0);
@@ -167,7 +167,6 @@ namespace UI
 
             motionBlurToggle.onValueChanged.AddListener(i =>
             {
-                Debug.Log(i);
                 if (!isInitializing) GraphicManager.Instance.SetMotionBlur(i);
                 motionBlurToggleNonCheckpoint.SetIsOnWithoutNotify(i);
             });

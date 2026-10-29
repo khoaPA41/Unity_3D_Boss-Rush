@@ -40,10 +40,6 @@ namespace Design_Pattern.StateMachine.Player
             _previousTime = normalizeTime;
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
             playerStateMachine.PotionLight.SetActive(false);

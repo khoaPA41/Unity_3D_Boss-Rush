@@ -34,7 +34,6 @@ namespace Manager
 
         private void Start()
         {
-            // UpdateSaveSoundSettings();
             UpdateSoundSettingsUI();
 
             SetMasterVolume(_masterVolume);

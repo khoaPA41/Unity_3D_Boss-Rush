@@ -24,12 +24,10 @@ public class TimelineEvent : MonoBehaviour
     private void OnEnable()
     {
         PlayTimelineAction += PlayTimeline;
-        // PlayEndTimelineAction += PlayEndTimeline;
     }
 
     private void OnDisable()
     {
-        // PlayEndTimelineAction -= PlayEndTimeline;
         PlayTimelineAction -= PlayTimeline;
     }
 

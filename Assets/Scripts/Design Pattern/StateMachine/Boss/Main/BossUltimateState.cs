@@ -35,17 +35,6 @@ namespace Design_Pattern.StateMachine.Boss
 
         public override void Tick(float deltaTime)
         {
-            // if (bossStateMachine.IsCanMove)
-            // {
-            //     var dir = GetDirToPlayer(bossStateMachine.Target);
-            //     Move(dir * bossStateMachine.DashSpeed, deltaTime);
-            // }
-            // else
-            // {
-            //     Move(deltaTime);
-            // }
-
-
             var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, "Attack", 0);
 
             if (normalizeTime >= _previousTime && normalizeTime <= 1f)
@@ -60,10 +49,6 @@ namespace Design_Pattern.StateMachine.Boss
             _previousTime = normalizeTime;
             Move(deltaTime);
             FaceTarget(GetDirToPlayer(bossStateMachine.Target), bossStateMachine.Target);
-        }
-
-        public override void PhysicTick(float fixedDeltaTime)
-        {
         }
 
         public override void Exit()

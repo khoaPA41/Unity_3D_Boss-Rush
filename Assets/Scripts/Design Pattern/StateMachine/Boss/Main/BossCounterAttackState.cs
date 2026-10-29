@@ -31,10 +31,6 @@ namespace Design_Pattern.StateMachine.Boss
             previousTime = normalizeTime;
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
             bossStateMachine.Health.noDamage = false;

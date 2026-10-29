@@ -10,7 +10,6 @@ namespace Attack
         [SerializeField] private GameObject weaponRightLogic;
         [SerializeField] private GameObject weaponLeftLogic;
         [SerializeField] private GameObject otherDamageLogic;
-        // [SerializeField] private GameObject specialDamageLogic;
 
         [SerializeField] private GameObject weaponMain;
         [SerializeField] private GameObject weaponStore;
@@ -20,16 +19,6 @@ namespace Attack
         [SerializeField] private GameObject DoubleEdgedSword;
 
         /***********Collider***********/
-        // public void OnActiveWeaponCollider()
-        // {
-        //     specialDamageLogic?.SetActive(true);
-        // }
-
-        // public void OnUnActiveWeaponCollider()
-        // {
-        //     if (specialDamageLogic == null) return;
-        //     specialDamageLogic?.SetActive(false);
-        // }
 
         public void OnActiveWeaponLeftCollider()
         {

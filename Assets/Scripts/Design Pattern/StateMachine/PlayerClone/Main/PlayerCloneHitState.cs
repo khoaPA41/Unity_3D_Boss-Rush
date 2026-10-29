@@ -30,10 +30,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
             _previousTime = normalizedTime;
         }
 
-        public override void PhysicTick(float fixedDeltaTime)
-        {
-        }
-
         public override void Exit()
         {
         }
