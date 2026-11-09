@@ -1,28 +1,31 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ManageAttackAnimation : MonoBehaviour
+namespace Attack
 {
-    private readonly int AttackSpeedAnimationParam = Animator.StringToHash("AttackSpeed");
-    [SerializeField] private float attackAnimationSpeedSlow;
-
-    [SerializeField] private float attackAnimationSpeedFast;
-
-
-    private Animator _animator;
-
-
-    private void Start()
+    public class ManageAttackAnimation : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        private readonly int AttackSpeedAnimationParam = Animator.StringToHash("AttackSpeed");
+        [SerializeField] private float attackAnimationSpeedSlow;
 
-    public void SetSlowSpeedAnimation()
-    {
-        _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedSlow);
-    }
+        [SerializeField] private float attackAnimationSpeedFast;
 
-    public void ReturnNormalSpeedAnimation()
-    {
-        _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedFast);
+
+        private Animator _animator;
+
+
+        private void Start()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        public void SetSlowSpeedAnimation()
+        {
+            _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedSlow);
+        }
+
+        public void ReturnNormalSpeedAnimation()
+        {
+            _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedFast);
+        }
     }
 }

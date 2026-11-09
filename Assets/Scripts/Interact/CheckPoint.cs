@@ -1,6 +1,8 @@
-using Design_Pattern.StateMachine.Player;
-using PlayerInput;
-using Manager;
+using Environment;
+using DesignPattern.StateMachine.Player.Main;
+using DesignPattern.StateMachine.Player.Base;
+using Input;
+using Managers;
 using UnityEngine;
 
 namespace Interact

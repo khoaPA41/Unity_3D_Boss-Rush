@@ -1,66 +1,68 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum ActionType
+namespace Input
 {
-    None,
-    Jump,
-    Dodge,
-    Attack,
-}
-[Serializable]
-public struct BufferedAction
-{
-    public ActionType ActionType;
-    public float BufferWindow;
-}
-
-public class InputBuffering : MonoBehaviour
-{
-    [Header("Input Buffering Time")] 
-    [Tooltip("Setting the buffer window time here!")]
-    [field:SerializeField] private List<BufferedAction> bufferedActions;
-    
-    
-    private Dictionary<ActionType, float> _bufferWindowDictionary = new Dictionary<ActionType, float>();
-    private Dictionary<ActionType, float> _lastInputTimeDictionary = new Dictionary<ActionType, float>();
-
-    private void Awake()
+    public enum ActionType
     {
-        /*Convert data necessary from "bufferedActions" to two dictionary*/
-        foreach (var action in bufferedActions)
-        {
-            _bufferWindowDictionary[action.ActionType] = action.BufferWindow;
-            _lastInputTimeDictionary[action.ActionType] = -1000f;
-        }
+        None,
+        Jump,
+        Dodge,
+        Attack,
     }
-    
-    /*register player input and assign Time.time to _lastInputTimeDictionary*/
-    /*Use in Input Reader*/
-    public void Register(ActionType actionType)
+    [Serializable]
+    public struct BufferedAction
     {
-        if (_lastInputTimeDictionary.ContainsKey(actionType))
-        {
-            _lastInputTimeDictionary[actionType] = Time.time;
-        }
+        public ActionType ActionType;
+        public float BufferWindow;
     }
-    
-    /*Try to consume the last valid input*/
-    public bool TryConsume(ActionType actionType)
-    {
-        if(!_lastInputTimeDictionary.ContainsKey(actionType) || !_bufferWindowDictionary.ContainsKey(actionType)) return false;
-        
-        var lastTime = _lastInputTimeDictionary[actionType];
-        var bufferWindow = _bufferWindowDictionary[actionType];
 
-        if (Time.time - lastTime <= bufferWindow)
+    public class InputBuffering : MonoBehaviour
+    {
+        [Header("Input Buffering Time")] 
+        [Tooltip("Setting the buffer window time here!")]
+        [field:SerializeField] private List<BufferedAction> bufferedActions;
+
+
+        private Dictionary<ActionType, float> _bufferWindowDictionary = new Dictionary<ActionType, float>();
+        private Dictionary<ActionType, float> _lastInputTimeDictionary = new Dictionary<ActionType, float>();
+
+        private void Awake()
         {
-            _lastInputTimeDictionary[actionType] = -1000f;
-            return true;
+            /*Convert data necessary from "bufferedActions" to two dictionary*/
+            foreach (var action in bufferedActions)
+            {
+                _bufferWindowDictionary[action.ActionType] = action.BufferWindow;
+                _lastInputTimeDictionary[action.ActionType] = -1000f;
+            }
         }
-        return false;
+
+        /*register player input and assign Time.time to _lastInputTimeDictionary*/
+        /*Use in Input Reader*/
+        public void Register(ActionType actionType)
+        {
+            if (_lastInputTimeDictionary.ContainsKey(actionType))
+            {
+                _lastInputTimeDictionary[actionType] = Time.time;
+            }
+        }
+
+        /*Try to consume the last valid input*/
+        public bool TryConsume(ActionType actionType)
+        {
+            if(!_lastInputTimeDictionary.ContainsKey(actionType) || !_bufferWindowDictionary.ContainsKey(actionType)) return false;
+
+            var lastTime = _lastInputTimeDictionary[actionType];
+            var bufferWindow = _bufferWindowDictionary[actionType];
+
+            if (Time.time - lastTime <= bufferWindow)
+            {
+                _lastInputTimeDictionary[actionType] = -1000f;
+                return true;
+            }
+            return false;
+        }
+
     }
-    
 }

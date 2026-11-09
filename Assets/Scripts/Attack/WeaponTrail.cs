@@ -1,6 +1,7 @@
+using Audio;
 using System.Collections.Generic;
 using UnityEngine;
-using Status;
+using Attack.Status;
 
 
 namespace Attack
@@ -45,7 +46,7 @@ namespace Attack
             var direction = (currentPosition - previousPosition).normalized;
             var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
 
-            var overlaps = Physics.OverlapBox(currentPosition, halfExtents, transform.rotation, _layerMask);
+            var overlaps = UnityEngine.Physics.OverlapBox(currentPosition, halfExtents, transform.rotation, _layerMask);
             foreach (var overlap in overlaps)
             {
                 DealDamage(overlap.gameObject);
@@ -53,7 +54,7 @@ namespace Attack
 
             if (sweepDistance > 0.01f)
             {
-                var raycastHits = Physics.BoxCastAll(previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
+                var raycastHits = UnityEngine.Physics.BoxCastAll(previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
                 foreach (var hit in raycastHits)
                 {
                     DealDamage(hit.collider.gameObject);

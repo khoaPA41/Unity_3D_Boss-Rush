@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using System;
@@ -117,10 +117,10 @@ public class HS_CameraHolder : MonoBehaviour
         {
             currDistance = 2;
         }
-        currDistance -= Input.GetAxis("Mouse ScrollWheel") * 2;
-        if (Holder && (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
+        currDistance -= UnityEngine.Input.GetAxis("Mouse ScrollWheel") * 2;
+        if (Holder && (UnityEngine.Input.GetMouseButton(0) || UnityEngine.Input.GetMouseButton(1)))
         {
-            var pos = Input.mousePosition;
+            var pos = UnityEngine.Input.mousePosition;
             float dpiScale = 1;
             if (Screen.dpi < 1) dpiScale = 1;
             if (Screen.dpi < 200) dpiScale = 1;
@@ -128,8 +128,8 @@ public class HS_CameraHolder : MonoBehaviour
             if (pos.x < 380 * dpiScale && Screen.height - pos.y < 250 * dpiScale) return;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            x += (float)(Input.GetAxis("Mouse X") * xRotate * 0.02);
-            y -= (float)(Input.GetAxis("Mouse Y") * yRotate * 0.02);
+            x += (float)(UnityEngine.Input.GetAxis("Mouse X") * xRotate * 0.02);
+            y -= (float)(UnityEngine.Input.GetAxis("Mouse Y") * yRotate * 0.02);
             y = ClampAngle(y, yMinLimit, yMaxLimit);
             var rotation = Quaternion.Euler(y, x, 0);
             var position = rotation * new Vector3(0, 0, -currDistance) + Holder.position + cameraPos;

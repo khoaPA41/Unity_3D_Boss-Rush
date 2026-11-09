@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 using Bloom = UnityEngine.Rendering.Universal.Bloom;
 using MotionBlur = UnityEngine.Rendering.Universal.MotionBlur;
 
-namespace Manager
+namespace Managers
 {
     /// <summary>
     /// Management graphic settings and save it through GameManager

@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-namespace Manager
+namespace Managers
 {
     public class AudioSetting : MonoBehaviour
     {

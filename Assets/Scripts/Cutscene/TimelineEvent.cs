@@ -1,37 +1,40 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 
-public class TimelineEvent : MonoBehaviour
+namespace Cutscene
 {
-    public static TimelineEvent Instance;
-
-    [field: SerializeField] public PlayableDirector Timeline { get; private set; }
-    [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }
-
-    private void Awake()
+    public class TimelineEvent : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static TimelineEvent Instance;
+
+        [field: SerializeField] public PlayableDirector Timeline { get; private set; }
+        [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }
+
+        private void Awake()
         {
-            Destroy(gameObject);
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+
+            Instance = this;
         }
 
-        Instance = this;
-    }
+        public void CallTimelineAction()
+        {
+            PlayTimeline();
+        }
 
-    public void CallTimelineAction()
-    {
-        PlayTimeline();
-    }
+        private void PlayTimeline()
+        {
+            Time.timeScale = 1;
+            Timeline.Play();
+        }
 
-    private void PlayTimeline()
-    {
-        Time.timeScale = 1;
-        Timeline.Play();
-    }
-
-    public void PlayEndTimeline()
-    {
-        Time.timeScale = 1;
-        EndTimeline.Play();
+        public void PlayEndTimeline()
+        {
+            Time.timeScale = 1;
+            EndTimeline.Play();
+        }
     }
 }

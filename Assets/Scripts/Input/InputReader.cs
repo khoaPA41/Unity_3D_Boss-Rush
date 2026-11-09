@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerInput
+namespace Input
 {
     [RequireComponent(typeof(InputBuffering))]
     public class InputReader : MonoBehaviour, InputController.IPlayerActions

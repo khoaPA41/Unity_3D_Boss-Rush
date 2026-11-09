@@ -1,15 +1,17 @@
+using Audio;
+using Cutscene;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-using Design_Pattern.StateMachine.Player;
-using Design_Pattern.Tree_Behavior.Boss;
+using DesignPattern.StateMachine.Player.Base;
+using DesignPattern.TreeBehavior.Brain;
 
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace Manager
+namespace Managers
 {
     public class BossPhaseManager : MonoBehaviour
     {

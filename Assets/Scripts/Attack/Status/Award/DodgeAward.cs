@@ -1,9 +1,10 @@
+using Attack.Status;
 using System;
 using System.Collections;
-using Design_Pattern.StateMachine.Player;
+using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Status.Award
+namespace Attack.Status.Award
 {
     public class DodgeAward : MonoBehaviour
     {

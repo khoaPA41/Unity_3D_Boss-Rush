@@ -1,59 +1,63 @@
+using Audio;
 using System.Collections.Generic;
-using Design_Pattern.StateMachine.Player;
-using Manager;
+using DesignPattern.StateMachine.Player.Base;
+using Managers;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class CutsceneManagers : MonoBehaviour
+namespace Cutscene
 {
-    [SerializeField] private GameObject BossContainer;
-
-    private BoxCollider boxCollider;
-    private BossPhaseManager bossPhaseManager;
-
-    private void Start()
+    [RequireComponent(typeof(BoxCollider))]
+    public class CutsceneManagers : MonoBehaviour
     {
-        boxCollider = GetComponent<BoxCollider>();
-        bossPhaseManager = BossContainer.GetComponent<BossPhaseManager>();
-        bossPhaseManager.Finished += SaveIsDefeat;
-        CheckDefeat();
-    }
+        [SerializeField] private GameObject BossContainer;
 
-    private void OnDisable()
-    {
-        bossPhaseManager.Finished -= SaveIsDefeat;
+        private BoxCollider boxCollider;
+        private BossPhaseManager bossPhaseManager;
 
-    }
-
-    private void CheckDefeat()
-    {
-        if (!SaveManagers.Instance.CompletedList.Contains(bossPhaseManager.TriggerId)) return;
-        boxCollider.enabled = false;
-    }
-
-    private void SaveIsDefeat()
-    {
-        if (!SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Contains(bossPhaseManager.TriggerId))
+        private void Start()
         {
-            SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Add(bossPhaseManager.TriggerId);
+            boxCollider = GetComponent<BoxCollider>();
+            bossPhaseManager = BossContainer.GetComponent<BossPhaseManager>();
+            bossPhaseManager.Finished += SaveIsDefeat;
+            CheckDefeat();
         }
 
-        GameManagers.Instance.AutoSave();
-    }
+        private void OnDisable()
+        {
+            bossPhaseManager.Finished -= SaveIsDefeat;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Player")) return;
-        if (!other.TryGetComponent<CharacterController>(out _)) return;
+        }
 
-        var player = other.GetComponent<PlayerStateMachine>();
-        bossPhaseManager.SetPlayer(player);
-        player.Stamina.IsCombat = true;
+        private void CheckDefeat()
+        {
+            if (!SaveManagers.Instance.CompletedList.Contains(bossPhaseManager.TriggerId)) return;
+            boxCollider.enabled = false;
+        }
+
+        private void SaveIsDefeat()
+        {
+            if (!SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Contains(bossPhaseManager.TriggerId))
+            {
+                SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Add(bossPhaseManager.TriggerId);
+            }
+
+            GameManagers.Instance.AutoSave();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag("Player")) return;
+            if (!other.TryGetComponent<CharacterController>(out _)) return;
+
+            var player = other.GetComponent<PlayerStateMachine>();
+            bossPhaseManager.SetPlayer(player);
+            player.Stamina.IsCombat = true;
 
 
-        BossContainer.SetActive(true);
-        boxCollider.enabled = false;
-        TimelineEvent.Instance.CallTimelineAction();
-        AudioManagers.Instance.PlayBackgroundMusic(true);
+            BossContainer.SetActive(true);
+            boxCollider.enabled = false;
+            TimelineEvent.Instance.CallTimelineAction();
+            AudioManagers.Instance.PlayBackgroundMusic(true);
+        }
     }
 }

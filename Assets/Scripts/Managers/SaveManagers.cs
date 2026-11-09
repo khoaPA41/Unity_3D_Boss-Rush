@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Manager
+namespace Managers
 {
     /// <summary>
     /// Management read/write save file on storage (JSON)

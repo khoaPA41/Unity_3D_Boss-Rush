@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Script.Physics
+namespace Physics
 {
     public class ForceReceiver : MonoBehaviour
     {

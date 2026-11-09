@@ -1,8 +1,8 @@
-using System;
-using Design_Pattern.StateMachine.Player;
+﻿using System;
+using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
-namespace Status
+namespace Attack.Status
 {
     public class Mana : MonoBehaviour
     {

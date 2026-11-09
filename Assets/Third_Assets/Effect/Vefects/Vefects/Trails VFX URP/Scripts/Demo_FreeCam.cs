@@ -53,15 +53,15 @@ public class Demo_FreeCam : MonoBehaviour
             return;
 
         //Double click for focus 
-        if (cooldown > 0 && Input.GetKeyDown(KeyCode.Mouse0))
+        if (cooldown > 0 && UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
             FocusObject();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
             cooldown = doubleClickTime;
 
         //--------UNDO FOCUS---------
-        if (Input.GetKey(firstUndoKey))
+        if (UnityEngine.Input.GetKey(firstUndoKey))
         {
-            if (Input.GetKeyDown(secondUndoKey))
+            if (UnityEngine.Input.GetKeyDown(secondUndoKey))
                 GoBackToLastPosition();
         }
 
@@ -74,17 +74,17 @@ public class Demo_FreeCam : MonoBehaviour
 
         //Move and rotate the camera
 
-        if (Input.GetKey(forwardKey))
+        if (UnityEngine.Input.GetKey(forwardKey))
             move += Vector3.forward * moveSpeed;
-        if (Input.GetKey(backKey))
+        if (UnityEngine.Input.GetKey(backKey))
             move += Vector3.back * moveSpeed;
-        if (Input.GetKey(leftKey))
+        if (UnityEngine.Input.GetKey(leftKey))
             move += Vector3.left * moveSpeed;
-        if (Input.GetKey(rightKey))
+        if (UnityEngine.Input.GetKey(rightKey))
             move += Vector3.right * moveSpeed;
 
         //By far the simplest solution I could come up with for moving only on the Horizontal plane - no rotation, just cache y
-        if (Input.GetKey(flatMoveKey))
+        if (UnityEngine.Input.GetKey(flatMoveKey))
         {
             float origY = transform.position.y;
 
@@ -94,18 +94,18 @@ public class Demo_FreeCam : MonoBehaviour
             return;
         }
 
-        float mouseMoveY = Input.GetAxis(mouseY);
-        float mouseMoveX = Input.GetAxis(mouseX);
+        float mouseMoveY = UnityEngine.Input.GetAxis(mouseY);
+        float mouseMoveX = UnityEngine.Input.GetAxis(mouseX);
 
         //Move the camera when anchored
-        if (Input.GetKey(anchoredMoveKey))
+        if (UnityEngine.Input.GetKey(anchoredMoveKey))
         {
             move += Vector3.up * mouseMoveY * -moveSpeed;
             move += Vector3.right * mouseMoveX * -moveSpeed;
         }
 
         //Rotate the camera when anchored
-        if (Input.GetKey(anchoredRotateKey))
+        if (UnityEngine.Input.GetKey(anchoredRotateKey))
         {
             transform.RotateAround(transform.position, transform.right, mouseMoveY * -rotationSpeed);
             transform.RotateAround(transform.position, Vector3.up, mouseMoveX * rotationSpeed);
@@ -114,7 +114,7 @@ public class Demo_FreeCam : MonoBehaviour
         transform.Translate(move);
 
         //Scroll to zoom
-        float mouseScroll = Input.GetAxis(zoomAxis);
+        float mouseScroll = UnityEngine.Input.GetAxis(zoomAxis);
         transform.Translate(Vector3.forward * mouseScroll * zoomSpeed);
     }
 
@@ -124,10 +124,10 @@ public class Demo_FreeCam : MonoBehaviour
         SavePosAndRot();
 
         //If we double-clicked an object in the scene, go to its position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, focusLimit))
+        if (UnityEngine.Physics.Raycast(ray, out hit, focusLimit))
         {
             GameObject target = hit.collider.gameObject;
             Vector3 targetPos = target.transform.position;

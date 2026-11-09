@@ -1,12 +1,13 @@
+using Attack.Status;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Design_Pattern.StateMachine.Player;
-using PlayerInput;
+using DesignPattern.StateMachine.Player.Base;
+using Input;
 using UnityEngine;
 
 
-namespace Status.Potion
+namespace Attack.Status.Potion
 {
     [Serializable]
     public class SubPotionValue

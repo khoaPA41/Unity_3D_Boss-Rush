@@ -1,10 +1,10 @@
-using Design_Pattern.StateMachine.Player;
-using Status;
-using Status.Potion;
+﻿using DesignPattern.StateMachine.Player.Base;
+using Attack.Status;
+using Attack.Status.Potion;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Manager
+namespace Managers
 {
     /// <summary>
     /// This class will control the NEW/ CONTINUE/ SAVE/ RESPAWN

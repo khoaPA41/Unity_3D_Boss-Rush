@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
 
 namespace TMPro.Examples
 {
+    using Input = UnityEngine.Input;
+    using Physics = UnityEngine.Physics;
 
     public class TMP_TextSelector_A : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

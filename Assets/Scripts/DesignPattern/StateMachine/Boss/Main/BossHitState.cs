@@ -1,0 +1,37 @@
+using DesignPattern.StateMachine.Boss.Base;
+using System;
+using UnityEngine;
+
+namespace DesignPattern.StateMachine.Boss.Main
+{
+    public class BossHitState : BossBaseState
+    {
+        readonly int HitAnimationHash = Animator.StringToHash("Hit");
+        readonly string HitAnimationTag = "Hit";
+        private float previousTime;
+        public BossHitState(BossStateMachine bossStateMachine) : base(bossStateMachine)
+        {
+        }
+
+        public override void Enter()
+        {
+            previousTime = 0f;
+            bossStateMachine.Animator.CrossFadeInFixedTime(HitAnimationHash, bossStateMachine.AnimationCrossFade);
+            bossStateMachine.BossBehaviorBrain.HitReceived++;
+        }
+
+        public override void Tick(float deltaTime)
+        {
+            var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, HitAnimationTag, 0);
+            if (normalizeTime > previousTime && normalizeTime >= .9f)
+            {
+                bossStateMachine.ReturnLocomotion();
+            }
+            previousTime = normalizeTime;
+        }
+
+        public override void Exit()
+        {
+        }
+    }
+}

@@ -1,4 +1,4 @@
-namespace Status.Potion
+﻿namespace Attack.Status.Potion
 {
     public class ManaPotion : Potion
     {

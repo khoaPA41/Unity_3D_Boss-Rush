@@ -1,5 +1,5 @@
-using System.Collections;
-using Manager;
+﻿using System.Collections;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

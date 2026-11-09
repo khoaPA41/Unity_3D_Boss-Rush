@@ -4,6 +4,8 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
+    using Input = UnityEngine.Input;
+    using Physics = UnityEngine.Physics;
 
     public class CameraController : MonoBehaviour
     {

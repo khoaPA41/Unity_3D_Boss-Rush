@@ -1,10 +1,11 @@
+using Audio;
 using System;
 using System.Collections;
-using Design_Pattern.StateMachine.Player;
+using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
 
-namespace Status
+namespace Attack.Status
 {
     public class Health : MonoBehaviour
     {

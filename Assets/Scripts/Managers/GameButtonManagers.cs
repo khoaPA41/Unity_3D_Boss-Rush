@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Manager
+namespace Managers
 {
     public class GameButtonManagers : MonoBehaviour
     {

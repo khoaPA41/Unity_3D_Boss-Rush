@@ -1,11 +1,13 @@
+using Attack.SkillFactory;
+using DesignPattern.StateMachine.Player.Main;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Attack;
-using Design_Pattern.StateMachine.Player;
-using PlayerInput;
-using Status;
-using Status.Potion;
+using DesignPattern.StateMachine.Player.Base;
+using Input;
+using Attack.Status;
+using Attack.Status.Potion;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

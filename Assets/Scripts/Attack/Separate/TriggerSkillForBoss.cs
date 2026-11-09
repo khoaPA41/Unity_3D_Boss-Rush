@@ -1,9 +1,9 @@
-using System.Collections;
-using Attack.Skill_Factory;
-using Design_Pattern.EventBus;
+﻿using System.Collections;
+using Attack.SkillFactory;
+using DesignPattern.EventBus;
 using UnityEngine;
 
-namespace Attack
+namespace Attack.Separate
 {
     public class TriggerSkillForBoss : MonoBehaviour
     {

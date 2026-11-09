@@ -1,10 +1,12 @@
-using Attack.Skill_Factory;
-using Design_Pattern.EventBus;
-using Design_Pattern.StateMachine.Boss;
-using Script.Design_Pattern.Object_Pooling;
+using Attack;
+using Audio;
+using Attack.SkillFactory;
+using DesignPattern.EventBus;
+using DesignPattern.StateMachine.Boss.Base;
+using DesignPattern.ObjectPooling;
 using UnityEngine;
 
-namespace Attack
+namespace Attack.Separate
 {
     public class SwordSkill : MonoBehaviour
     {

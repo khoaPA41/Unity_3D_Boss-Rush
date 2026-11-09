@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System;
@@ -6,6 +6,7 @@ using System;
 
 namespace TMPro
 {
+    using Input = UnityEngine.Input;
 
     public class TMP_TextEventHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
