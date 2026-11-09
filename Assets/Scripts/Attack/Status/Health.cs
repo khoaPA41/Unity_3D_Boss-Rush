@@ -81,7 +81,8 @@ namespace Attack.Status
         {
             if (isReduceDamage) damage /= _reduceHealth;
 
-            CurrentHealth = Mathf.Clamp(CurrentHealth - damage + resistance, 0, MaxHealth);
+            // CurrentHealth = Mathf.Clamp(CurrentHealth - damage + resistance, 0, MaxHealth);
+            CurrentHealth = Mathf.Max(0, CurrentHealth - damage + resistance);
             HitAction?.Invoke();
 
             if (CurrentHealth <= 0)
@@ -146,7 +147,8 @@ namespace Attack.Status
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            MaxHealth -= 1;
+
+            MaxHealth = Mathf.Max(0, MaxHealth - 1); ;
             CurrentHealth = MaxHealth;
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }

@@ -9,10 +9,17 @@ using UnityEngine;
 
 namespace Attack.Status.Potion
 {
+    public enum SubPotionId
+    {
+        EmeraldGuava = 0, // ReduceStamina
+        GoldenPear = 1, // ReduceDamage
+        BloodPomegranate = 2 // IncreaseDamage
+    }
+
     [Serializable]
     public class SubPotionValue
     {
-        public string potionName;
+        public SubPotionId subPotionId;
         public int quantity;
         public float timeToDone;
         public string hexColor;
@@ -66,39 +73,41 @@ namespace Attack.Status.Potion
             currentPotion = subPotionList[_currentIndex];
         }
 
-        public void SubtractPotion(string potionName, int amount)
+        public void SubtractPotion(SubPotionId subPotionId, int amount)
         {
-            var targetPotion = subPotionList.Find(potion => potion.potionName == potionName);
+            var targetPotion = subPotionList.Find(potion => potion.subPotionId == subPotionId);
             targetPotion.quantity = Mathf.Max(targetPotion.quantity - amount, 0);
         }
 
-        private SubPotionValue FindPotion(string potionName)
+        private SubPotionValue FindPotion(SubPotionId subPotionId)
         {
-            return subPotionList.Find(potion => potion.potionName == potionName);
+            return subPotionList.Find(potion => potion.subPotionId == subPotionId);
         }
 
-        public void ReduceDamage(string potionName)
+        public void ApplyTheEffect(SubPotionId subPotionId)
         {
-            StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => _health.isReduceDamage = true,
-                () => _health.isReduceDamage = false
-            ));
-        }
-
-        public void ReduceStamina(string potionName)
-        {
-            StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => _stamina.isReduceStamina = true,
-                () => _stamina.isReduceStamina = false
-            ));
-        }
-
-        public void IncreaseDamage(string potionName)
-        {
-            StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => _playerStateMachine.IsIncreaseDamagePotion = true,
-                () => _playerStateMachine.IsIncreaseDamagePotion = false
-            ));
+            var timeToDone = FindPotion(subPotionId).timeToDone;
+            switch (subPotionId)
+            {
+                case SubPotionId.BloodPomegranate:
+                    StartCoroutine(SubPotionCoroutine(timeToDone,
+                        () => _playerStateMachine.IsIncreaseDamagePotion = true,
+                        () => _playerStateMachine.IsIncreaseDamagePotion = false
+                ));
+                    return;
+                case SubPotionId.GoldenPear:
+                    StartCoroutine(SubPotionCoroutine(timeToDone,
+                        () => _health.isReduceDamage = true,
+                        () => _health.isReduceDamage = false
+                    ));
+                    return;
+                case SubPotionId.EmeraldGuava:
+                    StartCoroutine(SubPotionCoroutine(timeToDone,
+                        () => _stamina.isReduceStamina = true,
+                        () => _stamina.isReduceStamina = false
+                    ));
+                    return;
+            }
         }
 
         private IEnumerator SubPotionCoroutine(float timeToDone, Action callback1, Action callback2)
@@ -108,9 +117,9 @@ namespace Attack.Status.Potion
             callback2?.Invoke();
         }
 
-        public void AddSubPotionQuantity(string potionName)
+        public void AddSubPotionQuantity(SubPotionId subPotionId)
         {
-            var targetPotion = FindPotion(potionName);
+            var targetPotion = FindPotion(subPotionId);
             if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
             {
                 _playerStateMachine.IsCanNotSubSpiritual = false;
@@ -119,9 +128,9 @@ namespace Attack.Status.Potion
             targetPotion.quantity++;
         }
 
-        public void SubtractSubPotionQuantity(string potionName)
+        public void SubtractSubPotionQuantity(SubPotionId subPotionId)
         {
-            var targetPotion = FindPotion(potionName);
+            var targetPotion = FindPotion(subPotionId);
 
             if (targetPotion.quantity == 0)
             {

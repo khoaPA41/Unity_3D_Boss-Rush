@@ -49,7 +49,7 @@ namespace Attack.Status
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            MaxMana -= 1;
+            MaxMana = Mathf.Max(0, MaxMana - 1);
             CurrentMana = MaxMana;
             OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }

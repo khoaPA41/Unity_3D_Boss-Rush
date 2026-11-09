@@ -54,7 +54,8 @@ namespace Attack.Status.Potion
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            MaxPotion -= maxPotionAdded;
+
+            MaxPotion = Mathf.Max(0, MaxPotion - maxPotionAdded);
             CurrentPotion = MaxPotion;
             OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }

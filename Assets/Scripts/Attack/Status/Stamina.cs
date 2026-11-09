@@ -81,7 +81,8 @@ namespace Attack.Status
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            MaxStamina -= 1;
+
+            MaxStamina = Mathf.Max(0, MaxStamina - 1);
             CurrentStamina = MaxStamina;
             OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
         }

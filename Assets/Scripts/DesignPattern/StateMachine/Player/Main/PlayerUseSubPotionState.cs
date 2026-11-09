@@ -1,3 +1,4 @@
+using Attack.Status.Potion;
 using DesignPattern.StateMachine.Player.Base;
 
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace DesignPattern.StateMachine.Player.Main
         public override void Enter()
         {
             ChangeColorEffect(playerStateMachine.SubPotion.currentPotion.hexColor);
-            UsePotion(playerStateMachine.SubPotion.currentPotion.potionName);
+            UsePotion(playerStateMachine.SubPotion.currentPotion.subPotionId);
             playerStateMachine.PotionLight.SetActive(true);
             playerStateMachine.Animator.CrossFadeInFixedTime(_subPotionAnimation, playerStateMachine.AnimationCrossFade);
         }
@@ -35,21 +36,10 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.PotionLight.SetActive(false);
         }
 
-        private void UsePotion(string potionName)
+        private void UsePotion(SubPotionId subPotionId)
         {
-            playerStateMachine.SubPotion.SubtractPotion(potionName, 1);
-            switch (potionName)
-            {
-                case "ReduceStamina":
-                    playerStateMachine.SubPotion.ReduceStamina("ReduceStamina");
-                    return;
-                case "IncreaseDamage":
-                    playerStateMachine.SubPotion.IncreaseDamage("IncreaseDamage");
-                    return;
-                case "ReduceDamage":
-                    playerStateMachine.SubPotion.ReduceDamage("ReduceDamage");
-                    return;
-            }
+            playerStateMachine.SubPotion.SubtractPotion(subPotionId, 1);
+            playerStateMachine.SubPotion.ApplyTheEffect(subPotionId);
         }
     }
 }
