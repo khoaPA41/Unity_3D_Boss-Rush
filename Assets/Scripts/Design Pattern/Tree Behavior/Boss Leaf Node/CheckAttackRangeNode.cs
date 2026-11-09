@@ -20,8 +20,7 @@ namespace Design_Pattern.Tree_Behavior
         public bool CheckAttackRange()
         {
             return ((bossStateMachine.Player.transform.position - bossStateMachine.transform.position).sqrMagnitude <=
-            bossBehaviorBrain.AttackRange * bossBehaviorBrain.AttackRange) && !bossStateMachine.PlayerStateMachine.Invisible &&
-            !bossStateMachine.PlayerStateMachine.Invisible;
+            bossBehaviorBrain.AttackRange * bossBehaviorBrain.AttackRange) && !bossStateMachine.PlayerStateMachine.Invisible;
         }
 
         public override NodeState Evaluate()

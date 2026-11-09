@@ -195,19 +195,13 @@ namespace Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
-            var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             caster.ComsumeMana(ManaCost);
 
             getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
 
-            for (var i = 0; i < 1; i++)
-            {
-                getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
+            getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
 
-                var playerClone = getSkill.Skill.GetComponent<PlayerCloneStateMachine>();
-                // playerClone.Target = player.Targeter.currentTarget.gameObject;
-                AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomMirageResource);
-            }
+            AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomMirageResource);
 
             GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
         }

@@ -18,7 +18,7 @@ namespace Design_Pattern.Tree_Behavior
         public override NodeState Evaluate()
         {
             if (bossBehaviorBrain.IsUsedUltimate) return NodeState.Failure;
-            if (bossStateMachine.UltimateCombo.AttackData.Length == 0 || bossBehaviorBrain.IsUsedUltimate) return NodeState.Failure;
+            if (bossStateMachine.UltimateCombo.AttackData.Length == 0) return NodeState.Failure;
 
             bossStateMachine.IsUltimateAttack = true;
             return NodeState.Success;

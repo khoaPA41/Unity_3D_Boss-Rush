@@ -25,6 +25,7 @@ namespace Design_Pattern.StateMachine.PlayerClone
             if (IsAttackRange())
             {
                 cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
+                return;
             }
             cloneStateMachine.SwitchState(new PlayerCloneChasingState(cloneStateMachine));
         }

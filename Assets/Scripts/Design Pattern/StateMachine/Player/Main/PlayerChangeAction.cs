@@ -84,7 +84,6 @@ namespace Design_Pattern.StateMachine.Player
                 UpdateFreeLookAnimation(deltaTime);
             }
 
-            UpdateFreeLookAnimation(deltaTime);
             Move(movement * speed, deltaTime);
         }
 
