@@ -47,7 +47,7 @@ public class FindMissingScripts : EditorWindow
 
     static void FindInAllPrefabs()
     {
-        string[] prefabGuids = AssetDatabase.FindAssets("t:Prefab");
+        string[] prefabGuids = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Prefabs" });
         int count = 0;
 
         foreach (string guid in prefabGuids)
@@ -69,16 +69,19 @@ public class FindMissingScripts : EditorWindow
         // 1. Prefabs
         FindInAllPrefabs();
 
-        // 2. Tất cả Scene
-        string[] sceneGuids = AssetDatabase.FindAssets("t:Scene");
+        // 2. All Scenes
+        string[] sceneGuids = AssetDatabase.FindAssets("t:Scene", new[] { "Assets/Scenes" });
         int totalCount = 0;
 
         foreach (string guid in sceneGuids)
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
-            var scene = UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path, UnityEditor.SceneManagement.OpenSceneMode.Additive);
+            bool wasLoaded = UnityEngine.SceneManagement.SceneManager.GetSceneByPath(path).isLoaded;
+            var scene = wasLoaded
+                ? UnityEngine.SceneManagement.SceneManager.GetSceneByPath(path)
+                : UnityEditor.SceneManagement.EditorSceneManager.OpenScene(path, UnityEditor.SceneManagement.OpenSceneMode.Additive);
 
-            GameObject[] allObjects = FindObjectsByType<GameObject>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            GameObject[] allObjects = scene.GetRootGameObjects();
             int sceneCount = 0;
 
             foreach (GameObject go in allObjects)
@@ -87,10 +90,13 @@ public class FindMissingScripts : EditorWindow
             }
 
             totalCount += sceneCount;
-            UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
+            if (!wasLoaded)
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene, true);
+            }
         }
 
-        Debug.Log($"<color=green><b>COMPLETE!</b></color> A total of Missing Scripts were found throughout the whole project.");
+        Debug.Log($"<color=green><b>COMPLETE!</b></color> A total of <b>{totalCount}</b> Missing Scripts were found throughout the whole project.");
     }
 
     static int CheckGameObject(GameObject go, string path = "")
@@ -108,7 +114,7 @@ public class FindMissingScripts : EditorWindow
             }
         }
 
-        // Kiểm tra cả children
+        // Check children as well
         foreach (Transform child in go.transform)
         {
             count += CheckGameObject(child.gameObject, path);
