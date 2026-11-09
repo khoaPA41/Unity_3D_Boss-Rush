@@ -57,7 +57,7 @@ namespace Manager
         {
             if (!HaveSaveData())
             {
-                Debug.LogWarning("[SaveManagers] Don't have save data]");
+                Debug.LogWarning("[SaveManagers] No save data found");
                 return null;
             }
 
@@ -65,17 +65,6 @@ namespace Manager
             CurrentSaveData = JsonUtility.FromJson<SaveData>(jsonData);
             CompletedList = new HashSet<string>(CurrentSaveData.completedTriggerBoss);
             return CurrentSaveData;
-        }
-
-        // Delete save data
-        public void DeteleSaveGame()
-        {
-            if (HaveSaveData())
-            {
-                File.Delete(savePath);
-            }
-
-            CurrentSaveData = null;
         }
 
         // Create new save data

@@ -167,7 +167,7 @@ namespace Design_Pattern.StateMachine.Boss
             SwitchState(DeadState);
         }
 
-        public void ComsumeMana(int amount)
+        public void ConsumeMana(int amount)
         {
             // Nothing with boss
         }
@@ -185,10 +185,10 @@ namespace Design_Pattern.StateMachine.Boss
         private void HandleSkillEvent(ICaster caster, SkillEffect skillEffect)
         {
             if (caster.GetTransform().gameObject.TryGetComponent(out BossStateMachine _)) return;
-            ActiveEnventBySkill(skillEffect)?.Invoke();
+            ActiveEventBySkill(skillEffect)?.Invoke();
         }
 
-        private Action ActiveEnventBySkill(SkillEffect skillEffect)
+        private Action ActiveEventBySkill(SkillEffect skillEffect)
         {
             return skillEffect switch
             {

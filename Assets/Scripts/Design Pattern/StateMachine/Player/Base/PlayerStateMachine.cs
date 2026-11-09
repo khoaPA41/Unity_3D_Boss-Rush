@@ -41,8 +41,8 @@ namespace Design_Pattern.StateMachine.Player
         [field: Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
-        [field: SerializeField] public Transform WeaponTrip { get; private set; }
-        [field: SerializeField] public Transform WeaponTrasform { get; private set; }
+        [field: SerializeField] public Transform WeaponTip { get; private set; }
+        [field: SerializeField] public Transform WeaponTransform { get; private set; }
         [field: SerializeField] public GameObject WeaponTrail { get; private set; }
         [field: SerializeField] public SkillActive SkillActive { get; private set; }
 
@@ -79,7 +79,7 @@ namespace Design_Pattern.StateMachine.Player
         [field: SerializeField] public GameObject ClothNormal { get; private set; }
         [field: SerializeField] public GameObject HairNormal { get; private set; }
         [field: SerializeField] public GameObject HarnessNormal { get; private set; }
-        [field: SerializeField] public GameObject LegNormale { get; private set; }
+        [field: SerializeField] public GameObject LegNormal { get; private set; }
 
         [field: Header("MeshRenderer Object Indestructible Skill")]
         [field: SerializeField] public GameObject ArmIndestructible { get; private set; }
@@ -123,7 +123,7 @@ namespace Design_Pattern.StateMachine.Player
 
         /*Potion*/
         public bool IsHealthPotion { get; set; } = true;
-        public bool IsIncreaseDamePotion { get; set; }
+        public bool IsIncreaseDamagePotion { get; set; }
 
         public bool isCanNotSubSpiritual;
 
@@ -207,7 +207,7 @@ namespace Design_Pattern.StateMachine.Player
 
         public void RecordSwordStartPos()
         {
-            StartSwordPos = WeaponTrip.transform.position;
+            StartSwordPos = WeaponTip.transform.position;
         }
 
         public void SendSituationEvent()
@@ -349,7 +349,7 @@ namespace Design_Pattern.StateMachine.Player
             IsHealthPotion = false;
         }
 
-        public void ComsumeMana(int amount)
+        public void ConsumeMana(int amount)
         {
             Mana.ChangeMana(amount);
         }

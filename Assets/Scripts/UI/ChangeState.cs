@@ -21,8 +21,8 @@ public class ChangeState : StateMachineBehaviour
     [SerializeField] private bool usingNextAction;
     [SerializeField] private float triggerNextAction;
 
-    [Header("Next Action Event")]
-    [Tooltip("This event can active weapon vfx")]
+    [Header("Weapon VFX Event")]
+    [Tooltip("This event can activate weapon vfx")]
     [SerializeField] private bool usingWeaponVFX;
     [SerializeField] private float triggerWeaponVFX;
 
@@ -71,7 +71,7 @@ public class ChangeState : StateMachineBehaviour
     {
         if (_hasTriggeredWeaponVFX || stateInfo.normalizedTime < triggerWeaponVFX) return;
         var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
-        animationEvent.SendSlashWeaponEventEvent();
+        animationEvent.SendSlashWeaponEvent();
         _hasTriggeredWeaponVFX = true;
 
         var stateMachine = animator.GetComponent<BossStateMachine>();

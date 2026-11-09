@@ -354,7 +354,7 @@ namespace UI
             }
         }
 
-        private void ChangOpacityImageUnActive()
+        private void ChangeOpacityImageInactive()
         {
             foreach (var skillImage in skillSystemList)
             {
@@ -368,7 +368,7 @@ namespace UI
 
         private void UpdateChangeTheGameSkillUI()
         {
-            ChangOpacityImageUnActive();
+            ChangeOpacityImageInactive();
 
             icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
             var skillImage = FindImage(icon_ChangingTheGame.sprite);
@@ -378,7 +378,7 @@ namespace UI
 
         private void UpdateEscapeSkillUI()
         {
-            ChangOpacityImageUnActive();
+            ChangeOpacityImageInactive();
             icon_Escape.sprite = _skillActive.escapeSkill.skillIcon;
             var skillImage = FindImage(icon_Escape.sprite);
             ChangeOpacity(skillImage, 1f);
@@ -386,7 +386,7 @@ namespace UI
 
         private void UpdateResponseSkillUI()
         {
-            ChangOpacityImageUnActive();
+            ChangeOpacityImageInactive();
             icon_Response.sprite = _skillActive.responseSkill.skillIcon;
             var skillImage = FindImage(icon_Response.sprite);
             ChangeOpacity(skillImage, 1f);
@@ -451,7 +451,7 @@ namespace UI
         }
 
         /*********************************************Dodge Award UI*********************************************/
-        private void ChangOpacityDodgeIcon()
+        private void ChangeOpacityDodgeIcon()
         {
             ChangeOpacity(dodgeAwardImage1, .3f);
             ChangeOpacity(dodgeAwardImage2, .3f);
@@ -460,7 +460,7 @@ namespace UI
 
         private void ActiveDodgeAward(int buttonNumber)
         {
-            ChangOpacityDodgeIcon();
+            ChangeOpacityDodgeIcon();
             switch (buttonNumber)
             {
                 case 1:

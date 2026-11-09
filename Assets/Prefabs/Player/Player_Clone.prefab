@@ -2976,7 +2976,7 @@ MonoBehaviour:
   <PlayerSFX>k__BackingField: {fileID: 0}
   currentHealth: 0
   isPerfectDodge: 0
-  isReduceDame: 0
+  isReduceDamage: 0
 --- !u!95 &8323749953300343648
 Animator:
   serializedVersion: 7

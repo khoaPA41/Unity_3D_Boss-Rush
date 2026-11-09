@@ -99,7 +99,7 @@ namespace UI
             displayModeDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.displayModeIndex);
             vsyncToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.vsync);
             fpsLimitInput.SetTextWithoutNotify(SaveManagers.Instance.CurrentSaveData.fps.ToString());
-            qualityPresetDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.qualityPresentIndex);
+            qualityPresetDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.qualityPresetIndex);
             shadowsToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.shadow);
             antiAliasingDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.antiAliasingIndex);
             textureQualityDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.textureQualityIndex);
@@ -142,7 +142,7 @@ namespace UI
 
             qualityPresetDropdown.onValueChanged.AddListener(i =>
             {
-                if (!isInitializing) GraphicManager.Instance.SetQualityPresent(i);
+                if (!isInitializing) GraphicManager.Instance.SetQualityPreset(i);
                 qualityPresetDropdownNonCheckpoint.SetValueWithoutNotify(i);
             });
 

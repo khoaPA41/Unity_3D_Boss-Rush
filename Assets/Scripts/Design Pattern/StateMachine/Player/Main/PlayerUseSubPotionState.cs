@@ -42,11 +42,11 @@ namespace Design_Pattern.StateMachine.Player
                 case "ReduceStamina":
                     playerStateMachine.SubPotion.ReduceStamina("ReduceStamina");
                     return;
-                case "IncreaseDame":
-                    playerStateMachine.SubPotion.IncreaseDame("IncreaseDame");
+                case "IncreaseDamage":
+                    playerStateMachine.SubPotion.IncreaseDamage("IncreaseDamage");
                     return;
-                case "ReduceDame":
-                    playerStateMachine.SubPotion.ReduceDame("ReduceDame");
+                case "ReduceDamage":
+                    playerStateMachine.SubPotion.ReduceDamage("ReduceDamage");
                     return;
             }
         }

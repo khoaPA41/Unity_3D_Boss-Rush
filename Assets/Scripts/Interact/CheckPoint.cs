@@ -43,7 +43,7 @@ namespace Interact
             if (other.CompareTag("CheckPoint"))
             {
                 var checkPoint = other.GetComponent<ActiveCheckPoint>();
-                checkPoint.SubcribeEvent();
+                checkPoint.SubscribeEvent();
                 _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
                 GameManagers.Instance.SetCheckpoint(checkPoint.checkpointID, transform.position);
             }
@@ -53,7 +53,7 @@ namespace Interact
         {
             if (other.CompareTag("CheckPoint"))
             {
-                other.GetComponent<ActiveCheckPoint>().UnsubcribeEvent();
+                other.GetComponent<ActiveCheckPoint>().UnsubscribeEvent();
                 isAlreadyActive = false;
                 _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
             }

@@ -41,11 +41,11 @@ namespace Attack
         {
             var currentPosition = transform.TransformPoint(_collider.center);
             var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
-            var halfExtend = sizeWorld * .5f;
+            var halfExtents = sizeWorld * .5f;
             var direction = (currentPosition - previousPosition).normalized;
             var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
 
-            var overlaps = Physics.OverlapBox(currentPosition, halfExtend, transform.rotation, _layerMask);
+            var overlaps = Physics.OverlapBox(currentPosition, halfExtents, transform.rotation, _layerMask);
             foreach (var overlap in overlaps)
             {
                 DealDamage(overlap.gameObject);
@@ -53,7 +53,7 @@ namespace Attack
 
             if (sweepDistance > 0.01f)
             {
-                var raycastHits = Physics.BoxCastAll(previousPosition, halfExtend, direction, transform.rotation, sweepDistance, _layerMask);
+                var raycastHits = Physics.BoxCastAll(previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
                 foreach (var hit in raycastHits)
                 {
                     DealDamage(hit.collider.gameObject);

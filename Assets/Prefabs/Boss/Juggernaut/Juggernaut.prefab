@@ -641,7 +641,7 @@ MonoBehaviour:
   <PlayerSFX>k__BackingField: {fileID: 7699322129104988067}
   currentHealth: 0
   isPerfectDodge: 0
-  isReduceDame: 0
+  isReduceDamage: 0
 --- !u!114 &7176690310103909117
 MonoBehaviour:
   m_ObjectHideFlags: 0

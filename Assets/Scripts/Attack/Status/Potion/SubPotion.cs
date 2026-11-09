@@ -76,11 +76,11 @@ namespace Status.Potion
             return subPotionList.Find(potion => potion.potionName == potionName);
         }
 
-        public void ReduceDame(string potionName)
+        public void ReduceDamage(string potionName)
         {
             StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => health.isReduceDame = true,
-                () => health.isReduceDame = false
+                () => health.isReduceDamage = true,
+                () => health.isReduceDamage = false
             ));
         }
 
@@ -92,11 +92,11 @@ namespace Status.Potion
             ));
         }
 
-        public void IncreaseDame(string potionName)
+        public void IncreaseDamage(string potionName)
         {
             StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => _playerStateMachine.IsIncreaseDamePotion = true,
-                () => _playerStateMachine.IsIncreaseDamePotion = false
+                () => _playerStateMachine.IsIncreaseDamagePotion = true,
+                () => _playerStateMachine.IsIncreaseDamagePotion = false
             ));
         }
 

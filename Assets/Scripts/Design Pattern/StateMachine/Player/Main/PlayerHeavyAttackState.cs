@@ -85,10 +85,10 @@ namespace Design_Pattern.StateMachine.Player
 
         private void ActiveVfx()
         {
-            _swordEndPos = playerStateMachine.WeaponTrip.position;
+            _swordEndPos = playerStateMachine.WeaponTip.position;
             var slashDir = _swordEndPos - playerStateMachine.StartSwordPos;
 
-            var vfx = ObjectPooling.Instance.GetPooledObject(_slashVfxName, playerStateMachine.WeaponTrasform.position);
+            var vfx = ObjectPooling.Instance.GetPooledObject(_slashVfxName, playerStateMachine.WeaponTransform.position);
             if (slashDir.sqrMagnitude > 0.001f)
             {
                 var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);

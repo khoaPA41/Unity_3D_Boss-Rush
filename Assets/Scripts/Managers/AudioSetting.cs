@@ -8,7 +8,7 @@ namespace Manager
     {
         [Header("System")][SerializeField] private GameObject systemUI;
 
-        [Header("System")][SerializeField] private GameObject settingsUI;
+        [Header("Settings")][SerializeField] private GameObject settingsUI;
 
         [Header("Audio Mixer")]
         [SerializeField]

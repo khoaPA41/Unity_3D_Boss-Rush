@@ -12,7 +12,7 @@ namespace Design_Pattern.StateMachine.Player
         private float previousTime;
 
         private Transform caster;
-        private SkillEffect playerEffected;
+        private SkillEffect playerAffected;
 
         private bool isPlaySound;
 
@@ -20,12 +20,12 @@ namespace Design_Pattern.StateMachine.Player
             playerStateMachine)
         {
             this.caster = caster.GetTransform();
-            playerEffected = skillEffect;
+            playerAffected = skillEffect;
         }
 
         public override void Enter()
         {
-            ActiveSkillEvent(playerEffected).Invoke();
+            ActiveSkillEvent(playerAffected).Invoke();
             playerStateMachine.Animator.CrossFadeInFixedTime(AffectedAnimationHash, playerStateMachine.AnimationCrossFade);
         }
 

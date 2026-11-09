@@ -24,7 +24,7 @@ namespace Status
 
         public float currentHealth;
         public bool isPerfectDodge;
-        public bool isReduceDame;
+        public bool isReduceDamage;
         private PlayerStateMachine _playerStateMachine;
         private PlayerSFX _playerSFX;
         public bool noDamage { get; set; }
@@ -78,7 +78,7 @@ namespace Status
 
         public void DealDamage(float damage)
         {
-            if (isReduceDame) damage /= reduceHealth;
+            if (isReduceDamage) damage /= reduceHealth;
 
             currentHealth = Mathf.Clamp(currentHealth - damage + resistance, 0, maxHealth);
             HitAction?.Invoke();

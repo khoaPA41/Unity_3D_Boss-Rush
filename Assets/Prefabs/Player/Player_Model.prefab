@@ -10154,8 +10154,8 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 50
     <SkillType>k__BackingField: 0
   <DealDamage>k__BackingField: {fileID: 4425431695892558300}
-  <WeaponTrip>k__BackingField: {fileID: 5239030469626473809}
-  <WeaponTrasform>k__BackingField: {fileID: 8028666579852811677}
+  <WeaponTip>k__BackingField: {fileID: 5239030469626473809}
+  <WeaponTransform>k__BackingField: {fileID: 8028666579852811677}
   <WeaponTrail>k__BackingField: {fileID: 7687407226092184074}
   <SkillActive>k__BackingField: {fileID: 5549043201700883208}
   <Health>k__BackingField: {fileID: 6702550049071524971}
@@ -10179,7 +10179,7 @@ MonoBehaviour:
   <ClothNormal>k__BackingField: {fileID: 7779407345211186641}
   <HairNormal>k__BackingField: {fileID: 3544701323875963574}
   <HarnessNormal>k__BackingField: {fileID: 421748122621615619}
-  <LegNormale>k__BackingField: {fileID: 4862158253960072467}
+  <LegNormal>k__BackingField: {fileID: 4862158253960072467}
   <ArmIndestructible>k__BackingField: {fileID: 4201889175290187212}
   <HeadIndestructible>k__BackingField: {fileID: 72858069151464660}
   <TorsoIndestructible>k__BackingField: {fileID: 3650336637840852372}
@@ -10402,7 +10402,7 @@ MonoBehaviour:
   <PlayerSFX>k__BackingField: {fileID: 4745761821281125155}
   currentHealth: 0
   isPerfectDodge: 0
-  isReduceDame: 0
+  isReduceDamage: 0
 --- !u!114 &1202177237295590385
 MonoBehaviour:
   m_ObjectHideFlags: 0

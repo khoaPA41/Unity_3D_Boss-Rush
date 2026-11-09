@@ -14,7 +14,7 @@ namespace Design_Pattern.EventBus
         public void ClearSituationEvent() => SituationEvent = null;
         public void SendNextActionEvent() => NextActionEvent?.Invoke();
         public void SendReleasePoolObjectEvent() => ReleasePoolObjectEvent?.Invoke();
-        public void SendSlashWeaponEventEvent() => SlashWeaponEvent?.Invoke();
+        public void SendSlashWeaponEvent() => SlashWeaponEvent?.Invoke();
 
     }
 }

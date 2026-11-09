@@ -18,7 +18,7 @@ public class ActiveCheckPoint : MonoBehaviour
     [SerializeField] private Material _leafMaterial2;
     [SerializeField] private AnimationCurve _changeEmissionColorCurve;
 
-    [Header("Tree VFX")]
+    [Header("CheckPoint VFX")]
     [SerializeField] private ParticleSystem _shockWave;
     [SerializeField] private ParticleSystem _checkPointVFX;
 
@@ -36,12 +36,12 @@ public class ActiveCheckPoint : MonoBehaviour
         treeEmissionColor = treeMeshMaterial.GetColor("_EmissionColor");
     }
 
-    public void SubcribeEvent()
+    public void SubscribeEvent()
     {
         WorldUIManager.instance.ActiveSystemUIEvent += HandleCheckPoint;
     }
 
-    public void UnsubcribeEvent()
+    public void UnsubscribeEvent()
     {
         WorldUIManager.instance.ActiveSystemUIEvent -= HandleCheckPoint;
     }

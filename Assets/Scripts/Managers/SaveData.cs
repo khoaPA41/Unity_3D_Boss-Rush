@@ -58,7 +58,7 @@ public class SaveData
     public int displayModeIndex;
     public bool vsync;
     public int fps;
-    public int qualityPresentIndex;
+    public int qualityPresetIndex;
     public bool shadow;
     public int antiAliasingIndex;
     public int textureQualityIndex;

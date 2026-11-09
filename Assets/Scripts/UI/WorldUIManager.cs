@@ -13,7 +13,7 @@ namespace UI
         public static WorldUIManager instance;
 
         [Header("System UI")][SerializeField] private GameObject systemUI;
-        [Header("System UI")][SerializeField] private GameObject settingsUI;
+        [Header("Settings UI")][SerializeField] private GameObject settingsUI;
 
         [Header("Tab UI")][SerializeField] private List<GameObject> tabUIList;
 

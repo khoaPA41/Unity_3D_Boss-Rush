@@ -4,7 +4,7 @@ namespace Attack.Skill_Factory
 {
     public interface ICaster
     {
-        void ComsumeMana(int amount);
+        void ConsumeMana(int amount);
         Transform GetTransform();
         GameObject TargetCaster();
     }

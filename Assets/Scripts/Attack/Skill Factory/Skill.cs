@@ -20,7 +20,7 @@ namespace Attack.Skill_Factory
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
 
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
 
             if (player.Targeter.currentTarget != null)
@@ -40,7 +40,7 @@ namespace Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;
@@ -83,7 +83,7 @@ namespace Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
             GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
 
             player.Coroutine(4f, () =>
@@ -95,7 +95,7 @@ namespace Attack.Skill_Factory
                     player.ClothNormal.SetActive(false);
                     player.HairNormal.SetActive(false);
                     player.HarnessNormal.SetActive(false);
-                    player.LegNormale.SetActive(false);
+                    player.LegNormal.SetActive(false);
 
                     player.ArmInvisible.SetActive(true);
                     player.HeadInvisible.SetActive(true);
@@ -119,7 +119,7 @@ namespace Attack.Skill_Factory
                     player.ClothNormal.SetActive(true);
                     player.HairNormal.SetActive(true);
                     player.HarnessNormal.SetActive(true);
-                    player.LegNormale.SetActive(true);
+                    player.LegNormal.SetActive(true);
 
                     player.ArmInvisible.SetActive(false);
                     player.HeadInvisible.SetActive(false);
@@ -143,7 +143,7 @@ namespace Attack.Skill_Factory
         {
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
 
             player.Invincible = true;
             player.InvincibleState();
@@ -169,7 +169,7 @@ namespace Attack.Skill_Factory
             spawnPos.y += 1f;
             spawnPos.x += .6f;
 
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
 
             getSkill.SpawnSkill(SkillName, spawnPos);
             var bullet = getSkill.Skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
@@ -195,7 +195,7 @@ namespace Attack.Skill_Factory
         public void Cast(ICaster caster)
         {
             var getSkill = caster.GetTransform().GetComponent<GetSkill>();
-            caster.ComsumeMana(ManaCost);
+            caster.ConsumeMana(ManaCost);
 
             getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
 

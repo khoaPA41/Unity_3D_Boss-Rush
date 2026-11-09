@@ -31,7 +31,7 @@ namespace Manager
         public int displayModeIndex { get; set; }
         public bool vsync { get; set; }
         public int fps { get; set; }
-        public int qualityPresentIndex { get; set; }
+        public int qualityPresetIndex { get; set; }
         public bool shadow { get; set; }
         public int antiAliasingIndex { get; set; }
         public int textureQualityIndex { get; set; }
@@ -125,11 +125,11 @@ namespace Manager
             this.fps = fps;
         }
 
-        public void SetQualityPresent(int index)
+        public void SetQualityPreset(int index)
         {
             QualitySettings.SetQualityLevel(index, true);
             //Save data
-            qualityPresentIndex = index;
+            qualityPresetIndex = index;
         }
 
         public void SetShadow(bool active)
@@ -195,7 +195,7 @@ namespace Manager
             SetDisplayMode(SaveManagers.Instance.CurrentSaveData.displayModeIndex);
             SetVsync(SaveManagers.Instance.CurrentSaveData.vsync);
             SetFPSLimit(SaveManagers.Instance.CurrentSaveData.fps);
-            SetQualityPresent(SaveManagers.Instance.CurrentSaveData.qualityPresentIndex);
+            SetQualityPreset(SaveManagers.Instance.CurrentSaveData.qualityPresetIndex);
             SetShadow(SaveManagers.Instance.CurrentSaveData.shadow);
             SetAntiAliasing(SaveManagers.Instance.CurrentSaveData.antiAliasingIndex);
             SetTextureQuality(SaveManagers.Instance.CurrentSaveData.textureQualityIndex);

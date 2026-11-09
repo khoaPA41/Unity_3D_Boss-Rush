@@ -55,7 +55,7 @@ public class AudioManagers : MonoBehaviour
         Instance = this;
     }
 
-    public void PlayerBackgroundMusic(bool isPhaseI)
+    public void PlayBackgroundMusic(bool isPhaseI)
     {
         if (isPhaseI)
         {

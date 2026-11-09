@@ -4869,7 +4869,7 @@ MonoBehaviour:
   timeToBackNormal: 0.05
   currentHealth: 0
   isPerfectDodge: 0
-  isReduceDame: 0
+  isReduceDamage: 0
 --- !u!95 &1380477848805750209
 Animator:
   serializedVersion: 7

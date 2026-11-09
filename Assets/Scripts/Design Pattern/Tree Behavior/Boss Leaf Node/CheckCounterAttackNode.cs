@@ -19,8 +19,8 @@ namespace Design_Pattern.Tree_Behavior
 
         public override NodeState Evaluate()
         {
-            int hitToNeed = Random.Range(bossBehaviorBrain.EnduredTimes / 2, bossBehaviorBrain.EnduredTimes + 1);
-            if (hitToNeed - bossBehaviorBrain.HitReceived == 0)
+            int hitsNeeded = Random.Range(bossBehaviorBrain.EnduredTimes / 2, bossBehaviorBrain.EnduredTimes + 1);
+            if (hitsNeeded - bossBehaviorBrain.HitReceived == 0)
             {
                 return NodeState.Success;
             }

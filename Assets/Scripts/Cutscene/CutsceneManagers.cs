@@ -54,6 +54,6 @@ public class CutsceneManagers : MonoBehaviour
         BossContainer.SetActive(true);
         boxCollider.enabled = false;
         TimelineEvent.Instance.CallTimelineAction();
-        AudioManagers.Instance.PlayerBackgroundMusic(true);
+        AudioManagers.Instance.PlayBackgroundMusic(true);
     }
 }

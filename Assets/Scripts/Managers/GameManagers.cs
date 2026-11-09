@@ -61,7 +61,7 @@ namespace Manager
 
             if (saveData is null)
             {
-                Debug.LogWarning("[SaveManagers] Don't have save data]");
+                Debug.LogWarning("[GameManagers] No save data found");
                 StartNewGame("Main");
                 return;
             }
@@ -245,7 +245,7 @@ namespace Manager
                 displayModeIndex = GraphicManager.Instance.displayModeIndex,
                 fps = GraphicManager.Instance.fps,
                 vsync = GraphicManager.Instance.vsync,
-                qualityPresentIndex = GraphicManager.Instance.qualityPresentIndex,
+                qualityPresetIndex = GraphicManager.Instance.qualityPresetIndex,
                 shadow = GraphicManager.Instance.shadow,
                 antiAliasingIndex = GraphicManager.Instance.antiAliasingIndex,
                 textureQualityIndex = GraphicManager.Instance.textureQualityIndex,
