@@ -43,6 +43,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (normalizedTime > previousTime && normalizedTime > .9f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             previousTime = normalizedTime;
@@ -58,10 +59,12 @@ namespace DesignPattern.StateMachine.Player.Main
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { },
+                SkillEffect.NonEffect => () => { }
+                ,
                 SkillEffect.Stunned => () => StartEffectCoroutine(1f, StunnedEvent, ResetSpeed),
                 SkillEffect.PullBack => () => StartEffectCoroutine(2f, PullBackEvent, ResetInput),
-                SkillEffect.PushOut => () => { },
+                SkillEffect.PushOut => () => { }
+                ,
                 SkillEffect.AttractiveForce => () => playerStateMachine.IsAttractiveForce = true,
                 _ => playerStateMachine.ReturnLocomotion
             };

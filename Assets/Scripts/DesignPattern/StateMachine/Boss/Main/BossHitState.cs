@@ -26,6 +26,7 @@ namespace DesignPattern.StateMachine.Boss.Main
             if (normalizeTime > _previousTime && normalizeTime >= .9f)
             {
                 bossStateMachine.ReturnLocomotion();
+                return;
             }
             _previousTime = normalizeTime;
         }

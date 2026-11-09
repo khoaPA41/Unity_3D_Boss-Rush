@@ -45,7 +45,7 @@ namespace DesignPattern.StateMachine.Boss.Main
                 {
                     TryApplyForce();
                 }
-                TryCombo(normalizeTime);
+                if (TryCombo(normalizeTime)) return;
             }
 
             _previousTime = normalizeTime;
@@ -58,16 +58,16 @@ namespace DesignPattern.StateMachine.Boss.Main
             bossStateMachine.IsAttack = false;
         }
 
-        private void TryCombo(float normalizeTime)
+        private bool TryCombo(float normalizeTime)
         {
             if (normalizeTime < _attackData.AttackAnimationTime)
             {
-                return;
+                return false;
             }
 
             if (Time.time - _enterStateTime < 0.2f)
             {
-                return;
+                return false;
             }
 
             if (_attackData.NextAttackDataIndex == -1)
@@ -76,7 +76,7 @@ namespace DesignPattern.StateMachine.Boss.Main
                 bossStateMachine.NextAttackIndex = -1;
                 bossStateMachine.IsUltimateAttack = false;
                 bossStateMachine.ReturnLocomotion();
-                return;
+                return true;
             }
 
             bossStateMachine.LastAttackTime = Time.time;
@@ -86,6 +86,7 @@ namespace DesignPattern.StateMachine.Boss.Main
                 bossStateMachine,
                 _attackData.NextAttackDataIndex
             ));
+            return true;
         }
 
         private void TryApplyForce()

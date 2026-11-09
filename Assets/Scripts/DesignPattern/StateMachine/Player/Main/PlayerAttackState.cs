@@ -55,7 +55,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
                     {
-                        TryCombo();
+                        if (TryCombo()) return;
                     }
 
                     if (playerStateMachine.InputBuffering.TryConsume(ActionType.Jump))
@@ -73,6 +73,7 @@ namespace DesignPattern.StateMachine.Player.Main
             else
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             _previousTime = normalizeTime;
@@ -86,17 +87,18 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.WeaponTrailVisual.SetActive(false);
         }
 
-        private void TryCombo()
+        private bool TryCombo()
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
-                return;
+                return false;
             }
 
             playerStateMachine.SwitchState(new PlayerAttackState(
                 playerStateMachine,
                 _attackData.NextAttackDataIndex
             ));
+            return true;
         }
 
         private void TryApplyForce()

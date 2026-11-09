@@ -28,6 +28,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (normalizeTime > .8f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
         }
 

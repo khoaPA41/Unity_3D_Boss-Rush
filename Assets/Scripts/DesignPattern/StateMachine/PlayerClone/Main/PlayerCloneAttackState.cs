@@ -30,12 +30,13 @@ namespace DesignPattern.StateMachine.PlayerClone.Main
 
                 if (IsAttackRange())
                 {
-                    TryCombo(normalizeTime);
+                    if (TryCombo(normalizeTime)) return;
                 }
             }
             else
             {
                 cloneStateMachine.SwitchState(new PlayerCloneIdleState(cloneStateMachine));
+                return;
             }
 
             _previousTime = normalizeTime;
@@ -47,22 +48,23 @@ namespace DesignPattern.StateMachine.PlayerClone.Main
         {
         }
 
-        private void TryCombo(float normalizeTime)
+        private bool TryCombo(float normalizeTime)
         {
             if (_attackData.NextAttackDataIndex == -1)
             {
-                return;
+                return false;
             }
 
             if (normalizeTime < _attackData.AttackAnimationTime)
             {
-                return;
+                return false;
             }
 
             cloneStateMachine.SwitchState(new PlayerCloneAttackState(
                 cloneStateMachine,
                 _attackData.NextAttackDataIndex
             ));
+            return true;
         }
 
         private void TryApplyForce()

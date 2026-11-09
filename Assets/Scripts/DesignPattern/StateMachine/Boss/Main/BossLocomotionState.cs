@@ -30,6 +30,7 @@ namespace DesignPattern.StateMachine.Boss.Main
             if (bossStateMachine.IsUltimateAttack)
             {
                 bossStateMachine.SwitchState(new BossUltimateState(bossStateMachine, 0));
+                return;
             }
 
             if (!bossStateMachine.IsChasing)
@@ -47,8 +48,8 @@ namespace DesignPattern.StateMachine.Boss.Main
             }
 
             // Change State
-            EnterCounterAttackState();
-            EnterAttackState();
+            if (EnterCounterAttackState()) return;
+            if (EnterAttackState()) return;
 
             UpdateAnimation(animationValue, deltaTime);
         }
@@ -63,9 +64,9 @@ namespace DesignPattern.StateMachine.Boss.Main
             bossStateMachine.Animator.SetFloat(movementParam, value, bossStateMachine.AnimationCrossFade, deltaTime);
         }
 
-        private void EnterAttackState()
+        private bool EnterAttackState()
         {
-            if (!bossStateMachine.IsAttack) return;
+            if (!bossStateMachine.IsAttack) return false;
             var randomCombo = Random.Range(0, bossStateMachine.NormalCombo[bossStateMachine.BossBehaviorBrain.CurrentPhase].Combo.Length);
             if (bossStateMachine.NextAttackIndex == -1)
             {
@@ -82,12 +83,15 @@ namespace DesignPattern.StateMachine.Boss.Main
             }
 
             bossStateMachine.SwitchState(new BossAttackState(bossStateMachine, bossStateMachine.BossBehaviorBrain.CurrentPhase, randomCombo, bossStateMachine.NextAttackIndex));
+            return true;
         }
 
-        private void EnterCounterAttackState()
+        private bool EnterCounterAttackState()
         {
-            if (!bossStateMachine.IsCounterAttack) return;
+            if (!bossStateMachine.IsCounterAttack) return false;
+
             bossStateMachine.EnterCounterAttackState();
+            return true;
         }
     }
 }

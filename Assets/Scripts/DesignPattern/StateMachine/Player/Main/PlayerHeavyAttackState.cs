@@ -42,8 +42,8 @@ namespace DesignPattern.StateMachine.Player.Main
             var normalizedTime = GetNormalizeTime(playerStateMachine.Animator, HeavyAttackAnimationTag, 0);
             if (normalizedTime >= _previousTime && normalizedTime > .8f)
             {
-
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             _previousTime = normalizedTime;
@@ -59,8 +59,6 @@ namespace DesignPattern.StateMachine.Player.Main
 
         private void CountHoldTime(float deltaTime)
         {
-
-
             if (playerStateMachine.InputReader.IsCharging)
             {
                 playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.heavyAttackReduce);

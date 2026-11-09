@@ -58,6 +58,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (remainingTime <= 0f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             if (remainingTime < playerStateMachine.DodgeDuration * 0.2f)
@@ -66,6 +67,7 @@ namespace DesignPattern.StateMachine.Player.Main
                 if (playerStateMachine.InputBuffering.TryConsume(ActionType.Attack))
                 {
                     playerStateMachine.SwitchState(new PlayerAttackState(playerStateMachine, 0));
+                    return;
                 }
             }
         }

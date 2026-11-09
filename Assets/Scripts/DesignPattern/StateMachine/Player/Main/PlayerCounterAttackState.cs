@@ -24,6 +24,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (normalizedTime is > .8f and <= 1f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
             FaceTarget(deltaTime);
             Move(deltaTime);

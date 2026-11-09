@@ -37,6 +37,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (playerStateMachine.Targeter.CurrentTarget == null)
             {
                 OutTargetState();
+                return;
             }
 
             var movement = CalculateMovementInTarget();
@@ -66,9 +67,9 @@ namespace DesignPattern.StateMachine.Player.Main
                 movement = Vector3.zero;
             }
 
+            if (playerStateMachine.HandleAttackState()) return;
+            if (playerStateMachine.HandleHeavyAttackState()) return;
 
-            playerStateMachine.HandleAttackState();
-            playerStateMachine.HandleHeavyAttackState();
             Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceTarget(deltaTime);

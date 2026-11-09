@@ -31,6 +31,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (normalizeTime > _previousTime && normalizeTime >= .8f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             _previousTime = normalizeTime;

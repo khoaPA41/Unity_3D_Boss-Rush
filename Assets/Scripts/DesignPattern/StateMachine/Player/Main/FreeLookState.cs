@@ -54,8 +54,9 @@ namespace DesignPattern.StateMachine.Player.Main
                 _movement = Vector3.zero;
             }
 
-            playerStateMachine.HandleAttackState();
-            playerStateMachine.HandleHeavyAttackState();
+            if (playerStateMachine.HandleAttackState()) return;
+            if (playerStateMachine.HandleHeavyAttackState()) return;
+
             Move(_movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceDir(_movement, deltaTime);

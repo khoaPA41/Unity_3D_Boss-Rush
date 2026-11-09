@@ -42,6 +42,7 @@ namespace DesignPattern.StateMachine.Player.Main
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, skill.skillAnimationTag, 0);
             if (normalizeTime < .9f) return;
             playerStateMachine.ReturnLocomotion();
+            return;
         }
 
         public override void Exit()

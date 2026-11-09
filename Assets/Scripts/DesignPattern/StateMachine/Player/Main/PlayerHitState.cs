@@ -54,6 +54,7 @@ namespace DesignPattern.StateMachine.Player.Main
             else
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             _previousTime = normalizeTime;

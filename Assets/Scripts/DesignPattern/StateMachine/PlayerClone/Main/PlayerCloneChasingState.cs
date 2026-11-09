@@ -7,8 +7,6 @@ namespace DesignPattern.StateMachine.PlayerClone.Main
     {
         private static readonly int _movementAnimation = Animator.StringToHash("Movement");
 
-        private Vector3 _movement;
-
         public PlayerCloneChasingState(PlayerCloneStateMachine cloneStateMachine) : base(cloneStateMachine)
         {
         }
@@ -24,6 +22,7 @@ namespace DesignPattern.StateMachine.PlayerClone.Main
             if (IsAttackRange())
             {
                 cloneStateMachine.SwitchState(new PlayerCloneAttackState(cloneStateMachine, 0));
+                return;
             }
             FaceTarget();
         }

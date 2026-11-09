@@ -28,6 +28,7 @@ namespace DesignPattern.StateMachine.Boss.Main
             {
                 bossStateMachine.IsFinishedAttack = true;
                 bossStateMachine.ReturnLocomotion();
+                return;
             }
             _previousTime = normalizeTime;
         }

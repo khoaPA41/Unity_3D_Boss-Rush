@@ -301,30 +301,32 @@ namespace DesignPattern.StateMachine.Player.Base
             return Stamina.CurrentStamina <= 0f;
         }
 
-        public void HandleAttackState()
+        public bool HandleAttackState()
         {
-            if (Stamina.CurrentStamina < Stamina.lightAttackReduce) return;
+            if (Stamina.CurrentStamina < Stamina.lightAttackReduce) return false;
 
-            if (!InputReader.IsAttack) return;
+            if (!InputReader.IsAttack) return false;
             if (!IsAttackState)
             {
                 EnterChangeAction(true);
-                return;
+                return true;
             }
             SwitchState(AttackState1);
+            return true;
         }
 
-        public void HandleHeavyAttackState()
+        public bool HandleHeavyAttackState()
         {
-            if (Stamina.CurrentStamina < Stamina.heavyAttackReduce) return;
+            if (Stamina.CurrentStamina < Stamina.heavyAttackReduce) return false;
 
-            if (!InputReader.IsHeavyAttack) return;
+            if (!InputReader.IsHeavyAttack) return false;
             if (!IsAttackState)
             {
                 EnterChangeAction(true);
-                return;
+                return true;
             }
             SwitchState(HeavyAttack);
+            return true;
         }
 
         private void HandleEffectedState(ICaster caster, SkillEffect effect)

@@ -63,6 +63,7 @@ namespace DesignPattern.StateMachine.Player.Main
             if (normalizeTime is > .9f and <= 1f)
             {
                 playerStateMachine.ReturnLocomotion();
+                return;
             }
 
             if (playerStateMachine.Targeter.CurrentTarget != null)
