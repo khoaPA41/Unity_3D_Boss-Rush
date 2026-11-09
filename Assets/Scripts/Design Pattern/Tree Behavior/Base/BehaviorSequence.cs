@@ -4,7 +4,7 @@ namespace Design_Pattern.Tree_Behavior.Base
 {
     public class BehaviorSequence : BehaviorNode
     {
-        private List<BehaviorNode> nodes = new List<BehaviorNode>();
+        private List<BehaviorNode> nodes = new();
 
         public BehaviorSequence(List<BehaviorNode> nodes)
         {

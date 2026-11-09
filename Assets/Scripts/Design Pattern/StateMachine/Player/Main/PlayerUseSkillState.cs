@@ -25,7 +25,6 @@ namespace Design_Pattern.StateMachine.Player
                 return;
             }
 
-            // skill.canUse = false;
             currentSkill = UseSkill(skill.skillType);
 
             if (currentSkill is null)
@@ -51,7 +50,6 @@ namespace Design_Pattern.StateMachine.Player
 
         private ISkill UseSkill(SkillType skillType)
         {
-
             var skill = SkillFactory.CreateSkill(skillType);
 
             if (skill == null) return null;

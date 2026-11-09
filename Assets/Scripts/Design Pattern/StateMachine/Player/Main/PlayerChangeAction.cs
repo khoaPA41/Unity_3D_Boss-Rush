@@ -30,12 +30,12 @@ namespace Design_Pattern.StateMachine.Player
 
         public override void Enter()
         {
-            if (playerStateMachine.Targeter.currentTarget is not null)
+            if (playerStateMachine.Targeter.currentTarget != null)
             {
                 isTarget = true;
             }
             playerStateMachine.Animator.CrossFadeInFixedTime(
-                playerStateMachine.Targeter.currentTarget is not null ? TargetLookBlendTreeHash : freeLookBlendTreeHash,
+                playerStateMachine.Targeter.currentTarget != null ? TargetLookBlendTreeHash : freeLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
 
 
@@ -64,7 +64,7 @@ namespace Design_Pattern.StateMachine.Player
                 playerStateMachine.ReturnLocomotion();
             }
 
-            if (playerStateMachine.Targeter.currentTarget is not null)
+            if (playerStateMachine.Targeter.currentTarget != null)
             {
                 movement = CalculateMovementInTarget();
                 FaceTarget(deltaTime);

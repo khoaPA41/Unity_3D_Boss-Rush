@@ -11,6 +11,7 @@ namespace Design_Pattern.StateMachine.Player
         readonly string DeathAnimationTag = "Death";
 
         int randomAnimation;
+        bool _hasFinished;
         public PlayerDeathState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
 
@@ -18,6 +19,8 @@ namespace Design_Pattern.StateMachine.Player
 
         public override void Enter()
         {
+            _hasFinished = false;
+
             randomAnimation = Random.Range(0, 2);
             playerStateMachine.Animator.CrossFadeInFixedTime(
                 randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
@@ -28,13 +31,15 @@ namespace Design_Pattern.StateMachine.Player
         public override void Tick(float deltaTime)
         {
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, DeathAnimationTag, 0);
-            if (normalizeTime is > .5f and <= 1f)
+
+            if (!_hasFinished && normalizeTime >= .5f)
             {
                 WorldUIManager.instance.StartCoroutineTitleFade(0, 1, 1f);
                 WorldUIManager.instance.StartCoroutineBackgroundFade(0, 1, 1f);
+                _hasFinished = true;
             }
 
-            if (normalizeTime is > .99f and <= 1f)
+            if (_hasFinished && normalizeTime > .99f)
             {
                 GameManagers.Instance.ReturnCheckpoint();
             }

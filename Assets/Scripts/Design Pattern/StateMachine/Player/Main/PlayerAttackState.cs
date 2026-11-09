@@ -16,6 +16,9 @@ namespace Design_Pattern.StateMachine.Player
 
         public override void Enter()
         {
+            _previousTime = 0f;
+            _alreadyApplyForce = false;
+
             if (playerStateMachine.CheckLowStamina())
             {
                 playerStateMachine.ReturnLocomotion();

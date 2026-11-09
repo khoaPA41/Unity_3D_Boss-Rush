@@ -5,7 +5,7 @@ namespace Design_Pattern.Tree_Behavior.Base
 {
     public class BehaviorSelector : BehaviorNode
     {
-        private List<BehaviorNode> nodes = new List<BehaviorNode>();
+        private List<BehaviorNode> nodes = new();
 
         public BehaviorSelector(List<BehaviorNode> nodes)
         {

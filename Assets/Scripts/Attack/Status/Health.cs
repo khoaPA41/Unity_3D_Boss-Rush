@@ -80,7 +80,7 @@ namespace Status
         {
             if (isReduceDame) damage /= reduceHealth;
 
-            currentHealth = Mathf.Max(currentHealth - damage + resistance, 0);
+            currentHealth = Mathf.Clamp(currentHealth - damage + resistance, 0, maxHealth);
             HitAction?.Invoke();
 
             if (currentHealth <= 0)

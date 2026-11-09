@@ -111,7 +111,6 @@ namespace Design_Pattern.StateMachine.Boss
 
         private void Start()
         {
-
             GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
         }
 
@@ -125,6 +124,10 @@ namespace Design_Pattern.StateMachine.Boss
         {
             Health.HitAction -= EnterHitState;
             Health.DeathAction -= EnterDeathState;
+        }
+
+        private void OnDestroy()
+        {
             GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
         }
 

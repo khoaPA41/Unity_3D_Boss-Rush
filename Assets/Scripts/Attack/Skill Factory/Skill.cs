@@ -112,7 +112,7 @@ namespace Attack.Skill_Factory
                 {
                     player.Invisible = false;
 
-                    player.Invisible = true;
+                    // player.Invisible = true;
                     player.ArmNormal.SetActive(true);
                     player.HeadNormal.SetActive(true);
                     player.TorsoNormal.SetActive(true);
@@ -173,7 +173,12 @@ namespace Attack.Skill_Factory
 
             getSkill.SpawnSkill(SkillName, spawnPos);
             var bullet = getSkill.Skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
-            bullet?.SetTarget(player.Targeter.currentTarget.gameObject);
+
+            GameObject target = null;
+            if (player.Targeter.currentTarget != null) target = player.Targeter.currentTarget.gameObject;
+
+            bullet?.SetTarget(target);
+
             AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomRetreatResource);
             GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
         }

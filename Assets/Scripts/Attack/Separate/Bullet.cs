@@ -26,6 +26,7 @@ namespace Attack
 
         private Vector3 DirToTarget()
         {
+            if (enemy == null) return Vector3.forward;
             var dir = (enemy.transform.position - transform.position).normalized;
             dir.y = 0;
             return dir;
@@ -35,8 +36,6 @@ namespace Attack
         {
             foreach (var bullet in bullets)
             {
-
-                // var bulletDamage = bullet.GetComponent<WeaponTrail>();
                 bullet.MovePosition(bullet.transform.position + (DirToTarget() * (bulletSpeed * Time.deltaTime)));
             }
         }
