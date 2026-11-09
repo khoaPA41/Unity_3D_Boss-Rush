@@ -8,8 +8,8 @@ namespace Design_Pattern.StateMachine.Boss
         private readonly int targetLookBlendTreeHash = Animator.StringToHash("TargetLookBlendTree");
         private readonly int movementParam = Animator.StringToHash("Movement");
 
-        private Vector3 dir;
-        private bool isWalk;
+
+
         private float animationValue;
         private float speed;
         public BossLocomotionState(BossStateMachine bossStateMachine) : base(bossStateMachine)

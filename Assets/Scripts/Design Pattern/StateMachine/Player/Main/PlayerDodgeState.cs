@@ -12,7 +12,7 @@ namespace Design_Pattern.StateMachine.Player
 
         private float remainingTime;
 
-        // private float countPerfectFrame = 0;
+
         public PlayerDodgeState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
 
@@ -41,7 +41,7 @@ namespace Design_Pattern.StateMachine.Player
 
             CheckCounterattack();
 
-            // countPerfectFrame += deltaTime;
+
             var movement = CalculateMovement();
 
             Move(movement, deltaTime);

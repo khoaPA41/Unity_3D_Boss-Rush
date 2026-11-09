@@ -11,7 +11,7 @@ namespace Attack
         [SerializeField] private float speed;
         [SerializeField] private float homingSensitivity;
         [SerializeField] private float hitDistance;
-        [SerializeField] private float timeToReturn;
+
         [SerializeField] private bool isRelease;
         [SerializeField] private bool isActiveAnotherSkill; // if this skill have effect after touch player
         private bool isPlayedAnotherSkill; // if added skill has played
@@ -29,7 +29,7 @@ namespace Attack
             var container = GameObject.FindWithTag("Boss");
             if (container == null) return;
             boss = container.GetComponentInChildren<BossStateMachine>(true);
-            GetComponent<Rigidbody>();
+
             _pooledObject = GetComponent<PooledObject>();
         }
 

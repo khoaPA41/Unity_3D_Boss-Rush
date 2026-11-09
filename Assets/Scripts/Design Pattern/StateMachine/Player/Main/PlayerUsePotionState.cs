@@ -32,11 +32,6 @@ namespace Design_Pattern.StateMachine.Player
                 playerStateMachine.ReturnLocomotion();
             }
 
-            if (normalizeTime > _previousTime && normalizeTime < .8f)
-            {
-
-            }
-
             _previousTime = normalizeTime;
         }
 
@@ -44,14 +39,9 @@ namespace Design_Pattern.StateMachine.Player
         {
             playerStateMachine.PotionLight.SetActive(false);
             playerStateMachine.HealthParticle.Stop();
-
-            playerStateMachine.PotionLight.SetActive(false);
             playerStateMachine.ManaParticle.Stop();
 
-            // playerStateMachine.InputReader.UsePotionAction -= UseMainPotion;
-
             playerStateMachine.InputReader.UsePotionAction -= playerStateMachine.HandleUsePotionState;
-
         }
 
 

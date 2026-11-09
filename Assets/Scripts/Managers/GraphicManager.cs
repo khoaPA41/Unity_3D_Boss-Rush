@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.Rendering.Universal;
 using Bloom = UnityEngine.Rendering.Universal.Bloom;
 using MotionBlur = UnityEngine.Rendering.Universal.MotionBlur;
-using ShadowQuality = UnityEngine.ShadowQuality;
 
 namespace Manager
 {

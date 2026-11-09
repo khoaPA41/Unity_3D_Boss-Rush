@@ -12,7 +12,7 @@ public class PlayerSFX : MonoBehaviour
     [Header("Attack Audio Source")]
     [SerializeField] private AudioSource attackSource;
     [SerializeField] private AudioSource kickSource;
-    [SerializeField] private AudioSource normalDodgeSource;
+
     [SerializeField] private AudioSource perfectDodgeSource;
 
     [field: Header("Hit Audio Source")]

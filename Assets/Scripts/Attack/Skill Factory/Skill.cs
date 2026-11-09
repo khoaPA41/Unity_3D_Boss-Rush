@@ -112,7 +112,6 @@ namespace Attack.Skill_Factory
                 {
                     player.Invisible = false;
 
-                    // player.Invisible = true;
                     player.ArmNormal.SetActive(true);
                     player.HeadNormal.SetActive(true);
                     player.TorsoNormal.SetActive(true);
@@ -317,8 +316,6 @@ namespace Attack.Skill_Factory
 
         public void Cast(ICaster caster)
         {
-            var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
-            var player = bossStateMachine.PlayerStateMachine;
         }
     }
 

@@ -12,12 +12,6 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class StatusUI
-    {
-        public TextMeshProUGUI text;
-        public string name;
-    }
-
     public class UIPlayerManagers : MonoBehaviour
     {
         [Header("Status UI")]
@@ -291,7 +285,6 @@ namespace UI
             subPotionImage3.sprite = subPotionImage2.sprite;
             subPotionImage2.sprite = subPotionImage1.sprite;
             subPotionImage1.sprite = tempSprite;
-            subPotionImage1.sprite = tempSprite;
         }
 
         /*********************************************Transition Method*********************************************/
@@ -472,15 +465,11 @@ namespace UI
                 case 3:
                     ChangeOpacity(dodgeAwardImage3, 1f);
                     break;
-                default:
-                    Debug.Log("Not skill");
-                    break;
             }
         }
 
         private void ChangeOpacity(Image image, float opacity)
         {
-            // Debug.Log("Opacity: " + opacity);
             var tempColor = image.color;
             tempColor.a = opacity;
             image.color = tempColor;

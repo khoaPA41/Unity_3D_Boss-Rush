@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace Design_Pattern.StateMachine.PlayerClone
@@ -12,7 +11,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
 
         public override void Enter()
         {
-            // IsFinished = false;
             cloneStateMachine.Animator.CrossFadeInFixedTime(_idleSwordAnimationHash, cloneStateMachine.AnimationCrossFade);
         }
 

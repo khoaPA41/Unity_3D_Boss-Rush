@@ -56,12 +56,10 @@ namespace Design_Pattern.StateMachine.Player
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); }
-                ,
+                SkillEffect.NonEffect => () => { },
                 SkillEffect.Stunned => () => StartEffectCoroutine(1f, StunnedEvent, ResetSpeed),
                 SkillEffect.PullBack => () => StartEffectCoroutine(2f, PullBackEvent, ResetInput),
-                SkillEffect.PushOut => () => { Debug.Log("PushOut"); }
-                ,
+                SkillEffect.PushOut => () => { },
                 SkillEffect.AttractiveForce => () => playerStateMachine.IsAttractiveForce = true,
                 _ => playerStateMachine.ReturnLocomotion
             };

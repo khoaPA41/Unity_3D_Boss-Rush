@@ -23,7 +23,7 @@ namespace Design_Pattern.StateMachine.Boss
             enterStateTime = Time.time;
 
             bossStateMachine.IsFinishedAttack = false;
-            // _previousTime = 0f;
+
             _alreadyApplyForce = false;
             foreach (var damage in bossStateMachine.DealsDamage)
             {

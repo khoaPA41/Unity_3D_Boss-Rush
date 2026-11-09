@@ -14,7 +14,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
 
         public override void Enter()
         {
-            // IsFinished = false;
             cloneStateMachine.Animator.CrossFadeInFixedTime(_movementAnimation, cloneStateMachine.AnimationCrossFade, 0);
         }
 
@@ -30,7 +29,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
 
         public override void Exit()
         {
-            // cloneStateMachine.IsChasing = false;
         }
     }
 }

@@ -34,12 +34,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
         public GameObject Target { get; set; }
         public float CountTime { get; set; }
 
-        private void Start()
-        {
-
-
-        }
-
         private void OnEnable()
         {
             Target = GameObject.FindGameObjectWithTag("Boss");
@@ -48,7 +42,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
         }
 
         public Vector2 InputMovement { get; set; }
-        public Vector2 Look { get; set; }
         public bool IsChasing { get; set; }
         public bool IsSprint { get; set; }
         public bool IsAttack { get; set; }
@@ -57,9 +50,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
         public bool IsCounterAttack { get; set; }
         public bool IsUltimateAttack { get; set; }
 
-        public event Action JumpAction = delegate { };
-        public event Action DodgeAction = delegate { };
-        public event Action TargetAction = delegate { };
         public event Action<int> SkillAction = delegate { };
     }
 }

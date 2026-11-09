@@ -93,11 +93,4 @@ public class AudioManagers : MonoBehaviour
         uiAudioSource.resource = resource;
         uiAudioSource.Play();
     }
-
-    public void PlayUIHoldSound(AudioResource resource)
-    {
-        uiAudioSource.Stop();
-        uiAudioSource.resource = resource;
-        uiAudioSource.Play();
-    }
 }

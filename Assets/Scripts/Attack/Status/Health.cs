@@ -130,11 +130,9 @@ namespace Status
         {
             if (_playerStateMachine.isCanNotSubSpiritual)
             {
-                Debug.Log("Can't Sub");
                 _playerStateMachine.isCanNotSubSpiritual = false;
                 return;
             }
-            Debug.Log("Sub");
             maxHealth += 1;
             currentHealth = maxHealth;
             OnChangeHealth?.Invoke(currentHealth / maxHealth);

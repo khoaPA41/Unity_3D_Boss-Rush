@@ -84,7 +84,6 @@ namespace Manager
 
         public void ExitToTitle()
         {
-            // AutoSave();
             loadReason = ReasonLoadScene.Exit;
             SceneManager.LoadScene("Start");
         }
@@ -120,8 +119,6 @@ namespace Manager
             if (data == null) return;
 
             player.transform.position = new Vector3(data.posX, data.posY, data.posZ);
-
-            // completedTriggerBoss = SaveManagers.Instance.CurrentSaveData.completedTriggerBoss,
 
             // Stats
             var health = player.GetComponent<Health>(); // include resistance
@@ -206,11 +203,6 @@ namespace Manager
             var healthPotion = player.GetComponent<HealthPotion>();
             var manaPotion = player.GetComponent<ManaPotion>();
             var subPotion = player.GetComponent<SubPotion>();
-            foreach (var item in SaveManagers.Instance.CurrentSaveData.completedTriggerBoss)
-            {
-                Debug.Log(item);
-            }
-
 
             var saveData = new SaveData
             {
@@ -268,7 +260,6 @@ namespace Manager
             // Potion
             var healthPotion = player.GetComponent<HealthPotion>();
             var manaPotion = player.GetComponent<ManaPotion>();
-            // var subPotion = player.GetComponent<SubPotion>();
 
             // Reset Stats
             health.Reset();

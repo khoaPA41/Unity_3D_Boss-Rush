@@ -42,14 +42,6 @@ namespace Manager
             SetUIVolume(_uiVolume);
         }
 
-        private void UpdateSaveSoundSettings()
-        {
-            _masterVolume = SaveManagers.Instance.CurrentSaveData.masterVolume;
-            _bgmVolume = SaveManagers.Instance.CurrentSaveData.BGMVolume;
-            _sfxVolume = SaveManagers.Instance.CurrentSaveData.SFXVolume;
-            _uiVolume = SaveManagers.Instance.CurrentSaveData.UIVolume;
-        }
-
         private void UpdateSoundSettingsUI()
         {
             masterVolumeSlider.value = _masterVolume;

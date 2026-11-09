@@ -19,7 +19,6 @@ public class ActiveCheckPoint : MonoBehaviour
     [SerializeField] private AnimationCurve _changeEmissionColorCurve;
 
     [Header("CheckPoint VFX")]
-    [SerializeField] private ParticleSystem _shockWave;
     [SerializeField] private ParticleSystem _checkPointVFX;
 
     [Header("Fade Img")]

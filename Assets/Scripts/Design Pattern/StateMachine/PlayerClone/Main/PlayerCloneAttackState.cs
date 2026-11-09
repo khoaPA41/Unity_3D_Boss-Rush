@@ -1,4 +1,3 @@
-
 namespace Design_Pattern.StateMachine.PlayerClone
 {
     public class PlayerCloneAttackState : PlayerCloneBaseState
@@ -13,7 +12,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
 
         public override void Enter()
         {
-            // IsFinished = false;
             cloneStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition);
             cloneStateMachine.WeaponDealDamage.SetDamage(_attackData.AttackDamage);
         }
@@ -45,7 +43,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
 
         public override void Exit()
         {
-            // IsFinished = false;
         }
 
         private void TryCombo(float normalizeTime)
@@ -77,6 +74,4 @@ namespace Design_Pattern.StateMachine.PlayerClone
             _alreadyApplyForce = true;
         }
     }
-
-
 }

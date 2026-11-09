@@ -49,7 +49,7 @@ namespace Manager
             File.WriteAllText(savePath, jsonData);
 
             CurrentSaveData = saveData;
-            Debug.Log("[SaveManagers] Saved Game" + savePath);
+
         }
 
         // Read JSON file to convert save data

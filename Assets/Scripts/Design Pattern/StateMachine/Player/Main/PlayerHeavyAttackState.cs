@@ -36,8 +36,6 @@ namespace Design_Pattern.StateMachine.Player
         public override void Tick(float deltaTime)
         {
             CountHoldTime(deltaTime); // Calculate hold time
-                                      // CalculateDamage();
-
 
             var normalizedTime = GetNormalizeTime(playerStateMachine.Animator, HeavyAttackAnimationTag, 0);
             if (normalizedTime >= _previousTime && normalizedTime > .8f)

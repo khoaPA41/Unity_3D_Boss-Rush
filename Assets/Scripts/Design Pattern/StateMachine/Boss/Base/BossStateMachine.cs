@@ -192,8 +192,7 @@ namespace Design_Pattern.StateMachine.Boss
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { Debug.Log("NonEffect"); }
-                ,
+                SkillEffect.NonEffect => () => { },
                 SkillEffect.Inescapable => () => Coroutine(3f, () =>
                     {
                         ForceReceiver.SetCoefficientOfMovement(0f);

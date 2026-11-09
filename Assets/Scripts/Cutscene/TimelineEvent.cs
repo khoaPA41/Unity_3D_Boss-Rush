@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -8,8 +7,6 @@ public class TimelineEvent : MonoBehaviour
 
     [field: SerializeField] public PlayableDirector Timeline { get; private set; }
     [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }
-
-    public event Action PlayTimelineAction;
 
     private void Awake()
     {
@@ -21,19 +18,9 @@ public class TimelineEvent : MonoBehaviour
         Instance = this;
     }
 
-    private void OnEnable()
-    {
-        PlayTimelineAction += PlayTimeline;
-    }
-
-    private void OnDisable()
-    {
-        PlayTimelineAction -= PlayTimeline;
-    }
-
     public void CallTimelineAction()
     {
-        PlayTimelineAction?.Invoke();
+        PlayTimeline();
     }
 
     private void PlayTimeline()

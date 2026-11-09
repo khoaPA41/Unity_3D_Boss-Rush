@@ -1,4 +1,3 @@
-using Design_Pattern.StateMachine.Boss;
 using Script.Design_Pattern.Object_Pooling;
 using UnityEngine;
 
@@ -10,7 +9,6 @@ namespace Attack
     {
         private ParticleSystem _particle;
         private PooledObject _pooled;
-        private BossStateMachine _boss;
 
         private void Awake()
         {

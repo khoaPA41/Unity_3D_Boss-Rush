@@ -6,7 +6,6 @@ namespace Design_Pattern.StateMachine.PlayerClone
     public abstract class PlayerCloneBaseState : State
     {
         protected readonly PlayerCloneStateMachine cloneStateMachine;
-        private AnimatorOverrideController overrideController;
 
         protected PlayerCloneBaseState(PlayerCloneStateMachine cloneStateMachine)
         {

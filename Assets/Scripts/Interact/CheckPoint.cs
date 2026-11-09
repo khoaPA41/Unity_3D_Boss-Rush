@@ -13,7 +13,6 @@ namespace Interact
         private PlayerStateMachine _playerStateMachine;
 
         public bool isAlreadyActive = false;
-        public bool CanInteractCheckPoint { get; private set; }
 
         private void Start()
         {

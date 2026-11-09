@@ -141,12 +141,7 @@ namespace Design_Pattern.StateMachine.Player
         public State SkillState { get; private set; }
         public State DodgeState { get; private set; }
         public State AttackState1 { get; private set; }
-        public State AttackState2 { get; private set; }
-        public State AttackState3 { get; private set; }
-        public State AttackState4 { get; private set; }
-        public State AttackState5 { get; private set; }
         public State HeavyAttack { get; private set; }
-        public State ChangeAction { get; private set; }
         public State UseMainPotionAction { get; private set; }
         public GameObject Boss { get; private set; }
 
@@ -174,9 +169,6 @@ namespace Design_Pattern.StateMachine.Player
             SkillState = new PlayerUseSkillState(this);
             DodgeState = new PlayerDodgeState(this);
             AttackState1 = new PlayerAttackState(this, 0);
-            AttackState2 = new PlayerAttackState(this, 1);
-            AttackState3 = new PlayerAttackState(this, 2);
-            AttackState4 = new PlayerAttackState(this, 3);
             HeavyAttack = new PlayerHeavyAttackState(this);
             UseMainPotionAction = new PlayerUsePotionState(this);
 

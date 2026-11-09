@@ -1,9 +1,5 @@
 using UnityEngine;
 using Design_Pattern.EventBus;
-using Design_Pattern.StateMachine.Boss;
-
-
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -73,14 +69,6 @@ public class ChangeState : StateMachineBehaviour
         var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
         animationEvent.SendSlashWeaponEvent();
         _hasTriggeredWeaponVFX = true;
-
-        var stateMachine = animator.GetComponent<BossStateMachine>();
-
-        // if (!isBothWeapon)
-        // {
-        //     stateMachine.isRightWeaponVFX = isRightWeapon;
-        // }
-        // stateMachine.isBothWeaponVFX = isBothWeapon;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
