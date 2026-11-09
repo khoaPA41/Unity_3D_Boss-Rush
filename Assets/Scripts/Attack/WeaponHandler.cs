@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 
 namespace Attack
@@ -7,100 +7,100 @@ namespace Attack
     {
         [Header("Collider")]
 
-        [SerializeField] private GameObject weaponRightLogic;
-        [SerializeField] private GameObject weaponLeftLogic;
-        [SerializeField] private GameObject otherDamageLogic;
+        [SerializeField] private GameObject _weaponRightLogic;
+        [SerializeField] private GameObject _weaponLeftLogic;
+        [SerializeField] private GameObject _otherDamageLogic;
 
-        [SerializeField] private GameObject weaponMain;
-        [SerializeField] private GameObject weaponStore;
+        [SerializeField] private GameObject _weaponMain;
+        [SerializeField] private GameObject _weaponStore;
 
-        [SerializeField] private GameObject LeftSingleSword;
-        [SerializeField] private GameObject RightSingleSword;
-        [SerializeField] private GameObject DoubleEdgedSword;
+        [SerializeField] private GameObject _leftSingleSword;
+        [SerializeField] private GameObject _rightSingleSword;
+        [SerializeField] private GameObject _doubleEdgedSword;
 
         /***********Collider***********/
 
-        public void OnActiveWeaponLeftCollider()
+        public void ActivateLeftWeaponCollider()
         {
-            weaponLeftLogic?.SetActive(true);
+            _weaponLeftLogic?.SetActive(true);
         }
 
-        public void OnUnActiveWeaponLeftCollider()
+        public void DeactivateLeftWeaponCollider()
         {
-            if (weaponLeftLogic == null) return;
-            weaponLeftLogic?.SetActive(false);
+            if (_weaponLeftLogic == null) return;
+            _weaponLeftLogic?.SetActive(false);
         }
 
-        public void OnActiveWeaponRightCollider()
+        public void ActivateRightWeaponCollider()
         {
-            weaponRightLogic?.SetActive(true);
+            _weaponRightLogic?.SetActive(true);
         }
 
-        public void OnUnActiveWeaponRightCollider()
+        public void DeactivateRightWeaponCollider()
         {
-            weaponRightLogic?.SetActive(false);
+            _weaponRightLogic?.SetActive(false);
         }
 
 
-        public void OnActiveOtherCollider()
+        public void ActivateOtherCollider()
         {
-            otherDamageLogic?.SetActive(true);
+            _otherDamageLogic?.SetActive(true);
         }
 
-        public void OnUnActiveOtherCollider()
+        public void DeactivateOtherCollider()
         {
-            otherDamageLogic?.SetActive(false);
+            _otherDamageLogic?.SetActive(false);
         }
 
 
         /***********Game Object***********/
         public void OnGetWeapon()
         {
-            weaponMain?.SetActive(true);
-            if (weaponStore)
+            _weaponMain?.SetActive(true);
+            if (_weaponStore)
             {
-                weaponStore.SetActive(false);
+                _weaponStore.SetActive(false);
             }
         }
 
         public void OnStoreWeapon()
         {
-            weaponMain?.SetActive(false);
-            if (weaponStore)
+            _weaponMain?.SetActive(false);
+            if (_weaponStore)
             {
-                weaponStore.SetActive(true);
+                _weaponStore.SetActive(true);
             }
         }
 
         // Left Single Sword
-        public void OnActiveLeftSingleSword()
+        public void ActivateLeftSingleSword()
         {
-            LeftSingleSword?.SetActive(true);
+            _leftSingleSword?.SetActive(true);
         }
 
-        public void OnUnActiveLeftSingleSword()
+        public void DeactivateLeftSingleSword()
         {
-            LeftSingleSword?.SetActive(false);
+            _leftSingleSword?.SetActive(false);
         }
         // Right Single Sword
-        public void OnActiveRightSingleSword()
+        public void ActivateRightSingleSword()
         {
-            RightSingleSword?.SetActive(true);
+            _rightSingleSword?.SetActive(true);
         }
 
-        public void OnUnActiveRightSingleSword()
+        public void DeactivateRightSingleSword()
         {
-            RightSingleSword?.SetActive(false);
+            _rightSingleSword?.SetActive(false);
         }
 
-        public void OnActiveDoubleEdgedSword()
+        public void ActivateDoubleEdgedSword()
         {
-            DoubleEdgedSword?.SetActive(true);
+            _doubleEdgedSword?.SetActive(true);
         }
 
-        public void OnUnActiveDoubleEdgedSword()
+        public void DeactivateDoubleEdgedSword()
         {
-            DoubleEdgedSword?.SetActive(false);
+            _doubleEdgedSword?.SetActive(false);
         }
     }
 }

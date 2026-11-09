@@ -19,16 +19,16 @@ namespace Attack.SkillFactory
 
         public void Cast(ICaster caster)
         {
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
 
             caster.ConsumeMana(ManaCost);
             getSkill.SpawnSkill(SkillName, player.Targeter.GetTargetPosition());
 
-            if (player.Targeter.currentTarget != null)
+            if (player.Targeter.CurrentTarget != null)
             {
-                GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.inescapableResource);
+                GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.inescapableResource);
             }
         }
     }
@@ -43,7 +43,7 @@ namespace Attack.SkillFactory
         public void Cast(ICaster caster)
         {
             caster.ConsumeMana(ManaCost);
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             var spawnPos = caster.GetTransform().transform.position;
             var effect = caster.GetTransform().GetComponent<PlayerStateMachine>().Health;
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
@@ -51,7 +51,7 @@ namespace Attack.SkillFactory
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
             effect.noDamage = true;
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
 
             Action situationAction = null;
             situationAction = () =>
@@ -69,7 +69,7 @@ namespace Attack.SkillFactory
                 player.ManageAnimationSkillEvent.SituationEvent -= situationAction;
             };
 
-            AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.indestructibleResource);
+            AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.indestructibleResource);
             player.ManageAnimationSkillEvent.SituationEvent += situationAction;
         }
     }
@@ -86,9 +86,9 @@ namespace Attack.SkillFactory
         {
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             caster.ConsumeMana(ManaCost);
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
 
-            player.Coroutine(4f, () =>
+            player.StartTimedAction(4f, () =>
                 {
                     player.Invisible = true;
                     player.ArmNormal.SetActive(false);
@@ -107,7 +107,7 @@ namespace Attack.SkillFactory
                     player.HarnessInvisible.SetActive(true);
                     player.LegInvisible.SetActive(true);
 
-                    AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.invisibleResource);
+                    AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.invisibleResource);
 
                 },
                 () =>
@@ -143,15 +143,15 @@ namespace Attack.SkillFactory
         public void Cast(ICaster caster)
         {
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             caster.ConsumeMana(ManaCost);
 
             player.Invincible = true;
-            player.InvincibleState();
+            player.ApplyInvincibleBuff();
 
             getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
-            AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.worldBreakerResource);
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.worldBreakerResource);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -164,7 +164,7 @@ namespace Attack.SkillFactory
 
         public void Cast(ICaster caster)
         {
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             var player = caster.GetTransform().GetComponent<PlayerStateMachine>();
             var spawnPos = caster.GetTransform().transform.position;
             spawnPos.y += 1f;
@@ -176,12 +176,12 @@ namespace Attack.SkillFactory
             var bullet = getSkill.Skill.GetComponentInChildren(typeof(Bullet)) as Bullet;
 
             GameObject target = null;
-            if (player.Targeter.currentTarget != null) target = player.Targeter.currentTarget.gameObject;
+            if (player.Targeter.CurrentTarget != null) target = player.Targeter.CurrentTarget.gameObject;
 
             bullet?.SetTarget(target);
 
-            AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomRetreatResource);
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.phantomRetreatResource);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -195,16 +195,16 @@ namespace Attack.SkillFactory
 
         public void Cast(ICaster caster)
         {
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             caster.ConsumeMana(ManaCost);
 
             getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
 
             getSkill.SpawnSkill(Clone, caster.GetTransform().transform.position);
 
-            AudioManagers.Instance.PlaySound(caster.GetTransform().transform, AudioManagers.Instance.phantomMirageResource);
+            AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.phantomMirageResource);
 
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
         }
     }
 
@@ -220,7 +220,7 @@ namespace Attack.SkillFactory
         public void Cast(ICaster caster)
         {
             var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
             var spawnPos = caster.GetTransform().transform.position + new Vector3(0f, 4f, 0f);
             Action situationAction = null;
@@ -232,7 +232,7 @@ namespace Attack.SkillFactory
                 throwSword.TargetPosition = bossStateMachine.PlayerStateMachine.transform.position;
                 throwSword.InitializeBullet();
                 bossStateMachine.Target = throwSword.transform;
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.throwSwordResource);
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.throwSwordResource);
 
                 manageEvent.SituationEvent -= situationAction;
             };
@@ -291,10 +291,10 @@ namespace Attack.SkillFactory
         public void Cast(ICaster caster)
         {
             var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
 
-            GameEventManagers.Instance.TriggerSkillCasted(caster, SkillEffect);
+            GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
 
             Action situationAction = null;
             situationAction = () =>
@@ -302,7 +302,7 @@ namespace Attack.SkillFactory
                 getSkill.SpawnSkill(SkillName, caster.TargetCaster().transform.position);
                 getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
 
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.waveResource);
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.waveResource);
                 bossStateMachine.ManageAnimationSkillEvent.SituationEvent -= situationAction;
             };
             bossStateMachine.ManageAnimationSkillEvent.SituationEvent += situationAction;
@@ -332,7 +332,7 @@ namespace Attack.SkillFactory
         {
             var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
 
             Action situationAction = null;
             var castCount = 0f;
@@ -343,7 +343,7 @@ namespace Attack.SkillFactory
                 getSkill.SpawnSkill(SkillName, spawnPosition);
                 getSkill.Skill.GetComponent<TriggerSkillForBoss>().Caster = caster;
                 castCount++;
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.firstAOEResource);
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.firstAOEResource);
 
                 if (castCount >= 4)
                 {
@@ -367,7 +367,7 @@ namespace Attack.SkillFactory
             var bossStateMachine = caster.GetTransform().GetComponent<BossStateMachine>();
             bossStateMachine.Target = bossStateMachine.PlayerStateMachine.transform;
             var manageEvent = bossStateMachine.ManageAnimationSkillEvent;
-            var getSkill = caster.GetTransform().GetComponent<GetSkill>();
+            var getSkill = caster.GetTransform().GetComponent<SkillSpawner>();
             var spawnPosition = caster.GetTransform().transform.position + new Vector3(2f, 3f, 0f);
 
             manageEvent.ClearSituationEvent();
@@ -382,7 +382,7 @@ namespace Attack.SkillFactory
                 skill.InitializeBullet();
                 var weaponTrail = skill.GetComponent<WeaponTrail>();
                 weaponTrail.SetDamage(500);
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.fireBulletResource);
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.fireBulletResource);
                 manageEvent.SituationEvent -= situationAction;
             };
             manageEvent.SituationEvent += situationAction;
@@ -408,10 +408,10 @@ namespace Attack.SkillFactory
             situationAction = () =>
             {
                 weaponHandler.OnStoreWeapon();
-                weaponHandler.OnUnActiveDoubleEdgedSword();
-                weaponHandler.OnActiveLeftSingleSword();
-                weaponHandler.OnActiveRightSingleSword();
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.transformToTwoSwordResource);
+                weaponHandler.DeactivateDoubleEdgedSword();
+                weaponHandler.ActivateLeftSingleSword();
+                weaponHandler.ActivateRightSingleSword();
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.transformToTwoSwordResource);
 
                 manageEvent.SituationEvent -= situationAction;
             };
@@ -436,11 +436,11 @@ namespace Attack.SkillFactory
             Action situationAction = null;
             situationAction = () =>
             {
-                weaponHandler.OnUnActiveLeftSingleSword();
-                weaponHandler.OnUnActiveRightSingleSword();
+                weaponHandler.DeactivateLeftSingleSword();
+                weaponHandler.DeactivateRightSingleSword();
                 weaponHandler.OnStoreWeapon();
-                weaponHandler.OnActiveDoubleEdgedSword();
-                AudioManagers.Instance.PlaySound(caster.TargetCaster().transform, AudioManagers.Instance.transformToBladeResource);
+                weaponHandler.ActivateDoubleEdgedSword();
+                AudioManager.Instance.PlaySound(caster.TargetCaster().transform, AudioManager.Instance.transformToBladeResource);
 
                 manageEvent.SituationEvent -= situationAction;
             };

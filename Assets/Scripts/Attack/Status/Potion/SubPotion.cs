@@ -22,22 +22,22 @@ namespace Attack.Status.Potion
     public class SubPotion : MonoBehaviour
     {
         [field: SerializeField] public List<SubPotionValue> subPotionList { get; set; }
-        private Health health;
-        private Stamina stamina;
+        private Health _health;
+        private Stamina _stamina;
 
         public SubPotionValue currentPotion { get; set; }
-        private int currentIndex = 1;
+        private int _currentIndex = 1;
 
         private InputReader _inputReader;
         private PlayerStateMachine _playerStateMachine;
 
         private void Awake()
         {
-            health = GetComponent<Health>();
-            stamina = GetComponent<Stamina>();
+            _health = GetComponent<Health>();
+            _stamina = GetComponent<Stamina>();
             _playerStateMachine = GetComponent<PlayerStateMachine>();
             _inputReader = GetComponent<InputReader>();
-            currentPotion = subPotionList[currentIndex];
+            currentPotion = subPotionList[_currentIndex];
         }
 
         private void OnEnable()
@@ -54,16 +54,16 @@ namespace Attack.Status.Potion
 
         private void ChangeNextSubPotion()
         {
-            currentIndex += 1;
-            if (currentIndex >= subPotionList.Count) currentIndex = 0;
-            currentPotion = subPotionList[currentIndex];
+            _currentIndex += 1;
+            if (_currentIndex >= subPotionList.Count) _currentIndex = 0;
+            currentPotion = subPotionList[_currentIndex];
         }
 
         private void ChangePreviousSubPotion()
         {
-            currentIndex -= 1;
-            if (currentIndex < 0) currentIndex = subPotionList.Count - 1;
-            currentPotion = subPotionList[currentIndex];
+            _currentIndex -= 1;
+            if (_currentIndex < 0) _currentIndex = subPotionList.Count - 1;
+            currentPotion = subPotionList[_currentIndex];
         }
 
         public void SubtractPotion(string potionName, int amount)
@@ -80,16 +80,16 @@ namespace Attack.Status.Potion
         public void ReduceDamage(string potionName)
         {
             StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => health.isReduceDamage = true,
-                () => health.isReduceDamage = false
+                () => _health.isReduceDamage = true,
+                () => _health.isReduceDamage = false
             ));
         }
 
         public void ReduceStamina(string potionName)
         {
             StartCoroutine(SubPotionCoroutine(FindPotion(potionName).timeToDone,
-                () => stamina.isReduceStamina = true,
-                () => stamina.isReduceStamina = false
+                () => _stamina.isReduceStamina = true,
+                () => _stamina.isReduceStamina = false
             ));
         }
 
@@ -111,9 +111,9 @@ namespace Attack.Status.Potion
         public void AddSubPotionQuantity(string potionName)
         {
             var targetPotion = FindPotion(potionName);
-            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
             targetPotion.quantity++;
@@ -125,7 +125,7 @@ namespace Attack.Status.Potion
 
             if (targetPotion.quantity == 0)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
 

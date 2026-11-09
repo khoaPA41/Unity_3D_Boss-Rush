@@ -1,4 +1,4 @@
-﻿using DesignPattern.StateMachine.Boss.Base;
+using DesignPattern.StateMachine.Boss.Base;
 using DesignPattern.TreeBehavior.Base;
 using DesignPattern.TreeBehavior.Brain;
 
@@ -19,7 +19,7 @@ namespace DesignPattern.TreeBehavior.BossLeafNode
 
         public override NodeState Evaluate()
         {
-            if (bossStateMachine.Player.currentHealth > 0) return NodeState.Failure;
+            if (bossStateMachine.Player.CurrentHealth > 0) return NodeState.Failure;
 
             bossStateMachine.IsChasing = false;
             return NodeState.Success;

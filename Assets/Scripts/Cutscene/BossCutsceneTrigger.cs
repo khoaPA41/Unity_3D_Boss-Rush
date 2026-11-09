@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Cutscene
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class CutsceneManagers : MonoBehaviour
+    public class BossCutsceneTrigger : MonoBehaviour
     {
         [SerializeField] private GameObject BossContainer;
 
@@ -30,18 +30,18 @@ namespace Cutscene
 
         private void CheckDefeat()
         {
-            if (!SaveManagers.Instance.CompletedList.Contains(bossPhaseManager.TriggerId)) return;
+            if (!SaveManager.Instance.CompletedList.Contains(bossPhaseManager.TriggerId)) return;
             boxCollider.enabled = false;
         }
 
         private void SaveIsDefeat()
         {
-            if (!SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Contains(bossPhaseManager.TriggerId))
+            if (!SaveManager.Instance.CurrentSaveData.completedTriggerBoss.Contains(bossPhaseManager.TriggerId))
             {
-                SaveManagers.Instance.CurrentSaveData.completedTriggerBoss.Add(bossPhaseManager.TriggerId);
+                SaveManager.Instance.CurrentSaveData.completedTriggerBoss.Add(bossPhaseManager.TriggerId);
             }
 
-            GameManagers.Instance.AutoSave();
+            GameManager.Instance.AutoSave();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -56,8 +56,8 @@ namespace Cutscene
 
             BossContainer.SetActive(true);
             boxCollider.enabled = false;
-            TimelineEvent.Instance.CallTimelineAction();
-            AudioManagers.Instance.PlayBackgroundMusic(true);
+            TimelineManager.Instance.CallTimelineAction();
+            AudioManager.Instance.PlayBackgroundMusic(true);
         }
     }
 }

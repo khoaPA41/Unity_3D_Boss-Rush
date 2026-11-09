@@ -5,8 +5,8 @@ namespace DesignPattern.StateMachine.Player.Main
 {
     public class PlayerHitState : PlayerBaseState
     {
-        private readonly int hitAnimationHash = Animator.StringToHash("Hit");
-        private readonly int hitKnockbackAnimationHash = Animator.StringToHash("Hit_Knockback");
+        private readonly int _hitAnimationHash = Animator.StringToHash("Hit");
+        private readonly int _hitKnockbackAnimationHash = Animator.StringToHash("Hit_Knockback");
 
         private const string HitAnimationTag = "Hit";
 
@@ -15,7 +15,7 @@ namespace DesignPattern.StateMachine.Player.Main
         private readonly bool _isKnockBack;
 
         private bool _alreadyApplyForce;
-        private float force;
+        private float _force;
 
         public PlayerHitState(PlayerStateMachine playerStateMachine, bool isKnockBack) : base(playerStateMachine)
         {
@@ -28,14 +28,14 @@ namespace DesignPattern.StateMachine.Player.Main
             _alreadyApplyForce = false;
             if (_isKnockBack)
             {
-                force = playerStateMachine.HitKnockback;
-                playerStateMachine.Animator.CrossFadeInFixedTime(hitKnockbackAnimationHash,
+                _force = playerStateMachine.HitKnockback;
+                playerStateMachine.Animator.CrossFadeInFixedTime(_hitKnockbackAnimationHash,
                     playerStateMachine.AnimationCrossFade);
             }
             else
             {
-                force = playerStateMachine.HitForce;
-                playerStateMachine.Animator.CrossFadeInFixedTime(hitAnimationHash,
+                _force = playerStateMachine.HitForce;
+                playerStateMachine.Animator.CrossFadeInFixedTime(_hitAnimationHash,
                     playerStateMachine.AnimationCrossFade);
             }
         }
@@ -48,7 +48,7 @@ namespace DesignPattern.StateMachine.Player.Main
             {
                 if (normalizeTime >= playerStateMachine.HitForceTime)
                 {
-                    TryApplyForce(force);
+                    TryApplyForce(_force);
                 }
             }
             else

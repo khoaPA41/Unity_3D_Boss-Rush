@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Playables;
 
 namespace Cutscene
 {
-    public class TimelineEvent : MonoBehaviour
+    public class TimelineManager : MonoBehaviour
     {
-        public static TimelineEvent Instance;
+        public static TimelineManager Instance;
 
         [field: SerializeField] public PlayableDirector Timeline { get; private set; }
         [field: SerializeField] public PlayableDirector EndTimeline { get; private set; }

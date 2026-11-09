@@ -55787,21 +55787,21 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: ReturnNormalSpeedAnimation
+    functionName: RestoreAnimationSpeed
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36666667
-    functionName: OnActiveWeaponRightCollider
+    functionName: ActivateRightWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36666667
-    functionName: OnActiveWeaponLeftCollider
+    functionName: ActivateLeftWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -55815,14 +55815,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.56666666
-    functionName: OnUnActiveWeaponLeftCollider
+    functionName: DeactivateLeftWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.56666666
-    functionName: OnUnActiveWeaponRightCollider
+    functionName: DeactivateRightWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

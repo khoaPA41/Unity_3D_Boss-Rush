@@ -4011,7 +4011,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6253307532909113265}
-  baseDamage: 100
+  _baseDamage: 100
 --- !u!65 &4079792099786426777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4430,7 +4430,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6253307532909113265}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!65 &6783913110263548175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4860,14 +4860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  <maxHealth>k__BackingField: 1000
+  <MaxHealth>k__BackingField: 1000
   <resistance>k__BackingField: 10
   <reduceHealthFollowingDuration>k__BackingField: 0
   <reduceHealPrevDuration>k__BackingField: 0.15
-  reduceHealth: 0
-  timeFreeze: 0.1
-  timeToBackNormal: 0.05
-  currentHealth: 0
+  _reduceHealth: 0
+  _timeFreeze: 0.1
+  _timeToBackNormal: 0.05
+  CurrentHealth: 0
   isPerfectDodge: 0
   isReduceDamage: 0
 --- !u!95 &1380477848805750209
@@ -4941,14 +4941,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHanldler
-  weaponRightLogic: {fileID: 6089202964844295043}
-  weaponLeftLogic: {fileID: 0}
-  otherDamageLogic: {fileID: 5084850236323302365}
-  weaponMain: {fileID: 1684442513989478898}
-  weaponStore: {fileID: 0}
-  LeftSingleSword: {fileID: 0}
-  RightSingleSword: {fileID: 1684442513989478898}
-  DoubleEdgedSword: {fileID: 0}
+  _weaponRightLogic: {fileID: 6089202964844295043}
+  _weaponLeftLogic: {fileID: 0}
+  _otherDamageLogic: {fileID: 5084850236323302365}
+  _weaponMain: {fileID: 1684442513989478898}
+  _weaponStore: {fileID: 0}
+  _leftSingleSword: {fileID: 0}
+  _rightSingleSword: {fileID: 1684442513989478898}
+  _doubleEdgedSword: {fileID: 0}
 --- !u!114 &3895788733317537858
 MonoBehaviour:
   m_ObjectHideFlags: 0

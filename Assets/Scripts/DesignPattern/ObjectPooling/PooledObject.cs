@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace DesignPattern.ObjectPooling
 {
     public class PooledObject : MonoBehaviour
     {
-        ObjectPooling instance { get; set; }
+        ObjectPoolManager instance { get; set; }
 
         private bool isReleased;
         private void OnEnable() => isReleased = false;
-        public ObjectPooling Instance
+        public ObjectPoolManager Instance
         {
             get => instance;
             set => instance = value;

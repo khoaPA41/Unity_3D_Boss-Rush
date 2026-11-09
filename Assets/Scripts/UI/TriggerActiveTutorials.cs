@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Managers;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ namespace UI
         private Animator animator;
         private void Start()
         {
-            if (SaveManagers.Instance.CurrentSaveData.hasSaveData)
+            if (SaveManager.Instance.CurrentSaveData.hasSaveData)
             {
                 gameObject.SetActive(false);
             }

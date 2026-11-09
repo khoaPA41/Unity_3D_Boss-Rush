@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using DesignPattern.EventBus;
 
 #if UNITY_EDITOR
@@ -7,7 +7,7 @@ using UnityEditor;
 
 namespace UI
 {
-    public class ChangeState : StateMachineBehaviour
+    public class AnimationEventTrigger : StateMachineBehaviour
     {
         [Header("Skill Situation Event")]
         [Tooltip("This event can spawn VFX, turn on sound")]
@@ -52,7 +52,7 @@ namespace UI
         private void SkillSituation(Animator animator, AnimatorStateInfo stateInfo)
         {
             if (_hasTriggeredSkillSituation || stateInfo.normalizedTime < triggerSkillSituation) return;
-            var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
+            var animationEvent = animator.GetComponent<SkillAnimationEvents>();
             animationEvent.SendSituationEvent();
             _hasTriggeredSkillSituation = true;
         }
@@ -60,7 +60,7 @@ namespace UI
         private void NextAction(Animator animator, AnimatorStateInfo stateInfo)
         {
             if (_hasTriggeredNextAction || stateInfo.normalizedTime < triggerNextAction) return;
-            var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
+            var animationEvent = animator.GetComponent<SkillAnimationEvents>();
             animationEvent.SendNextActionEvent();
             _hasTriggeredNextAction = true;
         }
@@ -68,7 +68,7 @@ namespace UI
         private void WeaponVFX(Animator animator, AnimatorStateInfo stateInfo)
         {
             if (_hasTriggeredWeaponVFX || stateInfo.normalizedTime < triggerWeaponVFX) return;
-            var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
+            var animationEvent = animator.GetComponent<SkillAnimationEvents>();
             animationEvent.SendSlashWeaponEvent();
             _hasTriggeredWeaponVFX = true;
         }
@@ -76,7 +76,7 @@ namespace UI
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            var animationEvent = animator.GetComponent<ManageAnimationSkillEvent>();
+            var animationEvent = animator.GetComponent<SkillAnimationEvents>();
 
             if (usingNextAction && !_hasTriggeredNextAction)
             {
@@ -86,12 +86,12 @@ namespace UI
         }
 
     #if UNITY_EDITOR
-        [CustomEditor(typeof(ChangeState))]
-        public class ChangeStateEditor : Editor
+        [CustomEditor(typeof(AnimationEventTrigger))]
+        public class AnimationEventTriggerEditor : Editor
         {
             public override void OnInspectorGUI()
             {
-                var script = (ChangeState)target;
+                var script = (AnimationEventTrigger)target;
                 serializedObject.Update();
                 EditorGUILayout.Space(5);
 

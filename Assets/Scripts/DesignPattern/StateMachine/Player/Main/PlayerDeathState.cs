@@ -7,11 +7,11 @@ namespace DesignPattern.StateMachine.Player.Main
 {
     public class PlayerDeathState : PlayerBaseState
     {
-        readonly int DeathAnimationOneHash = Animator.StringToHash("Death_1");
-        readonly int DeathAnimationTwoHash = Animator.StringToHash("Death_2");
-        readonly string DeathAnimationTag = "Death";
+        readonly int _deathAnimationOneHash = Animator.StringToHash("Death_1");
+        readonly int _deathAnimationTwoHash = Animator.StringToHash("Death_2");
+        readonly string _deathAnimationTag = "Death";
 
-        int randomAnimation;
+        int _randomAnimation;
         bool _hasFinished;
         public PlayerDeathState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
         {
@@ -22,27 +22,27 @@ namespace DesignPattern.StateMachine.Player.Main
         {
             _hasFinished = false;
 
-            randomAnimation = Random.Range(0, 2);
+            _randomAnimation = Random.Range(0, 2);
             playerStateMachine.Animator.CrossFadeInFixedTime(
-                randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
+                _randomAnimation == 0 ? _deathAnimationOneHash : _deathAnimationTwoHash,
                 playerStateMachine.AnimationCrossFade);
             playerStateMachine.CharacterController.enabled = false;
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, DeathAnimationTag, 0);
+            var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, _deathAnimationTag, 0);
 
             if (!_hasFinished && normalizeTime >= .5f)
             {
-                WorldUIManager.instance.StartCoroutineTitleFade(0, 1, 1f);
-                WorldUIManager.instance.StartCoroutineBackgroundFade(0, 1, 1f);
+                WorldUIManager.Instance.StartCoroutineTitleFade(0, 1, 1f);
+                WorldUIManager.Instance.StartCoroutineBackgroundFade(0, 1, 1f);
                 _hasFinished = true;
             }
 
             if (_hasFinished && normalizeTime > .99f)
             {
-                GameManagers.Instance.ReturnCheckpoint();
+                GameManager.Instance.ReturnCheckpoint();
             }
         }
 

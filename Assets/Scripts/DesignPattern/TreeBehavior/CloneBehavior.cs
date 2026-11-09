@@ -1,24 +1,24 @@
-﻿using DesignPattern.ObjectPooling;
+using DesignPattern.ObjectPooling;
 using UnityEngine;
 
 
 namespace DesignPattern.TreeBehavior
 {
     [RequireComponent(typeof(PooledObject))]
-    public class CloneBehaviour : MonoBehaviour
+    public class CloneBehavior : MonoBehaviour
     {
-        [SerializeField] private PooledObject pooledObject;
-        [SerializeField] private float timeToRelease;
+        [SerializeField] private PooledObject _pooledObject;
+        [SerializeField] private float _timeToRelease;
         private float _countTime;
 
         private void Awake()
         {
-            pooledObject = GetComponent<PooledObject>();
+            _pooledObject = GetComponent<PooledObject>();
         }
 
         private void OnEnable()
         {
-            _countTime = timeToRelease;
+            _countTime = _timeToRelease;
         }
 
         private void Update()
@@ -26,7 +26,7 @@ namespace DesignPattern.TreeBehavior
             _countTime -= Time.deltaTime;
             if (_countTime <= 0)
             {
-                pooledObject.Release(gameObject.name);
+                _pooledObject.Release(gameObject.name);
             }
         }
     }

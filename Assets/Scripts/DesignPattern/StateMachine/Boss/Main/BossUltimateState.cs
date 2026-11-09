@@ -9,7 +9,7 @@ namespace DesignPattern.StateMachine.Boss.Main
         private readonly AttackData _attackData;
         private float _previousTime;
         private bool _alreadyApplyForce;
-        float enterStateTime;
+        float _enterStateTime;
 
         public BossUltimateState(BossStateMachine bossStateMachine, int index) : base(bossStateMachine)
         {
@@ -18,7 +18,7 @@ namespace DesignPattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-            enterStateTime = Time.time;
+            _enterStateTime = Time.time;
 
             bossStateMachine.IsFinishedAttack = false;
 
@@ -65,7 +65,7 @@ namespace DesignPattern.StateMachine.Boss.Main
                 return;
             }
 
-            if (Time.time - enterStateTime < 0.2f)
+            if (Time.time - _enterStateTime < 0.2f)
             {
                 return;
             }

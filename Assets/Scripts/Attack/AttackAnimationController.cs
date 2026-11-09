@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Attack
 {
-    public class ManageAttackAnimation : MonoBehaviour
+    public class AttackAnimationController : MonoBehaviour
     {
         private readonly int AttackSpeedAnimationParam = Animator.StringToHash("AttackSpeed");
         [SerializeField] private float attackAnimationSpeedSlow;
@@ -23,7 +23,7 @@ namespace Attack
             _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedSlow);
         }
 
-        public void ReturnNormalSpeedAnimation()
+        public void RestoreAnimationSpeed()
         {
             _animator.SetFloat(AttackSpeedAnimationParam, attackAnimationSpeedFast);
         }

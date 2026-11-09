@@ -6,7 +6,7 @@ namespace DesignPattern.StateMachine.Player.Main
     public class FreeLookState : PlayerBaseState
     {
         private static readonly int Movement = Animator.StringToHash("Movement");
-        private readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+        private readonly int _freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
         private Vector3 _movement;
 
         public FreeLookState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
@@ -22,7 +22,7 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
             playerStateMachine.InputReader.UseSubPotionAction += playerStateMachine.HandleUseSubPotionState;
 
-            playerStateMachine.Animator.CrossFadeInFixedTime(freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
+            playerStateMachine.Animator.CrossFadeInFixedTime(_freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
         }
 
         public override void Tick(float deltaTime)

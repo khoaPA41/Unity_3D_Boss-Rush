@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using Attack.Status;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Attack
 {
-    public class BossHealthUIManagers : MonoBehaviour
+    public class BossHealthUIManager : MonoBehaviour
     {
         [Header("Status UI")]
         [SerializeField]

@@ -1,4 +1,4 @@
-﻿using DesignPattern.StateMachine.Boss.Base;
+using DesignPattern.StateMachine.Boss.Base;
 using DesignPattern.TreeBehavior.Base;
 using DesignPattern.TreeBehavior.Brain;
 
@@ -27,7 +27,7 @@ namespace DesignPattern.TreeBehavior.BossLeafNode
         {
             if (!bossBehaviorBrain.IsChasingState) return NodeState.Failure;
 
-            if (CheckAttackRange() && bossStateMachine.Player.currentHealth > 0f)
+            if (CheckAttackRange() && bossStateMachine.Player.CurrentHealth > 0f)
             {
                 return NodeState.Success;
             }

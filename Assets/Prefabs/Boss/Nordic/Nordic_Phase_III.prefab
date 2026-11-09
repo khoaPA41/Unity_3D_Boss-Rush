@@ -82,9 +82,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 0}
-  baseDamage: 0
-  sfx: {fileID: 0}
-  isEffect: 0
+  _baseDamage: 0
+  _sfx: {fileID: 0}
+  _isEffect: 0
 --- !u!65 &153512965479018103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 0}
-  baseDamage: 0
-  sfx: {fileID: 0}
-  isEffect: 0
+  _baseDamage: 0
+  _sfx: {fileID: 0}
+  _isEffect: 0
 --- !u!65 &2729025202768219543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -867,15 +867,15 @@ PrefabInstance:
       value: Nordic_Phase_III
       objectReference: {fileID: 0}
     - target: {fileID: 8223231476794975111, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
-      propertyPath: LeftSingleSword
+      propertyPath: _leftSingleSword
       value: 
       objectReference: {fileID: 3647417216658731948}
     - target: {fileID: 8223231476794975111, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
-      propertyPath: weaponLeftLogic
+      propertyPath: _weaponLeftLogic
       value: 
       objectReference: {fileID: 5512618391565714232}
     - target: {fileID: 8223231476794975111, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
-      propertyPath: DoubleEdgedSword
+      propertyPath: _doubleEdgedSword
       value: 
       objectReference: {fileID: 6476014543609083364}
     m_RemovedComponents: []

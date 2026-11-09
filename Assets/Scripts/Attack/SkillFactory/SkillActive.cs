@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Attack.SkillFactory;
@@ -17,7 +17,7 @@ namespace Attack.SkillFactory
         public SkillType skillType;
         public float coolDown;
         public bool canUse;
-        public float countCoolDown { get; set; }
+        public float CountCoolDown { get; set; }
     }
 
     public class SkillActive : MonoBehaviour
@@ -36,12 +36,12 @@ namespace Attack.SkillFactory
 
         private void OnEnable()
         {
-            UseSkillSuccess += CountCoolDown;
+            UseSkillSuccess += TryUseSkill;
         }
 
         private void OnDisable()
         {
-            UseSkillSuccess -= CountCoolDown;
+            UseSkillSuccess -= TryUseSkill;
         }
 
         public void CallUseSkillSuccess(int skillNumber)
@@ -49,7 +49,7 @@ namespace Attack.SkillFactory
             UseSkillSuccess?.Invoke(skillNumber);
         }
 
-        public void CountCoolDown(int skillNumber)
+        public void TryUseSkill(int skillNumber)
         {
             switch (skillNumber)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using Managers;
 using TMPro;
@@ -34,12 +34,12 @@ namespace UI
                 () => StartCoroutine(FadeBackground(1f, 0f, 1f))
             ));
 
-            ActiveContinueButton();
+            UpdateContinueButton();
         }
 
-        private void ActiveContinueButton()
+        private void UpdateContinueButton()
         {
-            if (!SaveManagers.Instance.HaveSaveData())
+            if (!SaveManager.Instance.HaveSaveData())
             {
                 buttonGameObject.SetActive(false);
                 return;

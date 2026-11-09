@@ -640,15 +640,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Attack.Health
-  <maxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 100
   <resistance>k__BackingField: 0
   <reduceHealthFollowingDuration>k__BackingField: 0.15
   <reduceHealPrevDuration>k__BackingField: 0.3
-  reduceHealth: 0
-  timeFreeze: 0
-  timeToBackNormal: 0
+  _reduceHealth: 0
+  _timeFreeze: 0
+  _timeToBackNormal: 0
   <PlayerSFX>k__BackingField: {fileID: 5036027512701539147}
-  currentHealth: 0
+  CurrentHealth: 0
   isPerfectDodge: 0
   isReduceDamage: 0
 --- !u!114 &1673764953874379723
@@ -663,14 +663,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHandler
-  weaponRightLogic: {fileID: 7297188902878031813}
-  weaponLeftLogic: {fileID: 5000449613081613087}
-  otherDamageLogic: {fileID: 8062028352039112977}
-  weaponMain: {fileID: 0}
-  weaponStore: {fileID: 0}
-  LeftSingleSword: {fileID: 0}
-  RightSingleSword: {fileID: 0}
-  DoubleEdgedSword: {fileID: 0}
+  _weaponRightLogic: {fileID: 7297188902878031813}
+  _weaponLeftLogic: {fileID: 5000449613081613087}
+  _otherDamageLogic: {fileID: 8062028352039112977}
+  _weaponMain: {fileID: 0}
+  _weaponStore: {fileID: 0}
+  _leftSingleSword: {fileID: 0}
+  _rightSingleSword: {fileID: 0}
+  _doubleEdgedSword: {fileID: 0}
 --- !u!114 &7988301599038462103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,8 +2288,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
-  baseDamage: 0
-  sfx: {fileID: 5036027512701539147}
+  _baseDamage: 0
+  _sfx: {fileID: 5036027512701539147}
 --- !u!1 &5067299756226219076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,8 +3289,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
-  baseDamage: 0
-  sfx: {fileID: 5036027512701539147}
+  _baseDamage: 0
+  _sfx: {fileID: 5036027512701539147}
 --- !u!1 &7444263777270884549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3772,8 +3772,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 896133026252241940}
-  baseDamage: 0
-  sfx: {fileID: 5036027512701539147}
+  _baseDamage: 0
+  _sfx: {fileID: 5036027512701539147}
 --- !u!1 &8063748326844176760
 GameObject:
   m_ObjectHideFlags: 0

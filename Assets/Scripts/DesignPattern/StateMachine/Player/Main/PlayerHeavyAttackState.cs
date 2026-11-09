@@ -32,7 +32,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_heavyAttackAnimationHash, playerStateMachine.AnimationCrossFade, 0);
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
-            playerStateMachine.WeaponTrail.SetActive(true);
+            playerStateMachine.WeaponTrailVisual.SetActive(true);
         }
 
         public override void Tick(float deltaTime)
@@ -54,14 +54,14 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.InputReader.IsHeavyAttack = false;
             playerStateMachine.Animator.speed = 1f;
             playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;
-            playerStateMachine.WeaponTrail.SetActive(false);
+            playerStateMachine.WeaponTrailVisual.SetActive(false);
         }
 
         private void CountHoldTime(float deltaTime)
         {
 
 
-            if (playerStateMachine.InputReader.isCharging)
+            if (playerStateMachine.InputReader.IsCharging)
             {
                 playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.heavyAttackReduce);
                 playerStateMachine.Animator.speed = .3f;
@@ -69,9 +69,9 @@ namespace DesignPattern.StateMachine.Player.Main
                 _holdTime = Mathf.Clamp(_holdTime, 0f, HoldTimeLimit);
             }
 
-            if (_holdTime >= HoldTimeLimit || !playerStateMachine.InputReader.isCharging)
+            if (_holdTime >= HoldTimeLimit || !playerStateMachine.InputReader.IsCharging)
             {
-                playerStateMachine.InputReader.isCharging = false;
+                playerStateMachine.InputReader.IsCharging = false;
                 playerStateMachine.Animator.speed = 1f;
                 CalculateDamage();
             }
@@ -80,7 +80,7 @@ namespace DesignPattern.StateMachine.Player.Main
         private void CalculateDamage()
         {
             _holdDamage = playerStateMachine.AttackData[0].AttackDamage * _holdTime * 3f;
-            playerStateMachine.DealDamage.SetDamage(_holdDamage);
+            playerStateMachine.WeaponTrail.SetDamage(_holdDamage);
         }
 
         private void ActiveVfx()
@@ -88,7 +88,7 @@ namespace DesignPattern.StateMachine.Player.Main
             _swordEndPos = playerStateMachine.WeaponTip.position;
             var slashDir = _swordEndPos - playerStateMachine.StartSwordPos;
 
-            var vfx = ObjectPooling.ObjectPooling.Instance.GetPooledObject(_slashVfxName, playerStateMachine.WeaponTransform.position);
+            var vfx = ObjectPoolManager.Instance.GetPooledObject(_slashVfxName, playerStateMachine.WeaponTransform.position);
             if (slashDir.sqrMagnitude > 0.001f)
             {
                 var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);

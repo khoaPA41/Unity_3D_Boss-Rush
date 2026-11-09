@@ -19,7 +19,7 @@ namespace DesignPattern.TreeBehavior.Brain
 
 
         // Phase params
-        public int Phase { get; private set; }
+        public int TotalPhases { get; private set; }
         public int CurrentPhase { get; set; }
         public int NextPhase { get; set; }
         public bool IsUsedUltimate { get; set; }
@@ -44,7 +44,7 @@ namespace DesignPattern.TreeBehavior.Brain
         {
             bossStateMachine = GetComponent<BossStateMachine>();
             ConstructBehaviorTree();
-            Phase = bossStateMachine.NormalCombo.Length;
+            TotalPhases = bossStateMachine.NormalCombo.Length;
             CurrentPhase = 0;
             NextPhase = CurrentPhase + 1;
         }

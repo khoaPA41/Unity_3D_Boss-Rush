@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace DesignPattern.StateMachine.Base
 {
@@ -10,16 +10,16 @@ namespace DesignPattern.StateMachine.Base
 
         protected static float GetNormalizeTime(Animator animator, string animationTag, int layer)
         {
-            var currentState = animator.GetCurrentAnimatorStateInfo(layer);
+            var CurrentState = animator.GetCurrentAnimatorStateInfo(layer);
             var nextState = animator.GetNextAnimatorStateInfo(layer);
 
             if (nextState.IsTag(animationTag) && animator.IsInTransition(layer)) // if blending (transition)
             {
                 return nextState.normalizedTime;
             }
-            else if (currentState.IsTag(animationTag) && !animator.IsInTransition(layer)) // if not blending
+            else if (CurrentState.IsTag(animationTag) && !animator.IsInTransition(layer)) // if not blending
             {
-                return currentState.normalizedTime;
+                return CurrentState.normalizedTime;
             }
             else
             {

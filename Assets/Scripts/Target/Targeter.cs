@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ namespace Target
 
         private Camera mainCamera;
 
-        public Target currentTarget { get; set; }
+        public Target CurrentTarget { get; set; }
 
         private Vector3 targetPos;
 
@@ -23,9 +23,9 @@ namespace Target
 
         private void Update()
         {
-            if (currentTarget is not null)
+            if (CurrentTarget is not null)
             {
-                targetPos = currentTarget.transform.position;
+                targetPos = CurrentTarget.transform.position;
             }
         }
 
@@ -42,7 +42,7 @@ namespace Target
             targetList.Remove(target);
         }
 
-        public bool SelectedTarget()
+        public bool SelectTarget()
         {
             if (targetList.Count == 0) { return false; }
 
@@ -66,22 +66,22 @@ namespace Target
 
             if (closestTarget == null) { return false; }
 
-            currentTarget = closestTarget;
-            targetPos = currentTarget.transform.position;
-            cinemachineTargetGroup.AddMember(currentTarget.transform, 2f, 1f);
+            CurrentTarget = closestTarget;
+            targetPos = CurrentTarget.transform.position;
+            cinemachineTargetGroup.AddMember(CurrentTarget.transform, 2f, 1f);
             return true;
         }
 
         public void CancelTarget()
         {
             if (targetList.Count == 0) { return; }
-            cinemachineTargetGroup.RemoveMember(currentTarget?.transform);
-            currentTarget = null;
+            cinemachineTargetGroup.RemoveMember(CurrentTarget?.transform);
+            CurrentTarget = null;
         }
 
         private void RemoveTarget(Target target)
         {
-            if (currentTarget == target)
+            if (CurrentTarget == target)
             {
                 CancelTarget();
             }

@@ -1,22 +1,22 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace DesignPattern.StateMachine.Base
 {
     public class StateMachine : MonoBehaviour
     {
-        public State currentState { get; private set; }
+        public State CurrentState { get; private set; }
 
         public void SwitchState(State newState)
         {
-            currentState?.Exit();
-            currentState = newState;
-            currentState?.Enter();
+            CurrentState?.Exit();
+            CurrentState = newState;
+            CurrentState?.Enter();
         }
 
 
         protected void Update()
         {
-            currentState?.Tick(Time.deltaTime);
+            CurrentState?.Tick(Time.deltaTime);
         }
     }
 }

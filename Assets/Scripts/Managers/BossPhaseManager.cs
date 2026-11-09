@@ -61,12 +61,12 @@ namespace Managers
 
         private void CallTimelineAction()
         {
-            TimelineEvent.Instance.CallTimelineAction();
+            TimelineManager.Instance.CallTimelineAction();
         }
 
         private void HandleDeadPhaseAction()  // Inactive phase is dead and active next phase if has
         {
-            if (TimelineEvent.Instance.Timeline.state == PlayState.Paused)
+            if (TimelineManager.Instance.Timeline.state == PlayState.Paused)
             {
                 isActiveCutscene = false;
                 return;
@@ -74,11 +74,11 @@ namespace Managers
 
             if (isActiveCutscene) return;
 
-            if ((float)TimelineEvent.Instance.Timeline.time / TimelineEvent.Instance.Timeline.duration < .5f) return;
+            if ((float)TimelineManager.Instance.Timeline.time / TimelineManager.Instance.Timeline.duration < .5f) return;
 
             if (!firstTime)
             {
-                ActiveLockGateParticle();
+                ActivateLockGateParticle();
                 isActiveCutscene = true;
                 phases[currentPhaseIndex].gameObject.SetActive(true);
                 firstTime = true;
@@ -96,19 +96,19 @@ namespace Managers
                 Finished?.Invoke();
                 healthUi.SetActive(false); // Off Boss health
                 Player.Stamina.IsCombat = false;
-                AudioManagers.Instance.StopBackgroundMusic();
+                AudioManager.Instance.StopBackgroundMusic();
                 this.gameObject.SetActive(false);
 
                 Player.AddBossSpiritualPower(spiritualPower); // add money
                 if (!isFinalBoss) return;
-                TimelineEvent.Instance.PlayEndTimeline();
+                TimelineManager.Instance.PlayEndTimeline();
                 return;
             }
 
             phases[currentPhaseIndex].gameObject.SetActive(true);
         }
 
-        private void ActiveLockGateParticle()
+        private void ActivateLockGateParticle()
         {
             foreach (var particle in lockGateParticle)
             {
@@ -117,7 +117,7 @@ namespace Managers
             }
         }
 
-        public void InactiveLockGateParticle()
+        public void DeactivateLockGateParticle()
         {
             foreach (var particle in lockGateParticle)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ namespace Attack.Status.Potion
 {
     public class Potion : MonoBehaviour
     {
-        [field: SerializeField] public float maxPotion;
+        [field: SerializeField] public float MaxPotion;
         [field: SerializeField] public float potionUsage { get; set; }
         [field: SerializeField] public float reduceDuration { get; set; }
         [field: SerializeField] public float maxPotionAdded { get; set; }
@@ -17,14 +17,14 @@ namespace Attack.Status.Potion
         public float PossibleUsage { get; private set; }
 
         private PlayerStateMachine _playerStateMachine;
-        private float minimumPotion;
-        private float minimumPotionUsage;
+        private float _minimumPotion;
+        private float _minimumPotionUsage;
 
         private void Awake()
         {
             _playerStateMachine = GetComponent<PlayerStateMachine>();
-            minimumPotion = maxPotion;
-            CurrentPotion = maxPotion;
+            _minimumPotion = MaxPotion;
+            CurrentPotion = MaxPotion;
             PossibleUsage = potionUsage;
         }
 
@@ -32,38 +32,38 @@ namespace Attack.Status.Potion
         {
             PossibleUsage = potionUsage < CurrentPotion ? potionUsage : CurrentPotion;
             CurrentPotion = Mathf.Max(CurrentPotion - PossibleUsage, 0f);
-            OnChangePotion?.Invoke(CurrentPotion / maxPotion);
+            OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
 
         public void AddMaxPotion()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
-            maxPotion += maxPotionAdded;
-            CurrentPotion = maxPotion;
-            OnChangePotion?.Invoke(CurrentPotion / maxPotion);
+            MaxPotion += maxPotionAdded;
+            CurrentPotion = MaxPotion;
+            OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
 
         public void SubtractMaxPotion()
         {
-            if (maxPotion == minimumPotion)
+            if (MaxPotion == _minimumPotion)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            maxPotion -= maxPotionAdded;
-            CurrentPotion = maxPotion;
-            OnChangePotion?.Invoke(CurrentPotion / maxPotion);
+            MaxPotion -= maxPotionAdded;
+            CurrentPotion = MaxPotion;
+            OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
 
         public void AddUsagePotion()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
+            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
             potionUsage += usageAdded;
@@ -71,9 +71,9 @@ namespace Attack.Status.Potion
 
         public void SubtractUsagePotion()
         {
-            if (potionUsage == minimumPotionUsage)
+            if (potionUsage == _minimumPotionUsage)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
             potionUsage -= usageAdded;
@@ -81,8 +81,8 @@ namespace Attack.Status.Potion
 
         public void Reset()
         {
-            CurrentPotion = maxPotion;
-            OnChangePotion?.Invoke(CurrentPotion / maxPotion);
+            CurrentPotion = MaxPotion;
+            OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
     }
 }

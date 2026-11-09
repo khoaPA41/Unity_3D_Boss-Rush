@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace DesignPattern.ObjectPooling
 {
-    public class GetSkill : MonoBehaviour
+    public class SkillSpawner : MonoBehaviour
     {
-        [SerializeField] private ObjectPooling objectPooling;
+        [SerializeField] private ObjectPoolManager objectPooling;
 
         public GameObject Skill { get; private set; }
         

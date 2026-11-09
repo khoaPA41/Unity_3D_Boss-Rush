@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
@@ -6,58 +6,58 @@ namespace Attack.Status
 {
     public class Mana : MonoBehaviour
     {
-        [field: SerializeField] public float maxMana { get; set; }
+        [field: SerializeField] public float MaxMana { get; set; }
         [field: SerializeField] public float reduceManaDuration { get; set; }
         public event Action<float> OnChangeMana = delegate { };
-        public float currentMana;
+        public float CurrentMana;
         private PlayerStateMachine _playerStateMachine;
 
         private void Awake()
         {
             _playerStateMachine = GetComponent<PlayerStateMachine>();
-            currentMana = maxMana;
+            CurrentMana = MaxMana;
         }
 
         public void ChangeMana(int amount)
         {
-            currentMana = Mathf.Max(currentMana - amount, 0);
-            OnChangeMana?.Invoke(currentMana / maxMana);
+            CurrentMana = Mathf.Max(CurrentMana - amount, 0);
+            OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }
 
         public void RecoveryMana(float amount)
         {
-            currentMana = Mathf.Min(currentMana + amount, maxMana);
-            OnChangeMana?.Invoke(currentMana / maxMana);
+            CurrentMana = Mathf.Min(CurrentMana + amount, MaxMana);
+            OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }
 
         public void AddMana()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual)
+            if (_playerStateMachine.IsCanNotSubSpiritual)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
-            maxMana += 1;
-            currentMana = maxMana;
-            OnChangeMana?.Invoke(currentMana / maxMana);
+            MaxMana += 1;
+            CurrentMana = MaxMana;
+            OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }
 
         public void SubMana()
         {
-            if (currentMana == 1000)
+            if (CurrentMana == 1000)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            maxMana -= 1;
-            currentMana = maxMana;
-            OnChangeMana?.Invoke(currentMana / maxMana);
+            MaxMana -= 1;
+            CurrentMana = MaxMana;
+            OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }
 
         public void Reset()
         {
-            currentMana = maxMana;
-            OnChangeMana?.Invoke(currentMana / maxMana);
+            CurrentMana = MaxMana;
+            OnChangeMana?.Invoke(CurrentMana / MaxMana);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.Animator.CrossFadeInFixedTime(_targetLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
 
-            if (!playerStateMachine.isAttackState)
+            if (!playerStateMachine.IsAttackState)
             {
                 playerStateMachine.EnterChangeAction(true);
             }
@@ -34,17 +34,17 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            if (playerStateMachine.Targeter.currentTarget == null)
+            if (playerStateMachine.Targeter.CurrentTarget == null)
             {
                 OutTargetState();
             }
 
-            var _movement = CalculateMovementInTarget();
+            var movement = CalculateMovementInTarget();
             var speed = playerStateMachine.InputReader.IsSprint
                 ? playerStateMachine.FreeLookMovementSprintSpeed
                 : playerStateMachine.FreeLookMovementSpeed;
 
-            if (_movement != Vector3.zero)
+            if (movement != Vector3.zero)
             {
                 if (playerStateMachine.InputReader.IsSprint)
                 {
@@ -63,13 +63,13 @@ namespace DesignPattern.StateMachine.Player.Main
             if (playerStateMachine.Stamina.CurrentStamina < playerStateMachine.Stamina.walkReduce)
             {
                 speed = 0f;
-                _movement = Vector3.zero;
+                movement = Vector3.zero;
             }
 
 
             playerStateMachine.HandleAttackState();
             playerStateMachine.HandleHeavyAttackState();
-            Move(_movement * speed, deltaTime);
+            Move(movement * speed, deltaTime);
             UpdateAnimation(deltaTime);
             FaceTarget(deltaTime);
         }

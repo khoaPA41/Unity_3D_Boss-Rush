@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace DesignPattern.EventBus
 {
-    public class ManageAnimationSkillEvent : MonoBehaviour
+    public class SkillAnimationEvents : MonoBehaviour
     {
         public event Action SituationEvent;
         public event Action NextActionEvent;

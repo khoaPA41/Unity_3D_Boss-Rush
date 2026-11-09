@@ -6,13 +6,13 @@ namespace DesignPattern.StateMachine.Boss.Main
 {
     public class BossDeathState : BossBaseState
     {
-        readonly int DeathAnimationOneHash = Animator.StringToHash("Death_1");
-        readonly int DeathAnimationTwoHash = Animator.StringToHash("Death_2");
-        readonly string DeathAnimationTag = "Death";
+        readonly int _deathAnimationOneHash = Animator.StringToHash("Death_1");
+        readonly int _deathAnimationTwoHash = Animator.StringToHash("Death_2");
+        readonly string _deathAnimationTag = "Death";
 
-        private float previousTime;
-        int randomAnimation;
-        bool isDead;
+        private float _previousTime;
+        int _randomAnimation;
+        bool _isDead;
         public BossDeathState(BossStateMachine bossStateMachine) : base(bossStateMachine)
         {
         }
@@ -20,25 +20,25 @@ namespace DesignPattern.StateMachine.Boss.Main
         public override void Enter()
         {
 
-            randomAnimation = Random.Range(0, 2);
+            _randomAnimation = Random.Range(0, 2);
             bossStateMachine.Animator.CrossFadeInFixedTime(
-                randomAnimation == 0 ? DeathAnimationOneHash : DeathAnimationTwoHash,
+                _randomAnimation == 0 ? _deathAnimationOneHash : _deathAnimationTwoHash,
                 bossStateMachine.AnimationCrossFade);
             bossStateMachine.CharacterController.enabled = false;
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, DeathAnimationTag, 0);
-            if (normalizeTime > previousTime && normalizeTime >= .9f)
+            var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, _deathAnimationTag, 0);
+            if (normalizeTime > _previousTime && normalizeTime >= .9f)
             {
-                if (!isDead)
+                if (!_isDead)
                 {
                     bossStateMachine.BossBehaviorBrain.IsDead = true;
-                    isDead = true;
+                    _isDead = true;
                 }
             }
-            previousTime = normalizeTime;
+            _previousTime = normalizeTime;
         }
 
         public override void Exit()

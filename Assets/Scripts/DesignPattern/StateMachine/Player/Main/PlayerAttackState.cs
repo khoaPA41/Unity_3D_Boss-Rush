@@ -28,9 +28,9 @@ namespace DesignPattern.StateMachine.Player.Main
                 return;
             }
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition, 0);
-            playerStateMachine.DealDamage.SetDamage(playerStateMachine.IsIncreaseDamagePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
+            playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.IsIncreaseDamagePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
-            playerStateMachine.WeaponTrail.SetActive(true);
+            playerStateMachine.WeaponTrailVisual.SetActive(true);
         }
 
         public override void Tick(float deltaTime)
@@ -83,7 +83,7 @@ namespace DesignPattern.StateMachine.Player.Main
         public override void Exit()
         {
             playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;
-            playerStateMachine.WeaponTrail.SetActive(false);
+            playerStateMachine.WeaponTrailVisual.SetActive(false);
         }
 
         private void TryCombo()
@@ -115,7 +115,7 @@ namespace DesignPattern.StateMachine.Player.Main
             swordEndPos = playerStateMachine.WeaponTip.position;
             var slashDir = swordEndPos - playerStateMachine.StartSwordPos;
 
-            var vfx = ObjectPooling.ObjectPooling.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTransform.position);
+            var vfx = ObjectPoolManager.Instance.GetPooledObject(_attackData.VfxName, playerStateMachine.WeaponTransform.position);
             if (slashDir.sqrMagnitude > 0.001f)
             {
                 var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);

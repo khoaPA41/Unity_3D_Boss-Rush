@@ -679,7 +679,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -754,7 +754,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -811,7 +811,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5455,7 +5455,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5530,7 +5530,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5587,7 +5587,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10370,7 +10370,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10445,7 +10445,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10502,7 +10502,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15206,7 +15206,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15281,7 +15281,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15338,7 +15338,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20112,7 +20112,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20187,7 +20187,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20244,7 +20244,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -24870,7 +24870,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -24945,7 +24945,7 @@ ParticleSystem:
       value: 3
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25002,7 +25002,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -29785,7 +29785,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -29860,7 +29860,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -29917,7 +29917,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34639,7 +34639,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34714,7 +34714,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34771,7 +34771,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -38820,13 +38820,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef70226ef83bcc40b9a0a4578f09b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordSkill
-  speed: 30
-  homingSensitivity: 5
-  hitDistance: 0.1
+  _speed: 30
+  _homingSensitivity: 5
+  _hitDistance: 0.1
   timeToReturn: 2
-  isRelease: 1
-  isActiveAnotherSkill: 1
-  skillNameContinue: FireExplosion
+  _isRelease: 1
+  _isActiveAnotherSkill: 1
+  _skillNameContinue: FireExplosion
 --- !u!114 &1159495675587066052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38888,9 +38888,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 0}
-  baseDamage: 0
-  sfx: {fileID: 0}
-  isEffect: 1
+  _baseDamage: 0
+  _sfx: {fileID: 0}
+  _isEffect: 1
 --- !u!1 &7095057181684307903
 GameObject:
   m_ObjectHideFlags: 0
@@ -39570,7 +39570,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39645,7 +39645,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39702,7 +39702,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44418,7 +44418,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44493,7 +44493,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44550,7 +44550,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49254,7 +49254,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49329,7 +49329,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49386,7 +49386,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1

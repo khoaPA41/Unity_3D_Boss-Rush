@@ -11,7 +11,7 @@ namespace UI
 {
     public class WorldUIManager : MonoBehaviour
     {
-        public static WorldUIManager instance;
+        public static WorldUIManager Instance;
 
         [Header("System UI")][SerializeField] private GameObject systemUI;
         [Header("Settings UI")][SerializeField] private GameObject settingsUI;
@@ -27,9 +27,9 @@ namespace UI
 
         private void Awake()
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = this;
+                Instance = this;
             }
         }
 
@@ -41,16 +41,16 @@ namespace UI
         /******************* Exit *******************/
         public void ExitGame()
         {
-            GameManagers.Instance.ExitGame();
+            GameManager.Instance.ExitGame();
         }
 
         public void ExitToTitle()
         {
-            GameManagers.Instance.ExitToTitle();
+            GameManager.Instance.ExitToTitle();
         }
 
         /******************* Checkpoint *******************/
-        public void ActiveTabUI(string tabName)
+        public void ShowTabUI(string tabName)
         {
             foreach (var tab in tabUIList)
             {
@@ -61,46 +61,46 @@ namespace UI
         /******************* UI Sound *******************/
         public void PlayClickSound1()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundClick_1);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundClick_1);
         }
 
         public void PlayClickSound2()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundClick_2);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundClick_2);
         }
 
         public void PlayClickSound3()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundClick_3);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundClick_3);
         }
 
         public void PlayClickSound4()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundClick_4);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundClick_4);
         }
 
         public void PlayHoldSound1()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundHold_1);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundHold_1);
         }
 
         public void PlayHoldSound2()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundHold_2);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundHold_2);
         }
 
         public void PlayHoldSound3()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundHold_3);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundHold_3);
         }
 
         public void PlayHoldSound4()
         {
-            AudioManagers.Instance.PlayUISound(AudioManagers.Instance.buttonSoundHold_4);
+            AudioManager.Instance.PlayUISound(AudioManager.Instance.buttonSoundHold_4);
         }
 
         /****************************************************************************************/
-        public void ActiveSystemUI()
+        public void ShowSystemUI()
         {
             ActiveSystemUIEvent?.Invoke();
         }
@@ -110,7 +110,7 @@ namespace UI
             systemUI.SetActive(!systemUI.activeInHierarchy);
         }
 
-        public void HandleActiveSettingsUI()
+        public void ShowSettingsUI()
         {
             isActiveSettingsUI = true;
             settingsUI.SetActive(!settingsUI.activeInHierarchy);
@@ -160,8 +160,8 @@ namespace UI
 
             while (timeElapsed < fadeDuration)
             {
-                var TimePercentage = timeElapsed / fadeDuration;
-                var newColor = Mathf.Lerp(currentOpacity, targetOpacity, TimePercentage);
+                var timePercentage = timeElapsed / fadeDuration;
+                var newColor = Mathf.Lerp(currentOpacity, targetOpacity, timePercentage);
                 backgroundColor.a = newColor;
                 defeatBackground.color = backgroundColor;
                 timeElapsed += Time.deltaTime;

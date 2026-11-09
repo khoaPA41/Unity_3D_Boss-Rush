@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -27,32 +27,32 @@ namespace Managers
         [SerializeField] private Slider SFXVolumeSliderNonCheckpoint;
         [SerializeField] private Slider UIVolumeSliderNonCheckpoint;
 
-        public float _masterVolume { get; set; } = 1f;
-        public float _bgmVolume { get; set; } = 1f;
-        public float _sfxVolume { get; set; } = 1f;
-        public float _uiVolume { get; set; } = 1f;
+        public float MasterVolume { get; set; } = 1f;
+        public float BgmVolume { get; set; } = 1f;
+        public float SfxVolume { get; set; } = 1f;
+        public float UiVolume { get; set; } = 1f;
 
         private void Start()
         {
             UpdateSoundSettingsUI();
 
-            SetMasterVolume(_masterVolume);
-            SetBGMVolume(_bgmVolume);
-            SetSFXVolume(_sfxVolume);
-            SetUIVolume(_uiVolume);
+            SetMasterVolume(MasterVolume);
+            SetBGMVolume(BgmVolume);
+            SetSFXVolume(SfxVolume);
+            SetUIVolume(UiVolume);
         }
 
         private void UpdateSoundSettingsUI()
         {
-            masterVolumeSlider.value = _masterVolume;
-            BGMVolumeSlider.value = _bgmVolume;
-            SFXVolumeSlider.value = _sfxVolume;
-            UIVolumeSlider.value = _uiVolume;
+            masterVolumeSlider.value = MasterVolume;
+            BGMVolumeSlider.value = BgmVolume;
+            SFXVolumeSlider.value = SfxVolume;
+            UIVolumeSlider.value = UiVolume;
 
-            masterVolumeSliderNonCheckpoint.value = _masterVolume;
-            BGMVolumeSliderNonCheckpoint.value = _bgmVolume;
-            SFXVolumeSliderNonCheckpoint.value = _sfxVolume;
-            UIVolumeSliderNonCheckpoint.value = _uiVolume;
+            masterVolumeSliderNonCheckpoint.value = MasterVolume;
+            BGMVolumeSliderNonCheckpoint.value = BgmVolume;
+            SFXVolumeSliderNonCheckpoint.value = SfxVolume;
+            UIVolumeSliderNonCheckpoint.value = UiVolume;
         }
 
         public void SetMasterVolume(float volume)
@@ -60,14 +60,14 @@ namespace Managers
             mixer.SetFloat("Master", Mathf.Log10(volume) * 20);
             if (systemUI.activeInHierarchy)
             {
-                _masterVolume = masterVolumeSlider.value;
+                MasterVolume = masterVolumeSlider.value;
                 masterVolumeSliderNonCheckpoint.value = masterVolumeSlider.value;
                 return;
             }
 
             if (settingsUI.activeInHierarchy)
             {
-                _masterVolume = masterVolumeSliderNonCheckpoint.value;
+                MasterVolume = masterVolumeSliderNonCheckpoint.value;
                 masterVolumeSlider.value = masterVolumeSliderNonCheckpoint.value;
             }
         }
@@ -77,14 +77,14 @@ namespace Managers
             mixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
             if (systemUI.activeInHierarchy)
             {
-                _bgmVolume = BGMVolumeSlider.value;
+                BgmVolume = BGMVolumeSlider.value;
                 BGMVolumeSliderNonCheckpoint.value = BGMVolumeSlider.value;
                 return;
             }
 
             if (settingsUI.activeInHierarchy)
             {
-                _bgmVolume = BGMVolumeSliderNonCheckpoint.value;
+                BgmVolume = BGMVolumeSliderNonCheckpoint.value;
                 BGMVolumeSlider.value = BGMVolumeSliderNonCheckpoint.value;
             }
         }
@@ -94,14 +94,14 @@ namespace Managers
             mixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
             if (systemUI.activeInHierarchy)
             {
-                _sfxVolume = SFXVolumeSlider.value;
+                SfxVolume = SFXVolumeSlider.value;
                 SFXVolumeSliderNonCheckpoint.value = SFXVolumeSlider.value;
                 return;
             }
 
             if (settingsUI.activeInHierarchy)
             {
-                _sfxVolume = SFXVolumeSliderNonCheckpoint.value;
+                SfxVolume = SFXVolumeSliderNonCheckpoint.value;
                 SFXVolumeSlider.value = SFXVolumeSliderNonCheckpoint.value;
             }
         }
@@ -111,14 +111,14 @@ namespace Managers
             mixer.SetFloat("UI", Mathf.Log10(volume) * 20);
             if (systemUI.activeInHierarchy)
             {
-                _uiVolume = UIVolumeSlider.value;
+                UiVolume = UIVolumeSlider.value;
                 UIVolumeSliderNonCheckpoint.value = UIVolumeSlider.value;
                 return;
             }
 
             if (settingsUI.activeInHierarchy)
             {
-                _uiVolume = UIVolumeSliderNonCheckpoint.value;
+                UiVolume = UIVolumeSliderNonCheckpoint.value;
                 UIVolumeSlider.value = UIVolumeSliderNonCheckpoint.value;
             }
         }

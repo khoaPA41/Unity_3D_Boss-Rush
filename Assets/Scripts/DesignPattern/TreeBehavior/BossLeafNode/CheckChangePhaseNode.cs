@@ -1,4 +1,4 @@
-﻿using DesignPattern.StateMachine.Boss.Base;
+using DesignPattern.StateMachine.Boss.Base;
 using DesignPattern.TreeBehavior.Base;
 using DesignPattern.TreeBehavior.Brain;
 
@@ -17,13 +17,13 @@ namespace DesignPattern.TreeBehavior.BossLeafNode
         }
         public override NodeState Evaluate()
         {
-            if (bossBehaviorBrain.CurrentPhase + 1 == bossBehaviorBrain.Phase)
+            if (bossBehaviorBrain.CurrentPhase + 1 == bossBehaviorBrain.TotalPhases)
             {
                 return NodeState.Failure;
             }
 
             if (bossStateMachine.NormalCombo[bossBehaviorBrain.NextPhase].HealthThreshold >=
-            bossStateMachine.Health.currentHealth / bossStateMachine.Health.maxHealth)
+            bossStateMachine.Health.CurrentHealth / bossStateMachine.Health.MaxHealth)
             {
                 return NodeState.Success;
             }

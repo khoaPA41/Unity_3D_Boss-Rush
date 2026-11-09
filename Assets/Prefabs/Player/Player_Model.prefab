@@ -1532,7 +1532,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -1607,7 +1607,7 @@ ParticleSystem:
       value: 0.25
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -1664,7 +1664,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10153,10 +10153,10 @@ MonoBehaviour:
     <Force>k__BackingField: 3
     <AttackDamage>k__BackingField: 50
     <SkillType>k__BackingField: 0
-  <DealDamage>k__BackingField: {fileID: 4425431695892558300}
+  <WeaponTrail>k__BackingField: {fileID: 4425431695892558300}
   <WeaponTip>k__BackingField: {fileID: 5239030469626473809}
   <WeaponTransform>k__BackingField: {fileID: 8028666579852811677}
-  <WeaponTrail>k__BackingField: {fileID: 7687407226092184074}
+  <WeaponTrailVisual>k__BackingField: {fileID: 7687407226092184074}
   <SkillActive>k__BackingField: {fileID: 5549043201700883208}
   <Health>k__BackingField: {fileID: 6702550049071524971}
   <Mana>k__BackingField: {fileID: 1202177237295590385}
@@ -10200,9 +10200,9 @@ MonoBehaviour:
   Invincible: 0
   Invisible: 0
   SkillNumber: 0
-  isAttackState: 0
-  isCanNotSubSpiritual: 0
-  isCanNotAddSpiritual: 0
+  IsAttackState: 0
+  IsCanNotSubSpiritual: 0
+  IsCanNotAddSpiritual: 0
 --- !u!114 &6230977722050852817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10240,14 +10240,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHanldler
-  weaponRightLogic: {fileID: 9126330254459874873}
-  weaponLeftLogic: {fileID: 0}
-  otherDamageLogic: {fileID: 0}
-  weaponMain: {fileID: 827916430782137290}
-  weaponStore: {fileID: 2616110843000586640}
-  LeftSingleSword: {fileID: 0}
-  RightSingleSword: {fileID: 0}
-  DoubleEdgedSword: {fileID: 0}
+  _weaponRightLogic: {fileID: 9126330254459874873}
+  _weaponLeftLogic: {fileID: 0}
+  _otherDamageLogic: {fileID: 0}
+  _weaponMain: {fileID: 827916430782137290}
+  _weaponStore: {fileID: 2616110843000586640}
+  _leftSingleSword: {fileID: 0}
+  _rightSingleSword: {fileID: 0}
+  _doubleEdgedSword: {fileID: 0}
 --- !u!95 &2975159532279351940
 Animator:
   serializedVersion: 7
@@ -10333,9 +10333,9 @@ MonoBehaviour:
   subPotionImage1: {fileID: 0}
   subPotionImage2: {fileID: 0}
   subPotionImage3: {fileID: 0}
-  icon_ChangingTheGame: {fileID: 0}
-  icon_Escape: {fileID: 0}
-  icon_Response: {fileID: 0}
+  IconChangingTheGame: {fileID: 0}
+  IconEscape: {fileID: 0}
+  IconResponse: {fileID: 0}
   systemUI: {fileID: 0}
   skillSystemList:
   - {fileID: 0}
@@ -10392,15 +10392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  <maxHealth>k__BackingField: 500
+  <MaxHealth>k__BackingField: 500
   <resistance>k__BackingField: 10
   <reduceHealthFollowingDuration>k__BackingField: 0.2
   <reduceHealPrevDuration>k__BackingField: 0.3
-  reduceHealth: 1.3
-  timeFreeze: 0
-  timeToBackNormal: 0.05
+  _reduceHealth: 1.3
+  _timeFreeze: 0
+  _timeToBackNormal: 0.05
   <PlayerSFX>k__BackingField: {fileID: 4745761821281125155}
-  currentHealth: 0
+  CurrentHealth: 0
   isPerfectDodge: 0
   isReduceDamage: 0
 --- !u!114 &1202177237295590385
@@ -10415,9 +10415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5971d30a31cfcc84095809b2ad398781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mana
-  <maxMana>k__BackingField: 100
+  <MaxMana>k__BackingField: 100
   <reduceManaDuration>k__BackingField: 0.8
-  currentMana: 0
+  CurrentMana: 0
 --- !u!114 &1046720075806923731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10430,15 +10430,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1e3be33bd502244a45d2e91aa8def2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  <maxStamina>k__BackingField: 100
-  <dodgeReduce>k__BackingField: 20
+  <MaxStamina>k__BackingField: 100
+  <DodgeReduce>k__BackingField: 20
   <walkReduce>k__BackingField: 10
   <runReduce>k__BackingField: 20
   <lightAttackReduce>k__BackingField: 20
   <heavyAttackReduce>k__BackingField: 50
   <jumpReduce>k__BackingField: 30
-  reduceStamina: 10
-  recoveryStamina: 40
+  _reduceStamina: 10
+  _recoveryStamina: 40
   IsCombat: 0
 --- !u!114 &2205322713875373715
 MonoBehaviour:
@@ -10452,7 +10452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d571e03733ec44aa14ab19de62f84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthPotion
-  maxPotion: 500
+  MaxPotion: 500
   <potionUsage>k__BackingField: 100
   <reduceDuration>k__BackingField: 0.15
   <maxPotionAdded>k__BackingField: 10
@@ -10469,7 +10469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d9de15746da1742ab7c8f2f340b69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ManaPotion
-  maxPotion: 100
+  MaxPotion: 100
   <potionUsage>k__BackingField: 30
   <reduceDuration>k__BackingField: 0.15
   <maxPotionAdded>k__BackingField: 10
@@ -19652,7 +19652,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -19727,7 +19727,7 @@ ParticleSystem:
       value: 0.25
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -19784,7 +19784,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -24644,9 +24644,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   _legalOwner: {fileID: 5780190265239677537}
-  baseDamage: 0
-  sfx: {fileID: 4745761821281125155}
-  isEffect: 0
+  _baseDamage: 0
+  _sfx: {fileID: 4745761821281125155}
+  _isEffect: 0
 --- !u!65 &8266494265506361776
 BoxCollider:
   m_ObjectHideFlags: 0

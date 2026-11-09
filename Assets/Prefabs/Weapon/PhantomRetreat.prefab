@@ -679,7 +679,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -754,7 +754,7 @@ ParticleSystem:
       value: 0.01
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -811,7 +811,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5522,7 +5522,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5597,7 +5597,7 @@ ParticleSystem:
       value: 0.5
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5654,7 +5654,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10374,7 +10374,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10449,7 +10449,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10506,7 +10506,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15280,7 +15280,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15355,7 +15355,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15412,7 +15412,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20186,7 +20186,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20261,7 +20261,7 @@ ParticleSystem:
       value: 0.01
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20318,7 +20318,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25035,7 +25035,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25110,7 +25110,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25167,7 +25167,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -29314,9 +29314,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 25
-  sfx: {fileID: 0}
-  isEffect: 1
+  _baseDamage: 25
+  _sfx: {fileID: 0}
+  _isEffect: 1
 --- !u!1 &3828173401782392310
 GameObject:
   m_ObjectHideFlags: 0
@@ -29996,7 +29996,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -30071,7 +30071,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -30128,7 +30128,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34904,7 +34904,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34979,7 +34979,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -35036,7 +35036,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 3
@@ -39856,7 +39856,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39931,7 +39931,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39988,7 +39988,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44765,7 +44765,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44840,7 +44840,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44897,7 +44897,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49044,9 +49044,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 25
-  sfx: {fileID: 0}
-  isEffect: 1
+  _baseDamage: 25
+  _sfx: {fileID: 0}
+  _isEffect: 1
 --- !u!1 &7072890732476236523
 GameObject:
   m_ObjectHideFlags: 0
@@ -49726,7 +49726,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49801,7 +49801,7 @@ ParticleSystem:
       value: 0.5
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49858,7 +49858,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54578,7 +54578,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54653,7 +54653,7 @@ ParticleSystem:
       value: 0.01
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54710,7 +54710,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59421,7 +59421,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59496,7 +59496,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59553,7 +59553,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -64324,7 +64324,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -64399,7 +64399,7 @@ ParticleSystem:
       value: 0.5
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -64456,7 +64456,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -69204,7 +69204,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -69279,7 +69279,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -69336,7 +69336,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -74107,7 +74107,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -74182,7 +74182,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -74239,7 +74239,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -78386,6 +78386,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _legalOwner: {fileID: 0}
-  baseDamage: 25
-  sfx: {fileID: 0}
-  isEffect: 1
+  _baseDamage: 25
+  _sfx: {fileID: 0}
+  _isEffect: 1

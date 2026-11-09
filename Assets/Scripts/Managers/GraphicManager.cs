@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -17,25 +17,25 @@ namespace Managers
     {
         public static GraphicManager Instance { get; private set; }
 
-        [Header("Post Processing")] public Volume postProcessingVolume;
-        [Header("Ambient Occlusion")] public ScriptableRendererFeature ambientOcclusionFeature;
+        [Header("Post Processing")] public Volume PostProcessingVolume;
+        [Header("Ambient Occlusion")] public ScriptableRendererFeature AmbientOcclusionFeature;
 
         private Bloom bloom;
         private MotionBlur motionBlur;
 
         public List<Resolution> AvailableResolutions { get; private set; }
 
-        public int resolutionIndex { get; set; }
-        public int displayModeIndex { get; set; }
-        public bool vsync { get; set; }
-        public int fps { get; set; }
-        public int qualityPresetIndex { get; set; }
-        public bool shadow { get; set; }
-        public int antiAliasingIndex { get; set; }
-        public int textureQualityIndex { get; set; }
-        public bool bloomData { get; set; }
-        public bool motionBlurData { get; set; }
-        public bool ambientOcclusion { get; set; }
+        public int ResolutionIndex { get; set; }
+        public int DisplayModeIndex { get; set; }
+        public bool Vsync { get; set; }
+        public int Fps { get; set; }
+        public int QualityPresetIndex { get; set; }
+        public bool Shadow { get; set; }
+        public int AntiAliasingIndex { get; set; }
+        public int TextureQualityIndex { get; set; }
+        public bool BloomData { get; set; }
+        public bool MotionBlurData { get; set; }
+        public bool AmbientOcclusion { get; set; }
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -49,9 +49,9 @@ namespace Managers
 
             BuildResolutionList();
 
-            if (postProcessingVolume == null || postProcessingVolume.profile == null) return;
-            postProcessingVolume.profile.TryGet<Bloom>(out bloom);
-            postProcessingVolume.profile.TryGet<MotionBlur>(out motionBlur);
+            if (PostProcessingVolume == null || PostProcessingVolume.profile == null) return;
+            PostProcessingVolume.profile.TryGet<Bloom>(out bloom);
+            PostProcessingVolume.profile.TryGet<MotionBlur>(out motionBlur);
         }
 
 
@@ -90,7 +90,7 @@ namespace Managers
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
 
             // Save data
-            resolutionIndex = index;
+            ResolutionIndex = index;
         }
 
         public void SetDisplayMode(int index)
@@ -105,7 +105,7 @@ namespace Managers
             Screen.fullScreenMode = mode;
 
             //Save data
-            displayModeIndex = index;
+            DisplayModeIndex = index;
         }
 
         public void SetVsync(bool active)
@@ -113,21 +113,21 @@ namespace Managers
             QualitySettings.vSyncCount = active ? 1 : 0;
 
             //Save data
-            vsync = active;
+            Vsync = active;
         }
 
         public void SetFPSLimit(int fps)
         {
             Application.targetFrameRate = fps > 0 ? fps : 60;
             //Save data
-            this.fps = fps;
+            Fps = fps;
         }
 
         public void SetQualityPreset(int index)
         {
             QualitySettings.SetQualityLevel(index, true);
             //Save data
-            qualityPresetIndex = index;
+            QualityPresetIndex = index;
         }
 
         public void SetShadow(bool active)
@@ -136,7 +136,7 @@ namespace Managers
             if (mainLight == null) return;
             mainLight.shadows = active ? LightShadows.Soft : LightShadows.None;
             //Save data
-            shadow = active;
+            Shadow = active;
         }
 
         public void SetAntiAliasing(int index)
@@ -147,7 +147,7 @@ namespace Managers
             QualitySettings.antiAliasing = msaa;
 
             //Save data
-            antiAliasingIndex = index;
+            AntiAliasingIndex = index;
         }
 
         public void SetTextureQuality(int index)
@@ -155,7 +155,7 @@ namespace Managers
             QualitySettings.globalTextureMipmapLimit = index;
 
             //Save data
-            textureQualityIndex = index;
+            TextureQualityIndex = index;
         }
 
         public void SetBloom(bool active)
@@ -163,43 +163,43 @@ namespace Managers
             if (bloom != null) bloom.active = active;
 
             //Save data
-            bloomData = active;
+            BloomData = active;
         }
 
         public void SetMotionBlur(bool active)
         {
             if (motionBlur != null) motionBlur.active = active;
             //Save data
-            motionBlurData = active;
+            MotionBlurData = active;
         }
 
         public void SetAmbientOcclusion(bool active)
         {
-            if (ambientOcclusionFeature != null) ambientOcclusionFeature.SetActive(active); ;
+            if (AmbientOcclusionFeature != null) AmbientOcclusionFeature.SetActive(active);
             //Save data
-            ambientOcclusion = active;
+            AmbientOcclusion = active;
         }
 
         /******************************** Load At Start ********************************/
         public void LoadApplyAll()
         {
-            if (!SaveManagers.Instance.HaveSaveData())
+            if (!SaveManager.Instance.HaveSaveData())
             {
                 SetResolution(17);
                 SetDisplayMode(0);
                 return;
             }
-            SetResolution(SaveManagers.Instance.CurrentSaveData.resolutionIndex);
-            SetDisplayMode(SaveManagers.Instance.CurrentSaveData.displayModeIndex);
-            SetVsync(SaveManagers.Instance.CurrentSaveData.vsync);
-            SetFPSLimit(SaveManagers.Instance.CurrentSaveData.fps);
-            SetQualityPreset(SaveManagers.Instance.CurrentSaveData.qualityPresetIndex);
-            SetShadow(SaveManagers.Instance.CurrentSaveData.shadow);
-            SetAntiAliasing(SaveManagers.Instance.CurrentSaveData.antiAliasingIndex);
-            SetTextureQuality(SaveManagers.Instance.CurrentSaveData.textureQualityIndex);
-            SetBloom(SaveManagers.Instance.CurrentSaveData.bloom);
-            SetMotionBlur(SaveManagers.Instance.CurrentSaveData.motionBlur);
-            SetAmbientOcclusion(SaveManagers.Instance.CurrentSaveData.ambientOcclusion);
+            SetResolution(SaveManager.Instance.CurrentSaveData.resolutionIndex);
+            SetDisplayMode(SaveManager.Instance.CurrentSaveData.displayModeIndex);
+            SetVsync(SaveManager.Instance.CurrentSaveData.vsync);
+            SetFPSLimit(SaveManager.Instance.CurrentSaveData.fps);
+            SetQualityPreset(SaveManager.Instance.CurrentSaveData.qualityPresetIndex);
+            SetShadow(SaveManager.Instance.CurrentSaveData.shadow);
+            SetAntiAliasing(SaveManager.Instance.CurrentSaveData.antiAliasingIndex);
+            SetTextureQuality(SaveManager.Instance.CurrentSaveData.textureQualityIndex);
+            SetBloom(SaveManager.Instance.CurrentSaveData.bloom);
+            SetMotionBlur(SaveManager.Instance.CurrentSaveData.motionBlur);
+            SetAmbientOcclusion(SaveManager.Instance.CurrentSaveData.ambientOcclusion);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +13,7 @@ namespace UI
         private string sceneToLoad;
         private void Start()
         {
-            sceneToLoad = SaveManagers.Instance.CurrentSaveData.sceneName;
+            sceneToLoad = SaveManager.Instance.CurrentSaveData.sceneName;
             StartCoroutine(LoadSceneAsync());
         }
 

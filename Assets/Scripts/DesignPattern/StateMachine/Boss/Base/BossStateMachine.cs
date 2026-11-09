@@ -59,7 +59,7 @@ namespace DesignPattern.StateMachine.Boss.Base
         [field: Header("Animation")]
         [field: SerializeField]
         public Animator Animator { get; private set; }
-        [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
+        [field: SerializeField] public SkillAnimationEvents ManageAnimationSkillEvent { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
 
         [field: Header("State")]
@@ -113,7 +113,7 @@ namespace DesignPattern.StateMachine.Boss.Base
 
         private void Start()
         {
-            GameEventManagers.Instance.OnSkillCasted += HandleSkillEvent;
+            GameEventManager.Instance.OnSkillCasted += HandleSkillEvent;
         }
 
         private void OnEnable()
@@ -130,7 +130,7 @@ namespace DesignPattern.StateMachine.Boss.Base
 
         private void OnDestroy()
         {
-            GameEventManagers.Instance.OnSkillCasted -= HandleSkillEvent;
+            GameEventManager.Instance.OnSkillCasted -= HandleSkillEvent;
         }
 
 
@@ -195,7 +195,7 @@ namespace DesignPattern.StateMachine.Boss.Base
             return skillEffect switch
             {
                 SkillEffect.NonEffect => () => { },
-                SkillEffect.Inescapable => () => Coroutine(3f, () =>
+                SkillEffect.Inescapable => () => StartTimedAction(3f, () =>
                     {
                         ForceReceiver.SetCoefficientOfMovement(0f);
                         ReturnLocomotion();
@@ -207,7 +207,7 @@ namespace DesignPattern.StateMachine.Boss.Base
             };
         }
 
-        private void Coroutine(float time, Action action1, Action action2)
+        private void StartTimedAction(float time, Action action1, Action action2)
         {
             StartCoroutine(WaitToContinue(time, action1, action2));
         }

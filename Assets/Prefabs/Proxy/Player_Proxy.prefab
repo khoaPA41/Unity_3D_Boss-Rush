@@ -2392,7 +2392,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   _legalOwner: {fileID: 7091772724580400480}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!65 &6966838713481032671
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -705376,14 +705376,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.73333335
-    functionName: OnActiveWeaponLeftCollider
+    functionName: ActivateLeftWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.73333335
-    functionName: OnActiveWeaponRightCollider
+    functionName: ActivateRightWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -705397,14 +705397,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.4666667
-    functionName: OnUnActiveWeaponLeftCollider
+    functionName: DeactivateLeftWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.4666667
-    functionName: OnUnActiveWeaponRightCollider
+    functionName: DeactivateRightWeaponCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -39,7 +39,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.dodgeReduce);
+            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.DodgeReduce);
 
             CheckCounterattack();
 

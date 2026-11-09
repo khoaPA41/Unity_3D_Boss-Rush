@@ -9,20 +9,20 @@ namespace DesignPattern.StateMachine.Boss.Main
         private readonly AttackData _attackData;
         private float _previousTime;
         private bool _alreadyApplyForce;
-        private int normalComboIndex;
-        private int indexCombo;
-        float enterStateTime;
+        private int _normalComboIndex;
+        private int _indexCombo;
+        float _enterStateTime;
 
         public BossAttackState(BossStateMachine bossStateMachine, int normalComboIndex, int indexCombo, int index) : base(bossStateMachine)
         {
             _attackData = bossStateMachine.NormalCombo[normalComboIndex].Combo[indexCombo].AttackData[index];
-            this.normalComboIndex = normalComboIndex;
-            this.indexCombo = indexCombo;
+            _normalComboIndex = normalComboIndex;
+            _indexCombo = indexCombo;
         }
 
         public override void Enter()
         {
-            enterStateTime = Time.time;
+            _enterStateTime = Time.time;
 
             bossStateMachine.IsFinishedAttack = false;
 
@@ -69,7 +69,7 @@ namespace DesignPattern.StateMachine.Boss.Main
                 return;
             }
 
-            if (Time.time - enterStateTime < 0.2f)
+            if (Time.time - _enterStateTime < 0.2f)
             {
                 return;
             }
@@ -87,8 +87,8 @@ namespace DesignPattern.StateMachine.Boss.Main
 
             bossStateMachine.SwitchState(new BossAttackState(
                 bossStateMachine,
-                normalComboIndex,
-                indexCombo,
+                _normalComboIndex,
+                _indexCombo,
                 _attackData.NextAttackDataIndex
             ));
         }

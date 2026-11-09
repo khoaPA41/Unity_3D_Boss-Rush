@@ -705376,7 +705376,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.8666667
-    functionName: OnActiveOtherCollider
+    functionName: ActivateOtherCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -705390,7 +705390,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.2
-    functionName: OnUnActiveOtherCollider
+    functionName: DeactivateOtherCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

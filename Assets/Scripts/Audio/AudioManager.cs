@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using DesignPattern.ObjectPooling;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 namespace Audio
 {
-    public class AudioManagers : MonoBehaviour
+    public class AudioManager : MonoBehaviour
     {
-        public static AudioManagers Instance;
+        public static AudioManager Instance;
 
         [Header("Object Pooling")]
-        [SerializeField] private ObjectPooling _objectPooling;
+        [SerializeField] private ObjectPoolManager _objectPooling;
 
         [Header("Background Music")]
-        [SerializeField] private AudioSource bossFight_I;
-        [SerializeField] private AudioSource bossFight_II;
+        [SerializeField] private AudioSource _bossFightI;
+        [SerializeField] private AudioSource _bossFightII;
 
         [Header("SFX For Boss Skill")]
         [field: SerializeField] public AudioResource throwSwordResource;
@@ -37,7 +37,7 @@ namespace Audio
         [field: SerializeField] public AudioResource phantomMirageResource;
 
         [Header("UI Sound")]
-        [SerializeField] private AudioSource uiAudioSource;
+        [SerializeField] private AudioSource _uiAudioSource;
         [field: SerializeField] public AudioResource buttonSoundClick_1;
         [field: SerializeField] public AudioResource buttonSoundClick_2;
         [field: SerializeField] public AudioResource buttonSoundClick_3;
@@ -61,17 +61,17 @@ namespace Audio
         {
             if (isPhaseI)
             {
-                bossFight_I.Play();
+                _bossFightI.Play();
                 return;
             }
-            bossFight_I.Stop();
-            bossFight_II.Play();
+            _bossFightI.Stop();
+            _bossFightII.Play();
         }
 
         public void StopBackgroundMusic()
         {
-            bossFight_I.Stop();
-            bossFight_II.Stop();
+            _bossFightI.Stop();
+            _bossFightII.Stop();
         }
 
         public void PlaySound(Transform pos, AudioResource resource)
@@ -91,9 +91,9 @@ namespace Audio
 
         public void PlayUISound(AudioResource resource)
         {
-            uiAudioSource.Stop();
-            uiAudioSource.resource = resource;
-            uiAudioSource.Play();
+            _uiAudioSource.Stop();
+            _uiAudioSource.resource = resource;
+            _uiAudioSource.Play();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +13,9 @@ namespace DesignPattern.ObjectPooling
     }
 
 
-    public class ObjectPooling : MonoBehaviour
+    public class ObjectPoolManager : MonoBehaviour
     {
-        public static ObjectPooling Instance;
+        public static ObjectPoolManager Instance;
         [SerializeField] private List<PoolItem> poolItemList;
 
         private Dictionary<string, Stack<PooledObject>> pooledObjectDict;

@@ -661,7 +661,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -736,7 +736,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -793,7 +793,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5576,7 +5576,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5651,7 +5651,7 @@ ParticleSystem:
       value: 4
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -5708,7 +5708,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10480,7 +10480,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10555,7 +10555,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -10612,7 +10612,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15310,7 +15310,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15385,7 +15385,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -15442,7 +15442,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20225,7 +20225,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20300,7 +20300,7 @@ ParticleSystem:
       value: 4
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -20357,7 +20357,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25128,7 +25128,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25203,7 +25203,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -25260,7 +25260,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -29962,7 +29962,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -30037,7 +30037,7 @@ ParticleSystem:
       value: 0.1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -30094,7 +30094,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34661,7 +34661,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34736,7 +34736,7 @@ ParticleSystem:
       value: 0.1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -34793,7 +34793,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39441,7 +39441,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39516,7 +39516,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -39573,7 +39573,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -43696,7 +43696,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 0}
-  baseDamage: 300
+  _baseDamage: 300
 --- !u!65 &6582369665132691649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44397,7 +44397,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44472,7 +44472,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -44529,7 +44529,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49312,7 +49312,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49387,7 +49387,7 @@ ParticleSystem:
       value: 0.0001
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -49444,7 +49444,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54213,7 +54213,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54288,7 +54288,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -54345,7 +54345,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59061,7 +59061,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59136,7 +59136,7 @@ ParticleSystem:
       value: 1
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -59193,7 +59193,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -63946,7 +63946,7 @@ ParticleSystem:
     m_MeshSpawn:
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -64021,7 +64021,7 @@ ParticleSystem:
       value: 0.25
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1
@@ -64078,7 +64078,7 @@ ParticleSystem:
       value: 360
       mode: 0
       spread: 0
-      speed:
+      _speed:
         serializedVersion: 2
         minMaxState: 0
         scalar: 1

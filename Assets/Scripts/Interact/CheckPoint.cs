@@ -22,12 +22,12 @@ namespace Interact
             _inputReader = GetComponent<InputReader>();
         }
 
-        private void ActiveCheckPointUI()
+        private void InteractCheckPoint()
         {
             if (isAlreadyActive) return;
             ResetStatus();
             isAlreadyActive = true;
-            _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, true));
+            _playerStateMachine.SwitchState(new PlayerActivateCheckpointState(_playerStateMachine, true));
         }
 
         private void ResetStatus()
@@ -45,8 +45,8 @@ namespace Interact
             {
                 var checkPoint = other.GetComponent<ActiveCheckPoint>();
                 checkPoint.SubscribeEvent();
-                _inputReader.ActiveCheckPointAction += ActiveCheckPointUI;
-                GameManagers.Instance.SetCheckpoint(checkPoint.checkpointID, transform.position);
+                _inputReader.ActiveCheckPointAction += InteractCheckPoint;
+                GameManager.Instance.SetCheckpoint(checkPoint.checkpointID, transform.position);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Interact
             {
                 other.GetComponent<ActiveCheckPoint>().UnsubscribeEvent();
                 isAlreadyActive = false;
-                _inputReader.ActiveCheckPointAction -= ActiveCheckPointUI;
+                _inputReader.ActiveCheckPointAction -= InteractCheckPoint;
             }
         }
     }

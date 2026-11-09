@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Attack.SkillFactory;
 using DesignPattern.EventBus;
 using UnityEngine;
@@ -15,10 +15,10 @@ namespace Attack.Separate
         private void OnEnable()
         {
             damageLogic.SetActive(false);
-            StartCoroutine(WaitToActiveTrigger());
+            StartCoroutine(WaitToActivateTrigger());
         }
 
-        private IEnumerator WaitToActiveTrigger()
+        private IEnumerator WaitToActivateTrigger()
         {
             yield return new WaitForSeconds(timeToActiveTrigger);
             damageLogic.SetActive(true);
@@ -28,7 +28,7 @@ namespace Attack.Separate
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
-            GameEventManagers.Instance.TriggerSkillCasted(Caster, effect);
+            GameEventManager.Instance.TriggerSkillCasted(Caster, effect);
         }
     }
 }

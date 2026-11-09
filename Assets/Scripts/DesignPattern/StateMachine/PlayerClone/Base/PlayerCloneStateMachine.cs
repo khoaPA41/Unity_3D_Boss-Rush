@@ -14,7 +14,7 @@ namespace DesignPattern.StateMachine.PlayerClone.Base
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public float AnimationCrossFade { get; private set; } = .1f;
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
-        [field: SerializeField] public float ChangeChasingState { get; private set; } = 2f;
+        [field: SerializeField] public float TimeToStartChasing { get; private set; } = 2f;
 
 
         [Header("Physics")]

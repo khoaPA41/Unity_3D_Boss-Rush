@@ -5,9 +5,9 @@ namespace DesignPattern.StateMachine.Boss.Main
 {
     public class BossCounterAttackState : BossBaseState
     {
-        readonly int CounterAttackAnimationHash = Animator.StringToHash("Counterattack");
-        readonly string CounterAttackAnimationTag = "Counterattack";
-        private float previousTime;
+        readonly int _counterAttackAnimationHash = Animator.StringToHash("Counterattack");
+        readonly string _counterAttackAnimationTag = "Counterattack";
+        private float _previousTime;
 
         public BossCounterAttackState(BossStateMachine bossStateMachine) : base(bossStateMachine)
         {
@@ -17,19 +17,19 @@ namespace DesignPattern.StateMachine.Boss.Main
         {
             bossStateMachine.Health.noDamage = true;
             bossStateMachine.IsFinishedAttack = false;
-            previousTime = 0f;
-            bossStateMachine.Animator.CrossFadeInFixedTime(CounterAttackAnimationHash, bossStateMachine.AnimationCrossFade);
+            _previousTime = 0f;
+            bossStateMachine.Animator.CrossFadeInFixedTime(_counterAttackAnimationHash, bossStateMachine.AnimationCrossFade);
         }
 
         public override void Tick(float deltaTime)
         {
-            var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, CounterAttackAnimationTag, 0);
-            if (normalizeTime > previousTime && normalizeTime >= .9f)
+            var normalizeTime = GetNormalizeTime(bossStateMachine.Animator, _counterAttackAnimationTag, 0);
+            if (normalizeTime > _previousTime && normalizeTime >= .9f)
             {
                 bossStateMachine.IsFinishedAttack = true;
                 bossStateMachine.ReturnLocomotion();
             }
-            previousTime = normalizeTime;
+            _previousTime = normalizeTime;
         }
 
         public override void Exit()

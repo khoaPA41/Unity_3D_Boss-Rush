@@ -42,10 +42,10 @@ namespace DesignPattern.StateMachine.Player.Base
 
         [field: Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
-        [field: SerializeField] public WeaponTrail DealDamage { get; private set; }
+        [field: SerializeField] public WeaponTrail WeaponTrail { get; private set; }
         [field: SerializeField] public Transform WeaponTip { get; private set; }
         [field: SerializeField] public Transform WeaponTransform { get; private set; }
-        [field: SerializeField] public GameObject WeaponTrail { get; private set; }
+        [field: SerializeField] public GameObject WeaponTrailVisual { get; private set; }
         [field: SerializeField] public SkillActive SkillActive { get; private set; }
 
         public Vector3 StartSwordPos { get; set; }
@@ -71,7 +71,7 @@ namespace DesignPattern.StateMachine.Player.Base
         [field: SerializeField] public AnimationClip SwordIdleAnimationClip { get; private set; }
         [field: SerializeField] public AnimationClip IdleLoopAnimationClip { get; private set; }
         [field: SerializeField] public float TimeToBackIdleLoop { get; private set; }
-        [field: SerializeField] public ManageAnimationSkillEvent ManageAnimationSkillEvent { get; private set; }
+        [field: SerializeField] public SkillAnimationEvents ManageAnimationSkillEvent { get; private set; }
 
         [field: Header("Skill")]
         [field: Header("MeshRenderer Object Normal")]
@@ -119,7 +119,7 @@ namespace DesignPattern.StateMachine.Player.Base
         public bool Invincible;
         public bool Invisible;
         public int SkillNumber;
-        public bool isAttackState;
+        public bool IsAttackState;
         public bool IsActiveEffect { get; set; } = false;
         public bool IsAttractiveForce { get; set; }
 
@@ -127,9 +127,9 @@ namespace DesignPattern.StateMachine.Player.Base
         public bool IsHealthPotion { get; set; } = true;
         public bool IsIncreaseDamagePotion { get; set; }
 
-        public bool isCanNotSubSpiritual;
+        public bool IsCanNotSubSpiritual;
 
-        public bool isCanNotAddSpiritual;
+        public bool IsCanNotAddSpiritual;
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
         /****************************************************************/
@@ -174,7 +174,7 @@ namespace DesignPattern.StateMachine.Player.Base
             HeavyAttack = new PlayerHeavyAttackState(this);
             UseMainPotionAction = new PlayerUsePotionState(this);
 
-            GameEventManagers.Instance.OnSkillCasted += HandleEffectedState;
+            GameEventManager.Instance.OnSkillCasted += HandleEffectedState;
         }
 
         private void OnEnable()
@@ -187,7 +187,7 @@ namespace DesignPattern.StateMachine.Player.Base
 
         private void OnDisable()
         {
-            GameEventManagers.Instance.OnSkillCasted -= HandleEffectedState;
+            GameEventManager.Instance.OnSkillCasted -= HandleEffectedState;
             Health.HitAction -= HandleHitState;
             Health.DeathAction -= HandleDeathState;
             InputReader.ChangeHealthPotionAction -= ChangeHealthPotion;
@@ -221,12 +221,12 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void EnterChangeAction(bool isAttack)
         {
-            SwitchState(new PlayerChangeAction(this, isAttack));
+            SwitchState(new PlayerChangeActionState(this, isAttack));
         }
 
         public void ReturnLocomotion()
         {
-            SwitchState(Targeter.currentTarget is null ? FreeLookState : TargetState);
+            SwitchState(Targeter.CurrentTarget is null ? FreeLookState : TargetState);
         }
 
         public void HandleJumpState()
@@ -237,13 +237,13 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void HandleDodgeState()
         {
-            if (Stamina.CurrentStamina < Stamina.dodgeReduce) return;
+            if (Stamina.CurrentStamina < Stamina.DodgeReduce) return;
             SwitchState(DodgeState);
         }
 
         public void HandleTargetState()
         {
-            if (!Targeter.SelectedTarget()) return;
+            if (!Targeter.SelectTarget()) return;
             SwitchState(TargetState);
         }
 
@@ -287,7 +287,7 @@ namespace DesignPattern.StateMachine.Player.Base
                 return;
             }
 
-            if (Mana.currentMana <= 0)
+            if (Mana.CurrentMana <= 0)
             {
                 return;
             }
@@ -306,7 +306,7 @@ namespace DesignPattern.StateMachine.Player.Base
             if (Stamina.CurrentStamina < Stamina.lightAttackReduce) return;
 
             if (!InputReader.IsAttack) return;
-            if (!isAttackState)
+            if (!IsAttackState)
             {
                 EnterChangeAction(true);
                 return;
@@ -319,7 +319,7 @@ namespace DesignPattern.StateMachine.Player.Base
             if (Stamina.CurrentStamina < Stamina.heavyAttackReduce) return;
 
             if (!InputReader.IsHeavyAttack) return;
-            if (!isAttackState)
+            if (!IsAttackState)
             {
                 EnterChangeAction(true);
                 return;
@@ -355,21 +355,21 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public GameObject TargetCaster()
         {
-            return Targeter != null ? Targeter.currentTarget.gameObject : null;
+            return Targeter != null ? Targeter.CurrentTarget.gameObject : null;
         }
 
-        public void InvincibleState()
+        public void ApplyInvincibleBuff()
         {
             FreeLookMovementSpeed *= 1.5f;
             FreeLookMovementSprintSpeed *= 0.8f;
 
-            foreach (var dame in AttackData)
+            foreach (var damage in AttackData)
             {
-                dame.AttackDamage *= 2;
+                damage.AttackDamage *= 2;
             }
         }
 
-        public void Coroutine(float time, Action action1, Action action2)
+        public void StartTimedAction(float time, Action action1, Action action2)
         {
             StartCoroutine(WaitToContinue(time, action1, action2));
         }
@@ -385,7 +385,7 @@ namespace DesignPattern.StateMachine.Player.Base
         {
             if (PlayerSpiritualPower <= 0)
             {
-                isCanNotSubSpiritual = true;
+                IsCanNotSubSpiritual = true;
                 return;
             }
             PlayerSpiritualPower = Mathf.Max(PlayerSpiritualPower - 1, 0);
@@ -394,9 +394,9 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void AddSpiritualPower()
         {
-            if (isCanNotAddSpiritual)
+            if (IsCanNotAddSpiritual)
             {
-                isCanNotAddSpiritual = false;
+                IsCanNotAddSpiritual = false;
                 return;
             }
             PlayerSpiritualPower = Mathf.Min(PlayerSpiritualPower + 1, 1000000);
@@ -411,9 +411,9 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void AddDamage()
         {
-            if (isCanNotSubSpiritual)
+            if (IsCanNotSubSpiritual)
             {
-                isCanNotSubSpiritual = false;
+                IsCanNotSubSpiritual = false;
                 return;
             }
 
@@ -427,7 +427,7 @@ namespace DesignPattern.StateMachine.Player.Base
         {
             if (AttackData[0].AttackDamage == 10)
             {
-                isCanNotAddSpiritual = true;
+                IsCanNotAddSpiritual = true;
                 return;
             }
             foreach (var damage in AttackData)

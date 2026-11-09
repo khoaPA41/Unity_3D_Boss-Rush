@@ -14,7 +14,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class UIPlayerManagers : MonoBehaviour
+    public class PlayerHUD : MonoBehaviour
     {
         [Header("Status UI")]
         [SerializeField]
@@ -55,9 +55,9 @@ namespace UI
 
         [Header("Skill UI")]
         [SerializeField]
-        private Image icon_ChangingTheGame;
-        [SerializeField] private Image icon_Escape;
-        [SerializeField] private Image icon_Response;
+        private Image IconChangingTheGame;
+        [SerializeField] private Image IconEscape;
+        [SerializeField] private Image IconResponse;
 
         [Header("System UI")]
         [field: SerializeField]
@@ -114,11 +114,11 @@ namespace UI
 
         private void Start()
         {
-            SetupHealthSlider(_health.currentHealth / _health.maxHealth);
-            SetupManaSlider(_mana.currentMana / _mana.maxMana);
-            SetupStaminaSlider(_stamina.CurrentStamina / _stamina.maxStamina);
-            SetupHealthPotionSlider(_healthPotion.CurrentPotion / _healthPotion.maxPotion);
-            SetupManaPotionSlider(_manaPotion.CurrentPotion / _manaPotion.maxPotion);
+            SetupHealthSlider(_health.CurrentHealth / _health.MaxHealth);
+            SetupManaSlider(_mana.CurrentMana / _mana.MaxMana);
+            SetupStaminaSlider(_stamina.CurrentStamina / _stamina.MaxStamina);
+            SetupHealthPotionSlider(_healthPotion.CurrentPotion / _healthPotion.MaxPotion);
+            SetupManaPotionSlider(_manaPotion.CurrentPotion / _manaPotion.MaxPotion);
 
             foreach (var text in statusTextList)
             {
@@ -141,8 +141,8 @@ namespace UI
             _skillActive.UpdateSkillUIEvent += UpdateSkillUIByType;
             _skillActive.OnUseSkill += OnUpdateByCoolDown;
             _playerStateMachine.UpdateSpiritualPower += UpdateSpiritualPower;
-            _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction += ActiveDodgeAward;
-            _inputReader.SettingsUIAction += ActiveNonCheckpointSettingsUI;
+            _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction += ActivateDodgeAward;
+            _inputReader.SettingsUIAction += ActivateNonCheckpointSettingsUI;
         }
 
         private void OnDisable()
@@ -160,8 +160,8 @@ namespace UI
             _skillActive.UpdateSkillUIEvent -= UpdateSkillUIByType;
             _skillActive.OnUseSkill -= OnUpdateByCoolDown;
             _playerStateMachine.UpdateSpiritualPower -= UpdateSpiritualPower;
-            _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction -= ActiveDodgeAward;
-            _inputReader.SettingsUIAction -= ActiveNonCheckpointSettingsUI;
+            _playerStateMachine.DodgeAward.UpdateDodgeAwardUIAction -= ActivateDodgeAward;
+            _inputReader.SettingsUIAction -= ActivateNonCheckpointSettingsUI;
         }
 
         /********************************************Setup*********************************************/
@@ -309,11 +309,11 @@ namespace UI
         }
 
         /*********************************************Settings UI*********************************************/
-        private void ActiveNonCheckpointSettingsUI()
+        private void ActivateNonCheckpointSettingsUI()
         {
-            if (WorldUIManager.instance.isActiveSettingsUI) return;
+            if (WorldUIManager.Instance.isActiveSettingsUI) return;
 
-            _playerStateMachine.SwitchState(new PlayerActiveCheckPointState(_playerStateMachine, false));
+            _playerStateMachine.SwitchState(new PlayerActivateCheckpointState(_playerStateMachine, false));
         }
 
         /*********************************************Skill UI*********************************************/
@@ -365,8 +365,8 @@ namespace UI
         {
             ChangeOpacityImageInactive();
 
-            icon_ChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
-            var skillImage = FindImage(icon_ChangingTheGame.sprite);
+            IconChangingTheGame.sprite = _skillActive.changingTheGameSkill.skillIcon;
+            var skillImage = FindImage(IconChangingTheGame.sprite);
             ChangeOpacity(skillImage, 1f);
 
         }
@@ -374,16 +374,16 @@ namespace UI
         private void UpdateEscapeSkillUI()
         {
             ChangeOpacityImageInactive();
-            icon_Escape.sprite = _skillActive.escapeSkill.skillIcon;
-            var skillImage = FindImage(icon_Escape.sprite);
+            IconEscape.sprite = _skillActive.escapeSkill.skillIcon;
+            var skillImage = FindImage(IconEscape.sprite);
             ChangeOpacity(skillImage, 1f);
         }
 
         private void UpdateResponseSkillUI()
         {
             ChangeOpacityImageInactive();
-            icon_Response.sprite = _skillActive.responseSkill.skillIcon;
-            var skillImage = FindImage(icon_Response.sprite);
+            IconResponse.sprite = _skillActive.responseSkill.skillIcon;
+            var skillImage = FindImage(IconResponse.sprite);
             ChangeOpacity(skillImage, 1f);
         }
 
@@ -393,15 +393,15 @@ namespace UI
             {
                 case 1:
                     if (_skillActive.changingTheGameSkill.canUse)
-                        icon_ChangingTheGame.fillAmount = 0;
+                        IconChangingTheGame.fillAmount = 0;
                     break;
                 case 2:
                     if (_skillActive.escapeSkill.canUse)
-                        icon_Escape.fillAmount = 0;
+                        IconEscape.fillAmount = 0;
                     break;
                 case 3:
                     if (_skillActive.responseSkill.canUse)
-                        icon_Response.fillAmount = 0;
+                        IconResponse.fillAmount = 0;
                     break;
             }
         }
@@ -415,9 +415,9 @@ namespace UI
         {
             return skillNumber switch
             {
-                1 => icon_ChangingTheGame,
-                2 => icon_Escape,
-                3 => icon_Response,
+                1 => IconChangingTheGame,
+                2 => IconEscape,
+                3 => IconResponse,
                 _ => null
             };
         }
@@ -453,7 +453,7 @@ namespace UI
             ChangeOpacity(dodgeAwardImage3, .3f);
         }
 
-        private void ActiveDodgeAward(int buttonNumber)
+        private void ActivateDodgeAward(int buttonNumber)
         {
             ChangeOpacityDodgeIcon();
             switch (buttonNumber)
@@ -483,10 +483,10 @@ namespace UI
             switch (name)
             {
                 case "Health":
-                    UpdateStatus(_health.currentHealth, FindStatusText(name));
+                    UpdateStatus(_health.CurrentHealth, FindStatusText(name));
                     break;
                 case "Mana":
-                    UpdateStatus(_mana.currentMana, FindStatusText(name));
+                    UpdateStatus(_mana.CurrentMana, FindStatusText(name));
                     break;
                 case "Stamina":
                     UpdateStatus(_stamina.CurrentStamina, FindStatusText(name));
@@ -516,11 +516,11 @@ namespace UI
             {
                 case "Health":
                     _health.AddHealth();
-                    UpdateStatus(_health.currentHealth, FindStatusText(name));
+                    UpdateStatus(_health.CurrentHealth, FindStatusText(name));
                     break;
                 case "Mana":
                     _mana.AddMana();
-                    UpdateStatus(_mana.currentMana, FindStatusText(name));
+                    UpdateStatus(_mana.CurrentMana, FindStatusText(name));
                     break;
                 case "Stamina":
                     _stamina.AddStamina();
@@ -543,11 +543,11 @@ namespace UI
             {
                 case "Health":
                     _health.SubHealth();
-                    UpdateStatus(_health.currentHealth, FindStatusText(name));
+                    UpdateStatus(_health.CurrentHealth, FindStatusText(name));
                     break;
                 case "Mana":
                     _mana.SubMana();
-                    UpdateStatus(_mana.currentMana, FindStatusText(name));
+                    UpdateStatus(_mana.CurrentMana, FindStatusText(name));
                     break;
                 case "Stamina":
                     _stamina.SubStamina();
@@ -565,42 +565,42 @@ namespace UI
         }
 
         /*********************************************Settings UI*********************************************/
-        public void ActiveSoundSettingUI()
+        public void ShowSoundSettingUI()
         {
             graphicSettings.SetActive(false);
             exit.SetActive(false);
             soundSettings.SetActive(true);
         }
 
-        public void ActiveGraphicSettingUI()
+        public void ShowGraphicSettingUI()
         {
             soundSettings.SetActive(false);
             exit.SetActive(false);
             graphicSettings.SetActive(true);
         }
 
-        public void ActiveExitUI()
+        public void ShowExitUI()
         {
             soundSettings.SetActive(false);
             graphicSettings.SetActive(false);
             exit.SetActive(true);
         }
 
-        public void ActiveSoundSettingNonCheckpointUI()
+        public void ShowSoundSettingNonCheckpointUI()
         {
             graphicNonCheckpointSettings.SetActive(false);
             exitNonCheckpoint.SetActive(false);
             soundNonCheckpointSettings.SetActive(true);
         }
 
-        public void ActiveGraphicSettingNonCheckpointUI()
+        public void ShowGraphicSettingNonCheckpointUI()
         {
             soundNonCheckpointSettings.SetActive(false);
             exitNonCheckpoint.SetActive(false);
             graphicNonCheckpointSettings.SetActive(true);
         }
 
-        public void ActiveExitNonCheckpointUI()
+        public void ShowExitNonCheckpointUI()
         {
             soundNonCheckpointSettings.SetActive(false);
             graphicNonCheckpointSettings.SetActive(false);

@@ -1,4 +1,4 @@
-﻿using DesignPattern.StateMachine.Player.Base;
+using DesignPattern.StateMachine.Player.Base;
 using Attack.Status;
 using Attack.Status.Potion;
 using UnityEngine;
@@ -9,9 +9,9 @@ namespace Managers
     /// <summary>
     /// This class will control the NEW/ CONTINUE/ SAVE/ RESPAWN
     /// </summary>
-    public class GameManagers : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        public static GameManagers Instance { get; private set; }
+        public static GameManager Instance { get; private set; }
 
         //Checkpoint
         private string currentCheckpointID = "start";
@@ -49,7 +49,7 @@ namespace Managers
         // ----- New Game / Continue / Exit -----
         public void StartNewGame(string sceneName)
         {
-            SaveManagers.Instance.CreateNewSaveGame();
+            SaveManager.Instance.CreateNewSaveGame();
             loadReason = ReasonLoadScene.New;
             currentCheckpointID = "start";
             SceneManager.LoadScene(sceneName);
@@ -57,11 +57,11 @@ namespace Managers
 
         public void ContinueGame()
         {
-            var saveData = SaveManagers.Instance.LoadGame();
+            var saveData = SaveManager.Instance.LoadGame();
 
             if (saveData is null)
             {
-                Debug.LogWarning("[GameManagers] No save data found");
+                Debug.LogWarning("[GameManager] No save data found");
                 StartNewGame("Main");
                 return;
             }
@@ -114,7 +114,7 @@ namespace Managers
 
         private void ApplySaveData(GameObject player)
         {
-            var data = SaveManagers.Instance.CurrentSaveData;
+            var data = SaveManager.Instance.CurrentSaveData;
             var audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSetting>();
             if (data == null) return;
 
@@ -132,18 +132,18 @@ namespace Managers
 
 
             // Attach Stats
-            health.maxHealth = data.currentHealth;
+            health.MaxHealth = data.currentHealth;
             health.resistance = data.currentResistance;
-            mana.maxMana = data.currentMana;
-            stamina.maxStamina = data.currentStamina;
+            mana.MaxMana = data.currentMana;
+            stamina.MaxStamina = data.currentStamina;
             foreach (var damage in stateMachine.AttackData)
             {
                 damage.AttackDamage = data.currentDamage;
             }
 
             // Attach potion
-            healthPotion.maxPotion = data.currentHealthPotion;
-            manaPotion.maxPotion = data.currentManaPotion;
+            healthPotion.MaxPotion = data.currentHealthPotion;
+            manaPotion.MaxPotion = data.currentManaPotion;
             subPotion.subPotionList[0].quantity = data.emeraldGuavaQuantity;
             subPotion.subPotionList[1].quantity = data.goldenPearQuantity;
             subPotion.subPotionList[2].quantity = data.bloodPomegranateQuantity;
@@ -159,10 +159,10 @@ namespace Managers
             stateMachine.SkillActive.responseSkill = data.responseSkill;
 
             // Audio
-            audio._masterVolume = data.masterVolume;
-            audio._bgmVolume = data.BGMVolume;
-            audio._sfxVolume = data.SFXVolume;
-            audio._uiVolume = data.UIVolume;
+            audio.MasterVolume = data.masterVolume;
+            audio.BgmVolume = data.BGMVolume;
+            audio.SfxVolume = data.SFXVolume;
+            audio.UiVolume = data.UIVolume;
         }
 
         // ----- Checkpoint / Respawn / Auto save -----
@@ -211,14 +211,14 @@ namespace Managers
                 posX = checkpointPosition.x,
                 posY = checkpointPosition.y,
                 posZ = checkpointPosition.z,
-                completedTriggerBoss = SaveManagers.Instance.CurrentSaveData.completedTriggerBoss,
-                currentHealth = health.maxHealth,
-                currentMana = mana.maxMana,
-                currentStamina = stamina.maxStamina,
+                completedTriggerBoss = SaveManager.Instance.CurrentSaveData.completedTriggerBoss,
+                currentHealth = health.MaxHealth,
+                currentMana = mana.MaxMana,
+                currentStamina = stamina.MaxStamina,
                 currentResistance = health.resistance,
                 currentDamage = stateMachine.AttackData[0].AttackDamage,
-                currentHealthPotion = healthPotion.maxPotion,
-                currentManaPotion = manaPotion.maxPotion,
+                currentHealthPotion = healthPotion.MaxPotion,
+                currentManaPotion = manaPotion.MaxPotion,
                 isRecoveryStamina = stateMachine.DodgeAward.IsRecoveryStamina,
                 isCounterAttack = stateMachine.DodgeAward.IsCounterAttack,
                 isMovementPush = stateMachine.DodgeAward.IsMovementPush,
@@ -228,24 +228,24 @@ namespace Managers
                 changingTheGameSkill = stateMachine.SkillActive.changingTheGameSkill,
                 escapeSkill = stateMachine.SkillActive.escapeSkill,
                 responseSkill = stateMachine.SkillActive.responseSkill,
-                masterVolume = audio._masterVolume,
-                BGMVolume = audio._bgmVolume,
-                SFXVolume = audio._sfxVolume,
-                UIVolume = audio._uiVolume,
+                masterVolume = audio.MasterVolume,
+                BGMVolume = audio.BgmVolume,
+                SFXVolume = audio.SfxVolume,
+                UIVolume = audio.UiVolume,
 
-                resolutionIndex = GraphicManager.Instance.resolutionIndex,
-                displayModeIndex = GraphicManager.Instance.displayModeIndex,
-                fps = GraphicManager.Instance.fps,
-                vsync = GraphicManager.Instance.vsync,
-                qualityPresetIndex = GraphicManager.Instance.qualityPresetIndex,
-                shadow = GraphicManager.Instance.shadow,
-                antiAliasingIndex = GraphicManager.Instance.antiAliasingIndex,
-                textureQualityIndex = GraphicManager.Instance.textureQualityIndex,
-                bloom = GraphicManager.Instance.bloomData,
-                motionBlur = GraphicManager.Instance.motionBlurData,
-                ambientOcclusion = GraphicManager.Instance.ambientOcclusion,
+                resolutionIndex = GraphicManager.Instance.ResolutionIndex,
+                displayModeIndex = GraphicManager.Instance.DisplayModeIndex,
+                fps = GraphicManager.Instance.Fps,
+                vsync = GraphicManager.Instance.Vsync,
+                qualityPresetIndex = GraphicManager.Instance.QualityPresetIndex,
+                shadow = GraphicManager.Instance.Shadow,
+                antiAliasingIndex = GraphicManager.Instance.AntiAliasingIndex,
+                textureQualityIndex = GraphicManager.Instance.TextureQualityIndex,
+                bloom = GraphicManager.Instance.BloomData,
+                motionBlur = GraphicManager.Instance.MotionBlurData,
+                ambientOcclusion = GraphicManager.Instance.AmbientOcclusion,
             };
-            SaveManagers.Instance.SaveGame(saveData);
+            SaveManager.Instance.SaveGame(saveData);
         }
 
         private void ResetStatus()

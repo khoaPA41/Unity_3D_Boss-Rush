@@ -50,7 +50,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Exit()
         {
-            playerStateMachine.InputReader.OnEnableInput();
+            playerStateMachine.InputReader.EnableInput();
             playerStateMachine.IsAttractiveForce = false;
         }
 
@@ -67,7 +67,7 @@ namespace DesignPattern.StateMachine.Player.Main
             };
         }
 
-        private IEnumerator Coroutine(float time, Action action1, Action action2)
+        private IEnumerator StartTimedAction(float time, Action action1, Action action2)
         {
             action1?.Invoke();
             yield return new WaitForSecondsRealtime(time);
@@ -76,7 +76,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
         private void StartEffectCoroutine(float time, Action action1, Action action2)
         {
-            playerStateMachine.StartCoroutine(Coroutine(time, action1, action2));
+            playerStateMachine.StartCoroutine(StartTimedAction(time, action1, action2));
         }
 
         private void ResetSpeed()
@@ -98,14 +98,14 @@ namespace DesignPattern.StateMachine.Player.Main
 
         private void ResetInput()
         {
-            playerStateMachine.InputReader.OnEnableInput();
+            playerStateMachine.InputReader.EnableInput();
         }
 
         private void HandleAttractiveForce(float deltaTime)
         {
             if (!isPlaySound)
             {
-                AudioManagers.Instance.PlaySound(playerStateMachine.transform, AudioManagers.Instance.attractiveResource);
+                AudioManager.Instance.PlaySound(playerStateMachine.transform, AudioManager.Instance.attractiveResource);
             }
             var dir = (playerStateMachine.Boss.transform.position - playerStateMachine.transform.position).normalized;
             Move(dir * 20f, deltaTime);

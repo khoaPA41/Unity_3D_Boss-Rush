@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +12,7 @@ namespace Input
         public bool IsSprint { get; private set; }
         public bool IsAttack { get; set; }
         public bool IsHeavyAttack { get; set; }
-        public bool isCharging { get; set; }
+        public bool IsCharging { get; set; }
         public bool IsSetting { get; set; }
 
         public event Action JumpAction;
@@ -56,7 +56,7 @@ namespace Input
             inputActions.Disable();
         }
 
-        public void OnEnableInput()
+        public void EnableInput()
         {
             inputActions.Enable();
         }
@@ -114,13 +114,13 @@ namespace Input
         {
             if (context.started)
             {
-                isCharging = true;
+                IsCharging = true;
                 IsHeavyAttack = true;
             }
 
             if (context.canceled)
             {
-                isCharging = false;
+                IsCharging = false;
             }
         }
 

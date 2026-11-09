@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UI;
 using UnityEngine;
@@ -10,9 +10,9 @@ namespace Environment
     {
         public string checkpointID;
         [Header("Tree VFX")]
-        [SerializeField] private MeshRenderer treeMeshRenderer;
-        [SerializeField] private MeshRenderer leafMeshRenderer1;
-        [SerializeField] private MeshRenderer leafMeshRenderer2;
+        [SerializeField] private MeshRenderer _treeMeshRenderer;
+        [SerializeField] private MeshRenderer _leafMeshRenderer1;
+        [SerializeField] private MeshRenderer _leafMeshRenderer2;
 
         [Header("Tree Materials For CheckPoint")]
         [SerializeField] private Material _treeMaterial;
@@ -24,27 +24,27 @@ namespace Environment
         [SerializeField] private ParticleSystem _checkPointVFX;
 
         [Header("Fade Img")]
-        [SerializeField] private Image fadeBackground;
+        [SerializeField] private Image _fadeBackground;
 
         private bool _isFirstTime = true;
-        private float currentTime;
-        private Color treeEmissionColor;
-        private Material treeMeshMaterial;
+        private float _currentTime;
+        private Color _treeEmissionColor;
+        private Material _treeMeshMaterial;
 
         private void Start()
         {
-            treeMeshMaterial = treeMeshRenderer.material;
-            treeEmissionColor = treeMeshMaterial.GetColor("_EmissionColor");
+            _treeMeshMaterial = _treeMeshRenderer.material;
+            _treeEmissionColor = _treeMeshMaterial.GetColor("_EmissionColor");
         }
 
         public void SubscribeEvent()
         {
-            WorldUIManager.instance.ActiveSystemUIEvent += HandleCheckPoint;
+            WorldUIManager.Instance.ActiveSystemUIEvent += HandleCheckPoint;
         }
 
         public void UnsubscribeEvent()
         {
-            WorldUIManager.instance.ActiveSystemUIEvent -= HandleCheckPoint;
+            WorldUIManager.Instance.ActiveSystemUIEvent -= HandleCheckPoint;
         }
 
         private void HandleCheckPoint()
@@ -66,8 +66,8 @@ namespace Environment
                     _isFirstTime = false;
                     _checkPointVFX.Play();
                     StartCoroutine(ChangeMaterialsCoroutine());
-                    leafMeshRenderer1.material = _leafMaterial1;
-                    leafMeshRenderer2.material = _leafMaterial2;
+                    _leafMeshRenderer1.material = _leafMaterial1;
+                    _leafMeshRenderer2.material = _leafMaterial2;
                 },
                 ActiveCheckPointAnotherTime,
                 4f
@@ -81,7 +81,7 @@ namespace Environment
                 () =>
                 {
                     StartCoroutine(FadeBackground(1f, 0f));
-                    WorldUIManager.instance.HandleActiveSystemUI();
+                    WorldUIManager.Instance.HandleActiveSystemUI();
                 },
                 1f
             ));
@@ -90,20 +90,20 @@ namespace Environment
 
         private IEnumerator ChangeMaterialsCoroutine()
         {
-            while (currentTime < 3)
+            while (_currentTime < 3)
             {
-                currentTime += Time.deltaTime;
-                var t = Mathf.Clamp01(currentTime / 3);
+                _currentTime += Time.deltaTime;
+                var t = Mathf.Clamp01(_currentTime / 3);
                 var currentIntensity = _changeEmissionColorCurve.Evaluate(t);
-                treeEmissionColor = new Color(255 / 255, 216 / 255, 0f);
+                _treeEmissionColor = new Color(255 / 255, 216 / 255, 0f);
 
                 var targetIntensity = 3f;
 
-                var finalColor = treeEmissionColor * Mathf.Pow(2f, targetIntensity);
+                var finalColor = _treeEmissionColor * Mathf.Pow(2f, targetIntensity);
 
-                var finalIntensity = finalColor * treeEmissionColor;
+                var finalIntensity = finalColor * _treeEmissionColor;
 
-                treeMeshMaterial.SetColor("_EmissionColor", finalIntensity * currentIntensity);
+                _treeMeshMaterial.SetColor("_EmissionColor", finalIntensity * currentIntensity);
 
                 yield return null;
             }
@@ -111,7 +111,7 @@ namespace Environment
 
         private IEnumerator FadeBackground(float duration, float targetOpacity)
         {
-            var currentColor = fadeBackground.color;
+            var currentColor = _fadeBackground.color;
             var elapsedTime = 0f;
             while (elapsedTime < duration)
             {
@@ -121,12 +121,12 @@ namespace Environment
 
                 var newOpacity = Mathf.Lerp(currentColor.a, targetOpacity, t);
                 currentColor.a = newOpacity;
-                fadeBackground.color = currentColor;
+                _fadeBackground.color = currentColor;
                 yield return null;
             }
 
             currentColor.a = targetOpacity;
-            fadeBackground.color = currentColor;
+            _fadeBackground.color = currentColor;
         }
 
         private IEnumerator FadeBackgroundSystemUI(Action action_1, Action action_2, float time)

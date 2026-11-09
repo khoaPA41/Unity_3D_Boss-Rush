@@ -10,27 +10,27 @@ namespace Attack.Separate
 {
     public class SwordSkill : MonoBehaviour
     {
-        [SerializeField] private float speed;
-        [SerializeField] private float homingSensitivity;
-        [SerializeField] private float hitDistance;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _homingSensitivity;
+        [SerializeField] private float _hitDistance;
 
-        [SerializeField] private bool isRelease;
-        [SerializeField] private bool isActiveAnotherSkill; // if this skill have effect after touch player
-        private bool isPlayedAnotherSkill; // if added skill has played
-        [SerializeField] private string skillNameContinue;
+        [SerializeField] private bool _isRelease;
+        [SerializeField] private bool _isActiveAnotherSkill; // if this skill have effect after touch player
+        private bool _isPlayedAnotherSkill; // if added skill has played
+        [SerializeField] private string _skillNameContinue;
         public Vector3 TargetPosition { get; set; }
 
         private Vector3 _currentVelocity;
         private Vector3 _direction;
         private PooledObject _pooledObject;
 
-        private BossStateMachine boss;
+        private BossStateMachine _boss;
 
         private void OnEnable()
         {
             var container = GameObject.FindWithTag("Boss");
             if (container == null) return;
-            boss = container.GetComponentInChildren<BossStateMachine>(true);
+            _boss = container.GetComponentInChildren<BossStateMachine>(true);
 
             _pooledObject = GetComponent<PooledObject>();
         }
@@ -45,14 +45,14 @@ namespace Attack.Separate
             var targetCenter = TargetPosition + new Vector3(0f, .8f, 0f);
             var distanceToTarget = targetCenter - transform.position;
 
-            if (distanceToTarget.sqrMagnitude <= hitDistance * hitDistance)
+            if (distanceToTarget.sqrMagnitude <= _hitDistance * _hitDistance)
             {
-                if (isActiveAnotherSkill && !isPlayedAnotherSkill)
+                if (_isActiveAnotherSkill && !_isPlayedAnotherSkill)
                 {
-                    var getSkill = boss.GetComponent<GetSkill>();
-                    getSkill.SpawnSkill(skillNameContinue, transform.position);
-                    AudioManagers.Instance.PlaySound(transform, AudioManagers.Instance.fireExplosionResource);
-                    isPlayedAnotherSkill = true;
+                    var getSkill = _boss.GetComponent<SkillSpawner>();
+                    getSkill.SpawnSkill(_skillNameContinue, transform.position);
+                    AudioManager.Instance.PlaySound(transform, AudioManager.Instance.fireExplosionResource);
+                    _isPlayedAnotherSkill = true;
                 }
 
                 Release();
@@ -67,15 +67,15 @@ namespace Attack.Separate
 
         private void Move()
         {
-            var desiredVelocity = _direction * speed;
-            _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, homingSensitivity * Time.deltaTime);
+            var desiredVelocity = _direction * _speed;
+            _currentVelocity = Vector3.Lerp(_currentVelocity, desiredVelocity, _homingSensitivity * Time.deltaTime);
             transform.position += _currentVelocity * Time.deltaTime;
         }
 
         public void InitializeBullet()
         {
             _currentVelocity = Vector3.zero;
-            isPlayedAnotherSkill = false;
+            _isPlayedAnotherSkill = false;
             var direction = (TargetPosition - transform.position).normalized;
 
             if (direction != Vector3.zero)
@@ -89,13 +89,13 @@ namespace Attack.Separate
         {
             if (other.CompareTag("Player"))
             {
-                boss.TryGetComponent(out ICaster casterObj);
-                GameEventManagers.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
-                var weaponTouch = boss.GetComponent<WeaponHandler>();
+                _boss.TryGetComponent(out ICaster casterObj);
+                GameEventManager.Instance.TriggerSkillCasted(casterObj, SkillEffect.Stunned);
+                var weaponTouch = _boss.GetComponent<WeaponHandler>();
                 weaponTouch.OnGetWeapon();
             }
 
-            if (isRelease) return;
+            if (_isRelease) return;
             if (other.CompareTag("Boss"))
             {
                 var weaponTouch = other.GetComponent<WeaponHandler>();

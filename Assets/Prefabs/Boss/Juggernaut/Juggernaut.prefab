@@ -101,8 +101,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 2034142004591030147}
-  baseDamage: 0
-  sfx: {fileID: 7699322129104988067}
+  _baseDamage: 0
+  _sfx: {fileID: 7699322129104988067}
 --- !u!1 &811978636265641828
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,15 +631,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Script.Attack.Health
-  <maxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 100
   <resistance>k__BackingField: 0
   <reduceHealthFollowingDuration>k__BackingField: 0.15
   <reduceHealPrevDuration>k__BackingField: 0.3
-  reduceHealth: 0
-  timeFreeze: 0
-  timeToBackNormal: 0
+  _reduceHealth: 0
+  _timeFreeze: 0
+  _timeToBackNormal: 0
   <PlayerSFX>k__BackingField: {fileID: 7699322129104988067}
-  currentHealth: 0
+  CurrentHealth: 0
   isPerfectDodge: 0
   isReduceDamage: 0
 --- !u!114 &7176690310103909117
@@ -654,14 +654,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHandler
-  weaponRightLogic: {fileID: 354206549038499582}
-  weaponLeftLogic: {fileID: 7038892689361759465}
-  otherDamageLogic: {fileID: 0}
-  weaponMain: {fileID: 0}
-  weaponStore: {fileID: 0}
-  LeftSingleSword: {fileID: 0}
-  RightSingleSword: {fileID: 0}
-  DoubleEdgedSword: {fileID: 0}
+  _weaponRightLogic: {fileID: 354206549038499582}
+  _weaponLeftLogic: {fileID: 7038892689361759465}
+  _otherDamageLogic: {fileID: 0}
+  _weaponMain: {fileID: 0}
+  _weaponStore: {fileID: 0}
+  _leftSingleSword: {fileID: 0}
+  _rightSingleSword: {fileID: 0}
+  _doubleEdgedSword: {fileID: 0}
 --- !u!114 &210095232869014211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,8 +1914,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 2034142004591030147}
-  baseDamage: 0
-  sfx: {fileID: 7699322129104988067}
+  _baseDamage: 0
+  _sfx: {fileID: 7699322129104988067}
 --- !u!1 &7292514636967995522
 GameObject:
   m_ObjectHideFlags: 0

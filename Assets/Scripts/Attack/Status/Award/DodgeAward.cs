@@ -67,7 +67,7 @@ namespace Attack.Status.Award
         {
             if (!IsMovementPush) return;
 
-            StartCoroutine(RecoveryStaminaRoutine(1.5f,
+            StartCoroutine(DelayedActionRoutine(1.5f,
                 () => _playerStateMachine.ForceReceiver.SetCoefficientOfMovement(3f),
                 () => _playerStateMachine.ForceReceiver.SetCoefficientOfMovement(1)
             ));
@@ -80,7 +80,7 @@ namespace Attack.Status.Award
             _playerStateMachine.IsCounterAttack = true;
         }
 
-        private IEnumerator RecoveryStaminaRoutine(float time, Action callback1, Action callback2)
+        private IEnumerator DelayedActionRoutine(float time, Action callback1, Action callback2)
         {
             callback1?.Invoke();
             yield return new WaitForSecondsRealtime(time);

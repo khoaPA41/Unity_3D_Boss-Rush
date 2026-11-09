@@ -50,13 +50,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef70226ef83bcc40b9a0a4578f09b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThrowSword
-  speed: 20
-  homingSensitivity: 15
-  hitDistance: 1
+  _speed: 20
+  _homingSensitivity: 15
+  _hitDistance: 1
   timeToReturn: 3
-  isRelease: 0
-  isActiveAnotherSkill: 0
-  skillNameContinue: 
+  _isRelease: 0
+  _isActiveAnotherSkill: 0
+  _skillNameContinue: 
 --- !u!114 &-3982492747356828223
 MonoBehaviour:
   m_ObjectHideFlags: 0

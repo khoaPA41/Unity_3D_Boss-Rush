@@ -2784,7 +2784,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 5659663309763436685}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!65 &7805867129682548668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2984,7 +2984,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 5659663309763436685}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!65 &4632559974456764320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3140,7 +3140,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 5659663309763436685}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!1 &6519354982613926803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3962,7 +3962,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 5659663309763436685}
-  baseDamage: 0
+  _baseDamage: 0
 --- !u!65 &7648100440039348896
 BoxCollider:
   m_ObjectHideFlags: 0

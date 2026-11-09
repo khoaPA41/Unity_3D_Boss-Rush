@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -9,9 +9,9 @@ namespace Managers
     /// </summary>
 
 
-    public class SaveManagers : MonoBehaviour
+    public class SaveManager : MonoBehaviour
     {
-        public static SaveManagers Instance { get; private set; }
+        public static SaveManager Instance { get; private set; }
 
         // Data in current playing (RAM)
 
@@ -57,7 +57,7 @@ namespace Managers
         {
             if (!HaveSaveData())
             {
-                Debug.LogWarning("[SaveManagers] No save data found");
+                Debug.LogWarning("[SaveManager] No save data found");
                 return null;
             }
 

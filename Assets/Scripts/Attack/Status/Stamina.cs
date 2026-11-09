@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 
@@ -7,15 +7,15 @@ namespace Attack.Status
     [RequireComponent(typeof(PlayerStateMachine))]
     public class Stamina : MonoBehaviour
     {
-        [field: SerializeField] public float maxStamina { get; set; }
-        [field: SerializeField] public float dodgeReduce { get; set; }
+        [field: SerializeField] public float MaxStamina { get; set; }
+        [field: SerializeField] public float DodgeReduce { get; set; }
         [field: SerializeField] public float walkReduce { get; set; }
         [field: SerializeField] public float runReduce { get; set; }
         [field: SerializeField] public float lightAttackReduce { get; set; }
         [field: SerializeField] public float heavyAttackReduce { get; set; }
         [field: SerializeField] public float jumpReduce { get; set; }
-        [SerializeField] private float reduceStamina;
-        [SerializeField] private float recoveryStamina;
+        [SerializeField] private float _reduceStamina;
+        [SerializeField] private float _recoveryStamina;
 
         public float CurrentStamina { get; set; }
         public bool IsCombat;
@@ -29,67 +29,67 @@ namespace Attack.Status
         private void Awake()
         {
             _playerStateMachine = GetComponent<PlayerStateMachine>();
-            CurrentStamina = maxStamina;
+            CurrentStamina = MaxStamina;
         }
 
         public void ChangeStamina(float amount)
         {
             if (!IsCombat) return;
-            if (isReduceStamina) amount /= reduceStamina;
+            if (isReduceStamina) amount /= _reduceStamina;
 
             CurrentStamina -= amount * Time.deltaTime;
-            CurrentStamina = Mathf.Clamp(CurrentStamina, 0, maxStamina);
+            CurrentStamina = Mathf.Clamp(CurrentStamina, 0, MaxStamina);
 
-            OnChangeStamina?.Invoke(CurrentStamina / maxStamina);
+            OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
         }
 
         public void RecoveryStamina()
         {
-            if (CurrentStamina < maxStamina)
+            if (CurrentStamina < MaxStamina)
             {
-                CurrentStamina += recoveryStamina * Time.deltaTime;
-                CurrentStamina = Mathf.Clamp(CurrentStamina, 0, maxStamina);
+                CurrentStamina += _recoveryStamina * Time.deltaTime;
+                CurrentStamina = Mathf.Clamp(CurrentStamina, 0, MaxStamina);
             }
 
-            OnRecoveryStamina?.Invoke(CurrentStamina / maxStamina);
+            OnRecoveryStamina?.Invoke(CurrentStamina / MaxStamina);
         }
 
         public void DodgeAwardStamina()
         {
-            var staminaLost = maxStamina - CurrentStamina;
+            var staminaLost = MaxStamina - CurrentStamina;
             CurrentStamina += staminaLost * .5f;
-            OnRecoveryStamina?.Invoke(CurrentStamina / maxStamina);
+            OnRecoveryStamina?.Invoke(CurrentStamina / MaxStamina);
         }
 
         public void AddStamina()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual)
+            if (_playerStateMachine.IsCanNotSubSpiritual)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
 
-            maxStamina += 1;
-            CurrentStamina = maxStamina;
-            OnChangeStamina?.Invoke(CurrentStamina / maxStamina);
+            MaxStamina += 1;
+            CurrentStamina = MaxStamina;
+            OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
         }
 
         public void SubStamina()
         {
-            if (maxStamina == 1000)
+            if (MaxStamina == 1000)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            maxStamina -= 1;
-            CurrentStamina = maxStamina;
-            OnChangeStamina?.Invoke(CurrentStamina / maxStamina);
+            MaxStamina -= 1;
+            CurrentStamina = MaxStamina;
+            OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
         }
 
         public void Reset()
         {
-            CurrentStamina = maxStamina;
-            OnChangeStamina?.Invoke(CurrentStamina / maxStamina);
+            CurrentStamina = MaxStamina;
+            OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Managers;
 using TMPro;
 using UnityEngine;
@@ -39,11 +39,11 @@ namespace UI
         private void Start()
         {
             isInitializing = true;
-            ResolutionDropdown();
-            DisplayModeDropdown();
-            AntiAliasingDropdown();
-            QualityPresetDropdown();
-            TextureQualityDropdown();
+            PopulateResolutionDropdown();
+            PopulateDisplayModeDropdown();
+            PopulateAntiAliasingDropdown();
+            PopulateQualityPresetDropdown();
+            PopulateTextureQualityDropdown();
 
 
             LoadCurrentValuesToUI();
@@ -51,7 +51,7 @@ namespace UI
             isInitializing = false;
         }
 
-        private void ResolutionDropdown()
+        private void PopulateResolutionDropdown()
         {
             resolutionDropdown.ClearOptions();
             var options = new List<string>();
@@ -63,25 +63,25 @@ namespace UI
             resolutionDropdown.AddOptions(options);
         }
 
-        private void DisplayModeDropdown()
+        private void PopulateDisplayModeDropdown()
         {
             displayModeDropdown.ClearOptions();
             displayModeDropdown.AddOptions(new List<string> { "Full Screen", "Borderless", "Windowed" });
         }
 
-        private void AntiAliasingDropdown()
+        private void PopulateAntiAliasingDropdown()
         {
             antiAliasingDropdown.ClearOptions();
             antiAliasingDropdown.AddOptions(new List<string> { "None", "2x MSAA", "4x MSAA", "8x MSAA" });
         }
 
-        private void QualityPresetDropdown()
+        private void PopulateQualityPresetDropdown()
         {
             qualityPresetDropdown.ClearOptions();
             qualityPresetDropdown.AddOptions(new List<string>(QualitySettings.names));
         }
 
-        private void TextureQualityDropdown()
+        private void PopulateTextureQualityDropdown()
         {
             textureQualityDropdown.ClearOptions();
             textureQualityDropdown.AddOptions(new List<string> { "Ultra", "High", "Medium", "Low" });
@@ -89,23 +89,23 @@ namespace UI
 
         private void LoadCurrentValuesToUI()
         {
-            if (!SaveManagers.Instance.HaveSaveData())
+            if (!SaveManager.Instance.HaveSaveData())
             {
                 resolutionDropdown.SetValueWithoutNotify(17);
                 displayModeDropdown.SetValueWithoutNotify(0);
                 return;
             }
-            resolutionDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.resolutionIndex);
-            displayModeDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.displayModeIndex);
-            vsyncToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.vsync);
-            fpsLimitInput.SetTextWithoutNotify(SaveManagers.Instance.CurrentSaveData.fps.ToString());
-            qualityPresetDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.qualityPresetIndex);
-            shadowsToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.shadow);
-            antiAliasingDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.antiAliasingIndex);
-            textureQualityDropdown.SetValueWithoutNotify(SaveManagers.Instance.CurrentSaveData.textureQualityIndex);
-            bloomToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.bloom);
-            motionBlurToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.motionBlur);
-            ambientOcclusionToggle.SetIsOnWithoutNotify(SaveManagers.Instance.CurrentSaveData.ambientOcclusion);
+            resolutionDropdown.SetValueWithoutNotify(SaveManager.Instance.CurrentSaveData.resolutionIndex);
+            displayModeDropdown.SetValueWithoutNotify(SaveManager.Instance.CurrentSaveData.displayModeIndex);
+            vsyncToggle.SetIsOnWithoutNotify(SaveManager.Instance.CurrentSaveData.vsync);
+            fpsLimitInput.SetTextWithoutNotify(SaveManager.Instance.CurrentSaveData.fps.ToString());
+            qualityPresetDropdown.SetValueWithoutNotify(SaveManager.Instance.CurrentSaveData.qualityPresetIndex);
+            shadowsToggle.SetIsOnWithoutNotify(SaveManager.Instance.CurrentSaveData.shadow);
+            antiAliasingDropdown.SetValueWithoutNotify(SaveManager.Instance.CurrentSaveData.antiAliasingIndex);
+            textureQualityDropdown.SetValueWithoutNotify(SaveManager.Instance.CurrentSaveData.textureQualityIndex);
+            bloomToggle.SetIsOnWithoutNotify(SaveManager.Instance.CurrentSaveData.bloom);
+            motionBlurToggle.SetIsOnWithoutNotify(SaveManager.Instance.CurrentSaveData.motionBlur);
+            ambientOcclusionToggle.SetIsOnWithoutNotify(SaveManager.Instance.CurrentSaveData.ambientOcclusion);
         }
 
         private void BindListener()

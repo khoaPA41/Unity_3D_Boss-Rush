@@ -7809,14 +7809,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHandler
-  weaponRightLogic: {fileID: 0}
-  weaponLeftLogic: {fileID: 0}
-  otherDamageLogic: {fileID: 0}
-  weaponMain: {fileID: 1943201284363986017}
-  weaponStore: {fileID: 928571976952277809}
-  LeftSingleSword: {fileID: 0}
-  RightSingleSword: {fileID: 0}
-  DoubleEdgedSword: {fileID: 0}
+  _weaponRightLogic: {fileID: 0}
+  _weaponLeftLogic: {fileID: 0}
+  _otherDamageLogic: {fileID: 0}
+  _weaponMain: {fileID: 1943201284363986017}
+  _weaponStore: {fileID: 928571976952277809}
+  _leftSingleSword: {fileID: 0}
+  _rightSingleSword: {fileID: 0}
+  _doubleEdgedSword: {fileID: 0}
 --- !u!1 &8645279044318637828
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,7 +166,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6449224204984715788}
-  baseDamage: 300
+  _baseDamage: 300
 --- !u!1 &961108550288975813
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6449224204984715788}
-  baseDamage: 100
+  _baseDamage: 100
 --- !u!65 &3292062180998275637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1957,7 +1957,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6449224204984715788}
-  baseDamage: 500
+  _baseDamage: 500
 --- !u!65 &1003051103599434030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3449,14 +3449,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a334881bf457d7f49b8cb515901f42d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  <maxHealth>k__BackingField: 1000
+  <MaxHealth>k__BackingField: 1000
   <resistance>k__BackingField: 0
   <reduceHealthFollowingDuration>k__BackingField: 0
   <reduceHealPrevDuration>k__BackingField: 0
-  reduceHealth: 0
-  timeFreeze: 0.1
-  timeToBackNormal: 0.05
-  currentHealth: 0
+  _reduceHealth: 0
+  _timeFreeze: 0.1
+  _timeToBackNormal: 0.05
+  CurrentHealth: 0
   isPerfectDodge: 0
   isReduceDamage: 0
 --- !u!95 &1507992284845328148
@@ -3530,14 +3530,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9048dcdbb75a4d940bf41aebc7f78453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHanldler
-  weaponRightLogic: {fileID: 8070695727173648934}
-  weaponLeftLogic: {fileID: 863876492489375635}
-  otherDamageLogic: {fileID: 2707382847416415921}
-  weaponMain: {fileID: 1102866176280814690}
-  weaponStore: {fileID: 0}
-  LeftSingleSword: {fileID: 6154200112185086526}
-  RightSingleSword: {fileID: 6724641934469278555}
-  DoubleEdgedSword: {fileID: 8287760511683869849}
+  _weaponRightLogic: {fileID: 8070695727173648934}
+  _weaponLeftLogic: {fileID: 863876492489375635}
+  _otherDamageLogic: {fileID: 2707382847416415921}
+  _weaponMain: {fileID: 1102866176280814690}
+  _weaponStore: {fileID: 0}
+  _leftSingleSword: {fileID: 6154200112185086526}
+  _rightSingleSword: {fileID: 6724641934469278555}
+  _doubleEdgedSword: {fileID: 8287760511683869849}
 --- !u!114 &5731709460477825821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4451,7 +4451,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _legalOwner: {fileID: 6449224204984715788}
-  baseDamage: 300
+  _baseDamage: 300
 --- !u!65 &4790076987218569045
 BoxCollider:
   m_ObjectHideFlags: 0

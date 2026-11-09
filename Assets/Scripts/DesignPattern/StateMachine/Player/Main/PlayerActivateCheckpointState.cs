@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DesignPattern.StateMachine.Player.Main
 {
-    public class PlayerActiveCheckPointState : PlayerBaseState
+    public class PlayerActivateCheckpointState : PlayerBaseState
     {
         private readonly int _interactAnimation = Animator.StringToHash("Interact");
         private const string InteractAnimationTag = "Interact";
@@ -15,7 +15,7 @@ namespace DesignPattern.StateMachine.Player.Main
         private bool _isActive;
         private bool _isCheckpoint;
 
-        public PlayerActiveCheckPointState(PlayerStateMachine playerStateMachine, bool isCheckpoint) : base(playerStateMachine)
+        public PlayerActivateCheckpointState(PlayerStateMachine playerStateMachine, bool isCheckpoint) : base(playerStateMachine)
         {
             _isCheckpoint = isCheckpoint;
         }
@@ -33,7 +33,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_interactAnimation, playerStateMachine.AnimationCrossFade);
             playerStateMachine.InputReader.SetCursor(false);
-            GameManagers.Instance.AutoSave();
+            GameManager.Instance.AutoSave();
         }
 
         public override void Tick(float deltaTime)
@@ -42,14 +42,14 @@ namespace DesignPattern.StateMachine.Player.Main
 
             if (!_isCheckpoint)
             {
-                ActiveNonCheckpoint();
+                ActivateNonCheckpoint();
                 return;
             }
 
             var normalizeTime = GetNormalizeTime(playerStateMachine.Animator, InteractAnimationTag, 0);
             if (normalizeTime > _previousTime && normalizeTime >= .9f)
             {
-                ActiveOnCheckpoint();
+                ActivateOnCheckpoint();
             }
             _previousTime = normalizeTime;
         }
@@ -61,22 +61,22 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.InputReader.SetCursor(true);
             playerStateMachine.CheckPoint.isAlreadyActive = false;
-            GameManagers.Instance.AutoSave();
+            GameManager.Instance.AutoSave();
             if (_isCheckpoint)
             {
-                WorldUIManager.instance.ActiveSystemUI();
+                WorldUIManager.Instance.ShowSystemUI();
             }
         }
 
-        private void ActiveOnCheckpoint()
+        private void ActivateOnCheckpoint()
         {
-            WorldUIManager.instance.ActiveSystemUI();
+            WorldUIManager.Instance.ShowSystemUI();
             _isActive = true;
         }
 
-        private void ActiveNonCheckpoint()
+        private void ActivateNonCheckpoint()
         {
-            WorldUIManager.instance.HandleActiveSettingsUI();
+            WorldUIManager.Instance.ShowSettingsUI();
             _isActive = true;
         }
 
@@ -92,7 +92,7 @@ namespace DesignPattern.StateMachine.Player.Main
         {
             if (_isActive)
             {
-                WorldUIManager.instance.HandleActiveSettingsUI();
+                WorldUIManager.Instance.ShowSettingsUI();
                 playerStateMachine.ReturnLocomotion();
             }
         }

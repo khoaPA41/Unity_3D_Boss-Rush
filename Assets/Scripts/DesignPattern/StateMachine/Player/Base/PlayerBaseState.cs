@@ -1,4 +1,4 @@
-﻿using DesignPattern.StateMachine.Base;
+using DesignPattern.StateMachine.Base;
 using UnityEngine;
 
 namespace DesignPattern.StateMachine.Player.Base
@@ -38,13 +38,13 @@ namespace DesignPattern.StateMachine.Player.Base
 
         protected void FaceTarget(float deltaTime)
         {
-            var currentTarget = playerStateMachine.Targeter.currentTarget;
-            if (currentTarget is null)
+            var CurrentTarget = playerStateMachine.Targeter.CurrentTarget;
+            if (CurrentTarget is null)
             {
                 return;
             }
 
-            var dir = currentTarget.transform.position - playerStateMachine.transform.position;
+            var dir = CurrentTarget.transform.position - playerStateMachine.transform.position;
             dir.y = 0;
             playerStateMachine.transform.rotation = Quaternion.Lerp(playerStateMachine.transform.rotation,
                 Quaternion.LookRotation(dir), playerStateMachine.RotationDamping * deltaTime);

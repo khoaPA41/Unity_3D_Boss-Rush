@@ -55,7 +55,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
             if (skill == null) return null;
 
-            if (playerStateMachine.Mana.currentMana < skill.ManaCost) return null;
+            if (playerStateMachine.Mana.CurrentMana < skill.ManaCost) return null;
 
             playerStateMachine.SkillActive.CallUseSkillSuccess(playerStateMachine.SkillNumber);
 

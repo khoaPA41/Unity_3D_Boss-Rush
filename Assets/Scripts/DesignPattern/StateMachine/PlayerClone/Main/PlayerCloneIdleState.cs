@@ -19,7 +19,7 @@ namespace DesignPattern.StateMachine.PlayerClone.Main
         {
             cloneStateMachine.CountTime += deltaTime;
 
-            if (!(cloneStateMachine.CountTime >= cloneStateMachine.ChangeChasingState)) return;
+            if (!(cloneStateMachine.CountTime >= cloneStateMachine.TimeToStartChasing)) return;
 
             if (IsAttackRange())
             {

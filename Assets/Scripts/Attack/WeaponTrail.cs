@@ -10,32 +10,32 @@ namespace Attack
     {
         [SerializeField] private LayerMask _layerMask = 255;
         [SerializeField] private GameObject _legalOwner;
-        [SerializeField] private int baseDamage;
+        [SerializeField] private int _baseDamage;
 
-        [SerializeField] private PlayerSFX sfx;
-        [SerializeField] private bool isEffect;
+        [SerializeField] private PlayerSFX _sfx;
+        [SerializeField] private bool _isEffect;
 
-        private List<GameObject> alreadyObjectHit = new();
+        private List<GameObject> _alreadyObjectHit = new();
         private BoxCollider _collider;
-        private Vector3 previousPosition;
+        private Vector3 _previousPosition;
 
-        private float damage;
+        private float _damage;
 
         private void Awake()
         {
             _collider = GetComponent<BoxCollider>();
-            damage = baseDamage;
+            _damage = _baseDamage;
         }
 
         private void OnEnable()
         {
-            alreadyObjectHit.Clear();
-            if (_collider != null) previousPosition = transform.TransformPoint(_collider.center);
+            _alreadyObjectHit.Clear();
+            if (_collider != null) _previousPosition = transform.TransformPoint(_collider.center);
         }
 
         public void ResetObjectHitList()
         {
-            alreadyObjectHit.Clear();
+            _alreadyObjectHit.Clear();
         }
 
         private void LateUpdate()
@@ -43,8 +43,8 @@ namespace Attack
             var currentPosition = transform.TransformPoint(_collider.center);
             var sizeWorld = Vector3.Scale(_collider.size, transform.lossyScale);
             var halfExtents = sizeWorld * .5f;
-            var direction = (currentPosition - previousPosition).normalized;
-            var sweepDistance = Vector3.Distance(previousPosition, currentPosition);
+            var direction = (currentPosition - _previousPosition).normalized;
+            var sweepDistance = Vector3.Distance(_previousPosition, currentPosition);
 
             var overlaps = UnityEngine.Physics.OverlapBox(currentPosition, halfExtents, transform.rotation, _layerMask);
             foreach (var overlap in overlaps)
@@ -54,28 +54,28 @@ namespace Attack
 
             if (sweepDistance > 0.01f)
             {
-                var raycastHits = UnityEngine.Physics.BoxCastAll(previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
+                var raycastHits = UnityEngine.Physics.BoxCastAll(_previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
                 foreach (var hit in raycastHits)
                 {
                     DealDamage(hit.collider.gameObject);
                 }
             }
 
-            previousPosition = currentPosition;
+            _previousPosition = currentPosition;
         }
 
         public void SetDamage(float damage)
         {
-            this.damage = damage;
+            _damage = damage;
         }
 
 
         private void DealDamage(GameObject other)
         {
             if (other.gameObject == _legalOwner || other.gameObject == gameObject) return;
-            if (alreadyObjectHit.Contains(other)) return;
+            if (_alreadyObjectHit.Contains(other)) return;
 
-            alreadyObjectHit.Add(other);
+            _alreadyObjectHit.Add(other);
 
             if (!other.TryGetComponent(out Health health)) return;
 
@@ -83,11 +83,11 @@ namespace Attack
 
             if (health.noDamage) return;
 
-            health.DealDamage(damage);
+            health.DealDamage(_damage);
             health.HitStop();
 
-            if (isEffect) return;
-            health.PlayerSFX.PlayHitSound(sfx.HitResource);
+            if (_isEffect) return;
+            health.PlayerSFX.PlayHitSound(_sfx.HitResource);
         }
 
 

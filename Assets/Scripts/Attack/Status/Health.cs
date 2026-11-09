@@ -10,20 +10,20 @@ namespace Attack.Status
     public class Health : MonoBehaviour
     {
         [Header("Health Value")]
-        [field: SerializeField] public float maxHealth { get; set; }
+        [field: SerializeField] public float MaxHealth { get; set; }
         [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
         [field: SerializeField] public float reduceHealPrevDuration { get; set; }
 
         [Header("Health Special Value")]
-        [SerializeField] private float reduceHealth;
-        [SerializeField] private float timeFreeze;
-        [SerializeField] private float timeToBackNormal;
+        [SerializeField] private float _reduceHealth;
+        [SerializeField] private float _timeFreeze;
+        [SerializeField] private float _timeToBackNormal;
 
         [field: Header("Hit Sound")]
         [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
 
-        public float currentHealth;
+        public float CurrentHealth;
         public bool isPerfectDodge;
         public bool isReduceDamage;
         private PlayerStateMachine _playerStateMachine;
@@ -39,8 +39,8 @@ namespace Attack.Status
 
         public event Action EndGameAction;
 
-        private bool isPhaseII;
-        private bool isEndGame;
+        private bool _isPhaseII;
+        private bool _isEndGame;
 
 
         private void Awake()
@@ -51,57 +51,57 @@ namespace Attack.Status
                 _playerSFX = GetComponent<PlayerSFX>();
             }
 
-            currentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
             noDamage = false;
         }
 
         private void OnEnable()
         {
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
 
         private void Update()
         {
             if (gameObject.tag != "Boss") return;
-            if (currentHealth / maxHealth <= .5f && !isPhaseII)
+            if (CurrentHealth / MaxHealth <= .5f && !_isPhaseII)
             {
                 FinalPhaseAction?.Invoke();
-                isPhaseII = true;
+                _isPhaseII = true;
             }
 
-            if (currentHealth / maxHealth <= 0f && !isEndGame)
+            if (CurrentHealth / MaxHealth <= 0f && !_isEndGame)
             {
                 EndGameAction?.Invoke();
-                isEndGame = true;
+                _isEndGame = true;
             }
         }
 
         public void DealDamage(float damage)
         {
-            if (isReduceDamage) damage /= reduceHealth;
+            if (isReduceDamage) damage /= _reduceHealth;
 
-            currentHealth = Mathf.Clamp(currentHealth - damage + resistance, 0, maxHealth);
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damage + resistance, 0, MaxHealth);
             HitAction?.Invoke();
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 DeathAction?.Invoke();
             }
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
         public void RecoveryHealth(float amount)
         {
-            currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            CurrentHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
         private IEnumerator TimeFreeHit()
         {
-            Time.timeScale = timeFreeze;
+            Time.timeScale = _timeFreeze;
 
-            yield return new WaitForSecondsRealtime(timeToBackNormal);
+            yield return new WaitForSecondsRealtime(_timeToBackNormal);
             Time.timeScale = 1f;
         }
 
@@ -129,33 +129,33 @@ namespace Attack.Status
 
         public void AddHealth()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual)
+            if (_playerStateMachine.IsCanNotSubSpiritual)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
-            maxHealth += 1;
-            currentHealth = maxHealth;
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            MaxHealth += 1;
+            CurrentHealth = MaxHealth;
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
         public void SubHealth()
         {
-            if (maxHealth == 1000)
+            if (MaxHealth == 1000)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
-            maxHealth -= 1;
-            currentHealth = maxHealth;
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            MaxHealth -= 1;
+            CurrentHealth = MaxHealth;
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
         public void AddResistance()
         {
-            if (_playerStateMachine.isCanNotSubSpiritual)
+            if (_playerStateMachine.IsCanNotSubSpiritual)
             {
-                _playerStateMachine.isCanNotSubSpiritual = false;
+                _playerStateMachine.IsCanNotSubSpiritual = false;
                 return;
             }
             resistance++;
@@ -165,7 +165,7 @@ namespace Attack.Status
         {
             if (resistance == 0)
             {
-                _playerStateMachine.isCanNotAddSpiritual = true;
+                _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
             }
             resistance = Mathf.Max(0, resistance - 1);
@@ -173,8 +173,8 @@ namespace Attack.Status
 
         public void Reset()
         {
-            currentHealth = maxHealth;
-            OnChangeHealth?.Invoke(currentHealth / maxHealth);
+            CurrentHealth = MaxHealth;
+            OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
     }
 }
