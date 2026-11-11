@@ -51,13 +51,15 @@ namespace Target
 
             foreach (var target in targetList)
             {
-                Vector2 viewPoint = mainCamera.WorldToViewportPoint(target.transform.position);
-
-                if (viewPoint.x < 0 || viewPoint.x > 1 || viewPoint.y < 0 || viewPoint.y > 1)
+                Vector3 viewPoint = mainCamera.WorldToViewportPoint(target.transform.position);
+                Debug.Log(viewPoint);
+                if (viewPoint.x < 0 || viewPoint.x > 1 ||
+                viewPoint.y < 0 || viewPoint.y > 1 ||
+                viewPoint.z <= 0)
                 {
                     continue;
                 }
-                var toCenter = viewPoint - new Vector2(0.5f, 0.5f);
+                var toCenter = (Vector2)viewPoint - new Vector2(0.5f, 0.5f);
 
                 if (!(toCenter.sqrMagnitude < closestTargetDistance)) continue;
                 closestTarget = target;
