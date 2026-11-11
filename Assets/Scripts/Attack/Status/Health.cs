@@ -10,7 +10,7 @@ namespace Attack.Status
     public class Health : MonoBehaviour
     {
         [Header("Health Value")]
-        private const float _minLimitHealth = 1000;
+        private const float _minLimitHealth = 100;
         [field: SerializeField] public float MaxHealth { get; set; }
         [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }

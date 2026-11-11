@@ -8,7 +8,7 @@ namespace Attack.Status
     public class Stamina : MonoBehaviour
     {
         [Header("Stamina Value")]
-        private const float _minLimitStamina = 1000;
+        private const float _minLimitStamina = 100;
         [field: SerializeField] public float MaxStamina { get; set; }
         [field: SerializeField] public float DodgeReduce { get; set; }
         [field: SerializeField] public float walkReduce { get; set; }

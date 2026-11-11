@@ -7,7 +7,7 @@ namespace Attack.Status
     public class Mana : MonoBehaviour
     {
         [Header("Mana Value")]
-        private const float _minLimitMana = 1000;
+        private const float _minLimitMana = 100f;
         [field: SerializeField] public float MaxMana { get; set; }
         [field: SerializeField] public float reduceManaDuration { get; set; }
         public event Action<float> OnChangeMana = delegate { };
