@@ -33,6 +33,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_interactAnimation, playerStateMachine.AnimationCrossFade);
             playerStateMachine.InputReader.SetCursor(false);
+            playerStateMachine.ResetInvincible();
             GameManager.Instance.AutoSave();
         }
 

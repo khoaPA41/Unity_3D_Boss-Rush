@@ -363,11 +363,23 @@ namespace DesignPattern.StateMachine.Player.Base
         public void ApplyInvincibleBuff()
         {
             FreeLookMovementSpeed *= 1.5f;
-            FreeLookMovementSprintSpeed *= 0.8f;
+            FreeLookMovementSprintSpeed *= 1.8f;
 
             foreach (var damage in AttackData)
             {
                 damage.AttackDamage *= 2;
+            }
+        }
+
+        public void ResetInvincible()
+        {
+            Invincible = false;
+            FreeLookMovementSpeed /= 1.5f;
+            FreeLookMovementSprintSpeed /= 1.8f;
+
+            foreach (var damage in AttackData)
+            {
+                damage.AttackDamage /= 2;
             }
         }
 
