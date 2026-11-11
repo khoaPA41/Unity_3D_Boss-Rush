@@ -50,13 +50,13 @@ namespace Attack.SkillFactory
 
             spawnPos.y += 1f;
             getSkill.SpawnSkill(SkillName, spawnPos);
-            effect.noDamage = true;
+            effect.NoDamage = true;
             GameEventManager.Instance.TriggerSkillCasted(caster, SkillEffect);
 
             Action situationAction = null;
             situationAction = () =>
             {
-                effect.noDamage = false;
+                effect.NoDamage = false;
                 player.HeadIndestructible.SetActive(true);
                 player.HeadNormal.SetActive(false);
 

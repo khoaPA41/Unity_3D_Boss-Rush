@@ -54493,7 +54493,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _shockWave: {fileID: 126393516}
   _checkPointVFX: {fileID: 1894201777}
   _fadeBackground: {fileID: 1703996357}
 --- !u!136 &255276420
@@ -149876,13 +149875,13 @@ PrefabInstance:
       value: 0.58580977
       objectReference: {fileID: 0}
     - target: {fileID: 3176182842633056620, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
-      propertyPath: <PlayerSFX>k__BackingField
-      value: 
-      objectReference: {fileID: 726162188}
-    - target: {fileID: 3176182842633056620, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
       propertyPath: <MaxHealth>k__BackingField
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 3176182842633056620, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
+      propertyPath: <PlayerSFX>k__BackingField
+      value: 
+      objectReference: {fileID: 726162188}
     - target: {fileID: 3176182842633056620, guid: 9ddf8436d2ef3f14886deb4866b079d5, type: 3}
       propertyPath: <resistance>k__BackingField
       value: 0
@@ -313508,7 +313507,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _shockWave: {fileID: 1898453807003761057}
   _checkPointVFX: {fileID: 821777737}
   _fadeBackground: {fileID: 1703996357}
 --- !u!1 &1502314130
@@ -471569,13 +471567,13 @@ PrefabInstance:
       value: 0.58580977
       objectReference: {fileID: 0}
     - target: {fileID: 4341260930898731823, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
-      propertyPath: <PlayerSFX>k__BackingField
-      value: 
-      objectReference: {fileID: 1945476743}
-    - target: {fileID: 4341260930898731823, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
       propertyPath: <MaxHealth>k__BackingField
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 4341260930898731823, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
+      propertyPath: <PlayerSFX>k__BackingField
+      value: 
+      objectReference: {fileID: 1945476743}
     - target: {fileID: 4341260930898731823, guid: 6685348e40963b4439abb47712bd9fb9, type: 3}
       propertyPath: <resistance>k__BackingField
       value: 0
@@ -692997,13 +692995,13 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3627028602544435142, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
-      propertyPath: <PlayerSFX>k__BackingField
-      value: 
-      objectReference: {fileID: 4038233868405694223}
-    - target: {fileID: 3627028602544435142, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <MaxHealth>k__BackingField
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 3627028602544435142, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
+      propertyPath: <PlayerSFX>k__BackingField
+      value: 
+      objectReference: {fileID: 4038233868405694223}
     - target: {fileID: 3627028602544435142, guid: cf734b0e59321214abf5e737bbe591f3, type: 3}
       propertyPath: <resistance>k__BackingField
       value: 0
@@ -815746,21 +815744,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 414923764}
     - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
-      propertyPath: manaSlider
-      value: 
-      objectReference: {fileID: 2035553446}
-    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
       propertyPath: IconEscape
       value: 
       objectReference: {fileID: 1415240150}
     - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
-      propertyPath: manaPotionUI
+      propertyPath: manaSlider
       value: 
-      objectReference: {fileID: 935220433}
+      objectReference: {fileID: 2035553446}
     - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
       propertyPath: IconResponse
       value: 
       objectReference: {fileID: 332224955}
+    - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+      propertyPath: manaPotionUI
+      value: 
+      objectReference: {fileID: 935220433}
     - target: {fileID: 6225694276286375977, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
       propertyPath: soundSettings
       value: 

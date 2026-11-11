@@ -81,7 +81,7 @@ namespace Attack
 
             health.PerfectDodgeAward();
 
-            if (health.noDamage) return;
+            if (health.NoDamage) return;
 
             health.DealDamage(_damage);
             health.HitStop();

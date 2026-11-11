@@ -76,7 +76,7 @@ namespace DesignPattern.StateMachine.Player.Main
                 case SkillEffect.NoDamage:
                     playerStateMachine.StartCoroutine(Count(1f, () =>
                     {
-                        playerStateMachine.Health.noDamage = false;
+                        playerStateMachine.Health.NoDamage = false;
                         ResetToMainMaterial();
                     }
                     ));

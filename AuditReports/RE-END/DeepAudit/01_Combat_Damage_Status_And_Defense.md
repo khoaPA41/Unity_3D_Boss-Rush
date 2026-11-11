@@ -10,7 +10,7 @@
 
 ---
 
-## 1. Danh sách Phát hiện Kỹ thuật (Detailed Findings)
+## 1. Danh sách Phát hiện Kỹ thuật (Detailed Findings) *DONE
 
 ### [COMBAT-01] Tên `potionName` trong Prefab/Scene không khớp với `switch(potionName)` khiến toàn bộ 3 Sub-Potion không bao giờ kích hoạt hiệu ứng buff
 - **ID:** `COMBAT-01`

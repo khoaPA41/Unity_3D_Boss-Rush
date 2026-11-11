@@ -75,7 +75,7 @@ namespace DesignPattern.StateMachine.Player.Main
         public override void Exit()
         {
             playerStateMachine.Health.isPerfectDodge = false;
-            playerStateMachine.Health.noDamage = false;
+            playerStateMachine.Health.NoDamage = false;
             playerStateMachine.Health.DodgeAwardAction -= playerStateMachine.DodgeAward.DodgeAwardActive;
         }
 

@@ -1,4 +1,3 @@
-using Attack.Status;
 using System;
 using System.Collections;
 using DesignPattern.StateMachine.Player.Base;

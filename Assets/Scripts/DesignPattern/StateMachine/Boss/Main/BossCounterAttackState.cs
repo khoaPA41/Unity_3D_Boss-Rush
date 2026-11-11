@@ -15,7 +15,7 @@ namespace DesignPattern.StateMachine.Boss.Main
 
         public override void Enter()
         {
-            bossStateMachine.Health.noDamage = true;
+            bossStateMachine.Health.NoDamage = true;
             bossStateMachine.IsFinishedAttack = false;
             _previousTime = 0f;
             bossStateMachine.Animator.CrossFadeInFixedTime(_counterAttackAnimationHash, bossStateMachine.AnimationCrossFade);
@@ -35,7 +35,7 @@ namespace DesignPattern.StateMachine.Boss.Main
 
         public override void Exit()
         {
-            bossStateMachine.Health.noDamage = false;
+            bossStateMachine.Health.NoDamage = false;
             bossStateMachine.IsCounterAttack = false;
         }
     }

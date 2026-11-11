@@ -10,6 +10,7 @@ namespace Attack.Status
     public class Health : MonoBehaviour
     {
         [Header("Health Value")]
+        private const float _minLimitHealth = 1000;
         [field: SerializeField] public float MaxHealth { get; set; }
         [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
@@ -28,7 +29,7 @@ namespace Attack.Status
         public bool isReduceDamage;
         private PlayerStateMachine _playerStateMachine;
         private PlayerSFX _playerSFX;
-        public bool noDamage { get; set; }
+        public bool NoDamage { get; set; } // Use in WeaponTrail
 
         public event Action DeathAction;
         public event Action HitAction;
@@ -36,12 +37,11 @@ namespace Attack.Status
         public event Action<float> OnChangeHealth = delegate { };
 
         public event Action FinalPhaseAction;
-
         public event Action EndGameAction;
 
         private bool _isPhaseII;
         private bool _isEndGame;
-
+        private bool isDeath;
 
         private void Awake()
         {
@@ -52,12 +52,13 @@ namespace Attack.Status
             }
 
             CurrentHealth = MaxHealth;
-            noDamage = false;
+            // noDamage = false;
         }
 
         private void OnEnable()
         {
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
+            NoDamage = false;
         }
 
 
@@ -79,16 +80,19 @@ namespace Attack.Status
 
         public void DealDamage(float damage)
         {
+            if (isDeath) return;
             if (isReduceDamage) damage /= _reduceHealth;
 
-            // CurrentHealth = Mathf.Clamp(CurrentHealth - damage + resistance, 0, MaxHealth);
-            CurrentHealth = Mathf.Max(0, CurrentHealth - damage + resistance);
+            var trueDamage = Mathf.Max(0, damage - resistance);
+            CurrentHealth = Mathf.Max(0, CurrentHealth - trueDamage);
             HitAction?.Invoke();
 
-            if (CurrentHealth <= 0)
+            if (CurrentHealth <= 0 && !isDeath)
             {
+                isDeath = true;
                 DeathAction?.Invoke();
             }
+
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
@@ -108,7 +112,7 @@ namespace Attack.Status
 
         private IEnumerator SlowTime()
         {
-            noDamage = true;
+            NoDamage = true;
             Time.timeScale = .5f;
             _playerSFX.PlayPerfectDodgeSound();
             yield return new WaitForSecondsRealtime(.8f);
@@ -118,7 +122,7 @@ namespace Attack.Status
         public void PerfectDodgeAward()
         {
             if (!isPerfectDodge) return;
-            noDamage = true;
+            NoDamage = true;
             DodgeAwardAction?.Invoke();
             StartCoroutine(SlowTime());
         }
@@ -142,7 +146,7 @@ namespace Attack.Status
 
         public void SubHealth()
         {
-            if (MaxHealth == 1000)
+            if (MaxHealth <= _minLimitHealth)
             {
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
@@ -165,7 +169,7 @@ namespace Attack.Status
 
         public void SubResistance()
         {
-            if (resistance == 0)
+            if (resistance <= 0)
             {
                 _playerStateMachine.IsCanNotAddSpiritual = true;
                 return;
