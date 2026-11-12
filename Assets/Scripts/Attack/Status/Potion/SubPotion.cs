@@ -117,27 +117,23 @@ namespace Attack.Status.Potion
             callback2?.Invoke();
         }
 
-        public void AddSubPotionQuantity(SubPotionId subPotionId)
+        public void AddSubPotionQuantity(int subPotionId)
         {
-            var targetPotion = FindPotion(subPotionId);
-            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            var targetPotion = FindPotion((SubPotionId)subPotionId);
+
+            _playerStateMachine.SubSpiritualPower();
             targetPotion.quantity++;
         }
 
-        public void SubtractSubPotionQuantity(SubPotionId subPotionId)
+        public void SubtractSubPotionQuantity(int subPotionId)
         {
-            var targetPotion = FindPotion(subPotionId);
+            var targetPotion = FindPotion((SubPotionId)subPotionId);
 
-            if (targetPotion.quantity == 0)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (targetPotion.quantity <= 0) return;
 
+            _playerStateMachine.AddSpiritualPower();
             targetPotion.quantity--;
         }
     }

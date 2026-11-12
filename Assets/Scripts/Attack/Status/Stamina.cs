@@ -8,7 +8,7 @@ namespace Attack.Status
     public class Stamina : MonoBehaviour
     {
         [Header("Stamina Value")]
-        private const float _minLimitStamina = 100;
+        private const float _minLimitStamina = 100f;
         [field: SerializeField] public float MaxStamina { get; set; }
         [field: SerializeField] public float DodgeReduce { get; set; }
         [field: SerializeField] public float walkReduce { get; set; }
@@ -65,12 +65,9 @@ namespace Attack.Status
 
         public void AddStamina()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
 
+            _playerStateMachine.SubSpiritualPower();
             MaxStamina += 1;
             CurrentStamina = MaxStamina;
             OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);
@@ -78,12 +75,9 @@ namespace Attack.Status
 
         public void SubStamina()
         {
-            if (MaxStamina <= _minLimitStamina)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (MaxStamina <= _minLimitStamina) return;
 
+            _playerStateMachine.AddSpiritualPower();
             MaxStamina = Mathf.Max(0, MaxStamina - 1);
             CurrentStamina = MaxStamina;
             OnChangeStamina?.Invoke(CurrentStamina / MaxStamina);

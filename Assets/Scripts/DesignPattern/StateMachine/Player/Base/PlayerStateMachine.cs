@@ -127,9 +127,9 @@ namespace DesignPattern.StateMachine.Player.Base
         public bool IsHealthPotion { get; set; } = true;
         public bool IsIncreaseDamagePotion { get; set; }
 
-        public bool IsCanNotSubSpiritual;
+        // public bool IsCanNotSubSpiritual;
 
-        public bool IsCanNotAddSpiritual;
+        // public bool IsCanNotAddSpiritual;
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
         /****************************************************************/
@@ -397,24 +397,19 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void SubSpiritualPower()
         {
-            if (PlayerSpiritualPower <= 0)
-            {
-                IsCanNotSubSpiritual = true;
-                return;
-            }
             PlayerSpiritualPower = Mathf.Max(PlayerSpiritualPower - 1, 0);
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
         }
 
         public void AddSpiritualPower()
         {
-            if (IsCanNotAddSpiritual)
-            {
-                IsCanNotAddSpiritual = false;
-                return;
-            }
             PlayerSpiritualPower = Mathf.Min(PlayerSpiritualPower + 1, 1000000);
             UpdateSpiritualPower?.Invoke(PlayerSpiritualPower);
+        }
+
+        public bool CheckHasSpiritualPower()
+        {
+            return PlayerSpiritualPower > 0;
         }
 
         public void AddBossSpiritualPower(int value)
@@ -425,12 +420,6 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void AddDamage()
         {
-            if (IsCanNotSubSpiritual)
-            {
-                IsCanNotSubSpiritual = false;
-                return;
-            }
-
             foreach (var damage in AttackData)
             {
                 damage.AttackDamage += 1f;
@@ -439,15 +428,13 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void SubtractDamage()
         {
-            if (AttackData[0].AttackDamage == 10)
-            {
-                IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (AttackData[0].AttackDamage == 10) return;
+
             foreach (var damage in AttackData)
             {
                 damage.AttackDamage = Mathf.Max(damage.AttackDamage - 1, 10);
             }
+
         }
     }
 }

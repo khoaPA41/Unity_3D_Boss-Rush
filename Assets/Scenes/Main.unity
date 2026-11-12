@@ -42163,19 +42163,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Design_Pattern.StateMachine.Player.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &153195642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48319,29 +48306,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: BloodPomegranate
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -64305,19 +64279,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -114370,29 +114331,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: BloodPomegranate
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -125691,19 +125639,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &571871027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131861,19 +131796,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Design_Pattern.StateMachine.Player.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &605670893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137795,19 +137717,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -156973,19 +156882,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
@@ -168002,19 +167898,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Design_Pattern.StateMachine.Player.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -193840,19 +193723,6 @@ MonoBehaviour:
       - m_Target: {fileID: 6472953522197078488}
         m_TargetAssemblyTypeName: HealthPotion, Assembly-CSharp
         m_MethodName: AddMaxPotion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -237524,19 +237394,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
@@ -254998,19 +254855,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
@@ -267507,19 +267351,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1234899860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277533,29 +277364,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: EmeraldGuava
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -283574,19 +283392,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Design_Pattern.StateMachine.Player.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -290484,19 +290289,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Design_Pattern.StateMachine.Player.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -397410,29 +397202,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: GoldenPear
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BloodPomegranate
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -418587,19 +418366,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1688230012}
         m_TargetAssemblyTypeName: WorldUIManager, Assembly-CSharp
         m_MethodName: PlayClickSound3
@@ -433685,19 +433451,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1826280152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444672,19 +444425,6 @@ MonoBehaviour:
       - m_Target: {fileID: 6472953522197078494}
         m_TargetAssemblyTypeName: ManaPotion, Assembly-CSharp
         m_MethodName: AddUsagePotion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6472953522197078487}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -465637,29 +465377,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: AddSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: EmeraldGuava
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: SubSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -499573,29 +499300,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SubPotion, Assembly-CSharp
+      - m_Target: {fileID: 6472953522197078486}
+        m_TargetAssemblyTypeName: Attack.Status.Potion.SubPotion, Assembly-CSharp
         m_MethodName: SubtractSubPotionQuantity
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: GoldenPear
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Design_Pattern.StateMachine.Player.Base.PlayerStateMachine,
-          Assembly-CSharp
-        m_MethodName: AddSpiritualPower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BloodPomegranate
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1688230012}
@@ -815896,17 +815610,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
---- !u!114 &6472953522197078487 stripped
+--- !u!114 &6472953522197078486 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5365581201750852738, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 767518716496400693, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}
   m_PrefabInstance: {fileID: 6472953522197078485}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c825a8ec7a16d454f980c2d2c7c91557, type: 3}
+  m_Script: {fileID: 11500000, guid: 906c9f3414b58ea43b2ae9d56806258c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
+  m_EditorClassIdentifier: Assembly-CSharp::SubPotion
 --- !u!114 &6472953522197078488 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2205322713875373715, guid: 08ff67a053377ec4d88b0a99775f764c, type: 3}

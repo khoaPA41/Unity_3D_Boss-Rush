@@ -34,11 +34,9 @@ namespace Attack.Status
 
         public void AddMana()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            _playerStateMachine.SubSpiritualPower();
             MaxMana += 1;
             CurrentMana = MaxMana;
             OnChangeMana?.Invoke(CurrentMana / MaxMana);
@@ -46,11 +44,9 @@ namespace Attack.Status
 
         public void SubMana()
         {
-            if (CurrentMana <= _minLimitMana)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (CurrentMana <= _minLimitMana) return;
+
+            _playerStateMachine.AddSpiritualPower();
             MaxMana = Mathf.Max(0, MaxMana - 1);
             CurrentMana = MaxMana;
             OnChangeMana?.Invoke(CurrentMana / MaxMana);

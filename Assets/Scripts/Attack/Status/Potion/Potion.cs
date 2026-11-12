@@ -37,46 +37,41 @@ namespace Attack.Status.Potion
 
         public void AddMaxPotion()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            _playerStateMachine.SubSpiritualPower();
+
             MaxPotion += maxPotionAdded;
             CurrentPotion = MaxPotion;
+
             OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
 
         public void SubtractMaxPotion()
         {
-            if (MaxPotion == _minimumPotion)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (MaxPotion == _minimumPotion) return;
+
+            _playerStateMachine.AddSpiritualPower();
 
             MaxPotion = Mathf.Max(0, MaxPotion - maxPotionAdded);
             CurrentPotion = MaxPotion;
+
             OnChangePotion?.Invoke(CurrentPotion / MaxPotion);
         }
 
         public void AddUsagePotion()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual || _playerStateMachine.PlayerSpiritualPower <= 0)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            _playerStateMachine.SubSpiritualPower();
             potionUsage += usageAdded;
         }
 
         public void SubtractUsagePotion()
         {
-            if (potionUsage == _minimumPotionUsage)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (potionUsage == _minimumPotionUsage) return;
+
+            _playerStateMachine.AddSpiritualPower();
             potionUsage -= usageAdded;
         }
 

@@ -10,7 +10,7 @@ namespace Attack.Status
     public class Health : MonoBehaviour
     {
         [Header("Health Value")]
-        private const float _minLimitHealth = 100;
+        private const float _minLimitHealth = 100f;
         [field: SerializeField] public float MaxHealth { get; set; }
         [field: SerializeField] public float resistance { get; set; }
         [field: SerializeField] public float reduceHealthFollowingDuration { get; set; }
@@ -52,7 +52,6 @@ namespace Attack.Status
             }
 
             CurrentHealth = MaxHealth;
-            // noDamage = false;
         }
 
         private void OnEnable()
@@ -134,11 +133,9 @@ namespace Attack.Status
 
         public void AddHealth()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            _playerStateMachine.SubSpiritualPower();
             MaxHealth += 1;
             CurrentHealth = MaxHealth;
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
@@ -146,12 +143,9 @@ namespace Attack.Status
 
         public void SubHealth()
         {
-            if (MaxHealth <= _minLimitHealth)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (MaxHealth <= _minLimitHealth) return;
 
+            _playerStateMachine.AddSpiritualPower();
             MaxHealth = Mathf.Max(0, MaxHealth - 1); ;
             CurrentHealth = MaxHealth;
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
@@ -159,21 +153,17 @@ namespace Attack.Status
 
         public void AddResistance()
         {
-            if (_playerStateMachine.IsCanNotSubSpiritual)
-            {
-                _playerStateMachine.IsCanNotSubSpiritual = false;
-                return;
-            }
+            if (!_playerStateMachine.CheckHasSpiritualPower()) return;
+
+            _playerStateMachine.SubSpiritualPower();
             resistance++;
         }
 
         public void SubResistance()
         {
-            if (resistance <= 0)
-            {
-                _playerStateMachine.IsCanNotAddSpiritual = true;
-                return;
-            }
+            if (resistance <= 0) return;
+
+            _playerStateMachine.AddSpiritualPower();
             resistance = Mathf.Max(0, resistance - 1);
         }
 
