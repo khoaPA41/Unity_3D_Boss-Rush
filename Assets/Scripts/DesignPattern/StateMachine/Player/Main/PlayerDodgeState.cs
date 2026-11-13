@@ -22,11 +22,6 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            if (playerStateMachine.CheckLowStamina())
-            {
-                playerStateMachine.ReturnLocomotion();
-                return;
-            }
             playerStateMachine.Health.isPerfectDodge = true;
             dodgeDirection = playerStateMachine.InputReader.InputMovement;
             playerStateMachine.Animator.SetFloat(DodgeRightHash, dodgeDirection.x);

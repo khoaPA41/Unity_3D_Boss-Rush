@@ -12,12 +12,6 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            if (playerStateMachine.CheckLowStamina())
-            {
-                playerStateMachine.ReturnLocomotion();
-                return;
-            }
-
             playerStateMachine.Animator.CrossFadeInFixedTime(_jumpAnimationHash, playerStateMachine.AnimationCrossFade);
             playerStateMachine.ForceReceiver.Jump(playerStateMachine.JumpForce);
             momentum = playerStateMachine.CharacterController.velocity;

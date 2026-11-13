@@ -1,5 +1,4 @@
 using Audio;
-using System.Collections.Generic;
 using DesignPattern.StateMachine.Player.Base;
 using Managers;
 using UnityEngine;

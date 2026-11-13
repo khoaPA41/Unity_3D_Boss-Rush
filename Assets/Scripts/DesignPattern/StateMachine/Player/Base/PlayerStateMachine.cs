@@ -18,7 +18,7 @@ using Input;
 
 namespace DesignPattern.StateMachine.Player.Base
 {
-    public class PlayerStateMachine : StateMachine.Base.StateMachine, ICaster
+    public class PlayerStateMachine : SafeStateMachine, ICaster
     {
         [field: Header("Input")]
         [field: SerializeField] public InputReader InputReader { get; private set; }
@@ -127,9 +127,6 @@ namespace DesignPattern.StateMachine.Player.Base
         public bool IsHealthPotion { get; set; } = true;
         public bool IsIncreaseDamagePotion { get; set; }
 
-        // public bool IsCanNotSubSpiritual;
-
-        // public bool IsCanNotAddSpiritual;
         /*Dodge Award*/
         public bool IsCounterAttack { get; set; }
         /****************************************************************/
@@ -226,7 +223,7 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void ReturnLocomotion()
         {
-            SwitchState(Targeter.CurrentTarget is null ? FreeLookState : TargetState);
+            SwitchState(Targeter.CurrentTarget == null ? FreeLookState : TargetState);
         }
 
         public void HandleJumpState()
@@ -238,6 +235,7 @@ namespace DesignPattern.StateMachine.Player.Base
         public void HandleDodgeState()
         {
             if (Stamina.CurrentStamina < Stamina.DodgeReduce) return;
+            if (Stamina.CurrentStamina <= 0f) return;
             SwitchState(DodgeState);
         }
 
@@ -296,14 +294,9 @@ namespace DesignPattern.StateMachine.Player.Base
             SwitchState(SkillState);
         }
 
-        public bool CheckLowStamina()
-        {
-            return Stamina.CurrentStamina <= 0f;
-        }
-
         public bool HandleAttackState()
         {
-            if (Stamina.CurrentStamina < Stamina.lightAttackReduce) return false;
+            if (Stamina.CurrentStamina < Stamina.lightAttackReduce || Stamina.CurrentStamina <= 0) return false;
 
             if (!InputReader.IsAttack) return false;
             if (!IsAttackState)
@@ -317,7 +310,7 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public bool HandleHeavyAttackState()
         {
-            if (Stamina.CurrentStamina < Stamina.heavyAttackReduce) return false;
+            if (Stamina.CurrentStamina < Stamina.heavyAttackReduce || Stamina.CurrentStamina <= 0) return false;
 
             if (!InputReader.IsHeavyAttack) return false;
             if (!IsAttackState)
@@ -409,6 +402,7 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public bool CheckHasSpiritualPower()
         {
+            Debug.Log("Spiritual: " + PlayerSpiritualPower);
             return PlayerSpiritualPower > 0;
         }
 
@@ -420,21 +414,26 @@ namespace DesignPattern.StateMachine.Player.Base
 
         public void AddDamage()
         {
+            if (!CheckHasSpiritualPower()) return;
+
+            SubSpiritualPower();
             foreach (var damage in AttackData)
             {
                 damage.AttackDamage += 1f;
+
             }
         }
 
         public void SubtractDamage()
         {
-            if (AttackData[0].AttackDamage == 10) return;
+            Debug.Log("Atack dmg: " + AttackData[0].AttackDamage);
+            if (AttackData[0].AttackDamage <= 40) return;
 
+            AddSpiritualPower();
             foreach (var damage in AttackData)
             {
-                damage.AttackDamage = Mathf.Max(damage.AttackDamage - 1, 10);
+                damage.AttackDamage -= 1;
             }
-
         }
     }
 }

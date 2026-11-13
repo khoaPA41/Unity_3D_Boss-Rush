@@ -3,7 +3,6 @@ using DesignPattern.StateMachine.Player.Main;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Attack;
 using DesignPattern.StateMachine.Player.Base;
 using Input;
 using Attack.Status;

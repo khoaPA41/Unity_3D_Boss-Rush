@@ -93,8 +93,8 @@ namespace Attack
 
         private void OnDrawGizmos()
         {
-            _collider ??= GetComponent<BoxCollider>();
-            if (_collider is null) return;
+            _collider = _collider != null ? _collider : GetComponent<BoxCollider>();
+            if (_collider == null) return;
 
             Gizmos.color = Color.red;
 

@@ -76,7 +76,7 @@ namespace Target
 
         public void CancelTarget()
         {
-            if (targetList.Count == 0) { return; }
+            if (CurrentTarget == null) { return; }
             cinemachineTargetGroup.RemoveMember(CurrentTarget?.transform);
             CurrentTarget = null;
         }

@@ -24,11 +24,6 @@ namespace DesignPattern.StateMachine.Player.Main
         public override void Enter()
         {
             _holdTime = 0f;
-            if (playerStateMachine.CheckLowStamina())
-            {
-                playerStateMachine.ReturnLocomotion();
-                return;
-            }
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_heavyAttackAnimationHash, playerStateMachine.AnimationCrossFade, 0);
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;

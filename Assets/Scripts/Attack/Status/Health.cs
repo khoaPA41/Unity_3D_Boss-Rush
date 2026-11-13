@@ -83,6 +83,8 @@ namespace Attack.Status
             if (isReduceDamage) damage /= _reduceHealth;
 
             var trueDamage = Mathf.Max(0, damage - resistance);
+            Debug.Log("True Dmg: " + trueDamage);
+
             CurrentHealth = Mathf.Max(0, CurrentHealth - trueDamage);
             HitAction?.Invoke();
 

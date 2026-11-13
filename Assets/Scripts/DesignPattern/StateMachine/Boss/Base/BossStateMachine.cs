@@ -35,7 +35,7 @@ namespace DesignPattern.StateMachine.Boss.Base
         public AttackData[] AttackData;
     }
 
-    public class BossStateMachine : StateMachine.Base.StateMachine, ICaster, ICombatInput
+    public class BossStateMachine : SafeStateMachine, ICaster, ICombatInput
     {
         [field: Header("Physics")]
         [field: SerializeField]
@@ -194,7 +194,8 @@ namespace DesignPattern.StateMachine.Boss.Base
         {
             return skillEffect switch
             {
-                SkillEffect.NonEffect => () => { },
+                SkillEffect.NonEffect => () => { }
+                ,
                 SkillEffect.Inescapable => () => StartTimedAction(3f, () =>
                     {
                         ForceReceiver.SetCoefficientOfMovement(0f);

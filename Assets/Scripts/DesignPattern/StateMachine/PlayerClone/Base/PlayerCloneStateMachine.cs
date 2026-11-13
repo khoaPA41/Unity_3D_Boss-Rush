@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace DesignPattern.StateMachine.PlayerClone.Base
 {
-    public class PlayerCloneStateMachine : StateMachine.Base.StateMachine, ICombatInput
+    public class PlayerCloneStateMachine : StateMachine.Base.SafeStateMachine, ICombatInput
     {
         [Header("Animation")]
         [field: SerializeField] public Animator Animator { get; private set; }

@@ -21,7 +21,6 @@ namespace DesignPattern.StateMachine.Player.Main
             playerStateMachine.InputReader.TargetAction += playerStateMachine.HandleTargetState;
             playerStateMachine.InputReader.UsePotionAction += playerStateMachine.HandleUsePotionState;
             playerStateMachine.InputReader.UseSubPotionAction += playerStateMachine.HandleUseSubPotionState;
-
             playerStateMachine.Animator.CrossFadeInFixedTime(_freeLookBlendTreeHash, playerStateMachine.AnimationCrossFade, 0);
         }
 

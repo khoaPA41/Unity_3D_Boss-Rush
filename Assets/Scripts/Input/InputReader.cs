@@ -131,6 +131,7 @@ namespace Input
             if (Keyboard.current != null && Keyboard.current.altKey.isPressed)
             {
                 UseSubPotionAction?.Invoke();
+                Debug.Log("sub potion");
                 return;
             }
             UsePotionAction?.Invoke();

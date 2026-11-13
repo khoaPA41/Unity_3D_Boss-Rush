@@ -33,7 +33,9 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_interactAnimation, playerStateMachine.AnimationCrossFade);
             playerStateMachine.InputReader.SetCursor(false);
-            playerStateMachine.ResetInvincible();
+
+            CheckInvincible();
+
             GameManager.Instance.AutoSave();
         }
 
@@ -96,6 +98,12 @@ namespace DesignPattern.StateMachine.Player.Main
                 WorldUIManager.Instance.ShowSettingsUI();
                 playerStateMachine.ReturnLocomotion();
             }
+        }
+
+        public void CheckInvincible()
+        {
+            if (playerStateMachine.Invincible)
+                playerStateMachine.ResetInvincible();
         }
     }
 }

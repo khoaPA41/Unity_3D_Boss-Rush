@@ -97,7 +97,7 @@ namespace Managers
                 healthUi.SetActive(false); // Off Boss health
                 Player.Stamina.IsCombat = false;
                 AudioManager.Instance.StopBackgroundMusic();
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
 
                 Player.AddBossSpiritualPower(spiritualPower); // add money
                 if (!isFinalBoss) return;

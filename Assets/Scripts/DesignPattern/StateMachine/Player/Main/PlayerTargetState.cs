@@ -15,7 +15,7 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.TargetPoint.gameObject.SetActive(true);
+            playerStateMachine.TargetPoint.SetActive(true);
             playerStateMachine.InputReader.JumpAction += playerStateMachine.HandleJumpState;
             playerStateMachine.InputReader.DodgeAction += playerStateMachine.HandleDodgeState;
             playerStateMachine.InputReader.SkillAction += playerStateMachine.HandleSkillEvent;
