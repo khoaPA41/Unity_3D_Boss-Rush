@@ -78,7 +78,7 @@ namespace Managers
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit();
+            Application.Quit();
 #endif
         }
 
@@ -98,6 +98,7 @@ namespace Managers
             {
                 case ReasonLoadScene.New:
                     checkpointPosition = player.transform.position;
+                    AutoSave();
                     break;
                 case ReasonLoadScene.Continue:
                     ApplySaveData(player);
