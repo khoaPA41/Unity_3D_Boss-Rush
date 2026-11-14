@@ -42,8 +42,8 @@ namespace DesignPattern.StateMachine.Player.Main
 
             var movement = CalculateMovementInTarget();
             var speed = playerStateMachine.InputReader.IsSprint
-                ? playerStateMachine.FreeLookMovementSprintSpeed
-                : playerStateMachine.FreeLookMovementSpeed;
+                    ? playerStateMachine.GetSpeed(playerStateMachine.FreeLookMovementSprintSpeed)
+                    : playerStateMachine.GetSpeed(playerStateMachine.FreeLookMovementSpeed);
 
             if (movement != Vector3.zero)
             {

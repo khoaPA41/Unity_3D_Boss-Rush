@@ -147,7 +147,6 @@ namespace Attack.SkillFactory
             caster.ConsumeMana(ManaCost);
 
             player.Invincible = true;
-            player.ApplyInvincibleBuff();
 
             getSkill.SpawnSkill(SkillName, caster.GetTransform().transform.position);
             AudioManager.Instance.PlaySound(caster.GetTransform().transform, AudioManager.Instance.worldBreakerResource);

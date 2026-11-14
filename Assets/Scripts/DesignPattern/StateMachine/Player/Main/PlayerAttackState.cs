@@ -22,8 +22,10 @@ namespace DesignPattern.StateMachine.Player.Main
             _previousTime = 0f;
             _alreadyApplyForce = false;
 
+            playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.GetDamage(_attackData));
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition, 0);
-            playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.IsIncreaseDamagePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
+            // playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.IsIncreaseDamagePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
+
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
             playerStateMachine.WeaponTrailVisual.SetActive(true);
         }

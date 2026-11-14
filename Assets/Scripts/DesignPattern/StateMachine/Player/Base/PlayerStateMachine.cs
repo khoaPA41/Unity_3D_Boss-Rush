@@ -15,6 +15,7 @@ using DesignPattern.EventBus;
 using DesignPattern.StateMachine.Base;
 using Interact;
 using Input;
+using UnityEngine.InputSystem.Processors;
 
 namespace DesignPattern.StateMachine.Player.Base
 {
@@ -353,27 +354,47 @@ namespace DesignPattern.StateMachine.Player.Base
             return Targeter != null ? Targeter.CurrentTarget.gameObject : null;
         }
 
-        public void ApplyInvincibleBuff()
-        {
-            FreeLookMovementSpeed *= 1.5f;
-            FreeLookMovementSprintSpeed *= 1.8f;
+        // public void ApplyInvincibleBuff() // Buff Session Limit
+        // {
+        //     FreeLookMovementSpeed *= 1.5f;
+        //     FreeLookMovementSprintSpeed *= 1.8f;
 
-            foreach (var damage in AttackData)
-            {
-                damage.AttackDamage *= 2;
-            }
+        //     foreach (var damage in AttackData)
+        //     {
+        //         damage.AttackDamage *= 2;
+        //     }
+        // }
+
+        // public void ResetInvincible()
+        // {
+        //     Invincible = false;
+        //     FreeLookMovementSpeed /= 1.5f;
+        //     FreeLookMovementSprintSpeed /= 1.8f;
+
+        //     foreach (var damage in AttackData)
+        //     {
+        //         damage.AttackDamage /= 2;
+        //     }
+        // }
+        // Runtime Modifier
+        public float GetDamage(AttackData attackData)
+        {
+            float baseDmg = attackData.AttackDamage;
+            var multiplier = 1f;
+
+            if (Invincible) multiplier *= 2f; // WorldBreacker Active
+            if (IsIncreaseDamagePotion) multiplier *= 1.5f; // Sub-potion Active
+
+            return baseDmg * multiplier;
         }
 
-        public void ResetInvincible()
+        public float GetSpeed(float baseSpeed)
         {
-            Invincible = false;
-            FreeLookMovementSpeed /= 1.5f;
-            FreeLookMovementSprintSpeed /= 1.8f;
+            var multiplier = 1f;
 
-            foreach (var damage in AttackData)
-            {
-                damage.AttackDamage /= 2;
-            }
+            if (Invincible) multiplier *= 1.7f; // WorldBreacker Active
+
+            return baseSpeed * multiplier;
         }
 
         public void StartTimedAction(float time, Action action1, Action action2)

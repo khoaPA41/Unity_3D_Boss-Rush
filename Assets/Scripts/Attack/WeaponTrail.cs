@@ -24,7 +24,6 @@ namespace Attack
         private void Awake()
         {
             _collider = GetComponent<BoxCollider>();
-            _damage = _baseDamage;
         }
 
         private void OnEnable()
@@ -66,12 +65,13 @@ namespace Attack
 
         public void SetDamage(float damage)
         {
-            _damage = damage;
+            _damage = damage > 0 ? damage : _baseDamage;
         }
 
 
         private void DealDamage(GameObject other)
         {
+
             if (other.gameObject == _legalOwner || other.gameObject == gameObject) return;
             if (_alreadyObjectHit.Contains(other)) return;
 

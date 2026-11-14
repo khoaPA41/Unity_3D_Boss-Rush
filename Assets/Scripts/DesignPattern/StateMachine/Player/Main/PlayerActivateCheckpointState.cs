@@ -103,7 +103,7 @@ namespace DesignPattern.StateMachine.Player.Main
         public void CheckInvincible()
         {
             if (playerStateMachine.Invincible)
-                playerStateMachine.ResetInvincible();
+                playerStateMachine.Invincible = false;
         }
     }
 }
