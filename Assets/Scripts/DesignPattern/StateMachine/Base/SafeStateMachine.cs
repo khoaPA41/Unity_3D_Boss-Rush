@@ -3,7 +3,8 @@ namespace DesignPattern.StateMachine.Base
 {
     public class SafeStateMachine : MonoBehaviour
     {
-        public State CurrentState { get; set; }
+        private State _currentState { get; set; }
+        private State _pendingState { get; set; }
 
         private int _lastTransitionFrame = -1;
         private bool _isInEnterOrExit = false;
@@ -11,28 +12,38 @@ namespace DesignPattern.StateMachine.Base
 
         public void SwitchState(State newState)
         {
-            if (_isInEnterOrExit)
-            {
-                Debug.LogError("Reentrancy detected: SwitchState called inside Enter/Exit!");
-                return;
-            }
-
-            if (Time.frameCount == _lastTransitionFrame)
-            {
-                Debug.LogError($"Double transition in frame {Time.frameCount}!");
-                return;
-            }
-
             if (newState == null) return;
+            if (_currentState == newState) return;
 
-            if (CurrentState == newState) return;
+            if (_isInEnterOrExit || Time.frameCount == _lastTransitionFrame)
+            {
 
-            if (CurrentState != null)
+                string _currentStateName = _currentState?.GetType().Name ?? "Null";
+                string newStateName = newState.GetType().Name;
+                string pendingStateName = _pendingState?.GetType().Name ?? "Null";
+
+                string reason = _isInEnterOrExit ? "Reentrancy" : "Double transition";
+
+                Debug.LogWarning(
+                    $"[StateMachine Warning]\n" +
+                    $"Reason: {reason}\n" +
+                    $"FrameTime: {Time.frameCount}\n" +
+                    $"Current State: {_currentStateName}\n" +
+                    $"Next State: {newStateName}\n" +
+                    $"Pending State: {pendingStateName}\n" +
+                    $"Call Stack: {StackTraceUtility.ExtractStackTrace()}"
+                    );
+
+                _pendingState = newState;
+                return;
+            }
+
+            if (_currentState != null)
             {
                 _isInEnterOrExit = true;
                 try
                 {
-                    CurrentState?.Exit();
+                    _currentState?.Exit();
                 }
                 finally
                 {
@@ -41,23 +52,32 @@ namespace DesignPattern.StateMachine.Base
             }
 
             _lastTransitionFrame = Time.frameCount;
-            CurrentState = newState;
+            _currentState = newState;
             _isInEnterOrExit = true;
             try
             {
-                CurrentState.Enter();
+                _currentState.Enter();
             }
             finally
             {
-
                 _isInEnterOrExit = false;
             }
         }
 
         private void Update()
         {
-            CurrentState?.Tick(Time.deltaTime);
+            ProcessPendingState();
+            _currentState?.Tick(Time.deltaTime);
         }
 
+        protected void ProcessPendingState()
+        {
+            if (_pendingState == null || _isInEnterOrExit || _lastTransitionFrame == Time.frameCount) return;
+
+            State nextState = _pendingState;
+            _pendingState = null;
+
+            SwitchState(nextState);
+        }
     }
 }
