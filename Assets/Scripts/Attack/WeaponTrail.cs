@@ -19,6 +19,9 @@ namespace Attack
         private BoxCollider _collider;
         private Vector3 _previousPosition;
 
+        private readonly Collider[] _overlapBuffer = new Collider[32];
+        private readonly RaycastHit[] _boxCastBuffer = new RaycastHit[32];
+
         private float _damage;
 
         private void Awake()
@@ -45,18 +48,19 @@ namespace Attack
             var direction = (currentPosition - _previousPosition).normalized;
             var sweepDistance = Vector3.Distance(_previousPosition, currentPosition);
 
-            var overlaps = UnityEngine.Physics.OverlapBox(currentPosition, halfExtents, transform.rotation, _layerMask);
-            foreach (var overlap in overlaps)
+            var overlapCount = UnityEngine.Physics.OverlapBoxNonAlloc(currentPosition, halfExtents, _overlapBuffer, transform.rotation, _layerMask);
+            for (int i = 0; i < overlapCount; i++)
             {
-                DealDamage(overlap.gameObject);
+                DealDamage(_overlapBuffer[i].gameObject);
             }
 
             if (sweepDistance > 0.01f)
             {
-                var raycastHits = UnityEngine.Physics.BoxCastAll(_previousPosition, halfExtents, direction, transform.rotation, sweepDistance, _layerMask);
-                foreach (var hit in raycastHits)
+                var raycastHitCount = UnityEngine.Physics.BoxCastNonAlloc(_previousPosition, halfExtents, direction, _boxCastBuffer, transform.rotation, sweepDistance, _layerMask);
+
+                for (int i = 0; i < raycastHitCount; i++)
                 {
-                    DealDamage(hit.collider.gameObject);
+                    DealDamage(_boxCastBuffer[i].collider.gameObject);
                 }
             }
 
@@ -67,7 +71,6 @@ namespace Attack
         {
             _damage = damage > 0 ? damage : _baseDamage;
         }
-
 
         private void DealDamage(GameObject other)
         {
@@ -89,7 +92,6 @@ namespace Attack
             if (_isEffect) return;
             health.PlayerSFX.PlayHitSound(_sfx.HitResource);
         }
-
 
         private void OnDrawGizmos()
         {
