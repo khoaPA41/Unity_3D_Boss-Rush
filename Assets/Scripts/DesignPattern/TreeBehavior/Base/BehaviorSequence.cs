@@ -13,7 +13,7 @@ namespace DesignPattern.TreeBehavior.Base
 
         public override NodeState Evaluate()
         {
-            var isAnyChildRunning = false;
+            // var isAnyChildRunning = false;
             foreach (var node in nodes)
             {
                 switch (node.Evaluate())
@@ -21,15 +21,17 @@ namespace DesignPattern.TreeBehavior.Base
                     case NodeState.Success:
                         continue;
                     case NodeState.Running:
-                        isAnyChildRunning = true;
-                        continue;
+                        // isAnyChildRunning = true;
+                        // continue;
+                        state = NodeState.Running;
+                        return state;
                     case NodeState.Failure:
                         state = NodeState.Failure;
                         return state;
                 }
             }
-
-            state = isAnyChildRunning ? NodeState.Running : NodeState.Success;
+            state = NodeState.Success;
+            // state = isAnyChildRunning ? NodeState.Running : NodeState.Success;
             return state;
         }
     }

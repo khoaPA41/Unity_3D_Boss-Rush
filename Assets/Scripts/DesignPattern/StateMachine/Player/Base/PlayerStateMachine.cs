@@ -103,8 +103,8 @@ namespace DesignPattern.StateMachine.Player.Base
         [field: SerializeField] public GameObject PotionLight { get; private set; }
         [field: SerializeField] public ParticleSystem HealthParticle { get; private set; }
         [field: SerializeField] public ParticleSystem ManaParticle { get; private set; }
+        [field: SerializeField] public AfterimageEmitter3D AfterimageEmitter3D { get; private set; }
 
-        [field: Header("Effect")]
         [field: SerializeField]
         public CheckPoint CheckPoint { get; private set; }
         [field: SerializeField] public GameObject TargetPoint { get; set; }

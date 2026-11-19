@@ -10,6 +10,14 @@ namespace DesignPattern.TreeBehavior.BossLeafNode
         private BossStateMachine bossStateMachine;
         private BossBehaviorBrain bossBehaviorBrain;
 
+        private int _requiredHits = 0;
+        private bool randomAlready = false;
+
+        private void RandomRequiredHits()
+        {
+            _requiredHits = Random.Range(bossBehaviorBrain.EnduredTimes / 2, bossBehaviorBrain.EnduredTimes + 1);
+            randomAlready = true;
+        }
 
         public CheckCounterAttackNode(BossStateMachine bossStateMachine, BossBehaviorBrain bossBehaviorBrain)
         {
@@ -19,9 +27,12 @@ namespace DesignPattern.TreeBehavior.BossLeafNode
 
         public override NodeState Evaluate()
         {
-            int hitsNeeded = Random.Range(bossBehaviorBrain.EnduredTimes / 2, bossBehaviorBrain.EnduredTimes + 1);
-            if (hitsNeeded - bossBehaviorBrain.HitReceived == 0)
+            // int hitsNeeded = Random.Range(bossBehaviorBrain.EnduredTimes / 2, bossBehaviorBrain.EnduredTimes + 1);
+            if (!randomAlready) RandomRequiredHits();
+
+            if (_requiredHits - bossBehaviorBrain.HitReceived == 0)
             {
+                randomAlready = false;
                 return NodeState.Success;
             }
 

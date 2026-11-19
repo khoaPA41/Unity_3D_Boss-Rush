@@ -18,8 +18,8 @@ namespace Attack.Status
 
         [Header("Health Special Value")]
         [SerializeField] private float _reduceHealth;
-        [SerializeField] private float _timeFreeze;
-        [SerializeField] private float _timeToBackNormal;
+        // [SerializeField] private float _timeFreeze;
+        // [SerializeField] private float _timeToBackNormal;
 
         [field: Header("Hit Sound")]
         [field: SerializeField] public PlayerSFX PlayerSFX { get; private set; }
@@ -43,8 +43,11 @@ namespace Attack.Status
         private bool _isEndGame;
         private bool isDeath;
 
+        private TimeScaleController _timeScaleController;
+
         private void Awake()
         {
+            Debug.Log("Health");
             if (gameObject.tag != "Boss")
             {
                 _playerStateMachine = GetComponent<PlayerStateMachine>();
@@ -54,8 +57,15 @@ namespace Attack.Status
             CurrentHealth = MaxHealth;
         }
 
+        private void Start()
+        {
+            _timeScaleController = TimeScaleController.Instance;
+
+        }
+
         private void OnEnable()
         {
+            if (_timeScaleController == null) _timeScaleController = TimeScaleController.Instance;
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
             NoDamage = false;
         }
@@ -102,34 +112,44 @@ namespace Attack.Status
             OnChangeHealth?.Invoke(CurrentHealth / MaxHealth);
         }
 
-        private IEnumerator TimeFreeHit()
-        {
-            Time.timeScale = _timeFreeze;
+        // private IEnumerator TimeFreeHit()
+        // {
+        //     Time.timeScale = _timeFreeze;
 
-            yield return new WaitForSecondsRealtime(_timeToBackNormal);
-            Time.timeScale = 1f;
-        }
+        //     yield return new WaitForSecondsRealtime(_timeToBackNormal);
+        //     Time.timeScale = 1f;
+        // }
 
-        private IEnumerator SlowTime()
+        // private IEnumerator SlowTime()
+        // {
+        //     NoDamage = true;
+        //     Time.timeScale = .5f;
+        //     _playerSFX.PlayPerfectDodgeSound();
+        //     yield return new WaitForSecondsRealtime(.8f);
+        //     Time.timeScale = 1f;
+        // }
+
+        private void SlowTime()
         {
             NoDamage = true;
-            Time.timeScale = .5f;
+            _timeScaleController.TimeSlowMo();
             _playerSFX.PlayPerfectDodgeSound();
-            yield return new WaitForSecondsRealtime(.8f);
-            Time.timeScale = 1f;
         }
 
         public void PerfectDodgeAward()
         {
             if (!isPerfectDodge) return;
+            _playerStateMachine.AfterimageEmitter3D.Play();
             NoDamage = true;
             DodgeAwardAction?.Invoke();
-            StartCoroutine(SlowTime());
+            // StartCoroutine(SlowTime());
+            SlowTime();
         }
 
         public void HitStop()
         {
-            StartCoroutine(TimeFreeHit());
+            _timeScaleController.TimeFreeHit();
+            // StartCoroutine(TimeFreeHit());
         }
 
         public void AddHealth()

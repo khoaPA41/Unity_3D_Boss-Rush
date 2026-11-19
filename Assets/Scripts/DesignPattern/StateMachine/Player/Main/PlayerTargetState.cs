@@ -25,15 +25,16 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.Animator.CrossFadeInFixedTime(_targetLookBlendTreeHash,
                 playerStateMachine.AnimationCrossFade, 0);
-
-            if (!playerStateMachine.IsAttackState)
-            {
-                playerStateMachine.EnterChangeAction(true);
-            }
         }
 
         public override void Tick(float deltaTime)
         {
+            if (!playerStateMachine.IsAttackState)
+            {
+                playerStateMachine.EnterChangeAction(true);
+                return;
+            }
+
             if (playerStateMachine.Targeter.CurrentTarget == null)
             {
                 OutTargetState();

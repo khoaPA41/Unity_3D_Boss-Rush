@@ -40,14 +40,14 @@ public class AfterimageEmitter3D : MonoBehaviour
 
     private IEnumerator Emit()
     {
-        float elapsed = 0f;
+        var interval = Mathf.Max(_spawnInterval, 0.01f);
+        var endTime = Time.time + _emissionDuration;
 
-        while (elapsed < _emissionDuration)
+        while (Time.time < endTime)
         {
             CaptureSnapshot();
 
-            yield return new WaitForSeconds(_spawnInterval);
-            elapsed += _spawnInterval;
+            yield return new WaitForSeconds(interval);
         }
         _emissionRoutine = null;
     }

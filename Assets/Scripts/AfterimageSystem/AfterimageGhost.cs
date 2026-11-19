@@ -39,7 +39,7 @@ public class AfterimageGhost : MonoBehaviour
         var t = Mathf.Clamp01(_elapsed / _lifeTime);
 
         Color newColor = _starColor;
-        newColor.a *= 1 - Mathf.SmoothStep(1, 0, t);
+        newColor.a *= Mathf.SmoothStep(0, 1, t);
 
         ApplyColor(newColor);
 

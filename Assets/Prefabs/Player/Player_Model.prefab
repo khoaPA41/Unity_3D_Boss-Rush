@@ -10031,6 +10031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767233815217198598}
+  - component: {fileID: 7811965564635421513}
   - component: {fileID: 4983958166624871021}
   - component: {fileID: 5365581201750852738}
   - component: {fileID: 6230977722050852817}
@@ -10078,6 +10079,24 @@ Transform:
   - {fileID: 7081954377952870535}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7811965564635421513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780190265239677537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b813ea401b7d2534ab7fad53daf378d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterimageEmitter3D
+  _sources: []
+  _ghostMaterial: {fileID: 2100000, guid: 8638ed96410d61f4c81509dbb7def0b6, type: 2}
+  _spawnInterval: 0.1
+  _emissionDuration: 0.5
+  _ghostLifeTime: 0.2
+  _ghostColor: {r: 1, g: 0.8886211, b: 0.2980392, a: 0.6}
 --- !u!114 &4983958166624871021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10199,6 +10218,7 @@ MonoBehaviour:
   <PotionLight>k__BackingField: {fileID: 5005516572241950583}
   <HealthParticle>k__BackingField: {fileID: 8108319170050797074}
   <ManaParticle>k__BackingField: {fileID: 6981673273163486389}
+  <AfterimageEmitter3D>k__BackingField: {fileID: 7811965564635421513}
   <CheckPoint>k__BackingField: {fileID: 2517447866474632943}
   <TargetPoint>k__BackingField: {fileID: 0}
   <PlayerSpiritualPower>k__BackingField: 0
@@ -10207,8 +10227,6 @@ MonoBehaviour:
   Invisible: 0
   SkillNumber: 0
   IsAttackState: 0
-  IsCanNotSubSpiritual: 0
-  IsCanNotAddSpiritual: 0
 --- !u!114 &6230977722050852817
 MonoBehaviour:
   m_ObjectHideFlags: 0
