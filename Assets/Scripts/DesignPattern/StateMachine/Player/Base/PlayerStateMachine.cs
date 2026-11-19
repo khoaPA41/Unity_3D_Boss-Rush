@@ -146,6 +146,7 @@ namespace DesignPattern.StateMachine.Player.Base
         public GameObject Boss { get; private set; }
 
         public event Action ActiveSlashVfxAction = delegate { };
+        public AnimatorOverrideController OverrideController;
 
         private void Start()
         {
@@ -154,6 +155,7 @@ namespace DesignPattern.StateMachine.Player.Base
             SetupState();
             InputReader.ApplicationCursor();
             if (Camera.main != null) MainCameraTransform = Camera.main.transform;
+            OverrideController = new(Animator.runtimeAnimatorController);
             ReturnLocomotion();
         }
 

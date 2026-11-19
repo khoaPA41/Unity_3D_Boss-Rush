@@ -6,7 +6,7 @@ namespace DesignPattern.StateMachine.Player.Base
     public abstract class PlayerBaseState : State
     {
         protected readonly PlayerStateMachine playerStateMachine;
-        private AnimatorOverrideController overrideController;
+        // private AnimatorOverrideController overrideController;
 
         protected PlayerBaseState(PlayerStateMachine playerStateMachine)
         {
@@ -75,9 +75,9 @@ namespace DesignPattern.StateMachine.Player.Base
 
         protected void ChangeSwordIdle(string idleAnimationName, AnimationClip animationClip)
         {
-            overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);
-            playerStateMachine.Animator.runtimeAnimatorController = overrideController;
-            overrideController[idleAnimationName] = animationClip;
+            // overrideController = new AnimatorOverrideController(playerStateMachine.Animator.runtimeAnimatorController);
+            playerStateMachine.Animator.runtimeAnimatorController = playerStateMachine.OverrideController;
+            playerStateMachine.OverrideController[idleAnimationName] = animationClip;
         }
 
 
