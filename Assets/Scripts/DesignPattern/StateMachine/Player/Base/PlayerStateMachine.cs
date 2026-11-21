@@ -15,7 +15,6 @@ using DesignPattern.EventBus;
 using DesignPattern.StateMachine.Base;
 using Interact;
 using Input;
-using UnityEngine.InputSystem.Processors;
 
 namespace DesignPattern.StateMachine.Player.Base
 {
@@ -44,6 +43,7 @@ namespace DesignPattern.StateMachine.Player.Base
         [field: Header("Attack")]
         [field: SerializeField] public AttackData[] AttackData { get; private set; }
         [field: SerializeField] public WeaponTrail WeaponTrail { get; private set; }
+        [field: SerializeField] public WeaponHandler WeaponHandler { get; private set; }
         [field: SerializeField] public Transform WeaponTip { get; private set; }
         [field: SerializeField] public Transform WeaponTransform { get; private set; }
         [field: SerializeField] public GameObject WeaponTrailVisual { get; private set; }
@@ -356,28 +356,6 @@ namespace DesignPattern.StateMachine.Player.Base
             return Targeter != null ? Targeter.CurrentTarget.gameObject : null;
         }
 
-        // public void ApplyInvincibleBuff() // Buff Session Limit
-        // {
-        //     FreeLookMovementSpeed *= 1.5f;
-        //     FreeLookMovementSprintSpeed *= 1.8f;
-
-        //     foreach (var damage in AttackData)
-        //     {
-        //         damage.AttackDamage *= 2;
-        //     }
-        // }
-
-        // public void ResetInvincible()
-        // {
-        //     Invincible = false;
-        //     FreeLookMovementSpeed /= 1.5f;
-        //     FreeLookMovementSprintSpeed /= 1.8f;
-
-        //     foreach (var damage in AttackData)
-        //     {
-        //         damage.AttackDamage /= 2;
-        //     }
-        // }
         // Runtime Modifier
         public float GetDamage(AttackData attackData)
         {

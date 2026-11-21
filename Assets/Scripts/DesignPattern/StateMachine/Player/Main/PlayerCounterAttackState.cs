@@ -1,4 +1,3 @@
-using Attack;
 using DesignPattern.StateMachine.Player.Base;
 using UnityEngine;
 namespace DesignPattern.StateMachine.Player.Main
@@ -34,6 +33,12 @@ namespace DesignPattern.StateMachine.Player.Main
         {
             playerStateMachine.Animator.speed = 1f;
             playerStateMachine.IsCounterAttack = false;
+            InActiveWeaponCollider();
+        }
+
+        private void InActiveWeaponCollider()
+        {
+            playerStateMachine.WeaponHandler.DeactivateRightWeaponCollider();
         }
     }
 }

@@ -24,7 +24,6 @@ namespace DesignPattern.StateMachine.Player.Main
 
             playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.GetDamage(_attackData));
             playerStateMachine.Animator.CrossFadeInFixedTime(_attackData.AnimationName, _attackData.AnimationTransition, 0);
-            // playerStateMachine.WeaponTrail.SetDamage(playerStateMachine.IsIncreaseDamagePotion ? _attackData.AttackDamage * 1.5f : _attackData.AttackDamage);
 
             playerStateMachine.ActiveSlashVfxAction += ActiveVfx;
             playerStateMachine.WeaponTrailVisual.SetActive(true);
@@ -82,6 +81,7 @@ namespace DesignPattern.StateMachine.Player.Main
         {
             playerStateMachine.ActiveSlashVfxAction -= ActiveVfx;
             playerStateMachine.WeaponTrailVisual.SetActive(false);
+            InActiveWeaponCollider();
         }
 
         private bool TryCombo()
@@ -120,6 +120,10 @@ namespace DesignPattern.StateMachine.Player.Main
                 var rot = Quaternion.FromToRotation(Vector3.right, slashDir.normalized);
                 vfx.transform.rotation = rot;
             }
+        }
+        private void InActiveWeaponCollider()
+        {
+            playerStateMachine.WeaponHandler.DeactivateRightWeaponCollider();
         }
     }
 }

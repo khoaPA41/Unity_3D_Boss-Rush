@@ -10179,6 +10179,7 @@ MonoBehaviour:
     <AttackDamage>k__BackingField: 50
     <SkillType>k__BackingField: 0
   <WeaponTrail>k__BackingField: {fileID: 4425431695892558300}
+  <WeaponHandler>k__BackingField: {fileID: 5504842381532761752}
   <WeaponTip>k__BackingField: {fileID: 5239030469626473809}
   <WeaponTransform>k__BackingField: {fileID: 8028666579852811677}
   <WeaponTrailVisual>k__BackingField: {fileID: 7687407226092184074}
@@ -10227,6 +10228,7 @@ MonoBehaviour:
   Invisible: 0
   SkillNumber: 0
   IsAttackState: 0
+  OverrideController: {fileID: 0}
 --- !u!114 &6230977722050852817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10421,8 +10423,6 @@ MonoBehaviour:
   <reduceHealthFollowingDuration>k__BackingField: 0.2
   <reduceHealPrevDuration>k__BackingField: 0.3
   _reduceHealth: 1.3
-  _timeFreeze: 0
-  _timeToBackNormal: 0.05
   <PlayerSFX>k__BackingField: {fileID: 4745761821281125155}
   CurrentHealth: 0
   isPerfectDodge: 0
