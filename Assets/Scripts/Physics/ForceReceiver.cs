@@ -4,15 +4,15 @@ namespace Physics
 {
     public class ForceReceiver : MonoBehaviour
     {
-        [Header("Physics")] [SerializeField] private float drag = .3f;
+        [Header("Physics")][SerializeField] private float drag = .3f;
         private float VerticalVelocity { get; set; }
         private float CoefficientOfMovement { get; set; } = 1f;
 
         private CharacterController characterController;
         private Vector3 dampingVelocity;
         private Vector3 impact;
-        public Vector3 Movement=> impact + Vector3.up * VerticalVelocity;
-        
+        public Vector3 Movement => impact + Vector3.up * VerticalVelocity;
+
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
@@ -26,7 +26,7 @@ namespace Physics
             }
             else
             {
-                VerticalVelocity += UnityEngine.Physics.gravity.y * Time.deltaTime;
+                VerticalVelocity = Mathf.Max(VerticalVelocity + UnityEngine.Physics.gravity.y * Time.deltaTime, -70);
             }
 
             impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
@@ -48,6 +48,6 @@ namespace Physics
         }
 
         public float GetCoefficientOfMovement() => CoefficientOfMovement;
-        
+
     }
 }

@@ -15,9 +15,9 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Enter()
         {
-            playerStateMachine.Animator.CrossFadeInFixedTime(FallingAnimationHash, playerStateMachine.AnimationCrossFade);
             momentum = playerStateMachine.CharacterController.velocity;
             momentum.y = 0;
+            playerStateMachine.Animator.CrossFadeInFixedTime(FallingAnimationHash, playerStateMachine.AnimationCrossFade);
         }
 
         public override void Tick(float deltaTime)

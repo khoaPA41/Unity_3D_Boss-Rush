@@ -20,15 +20,16 @@ namespace DesignPattern.StateMachine.Player.Main
 
         public override void Tick(float deltaTime)
         {
-            if (!playerStateMachine.CharacterController.isGrounded && playerStateMachine.CharacterController.velocity.y <= 0f)
-            {
-                playerStateMachine.SwitchState(new PlayerFallState(playerStateMachine));
-                return;
-            }
-            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.jumpReduce);
-
             Move(momentum, deltaTime);
             FaceTarget(deltaTime);
+
+            if (!playerStateMachine.CharacterController.isGrounded && playerStateMachine.CharacterController.velocity.y <= 0f)
+            {
+                playerStateMachine.SwitchState(playerStateMachine.FallState);
+                return;
+            }
+
+            playerStateMachine.Stamina.ChangeStamina(playerStateMachine.Stamina.jumpReduce);
         }
 
         public override void Exit()
